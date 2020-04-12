@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Learn and Life"><meta name="keywords" content="Code, 代码, 程序, GIS, js, 前端, vue, node"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><title>Nodejs爬虫实战（四） | Programmer Home</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Nodejs爬虫实战（四）</h1><a id="logo" href="/.">Programmer Home</a><p class="description">Learn and Life</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Nodejs爬虫实战（四）</h1><div class="post-meta"><a href="/2020/04/12/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%9B%9B%EF%BC%89/#comments" class="comment-count"></a><p><span class="date">Apr 12, 2020</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h4 id="1-淘宝天猫页面重定向"><a href="#1-淘宝天猫页面重定向" class="headerlink" title="1. 淘宝天猫页面重定向"></a>1. 淘宝天猫页面重定向</h4><ol>
+<li><p>尝试抓取淘宝页面</p>
+</li>
+<li><p>打印<code>res.statusCode,res.headers.location</code></p>
+</li>
+<li><p><code>res.statusCode</code>返回的状态码;</p>
+<p> <code>res.headers.location</code>返回的地址</p>
+</li>
+<li><p>发现状态码为<code>302</code>，百度<code>HTTP状态码</code></p>
+<blockquote>
+<p>302 Move Temporarily</p>
+<p>请求的资源临时从不同的 URI响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。只有在Cache-Control或Expires中进行了指定的情况下，这个响应才是可缓存的。</p>
+<p>如果这不是一个 GET 或者 HEAD 请求，那么浏览器禁止自动进行重定向，除非得到用户的确认，因为请求的条件可能因此发生变化。</p>
+<p>注意：虽然RFC 1945和RFC 2068规范不允许客户端在重定向时改变请求的方法，但是很多现存的浏览器将302响应视作为303响应，并且使用 GET 方式访问在 Location 中规定的 URI，而无视原先请求的方法。状态码303和307被添加了进来，用以明确服务器期待客户端进行何种反应。</p>
+</blockquote>
+</li>
+<li><p>淘宝返回给我们的只是一个临时的html页面，并不是真正的还有数据的页面。</p>
+</li>
+<li><p>判断是否重定向，递归寻找真页面</p>
+<pre><code>if(res.statusCode == 302 || res.statusCode == 301){
+        console.log(`第${index}次重定向`,res.headers.location);
+        GetUrl(res.headers.location,success)
+    }</code></pre></li>
+</ol>
+<h4 id="2-转码"><a href="#2-转码" class="headerlink" title="2. 转码"></a>2. 转码</h4><ol start="7">
+<li>拿到了真实页面之后，打开发现有编码错误的问题</li>
+<li>引用<code>gbk</code>模块</li>
+<li><code>gbk</code>提供了编码转换的方法<br> <code>gbk.toString(&#39;utf-8&#39;,data);</code></li>
+<li>结束</li>
+</ol>
+<pre><code>###### 完整代码
+
+
+    var index = 0;
+    const fs = require(&apos;fs&apos;);
+    const url = require(&apos;url&apos;);
+    const gbk = require(&apos;gbk&apos;);
+
+    GetUrl(&apos;https://detail.tmall.com/item.htm?spm=a230r.1.14.6.68624507tWuF7E&amp;id=560257961625&amp;cm_id=140105335569ed55e27b&amp;abbucket=18&amp;sku_properties=10004:709990523&apos;,(data)=&gt;{
+
+        var html = gbk.toString(&apos;utf-8&apos;,data);
+        console.log(html)
+        //console.log(&apos;终于我走出来了&apos;)
+        //fs.writeFile(&apos;iponex.html&apos;,data);
+        //console.log(str)
+    })
+    function GetUrl(sUrl,success){
+        index++;
+        var urlObj = url.parse(sUrl);
+        var http =&apos;&apos;;
+        if(urlObj.protocol == &apos;http:&apos;){
+            http = require(&apos;http&apos;);
+        }
+        else{
+            http = require(&apos;https&apos;);
+        }
+
+        let req = http.request({
+            &apos;hostname&apos;:urlObj.hostname,
+            &apos;path&apos;:urlObj.path
+        },res=&gt;{
+            if(res.statusCode == 200){
+                var arr = [];
+                var str = &apos;&apos;;
+                res.on(&apos;data&apos;,buffer=&gt;{
+                    arr.push(buffer);
+                    //str +=buffer;
+                });
+                res.on(&apos;end&apos;,()=&gt;{
+                    let b = Buffer.concat(arr);
+
+                    success &amp;&amp; success(b);
+
+                })
+            }
+            else if(res.statusCode == 302 || res.statusCode == 301){
+                console.log(`第${index}次重定向`,res.headers.location);
+                GetUrl(res.headers.location,success)
+            }
+            //console.log(res.statusCode,res.headers.location)
+
+
+
+        });
+
+        req.end();
+        req.on(&apos;error&apos;,()=&gt;{
+            console.log(&apos;404了，哥们&apos;);
+        })
+    }</code></pre></div><div class="post-copyright"><blockquote><p>原文作者: Eno·feng</p><p>原文链接: <a href="http://yoursite.com/2020/04/12/Nodejs爬虫实战（四）/">http://yoursite.com/2020/04/12/Nodejs爬虫实战（四）/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)#copyright description</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/04/12/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%89%EF%BC%89/" class="next">Nodejs爬虫实战（三）</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-淘宝天猫页面重定向"><span class="toc-text">1. 淘宝天猫页面重定向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-转码"><span class="toc-text">2. 转码</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%9B%9B%EF%BC%89/">Nodejs爬虫实战（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%89%EF%BC%89/">Nodejs爬虫实战（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%BA%8C%EF%BC%89/">Nodejs爬虫实战（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%80%EF%BC%89/">Nodejs爬虫实战（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%BA%94%EF%BC%89/">Nodejs爬虫实战（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%85%AD%EF%BC%89/">Nodejs爬虫实战（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">Nodejs爬虫实战（七）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/ArcGIS%20API%20for%20JavaScript%20%E5%85%A5%E9%97%A8%E5%BF%85%E8%AF%BB/">ArcGIS API for JavaScript 入门必读</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%B0%8F%E6%93%8D%E4%BD%9C/">小操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/arcgis%20server%E5%8F%91%E5%B8%83%E5%88%87%E7%89%87%E5%9C%B0%E5%9B%BE/">arcgis server发布切片地图</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">39</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://blog.csdn.net/DanBo_C" title="CSDN" target="_blank">CSDN</a><ul></ul><a href="https://danbo3110.github.io/" title="Old Blog" target="_blank">Old Blog</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Eno·feng.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
