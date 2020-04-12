@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Learn and Life"><meta name="keywords" content="Code, 代码, 程序, GIS, js, 前端, vue, node"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><title>GIS复习【I】 | Programmer Home</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">GIS复习【I】</h1><a id="logo" href="/.">Programmer Home</a><p class="description">Learn and Life</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">GIS复习【I】</h1><div class="post-meta"><a href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90I%E3%80%91/#comments" class="comment-count"></a><p><span class="date">Apr 12, 2020</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><p>文章较长，建议从目录选取感兴趣内容，然后Ctry+F搜索、跳转</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><strong>1、GIS概念<br>2、GIS构成<br>3、GIS的功能及应用</strong></p>
+<p>—————————————————-正文——————————————————</p>
+<h2 id="1、GIS概念"><a href="#1、GIS概念" class="headerlink" title="1、GIS概念"></a>1、GIS概念</h2><h4 id="一、数据与信息"><a href="#一、数据与信息" class="headerlink" title="一、数据与信息"></a>一、数据与信息</h4><ol>
+<li><p>数据</p>
+<p>  <strong>通过数字化或记录下来可以被鉴别的数字、文字、符号、声音、图象等符号。</strong></p>
+</li>
+<li><p>信息：</p>
+<p> <strong>用数字、文字、符号、语言等介质来表示事件、事物、现象等的内容、数量或特征</strong>，向人们提供现实世界新的事实和知识，是生产、建设、经营、管理、分析和决策的依据。</p>
+</li>
+<li><p>关系</p>
+<ul>
+<li>数据是信息的载体</li>
+<li>信息是数据的内涵与解释</li>
+<li>形与质的关系</li>
+<li>只有数据对实体行为产生影响才成为信息，数据只有经过解释才有意义，成为信息。</li>
+</ul>
+</li>
+</ol>
+<h4 id="二、地理信息和地理信息系统"><a href="#二、地理信息和地理信息系统" class="headerlink" title="二、地理信息和地理信息系统"></a>二、地理信息和地理信息系统</h4><ol>
+<li><p>地理信息</p>
+<p> 地理信息是有关地理实体的性质、特征和运动状态的表征和一切有用的知识，<strong>是对表达地理特征与地理现象之间关系的地理数据的解释。</strong> </p>
+<p> 特性：</p>
+<ul>
+<li>空间分布性</li>
+<li>数据量大</li>
+<li>信息载体的多样性</li>
+</ul>
+</li>
+<li><p>地理信息系统</p>
+<p> 在计算机硬件、软件系统支持下，对整个或部分地球表层（包括大气层）空间中的有关地理分布数据进行采集、存储、管理、运算、分析、显示和描述的技术系统。</p>
+</li>
+<li><p>GIS定义的理解</p>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20190420091505752.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p>
+<ul>
+<li>物理外壳：计算机的技术系统 </li>
+<li>操作对象：空间数据和属性数据 </li>
+</ul>
+<p>技术优势：</p>
+<ul>
+<li>混合数据结构和有效的数据集成</li>
+<li>独特的地理空间分析能力</li>
+<li>快速的空间定位搜索和复杂的查询功能</li>
+<li>强大的图形创造和可视化表达手段</li>
+<li>地理过程的演化模拟和空间决策支持功能</li>
+</ul>
+<h2 id="2、GIS构成"><a href="#2、GIS构成" class="headerlink" title="2、GIS构成"></a>2、GIS构成</h2><h4 id="1、基本硬件构成（单机）"><a href="#1、基本硬件构成（单机）" class="headerlink" title="1、基本硬件构成（单机）"></a>1、基本硬件构成（单机）</h4><p><img src="https://img-blog.csdnimg.cn/20190420091535530.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p>
+<h4 id="2、GIS硬件组成"><a href="#2、GIS硬件组成" class="headerlink" title="2、GIS硬件组成"></a>2、GIS硬件组成</h4><ul>
+<li>局域网</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190420091552362.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p>
+<ul>
+<li>广域网</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190420091605929.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p>
+<h4 id="3、GIS软件组成"><a href="#3、GIS软件组成" class="headerlink" title="3、GIS软件组成"></a>3、GIS软件组成</h4><p><img src="https://img-blog.csdnimg.cn/20190420091620464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p>
+<h4 id="4、GIS数据（空间数据、属性数据）"><a href="#4、GIS数据（空间数据、属性数据）" class="headerlink" title="4、GIS数据（空间数据、属性数据）"></a>4、GIS数据（空间数据、属性数据）</h4><ul>
+<li>系统分析与处理的对象、构成系统的应用基础</li>
+</ul>
+<h4 id="5、“3S”关系"><a href="#5、“3S”关系" class="headerlink" title="5、“3S”关系"></a>5、“3S”关系</h4><p><img src="https://img-blog.csdnimg.cn/20190420091637926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p>
+<h2 id="3、GIS的功能及应用"><a href="#3、GIS的功能及应用" class="headerlink" title="3、GIS的功能及应用"></a>3、GIS的功能及应用</h2><h4 id="1、GIS基本功能"><a href="#1、GIS基本功能" class="headerlink" title="1、GIS基本功能"></a>1、GIS基本功能</h4><ul>
+<li>数据采集与编辑</li>
+<li>数据存储与管理</li>
+<li>数据处理和变换</li>
+<li>空间分析和统计</li>
+<li>产品制作与显示</li>
+<li>二次开发和编程</li>
+</ul>
+<p><strong>数据处理：</strong></p>
+<ul>
+<li><p>数据变换：</p>
+<p>  投影变换、几何纠正、比例尺缩放、误差改正和处理</p>
+</li>
+<li><p>数据重构：</p>
+<p>  数据拼接、裁剪、数据压缩、结构转换、格式转换</p>
+</li>
+<li><p>数据抽取：</p>
+<p>  类型选择、窗口提取、布尔提取、空间内插</p>
+</li>
+</ul>
+<p><strong>空间分析和统计：</strong></p>
+<ul>
+<li>路径分析</li>
+<li>生成数字高程模型</li>
+</ul>
+<h4 id="2、应用领域"><a href="#2、应用领域" class="headerlink" title="2、应用领域"></a>2、应用领域</h4><ul>
+<li>测绘制图</li>
+<li>资源管理</li>
+<li>城乡规划</li>
+<li>国土监测</li>
+<li>环境保护</li>
+<li>国防军事</li>
+</ul>
+<blockquote>
+<p>练习题1.1</p>
+<ol>
+<li>地理信息系统形成于20世纪（60年代）</li>
+<li>我国的GIS发展自20世纪（70年代初）起步</li>
+<li>世界上第一个地理信息系统起步于（加拿大）</li>
+<li>（MAPGIS）是中国的</li>
+<li>GIS脱胎于（地理学）</li>
+</ol>
+</blockquote>
+</div><div class="post-copyright"><blockquote><p>原文作者: Eno·feng</p><p>原文链接: <a href="http://yoursite.com/2020/04/12/GIS复习【I】/">http://yoursite.com/2020/04/12/GIS复习【I】/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)#copyright description</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/04/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9C%B0%E5%9B%BE%E5%88%B6%E5%9B%BE%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="pre">计算机地图制图 知识总结</a><a href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90II%E3%80%91/" class="next">GIS复习【II】</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目录"><span class="toc-text">目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1、GIS概念"><span class="toc-text">1、GIS概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、数据与信息"><span class="toc-text">一、数据与信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、地理信息和地理信息系统"><span class="toc-text">二、地理信息和地理信息系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、GIS构成"><span class="toc-text">2、GIS构成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、基本硬件构成（单机）"><span class="toc-text">1、基本硬件构成（单机）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、GIS硬件组成"><span class="toc-text">2、GIS硬件组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、GIS软件组成"><span class="toc-text">3、GIS软件组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、GIS数据（空间数据、属性数据）"><span class="toc-text">4、GIS数据（空间数据、属性数据）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、“3S”关系"><span class="toc-text">5、“3S”关系</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、GIS的功能及应用"><span class="toc-text">3、GIS的功能及应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、GIS基本功能"><span class="toc-text">1、GIS基本功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、应用领域"><span class="toc-text">2、应用领域</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9/">处理架构知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Hadoop%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E7%AF%87/">Hadoop入门——环境篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%BF%B0%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/">大数据概述概念总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/JSP%E6%80%BB%E7%BB%93/">JSP总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9C%B0%E5%9B%BE%E5%88%B6%E5%9B%BE%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">计算机地图制图 知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90I%E3%80%91/">GIS复习【I】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90II%E3%80%91/">GIS复习【II】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90III%E3%80%91/">GIS复习【III】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90VI%E3%80%91/">GIS复习【VI】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90V%E3%80%91/">GIS复习【V】</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">73</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://blog.csdn.net/DanBo_C" title="CSDN" target="_blank">CSDN</a><ul></ul><a href="https://danbo3110.github.io/" title="Old Blog" target="_blank">Old Blog</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Eno·feng.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>

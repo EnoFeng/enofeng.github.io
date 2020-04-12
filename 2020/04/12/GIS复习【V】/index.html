@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Learn and Life"><meta name="keywords" content="Code, 代码, 程序, GIS, js, 前端, vue, node"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><title>GIS复习【V】 | Programmer Home</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">GIS复习【V】</h1><a id="logo" href="/.">Programmer Home</a><p class="description">Learn and Life</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">GIS复习【V】</h1><div class="post-meta"><a href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90V%E3%80%91/#comments" class="comment-count"></a><p><span class="date">Apr 12, 2020</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><p>文章较长，建议从目录选取感兴趣内容，然后Ctry+F搜索、跳转</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><strong>17、空间数据源<br>18、空间数据采集<br>19、空间数据的编辑与处理<br>20、空间数据质量及其精度分析</strong><br>————————————————-正文———————————————————-</p>
+<h2 id="17、空间数据源"><a href="#17、空间数据源" class="headerlink" title="17、空间数据源"></a>17、空间数据源</h2><ol>
+<li><p><strong>数据源的分类</strong></p>
+<ul>
+<li><p>图形图像数据：</p>
+<p>  地图 、工程图、规划图<br>  遥感影像、包括卫星、航空、地面遥感影像等</p>
+</li>
+<li><p>文本资料数据：</p>
+<ul>
+<li>实测数据、野外调查的原始记录</li>
+<li>共享数据（可能包含图形图像数据）</li>
+<li>其他数据、如调查报告、立法文件等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>![](https://img-blog.csdnimg.cn/20190420151010764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)</code></pre><ol start="2">
+<li><p><strong>数据源特征</strong></p>
+<ol>
+<li><p>地图数据 </p>
+<p> 具有共同参考坐标系统的点、线、面的二维平面形式的表示，分为普通地图和专题地图。</p>
+<p> 在应用地图数据时应注意以下几点：</p>
+<ul>
+<li>地图存储介质的缺陷</li>
+<li>地图现势性较差</li>
+<li>地图投影的转换</li>
+</ul>
+</li>
+<li><p>遥感影像数据</p>
+<p> 特征：</p>
+<ul>
+<li>能够提供大范围的瞬间静态图像；</li>
+<li>能够进行大面积的重复性观测；</li>
+<li>大大加宽了人眼所能观察的光谱范围；</li>
+<li>空间详细程度高。</li>
+</ul>
+</li>
+<li><p>实测数据</p>
+<p> GPS点位数据、地籍测量数据、观测站点监测数据等通常具有较高的精度和较好的现势性</p>
+</li>
+<li><p>统计数据<br> 统计数据一般都是和一定范围内的统计单元或观测点联系在一起。 </p>
+</li>
+<li><p>共享数据</p>
+</li>
+<li><p>多媒体数据</p>
+</li>
+<li><p>文本资料数据</p>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li><p><strong>空间数据采集与处理的基本流程</strong></p>
+<p> <img src="https://img-blog.csdnimg.cn/20190420151027151.png" alt=""></p>
+</li>
+</ol>
+<h2 id="18、空间数据采集"><a href="#18、空间数据采集" class="headerlink" title="18、空间数据采集"></a>18、空间数据采集</h2><ol>
+<li><p><strong>空间（图形）数据的采集</strong></p>
+<ul>
+<li><p>野外数据采集：平板测量、全野外数字测图、空间定位测量</p>
+</li>
+<li><p>地图数字化：手扶跟踪数字化、扫描矢量化<br><img src="https://img-blog.csdnimg.cn/20190420151042754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""><br><img src="https://img-blog.csdnimg.cn/20190420151054684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p>
+</li>
+<li><p>摄影测量方法：航空摄影测量、地面摄影测量</p>
+</li>
+<li><p>遥感图像处理</p>
+<p>  流程：</p>
+<ol>
+<li>观测数据的输入</li>
+<li>再生、矫正处理</li>
+<li>变化处理</li>
+<li>分类处理</li>
+<li>处理结果输出</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>**选择采集方法：**
+- 数字化设备：数字化仪、扫描仪、遥感与摄影测量设备
+- 特点：范围大，速度快
+- 使用范围：大面积GIS数据采集、资源普查等
+
+     ****
+- 野外测量：大平板、全站仪、GPS、移动测绘系统
+- 特点：精度高、效率较低
+- 适合范围：小范围GIS数据采集或局部数据更新</code></pre><ol start="2">
+<li><p><strong>属性数据的采集</strong></p>
+<ol>
+<li><p>属性数据的来源与分类</p>
+<ul>
+<li>社会环境</li>
+<li>自然环境</li>
+<li>资源与能源</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>2. 属性数据的编码
+
+    编码的直接产物就是代码，而分类分级则是编码的基础。
+
+    **编码原则：**
+    - 系统性和科学性
+    - 一致性
+    - 标准化和通用性  
+    - 编码的简捷性
+    - 编码的可扩展性
+
+3. 常用的编码分类方法
+
+    1. 层次分类编码法：按分类对象的从属和层次关系为排列顺序
+    2. 多源分类编码法：不同的分类依据分别编码，数字之间没隶属关系。</code></pre><ol start="3">
+<li><strong>属性数据和图形数据的连接</strong><br><img src="https://img-blog.csdnimg.cn/20190422184208811.png" alt=""></li>
+</ol>
+<h2 id="19、空间数据的编辑与处理"><a href="#19、空间数据的编辑与处理" class="headerlink" title="19、空间数据的编辑与处理"></a>19、空间数据的编辑与处理</h2><h2 id="20、空间数据质量及其精度分析"><a href="#20、空间数据质量及其精度分析" class="headerlink" title="20、空间数据质量及其精度分析"></a>20、空间数据质量及其精度分析</h2></div><div class="post-copyright"><blockquote><p>原文作者: Eno·feng</p><p>原文链接: <a href="http://yoursite.com/2020/04/12/GIS复习【V】/">http://yoursite.com/2020/04/12/GIS复习【V】/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)#copyright description</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90VI%E3%80%91/" class="pre">GIS复习【VI】</a><a href="/2020/04/12/GPS%E6%B5%8B%E9%87%8F%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="next">GPS测量原理及应用 知识总结</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目录"><span class="toc-text">目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17、空间数据源"><span class="toc-text">17、空间数据源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18、空间数据采集"><span class="toc-text">18、空间数据采集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19、空间数据的编辑与处理"><span class="toc-text">19、空间数据的编辑与处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20、空间数据质量及其精度分析"><span class="toc-text">20、空间数据质量及其精度分析</span></a></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9/">处理架构知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Hadoop%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E7%AF%87/">Hadoop入门——环境篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%BF%B0%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/">大数据概述概念总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/JSP%E6%80%BB%E7%BB%93/">JSP总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9C%B0%E5%9B%BE%E5%88%B6%E5%9B%BE%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">计算机地图制图 知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90I%E3%80%91/">GIS复习【I】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90II%E3%80%91/">GIS复习【II】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90III%E3%80%91/">GIS复习【III】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90VI%E3%80%91/">GIS复习【VI】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90V%E3%80%91/">GIS复习【V】</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">73</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://blog.csdn.net/DanBo_C" title="CSDN" target="_blank">CSDN</a><ul></ul><a href="https://danbo3110.github.io/" title="Old Blog" target="_blank">Old Blog</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Eno·feng.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>

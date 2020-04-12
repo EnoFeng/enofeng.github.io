@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Learn and Life"><meta name="keywords" content="Code, 代码, 程序, GIS, js, 前端, vue, node"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><title>网络流---算法理解 | Programmer Home</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">网络流---算法理解</h1><a id="logo" href="/.">Programmer Home</a><p class="description">Learn and Life</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">网络流---算法理解</h1><div class="post-meta"><a href="/2020/04/12/%E7%BD%91%E7%BB%9C%E6%B5%81---%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/#comments" class="comment-count"></a><p><span class="date">Apr 12, 2020</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h1 id="最大流"><a href="#最大流" class="headerlink" title="最大流"></a>最大流</h1><p>交通网络中有人流、车流、货流，供水网络中有水流，金融网络中有金流。这些都涉及到了最大流问题</p>
+<p>而最大流存在于网络流中</p>
+<h5 id="那么问题来了，什么是网络流？"><a href="#那么问题来了，什么是网络流？" class="headerlink" title="那么问题来了，什么是网络流？"></a>那么问题来了，什么是网络流？</h5><hr>
+<ul>
+<li>首先，你得有一个有向图。即网络</li>
+<li>还得有两个特殊点：起点终点。即源汇</li>
+<li>每条边有一个权值。即容量</li>
+</ul>
+<p>有了这些，就构成了一个基础的网络流</p>
+<p>有点绕。。。换个思路</p>
+<blockquote>
+<p>自来水厂是源，家是汇</p>
+<p>自来水厂和家之间有很多的管道用来输送水。由于地形和地质的影响，管道规格有多种。通过的水容量也各不相同</p>
+</blockquote>
+<h5 id="清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？"><a href="#清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？" class="headerlink" title="清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？"></a>清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？</h5><hr>
+<ul>
+<li>从源点到汇点的最大可行性流量即为最大流</li>
+</ul>
+<blockquote>
+<p>这个问题就是说，自来水厂供水，那么在家能收到的最大的水流量是多少？</p>
+<p>自来水厂开始供水之前，水流量必定是0</p>
+<p>自开水厂开闸供水，水从管道流向家。家开始收到水</p>
+<p>自开水厂再开一个闸门供水，水从管道流向家。家里的水流量增加</p>
+<p>。</p>
+<p>。</p>
+<p>打开若干闸门，水流量持续增加</p>
+<p>。</p>
+<p>。</p>
+<p>自开水厂再开一个闸门供水，水从管道流向家。家里的水流量没有发生改变<br>此时，便达到了从自来水厂到家这个网络的最大可行性流</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20190518172827446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p>
+<h5 id="网络流具有三个性质"><a href="#网络流具有三个性质" class="headerlink" title="网络流具有三个性质"></a>网络流具有三个性质</h5><hr>
+<ol>
+<li><p>容量限制：实际流量 &lt; 每条边的容量</p>
+<blockquote>
+<p>自来水管中的水必定是小于它的最大承载容量。否则水管该爆了。</p>
+</blockquote>
+</li>
+<li><p>流量守恒：每一个点（不包含源汇点）到相邻节点的流量之和为0.</p>
+<blockquote>
+<p>每一个中间点必定是流进来多少水，流出去多少水。</p>
+<p>不可能没有流进来就流出去，也不可能流进来后就不出去。</p>
+<p>至于为什么是中间点，因为我问不用知道自来水厂的水是来自哪里的</p>
+</blockquote>
+</li>
+<li><p>反对称（斜对称）性：u -&gt; v 的流量 == -（v -&gt; u） 的流量</p>
+<blockquote>
+<p>在坐标系中，a 到 b 的位移是 x ，则 b 到 a 的位移是 -x</p>
+<p>同样的 u -&gt; v 的流量为 f ，那么 v -&gt; u 必定是 -f ;</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="网络流中的名词解释"><a href="#网络流中的名词解释" class="headerlink" title="网络流中的名词解释"></a>网络流中的名词解释</h5><hr>
+<ul>
+<li>网络：有源汇点的有向图</li>
+<li>容量网络：带有容量值（权值）的有向图（不变）</li>
+<li>流量网络：带有流量值（权值）的有向图（改变），最终形态就是最大网络流</li>
+<li>残留网络: 带有残余流量值（权值）的有向图（改变），残余流量值：容量-流量的剩余量值。就像是，自来水管中，水流量没有达到管道容量时，中空气的体积容量（空的部分）。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190518172846719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p>
+<p><strong>显而易见：残留网络 = 容量网络 - 流量网络</strong></p>
+<ul>
+<li><p>割集：割一些边，使得以源点和汇点为两边，分为两个点集。（非连通图）</p>
+</li>
+<li><p>割：断开一些边，最小割即为断开权值最小的边</p>
+</li>
+</ul>
+<blockquote>
+<p>割集类似于，有小偷把自来水厂和家之间的管道偷走了一些，使得水不管从哪个管道走，都不能到家。</p>
+<p>割则取决于小偷要偷哪个。最小割便是偷走最小，最轻的管道，最省力，最容易达到目的。</p>
+</blockquote>
+</div><div class="post-copyright"><blockquote><p>原文作者: Eno·feng</p><p>原文链接: <a href="http://yoursite.com/2020/04/12/网络流---算法理解/">http://yoursite.com/2020/04/12/网络流---算法理解/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)#copyright description</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/04/12/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/" class="pre">Java程序设计复习总结</a><a href="/2020/04/12/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/" class="next">最大流问题------Ford-Fulkerson算法（增广路径）</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#最大流"><span class="toc-text">最大流</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#那么问题来了，什么是网络流？"><span class="toc-text">那么问题来了，什么是网络流？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？"><span class="toc-text">清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#网络流具有三个性质"><span class="toc-text">网络流具有三个性质</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#网络流中的名词解释"><span class="toc-text">网络流中的名词解释</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9/">处理架构知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Hadoop%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E7%AF%87/">Hadoop入门——环境篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%BF%B0%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/">大数据概述概念总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/JSP%E6%80%BB%E7%BB%93/">JSP总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9C%B0%E5%9B%BE%E5%88%B6%E5%9B%BE%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">计算机地图制图 知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90I%E3%80%91/">GIS复习【I】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90II%E3%80%91/">GIS复习【II】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90III%E3%80%91/">GIS复习【III】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90VI%E3%80%91/">GIS复习【VI】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90V%E3%80%91/">GIS复习【V】</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">73</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://blog.csdn.net/DanBo_C" title="CSDN" target="_blank">CSDN</a><ul></ul><a href="https://danbo3110.github.io/" title="Old Blog" target="_blank">Old Blog</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Eno·feng.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>

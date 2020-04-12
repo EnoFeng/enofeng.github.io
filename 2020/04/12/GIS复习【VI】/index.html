@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Learn and Life"><meta name="keywords" content="Code, 代码, 程序, GIS, js, 前端, vue, node"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><title>GIS复习【VI】 | Programmer Home</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">GIS复习【VI】</h1><a id="logo" href="/.">Programmer Home</a><p class="description">Learn and Life</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">GIS复习【VI】</h1><div class="post-meta"><a href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90VI%E3%80%91/#comments" class="comment-count"></a><p><span class="date">Apr 12, 2020</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><p>文章较长，建议从目录选取感兴趣内容，然后Ctry+F搜索、跳转</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><strong>13、数据库与空间数据库<br>14、数据库的数据模型<br>15、空间数据的组织方式<br>16、ArcGIS中的数据方式</strong></p>
+<p>——————————————————正文——————————————————-</p>
+<h2 id="13、数据库与空间数据库"><a href="#13、数据库与空间数据库" class="headerlink" title="13、数据库与空间数据库"></a>13、数据库与空间数据库</h2><ol>
+<li><p><strong>数据库概述</strong></p>
+<ol>
+<li><p>数据管理技术的发展过程</p>
+<p> 人工管理阶段–&gt;文件管理阶段–&gt;数据库管理阶段</p>
+</li>
+<li><p>建立数据库的目的</p>
+<ul>
+<li>保存数据</li>
+<li>管理和控制与这些数据相关联的事物。 </li>
+</ul>
+</li>
+<li><p>数据库定义：</p>
+<p> 为了一定的目的，在计算机系统中以特定的结构组织、存储、管理和应用的相关联的数据集合。</p>
+</li>
+<li><p>数据组织层次</p>
+<ul>
+<li>数据项(元素/基本项/字段)：定义数据的最小单位</li>
+<li>记录：由若干相关联的数据项组成</li>
+<li>文件：一给定类型的记录的全部具体值的集合</li>
+<li>数据库：若干文件的集合。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>5. 逻辑关系
+
+    - 1：1
+    - 1：N
+    - M：N</code></pre><ol start="2">
+<li><p><strong>空间数据的特征</strong></p>
+<ol>
+<li><p>空间分布特征</p>
+<p> 空间对象隐含了空间分布特征,需要按照位置进行空间对象的检索</p>
+</li>
+<li><p>非结构化特征</p>
+<p> 用一条记录表达一个空间对象，它的数据项可能是很长的，例如，1条弧段的坐标，它可能是2对坐标，也可能是10万对坐标。 <strong>非结构化是空间数据难以直接采用通用的关系型 数据库管理系统的主要原因。</strong></p>
+</li>
+<li><p>空间关系特征</p>
+<p> 空间数据库中记录的拓扑信息表达了多种空间关系</p>
+</li>
+<li><p>分类编码特征</p>
+<p> 基础地理信息要素分类与代码</p>
+</li>
+<li><p>海量数据特征</p>
+</li>
+<li><p>多尺度与多态性  X</p>
+</li>
+</ol>
+</li>
+<li><p><strong>空间数据库</strong></p>
+<ol>
+<li><p>定义</p>
+<ul>
+<li><p>应用于地理空间数据处理与信息分析领域的具有工程性质的数据库。</p>
+</li>
+<li><p>是存取、管理空间信息的数据库。</p>
+<p>特点：</p>
+</li>
+<li><p>数据量特别大</p>
+</li>
+<li><p>属性数据和空间数据联合管理</p>
+</li>
+<li><p>数据应用范围广泛</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>2. 数据库与空间数据库的比较
+
+    ![](https://img-blog.csdnimg.cn/20190420141933619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
+
+3. 一般组成
+
+    ![](https://img-blog.csdnimg.cn/20190420141947749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)    
+    1. 栅格数据库
+
+        - 遥感影像数据
+        - DEM数据
+
+    2. 矢量数据库
+        - 各种空间实体数据（图形和属性数据） </code></pre><h2 id="14、数据库的数据模型"><a href="#14、数据库的数据模型" class="headerlink" title="14、数据库的数据模型"></a>14、数据库的数据模型</h2><ol>
+<li><p>传统数据库的数据模型</p>
+<ol>
+<li>层次模型（1:n）</li>
+</ol>
+</li>
+</ol>
+<pre><code>    ![](https://img-blog.csdnimg.cn/20190420142005598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
+
+    结点代表数据记录，连线描述位于不同结点数据间的从属关系
+2. 网状模型（m:n）
+
+    ![](https://img-blog.csdnimg.cn/2019042014204620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
+
+    没有明确的从属关系
+
+3. 关系模型
+    ![](https://img-blog.csdnimg.cn/20190420142056423.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
+    - 实体本身的信息以及实体之间的联系均表现为二维表，这种表就称为关系
+    - 一个实体由若干个关系组成，而关系表的集合就构成为关系模型。
+    - 关系模型用关系代数和关系运算来操纵数据</code></pre><ol start="2">
+<li><p>面向对象的数据模型</p>
+<ol>
+<li><p>定义</p>
+<p> 以对象作为最基本的元素</p>
+</li>
+<li><p>面向对象的几何抽象类型</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190420142110425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p>
+</li>
+<li><p>面向对象的属性数据模型</p>
+</li>
+<li><p>面向对象数据库系统的实现方式<br> 特点：有效地表达空间数据的拓扑关系。表达和处理属性数据时，具有独特的优越性。</p>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>练习 4.1</p>
+<ul>
+<li>数据管理技术发展的三个阶段？<br>答：人工管理阶段–&gt;文件管理阶段–&gt;数据库管理阶段</li>
+<li>空间数据的五大特征？<br>答：分布特征、非结构化特征、空间关系特征、分类编码特征、海量数据特征。</li>
+<li>空间数据库的定义与一般构成？<br>答：定义：应用于地理空间数据处理于信息分析领域的具有工程性质，存取、管理空间信息的数据库。<br>一般构成：矢量数据库（图形和属性）、栅格数据库（影响和高程模型）</li>
+<li>传统数据库的数据模型有哪三种？<br>答：层次模型（1：n）、网状模型（m：n）、关系模型</li>
+</ul>
+</blockquote>
+<h2 id="15、空间数据的组织方式"><a href="#15、空间数据的组织方式" class="headerlink" title="15、空间数据的组织方式"></a>15、空间数据的组织方式</h2><ol>
+<li><p>矢量数据组织</p>
+<p> <strong>位置数据和属性数据通常是分开组织</strong></p>
+<ol>
+<li><p>文件与关系数据库混合管理</p>
+<ul>
+<li>两个子系统分别存储和检索空间数据和属性数据，使用一种标识符将两者联系起来。<br><img src="https://img-blog.csdnimg.cn/20190420142125478.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""><br>缺点：<ul>
+<li>查询运算，模型操作运算速度慢；</li>
+<li>数据分布和共享困难；</li>
+<li>数据的安全性、一致性、完整性、并发控制以及数据损坏后的恢复方面</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>全关系型空间数据库管理</p>
+<ul>
+<li>图形数据与属性数据都采用关系型数据库存储。</li>
+</ul>
+<p> <strong>本质</strong>：将图形数据的变长部分（坐标数据）当作一个二进制块，交由关系数据库管理系统进行存贮和管理。<br> <img src="https://img-blog.csdnimg.cn/20190420142150239.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""><br> <strong>特点：不必进行烦琐的连接</strong></p>
+</li>
+<li><p>对象-关系数据库管理</p>
+<ul>
+<li><p>对现有的关系数据库进行扩展，增加空间数据类型</p>
+</li>
+<li><p>解决了空间数据的变长记录的管理</p>
+</li>
+<li><p>它仍然没有解决对象的嵌套问题，空间数据结构也不能由用户任意定义<br><img src="https://img-blog.csdnimg.cn/20190420142213459.png" alt=""></p>
+<p>扩展方式：</p>
+</li>
+</ul>
+<ol>
+<li>加一个空间数据管理引擎</li>
+<li>由数据库管理系统的软件商在关系数据库管理系统中进行空间数据管理的专用模块扩展，定义操纵点、线、面、圆、长方形等空间对象的API（Application Programming Interface）函数。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>栅格数据组织</p>
+<p> <strong>影像数据和数字高程模型</strong></p>
+<ol>
+<li><p>基于文件的影像数据库管理</p>
+<p> 目前大部分GIS软件和遥感图像处理软件都是采用文件方式来管理遥感影像数据。</p>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>2. 文件结合数据库管理
+
+    影像数据仍按照文件方式组织管理；在关系数据库中，每个文件都有唯一的标识号（ID）对应影像信息，如文件名称、存储路径等 
+
+3. 关系数据库管理
+    将影像数据存储在二进制变长字段中，影像数据的元数据信息也存放在关系数据库的表中，二者可以进行无缝管理。
+
+    **特点：**
+
+    - 易于共享
+    - 方便管理多数据源和多时态的数据
+    - 数据的一致性和完整性控制
+    - 影像数据和元数据集成到一起，能方便的进行交互式查询。
+    - 不同操作系统平台下运行</code></pre><h2 id="16、ArcGIS中的数据方式"><a href="#16、ArcGIS中的数据方式" class="headerlink" title="16、ArcGIS中的数据方式"></a>16、ArcGIS中的数据方式</h2><ol>
+<li><p>Coverage ：与shapefile不同的是shapefile文件不存储拓扑信息，因此相对其它数据格式要较少地占用存储空间，在显示和访问效率上要快许多。</p>
+</li>
+<li><p>Shapefile ：基于文件的存储，不能存储拓扑关系。</p>
+</li>
+<li><p>Geodatabase ：基于数据库的存储，可以存储拓扑关系。</p>
+<ul>
+<li><p>个人地理数据库</p>
+<p>  Microsoft Access 数据文件 (.mdb)，2GB数据量限制，单用户数据库，仅适用于 Windows。</p>
+</li>
+<li><p>文件地理数据库</p>
+<p>  文件系统的文件夹中保存的ArcGIS所支持类型的 GIS 数据集的集合，单个数据集的大小限制为1TB，单用户数据库，跨平台。</p>
+</li>
+<li><p>ArcSDE地理数据库</p>
+<p>  在关系数据库中以表的形式保存的ArcGIS所支持类型的GIS 数据集的集合，可建立在服务器端的网络数据库连接。使用 ArcSDE 技术，数据库大小取决于所关联的DBMS。</p>
+<blockquote>
+<p>练习 4.2</p>
+<ul>
+<li>矢量数据的三种组织方式？</li>
+<li>栅格数据组织的三种方式</li>
+<li>ArcGIS中文件组织方式？Geodatabase的三种类型？</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</div><div class="post-copyright"><blockquote><p>原文作者: Eno·feng</p><p>原文链接: <a href="http://yoursite.com/2020/04/12/GIS复习【VI】/">http://yoursite.com/2020/04/12/GIS复习【VI】/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)#copyright description</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90III%E3%80%91/" class="pre">GIS复习【III】</a><a href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90V%E3%80%91/" class="next">GIS复习【V】</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目录"><span class="toc-text">目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13、数据库与空间数据库"><span class="toc-text">13、数据库与空间数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14、数据库的数据模型"><span class="toc-text">14、数据库的数据模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15、空间数据的组织方式"><span class="toc-text">15、空间数据的组织方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16、ArcGIS中的数据方式"><span class="toc-text">16、ArcGIS中的数据方式</span></a></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9/">处理架构知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Hadoop%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E7%AF%87/">Hadoop入门——环境篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%BF%B0%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/">大数据概述概念总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/JSP%E6%80%BB%E7%BB%93/">JSP总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9C%B0%E5%9B%BE%E5%88%B6%E5%9B%BE%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">计算机地图制图 知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90I%E3%80%91/">GIS复习【I】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90II%E3%80%91/">GIS复习【II】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90III%E3%80%91/">GIS复习【III】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90VI%E3%80%91/">GIS复习【VI】</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90V%E3%80%91/">GIS复习【V】</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">73</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://blog.csdn.net/DanBo_C" title="CSDN" target="_blank">CSDN</a><ul></ul><a href="https://danbo3110.github.io/" title="Old Blog" target="_blank">Old Blog</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Eno·feng.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
