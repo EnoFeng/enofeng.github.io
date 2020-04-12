@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-12T13:56:43.097Z</updated>
+  <updated>2020-04-12T14:09:41.130Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,103 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hadoop 3.2.1的安装、伪分布式部署及web无法访问踩坑</title>
+    <link href="http://yoursite.com/2020/04/12/Hadoop%203.2.1%E7%9A%84%E5%AE%89%E8%A3%85%E3%80%81%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%8F%8Aweb%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E8%B8%A9%E5%9D%91/"/>
+    <id>http://yoursite.com/2020/04/12/Hadoop%203.2.1%E7%9A%84%E5%AE%89%E8%A3%85%E3%80%81%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%8F%8Aweb%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E8%B8%A9%E5%9D%91/</id>
+    <published>2020-04-12T14:02:54.911Z</published>
+    <updated>2020-04-12T14:09:41.130Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安装-Hadoop-3-2-1"><a href="#安装-Hadoop-3-2-1" class="headerlink" title="安装 Hadoop 3.2.1"></a>安装 Hadoop 3.2.1</h1><h4 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. <a href="http://mirror.bit.edu.cn/apache/hadoop/common/" target="_blank" rel="noopener">下载</a></h4><p>   <img src="https://img-blog.csdnimg.cn/20200313023246851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""><br>   <img src="https://img-blog.csdnimg.cn/20200313023302377.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="2-将Hadoop-安装至-usr-local-中"><a href="#2-将Hadoop-安装至-usr-local-中" class="headerlink" title="2. 将Hadoop 安装至 /usr/local/ 中"></a>2. 将Hadoop 安装至 /usr/local/ 中</h4>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxf ~&#x2F;下载&#x2F;hadoop-3.2.1.tar.gz -C &#x2F;usr&#x2F;local</span><br></pre></td></tr></table></figure><h4 id="3-在-usr-local文件夹在找到文件，右键重命名为hadoop"><a href="#3-在-usr-local文件夹在找到文件，右键重命名为hadoop" class="headerlink" title="3. 在/usr/local文件夹在找到文件，右键重命名为hadoop"></a>3. 在<code>/usr/local</code>文件夹在找到文件，右键重命名为<code>hadoop</code></h4><h4 id="4-修改文件权限"><a href="#4-修改文件权限" class="headerlink" title="4. 修改文件权限"></a>4. 修改文件权限</h4>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R hadoop .&#x2F;hadoop</span><br></pre></td></tr></table></figure><h4 id="5-查看hadoop版本"><a href="#5-查看hadoop版本" class="headerlink" title="5. 查看hadoop版本"></a>5. 查看<code>hadoop</code>版本</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/hadoop</span><br><span class="line">./bin/hadoop version</span><br></pre></td></tr></table></figure><p>   <img src="https://img-blog.csdnimg.cn/20200313023835114.png" alt=""></p><h1 id="伪分布式配置"><a href="#伪分布式配置" class="headerlink" title="伪分布式配置"></a>伪分布式配置</h1><h4 id="1-修改配置文件core-site-xml"><a href="#1-修改配置文件core-site-xml" class="headerlink" title="1. 修改配置文件core-site.xml"></a>1. 修改配置文件<code>core-site.xml</code></h4><p>   原代码：</p>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure><p>   替换：</p>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;hadoop.tmp.dir&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;value&gt;file:&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;tmp&lt;&#x2F;value&gt;</span><br><span class="line">        &lt;description&gt;Abase for other temporary directories.&lt;&#x2F;description&gt;</span><br><span class="line">    &lt;&#x2F;property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.defaultFS&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;value&gt;hdfs:&#x2F;&#x2F;localhost:9000&lt;&#x2F;value&gt;</span><br><span class="line">    &lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;configuration&gt;</span><br></pre></td></tr></table></figure><p>   <img src="https://img-blog.csdnimg.cn/20200313024210341.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="2-修改配置文件hdfs-site-xml"><a href="#2-修改配置文件hdfs-site-xml" class="headerlink" title="2. 修改配置文件hdfs-site.xml"></a>2. 修改配置文件<code>hdfs-site.xml</code></h4><p>   原代码：</p>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure><p>   替换：</p>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.replication&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;value&gt;1&lt;&#x2F;value&gt;</span><br><span class="line">    &lt;&#x2F;property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.namenode.name.dir&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;value&gt;file:&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;tmp&#x2F;dfs&#x2F;name&lt;&#x2F;value&gt;</span><br><span class="line">    &lt;&#x2F;property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.datanode.data.dir&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;value&gt;file:&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;tmp&#x2F;dfs&#x2F;data&lt;&#x2F;value&gt;</span><br><span class="line">    &lt;&#x2F;property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">&lt;name&gt;dfs.namenode.http-address&lt;&#x2F;name&gt;</span><br><span class="line">&lt;value&gt;0.0.0.0:9870&lt;&#x2F;value&gt;</span><br><span class="line">    &lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;configuration&gt;</span><br></pre></td></tr></table></figure><p>   <img src="https://img-blog.csdnimg.cn/2020031302413961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="3-NameNode-格式化"><a href="#3-NameNode-格式化" class="headerlink" title="3. NameNode 格式化"></a>3. NameNode 格式化</h4>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;hadoop</span><br><span class="line">.&#x2F;bin&#x2F;hdfs namenode -format</span><br></pre></td></tr></table></figure><h4 id="4-出现has-been-successfully-formatted，则成功"><a href="#4-出现has-been-successfully-formatted，则成功" class="headerlink" title="4. 出现has been successfully formatted，则成功."></a>4. 出现<code>has been successfully formatted</code>，则成功.</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313024337352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="5-hadoop3-X版本中成功不在出现Exiting-with-status-0"><a href="#5-hadoop3-X版本中成功不在出现Exiting-with-status-0" class="headerlink" title="5. hadoop3.X版本中成功不在出现Exiting with status 0"></a>5. hadoop3.X版本中成功不在出现<code>Exiting with status 0</code></h4><h4 id="6-开启hadoop服务"><a href="#6-开启hadoop服务" class="headerlink" title="6. 开启hadoop服务"></a>6. 开启hadoop服务</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/hadoop</span><br><span class="line">./sbin/start-dfs.sh</span><br></pre></td></tr></table></figure><h4 id="7-通过jps查看服务状态"><a href="#7-通过jps查看服务状态" class="headerlink" title="7. 通过jps查看服务状态"></a>7. 通过<code>jps</code>查看服务状态</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313024607775.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="8-四个都出现则代表服务正常启动"><a href="#8-四个都出现则代表服务正常启动" class="headerlink" title="8. 四个都出现则代表服务正常启动"></a>8. 四个都出现则代表服务正常启动</h4><h4 id="9-在浏览器中输入http-localhost-9870，3-x版本中端口已经从50070改为了9870，配置文件中已经修改了。50070访问不到，踩坑！！！多看官网，受益匪浅"><a href="#9-在浏览器中输入http-localhost-9870，3-x版本中端口已经从50070改为了9870，配置文件中已经修改了。50070访问不到，踩坑！！！多看官网，受益匪浅" class="headerlink" title="9. 在浏览器中输入http://localhost:9870，3.x版本中端口已经从50070改为了9870，配置文件中已经修改了。50070访问不到，踩坑！！！多看官网，受益匪浅"></a>9. 在浏览器中输入<code>http://localhost:9870</code>，3.x版本中端口已经从50070改为了9870，配置文件中已经修改了。50070访问不到，踩坑！！！多看官网，受益匪浅</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313024847840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="10-成功部署"><a href="#10-成功部署" class="headerlink" title="10. 成功部署"></a>10. 成功部署</h4><h4 id="11-关闭hadoop服务"><a href="#11-关闭hadoop服务" class="headerlink" title="11. 关闭hadoop服务"></a>11. 关闭hadoop服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;sbin&#x2F;stop-dfs.sh</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;安装-Hadoop-3-2-1&quot;&gt;&lt;a href=&quot;#安装-Hadoop-3-2-1&quot; class=&quot;headerlink&quot; title=&quot;安装 Hadoop 3.2.1&quot;&gt;&lt;/a&gt;安装 Hadoop 3.2.1&lt;/h1&gt;&lt;h4 id=&quot;1-下载&quot;&gt;&lt;a href
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在Ubuntu上安装java环境</title>
+    <link href="http://yoursite.com/2020/04/12/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/"/>
+    <id>http://yoursite.com/2020/04/12/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/</id>
+    <published>2020-04-12T14:02:50.717Z</published>
+    <updated>2020-04-12T14:09:30.782Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="JDK的安装"><a href="#JDK的安装" class="headerlink" title="JDK的安装"></a>JDK的安装</h2><hr><h4 id="1-下载安装包-提取码：nmrf"><a href="#1-下载安装包-提取码：nmrf" class="headerlink" title="1. 下载安装包 提取码：nmrf"></a>1. <a href="https://pan.baidu.com/s/1O2ZJREGXoQ9i9LiUQJAuLQ" target="_blank" rel="noopener">下载安装包</a> 提取码：nmrf</h4><h4 id="2-创建目录存放jvm"><a href="#2-创建目录存放jvm" class="headerlink" title="2. 创建目录存放jvm"></a>2. 创建目录存放<code>jvm</code></h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lib</span><br><span class="line">sudo mkdir jvm</span><br><span class="line">cd ~ #进入hadoop主目录</span><br></pre></td></tr></table></figure><p>   <img src="https://img-blog.csdnimg.cn/20200313022139917.png" alt=""></p><h4 id="3-将下载好的压缩包放在系统中，并在终端cd，我放在了主目录的下载下面"><a href="#3-将下载好的压缩包放在系统中，并在终端cd，我放在了主目录的下载下面" class="headerlink" title="3. 将下载好的压缩包放在系统中，并在终端cd，我放在了主目录的下载下面"></a>3. 将下载好的压缩包放在系统中，并在终端<code>cd</code>，我放在了主目录的下载下面</h4>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 下载</span><br><span class="line">sudo tar -zxvf .&#x2F;jdk-8u162-linux-x64.tar.gz -C &#x2F;usr&#x2F;lib&#x2F;jvm</span><br></pre></td></tr></table></figure><p>   <img src="https://img-blog.csdnimg.cn/20200313022151596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="4-配置环境变量"><a href="#4-配置环境变量" class="headerlink" title="4. 配置环境变量"></a>4. 配置环境变量</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure><h4 id="5-进入了vim编辑器，可见光标在最开始，敲击i进入编辑模式，粘贴shift-ctrl-v以下代码到最开始"><a href="#5-进入了vim编辑器，可见光标在最开始，敲击i进入编辑模式，粘贴shift-ctrl-v以下代码到最开始" class="headerlink" title="5. 进入了vim编辑器，可见光标在最开始，敲击i进入编辑模式，粘贴shift+ctrl+v以下代码到最开始"></a>5. 进入了vim编辑器，可见光标在最开始，敲击<code>i</code>进入编辑模式，粘贴<code>shift+ctrl+v</code>以下代码到最开始</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_162</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure><h4 id="6-esc退出编辑模式，键入：wq保存退出文件"><a href="#6-esc退出编辑模式，键入：wq保存退出文件" class="headerlink" title="6. esc退出编辑模式，键入：wq保存退出文件"></a>6. <code>esc</code>退出编辑模式，键入<code>：wq</code>保存退出文件</h4><h4 id="7-让配置立即生效"><a href="#7-让配置立即生效" class="headerlink" title="7. 让配置立即生效"></a>7. 让配置立即生效</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure><h4 id="8-查看java版本"><a href="#8-查看java版本" class="headerlink" title="8. 查看java版本"></a>8. 查看java版本</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure><p>   <img src="https://img-blog.csdnimg.cn/20200313022908716.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;JDK的安装&quot;&gt;&lt;a href=&quot;#JDK的安装&quot; class=&quot;headerlink&quot; title=&quot;JDK的安装&quot;&gt;&lt;/a&gt;JDK的安装&lt;/h2&gt;&lt;hr&gt;
+&lt;h4 id=&quot;1-下载安装包-提取码：nmrf&quot;&gt;&lt;a href=&quot;#1-下载安装包-提取码：nmrf
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Unbutu系统创建及初始配置</title>
+    <link href="http://yoursite.com/2020/04/12/Unbutu%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2020/04/12/Unbutu%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/</id>
+    <published>2020-04-12T14:02:45.641Z</published>
+    <updated>2020-04-12T14:10:01.171Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><hr><h4 id="1-创建"><a href="#1-创建" class="headerlink" title="1. 创建"></a>1. 创建<img src="https://img-blog.csdnimg.cn/20200313013649977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></h4><h4 id="2-next"><a href="#2-next" class="headerlink" title="2. next   "></a>2. next   <img src="https://img-blog.csdnimg.cn/20200313013735511.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></h4><h4 id="3-稍后"><a href="#3-稍后" class="headerlink" title="3. 稍后"></a>3. 稍后</h4><p>   <img src="https://img-blog.csdnimg.cn/2020031301382273.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="4-Ununtu-64位，不是Ubuntu"><a href="#4-Ununtu-64位，不是Ubuntu" class="headerlink" title="4. Ununtu 64位，不是Ubuntu"></a>4. Ununtu 64位，不是Ubuntu</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313013842942.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="5-更改位置，选择一个至少20G的磁盘"><a href="#5-更改位置，选择一个至少20G的磁盘" class="headerlink" title="5. 更改位置，选择一个至少20G的磁盘"></a>5. 更改位置，选择一个至少20G的磁盘</h4><p><img src="https://img-blog.csdnimg.cn/20200313021557617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="6-next直到完成。"><a href="#6-next直到完成。" class="headerlink" title="6. next直到完成。"></a>6. next直到完成。</h4><h1 id="系统初始化设置"><a href="#系统初始化设置" class="headerlink" title="系统初始化设置"></a>系统初始化设置</h1><hr><h4 id="1-选择中文，安装Ubuntu"><a href="#1-选择中文，安装Ubuntu" class="headerlink" title="1. 选择中文，安装Ubuntu"></a>1. 选择中文，安装Ubuntu</h4><h4 id="2-选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除"><a href="#2-选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除" class="headerlink" title="2. 选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除"></a>2. 选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除</h4><p>   <img src="https://img-blog.csdnimg.cn/2020031301424793.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="3-然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。"><a href="#3-然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。" class="headerlink" title="3. 然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。"></a>3. 然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。</h4><h4 id="4-安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了"><a href="#4-安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了" class="headerlink" title="4. 安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了"></a>4. 安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了</h4><h4 id="5-第一次进来的时候，分辨率是不会自适应的。需要安装open-vm-tools-desktop。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装"><a href="#5-第一次进来的时候，分辨率是不会自适应的。需要安装open-vm-tools-desktop。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装" class="headerlink" title="5. 第一次进来的时候，分辨率是不会自适应的。需要安装open-vm-tools-desktop。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装"></a>5. 第一次进来的时候，分辨率是不会自适应的。需要安装<code>open-vm-tools-desktop</code>。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313014858282.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="6-更新apt，用来安装软件。"><a href="#6-更新apt，用来安装软件。" class="headerlink" title="6. 更新apt，用来安装软件。"></a>6. 更新apt，用来安装软件。</h4><p>   <code>sudo apt-get update</code></p><p>   <img src="https://img-blog.csdnimg.cn/20200313015145739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><p>   出现这个说明正常安装，如果不能正常安装，<a href="https://blog.csdn.net/DanBo_C/article/details/104832786" target="_blank" rel="noopener">更改软件源</a>。然后重新更新即可，如果是无网络状态，<a href="https://blog.csdn.net/DanBo_C/article/details/104832837" target="_blank" rel="noopener">解决</a></p><h4 id="7-安装编辑器Vimsudo-apt-get-install-vim，Ubuntu18-0-4自带了gedit。"><a href="#7-安装编辑器Vimsudo-apt-get-install-vim，Ubuntu18-0-4自带了gedit。" class="headerlink" title="7. 安装编辑器Vimsudo apt-get install vim，Ubuntu18.0.4自带了gedit。"></a>7. 安装编辑器Vim<code>sudo apt-get install vim</code>，Ubuntu18.0.4自带了gedit。</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313020404451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="8-Ubuntu-已安装SSH-client，还需要安装-SSH-server"><a href="#8-Ubuntu-已安装SSH-client，还需要安装-SSH-server" class="headerlink" title="8. Ubuntu 已安装SSH client，还需要安装 SSH server"></a>8. Ubuntu 已安装SSH client，还需要安装 SSH server</h4><p>   <code>sudo apt-get install openssh-server</code></p><p>   <img src="https://img-blog.csdnimg.cn/20200313020633763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="9-登录本机，首次登陆会有提示信息"><a href="#9-登录本机，首次登陆会有提示信息" class="headerlink" title="9. 登录本机，首次登陆会有提示信息"></a>9. 登录本机，首次登陆会有提示信息</h4><p>   <code>ssh localhost</code></p><p>   <img src="https://img-blog.csdnimg.cn/20200313020704786.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="10-退出"><a href="#10-退出" class="headerlink" title="10. 退出"></a>10. 退出</h4><pre><code>`exit`</code></pre><h4 id="11-创建-ssh目录"><a href="#11-创建-ssh目录" class="headerlink" title="11. 创建.ssh目录"></a>11. 创建<code>.ssh</code>目录</h4><pre><code>`cd ~/.ssh/`</code></pre><h4 id="12-生成密钥"><a href="#12-生成密钥" class="headerlink" title="12. 生成密钥"></a>12. 生成密钥</h4><pre><code>`ssh-keygen -t rsa` 一路回车</code></pre><p>  <img src="https://img-blog.csdnimg.cn/20200313020750189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h4 id="13-配置SSH无密码登录"><a href="#13-配置SSH无密码登录" class="headerlink" title="13. 配置SSH无密码登录"></a>13. 配置SSH无密码登录</h4><pre><code>`cat ./id_rsa.pub &gt;&gt; ./authorized_keys`加入授权，重新登录验证，不再需要输入密码</code></pre><p>   <img src="https://img-blog.csdnimg.cn/20200313020828236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;创建&quot;&gt;&lt;a href=&quot;#创建&quot; class=&quot;headerlink&quot; title=&quot;创建&quot;&gt;&lt;/a&gt;创建&lt;/h1&gt;&lt;hr&gt;
+&lt;h4 id=&quot;1-创建&quot;&gt;&lt;a href=&quot;#1-创建&quot; class=&quot;headerlink&quot; title=&quot;1. 创建&quot;&gt;&lt;/a&gt;1
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>大数据学习记录（更新中）</title>
+    <link href="http://yoursite.com/2020/04/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/"/>
+    <id>http://yoursite.com/2020/04/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/</id>
+    <published>2020-04-12T14:01:19.538Z</published>
+    <updated>2020-04-12T14:08:39.591Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><a href="https://blog.csdn.net/DanBo_C/article/details/104832920" target="_blank" rel="noopener">大数据基本概念</a></li><li><a href="https://blog.csdn.net/DanBo_C/article/details/104832911" target="_blank" rel="noopener">搭建环境</a></li><li><a href="https://blog.csdn.net/DanBo_C/article/details/104832936" target="_blank" rel="noopener">处理架构</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/DanBo_C/article/details/104832920&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;大数据基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>处理架构知识点</title>
     <link href="http://yoursite.com/2020/04/12/%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     <id>http://yoursite.com/2020/04/12/%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
     <published>2020-04-12T13:49:37.457Z</published>
-    <updated>2020-04-12T13:56:43.097Z</updated>
+    <updated>2020-04-12T14:08:54.121Z</updated>
     
     <content type="html"><![CDATA[<ol><li>Hadoop的核心是HDFS和MapReduce</li><li>Hadoop2.0增加了NameNode HA和Wire-compatibility两个重大特性</li><li>Hadoop MapReduce是针对谷歌MapReduce的开源实现，通常用于大规模数据集的并行计算</li><li>hadoop的特性高可靠性、支持多种编程语言、高容错性</li><li>HDFS：分布式文件系统，是Hadoop项目的两大核心之一，是谷歌GFS的开源实现</li><li>HBase：提供高可靠性、高性能、分布式的列式数据库，是谷歌BigTable的开源实现</li><li>Zookeeper：针对谷歌Chubby的一个开源实现，是高效可靠的协同工作系统</li><li>Hive：一个基于Hadoop的数据仓库工具，用于对Hadoop文件中的数据集进行数据整理、特殊查询和分析存储</li><li>Hadoop生态系统功能组件：核心的HDFS和MapReduce以外，还包括ZoopKer、HBase、Hive、Pig、Mahout、Sqoop、Flume、Ambari等功能组件</li><li>操作HDFS文件的命令hdfs dfs</li></ol>]]></content>
     
@@ -378,98 +470,6 @@
       
       
         &lt;h2 id=&quot;Java程序设计期中复习总结&quot;&gt;&lt;a href=&quot;#Java程序设计期中复习总结&quot; class=&quot;headerlink&quot; title=&quot;Java程序设计期中复习总结&quot;&gt;&lt;/a&gt;Java程序设计期中复习总结&lt;/h2&gt;&lt;h3 id=&quot;第一章-概述&quot;&gt;&lt;a href=&quot;
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>网络流---算法理解</title>
-    <link href="http://yoursite.com/2020/04/12/%E7%BD%91%E7%BB%9C%E6%B5%81---%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/"/>
-    <id>http://yoursite.com/2020/04/12/%E7%BD%91%E7%BB%9C%E6%B5%81---%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/</id>
-    <published>2020-04-12T13:27:21.853Z</published>
-    <updated>2020-04-12T13:48:12.926Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="最大流"><a href="#最大流" class="headerlink" title="最大流"></a>最大流</h1><p>交通网络中有人流、车流、货流，供水网络中有水流，金融网络中有金流。这些都涉及到了最大流问题</p><p>而最大流存在于网络流中</p><h5 id="那么问题来了，什么是网络流？"><a href="#那么问题来了，什么是网络流？" class="headerlink" title="那么问题来了，什么是网络流？"></a>那么问题来了，什么是网络流？</h5><hr><ul><li>首先，你得有一个有向图。即网络</li><li>还得有两个特殊点：起点终点。即源汇</li><li>每条边有一个权值。即容量</li></ul><p>有了这些，就构成了一个基础的网络流</p><p>有点绕。。。换个思路</p><blockquote><p>自来水厂是源，家是汇</p><p>自来水厂和家之间有很多的管道用来输送水。由于地形和地质的影响，管道规格有多种。通过的水容量也各不相同</p></blockquote><h5 id="清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？"><a href="#清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？" class="headerlink" title="清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？"></a>清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？</h5><hr><ul><li>从源点到汇点的最大可行性流量即为最大流</li></ul><blockquote><p>这个问题就是说，自来水厂供水，那么在家能收到的最大的水流量是多少？</p><p>自来水厂开始供水之前，水流量必定是0</p><p>自开水厂开闸供水，水从管道流向家。家开始收到水</p><p>自开水厂再开一个闸门供水，水从管道流向家。家里的水流量增加</p><p>。</p><p>。</p><p>打开若干闸门，水流量持续增加</p><p>。</p><p>。</p><p>自开水厂再开一个闸门供水，水从管道流向家。家里的水流量没有发生改变<br>此时，便达到了从自来水厂到家这个网络的最大可行性流</p></blockquote><p><img src="https://img-blog.csdnimg.cn/20190518172827446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><h5 id="网络流具有三个性质"><a href="#网络流具有三个性质" class="headerlink" title="网络流具有三个性质"></a>网络流具有三个性质</h5><hr><ol><li><p>容量限制：实际流量 &lt; 每条边的容量</p><blockquote><p>自来水管中的水必定是小于它的最大承载容量。否则水管该爆了。</p></blockquote></li><li><p>流量守恒：每一个点（不包含源汇点）到相邻节点的流量之和为0.</p><blockquote><p>每一个中间点必定是流进来多少水，流出去多少水。</p><p>不可能没有流进来就流出去，也不可能流进来后就不出去。</p><p>至于为什么是中间点，因为我问不用知道自来水厂的水是来自哪里的</p></blockquote></li><li><p>反对称（斜对称）性：u -&gt; v 的流量 == -（v -&gt; u） 的流量</p><blockquote><p>在坐标系中，a 到 b 的位移是 x ，则 b 到 a 的位移是 -x</p><p>同样的 u -&gt; v 的流量为 f ，那么 v -&gt; u 必定是 -f ;</p></blockquote></li></ol><h5 id="网络流中的名词解释"><a href="#网络流中的名词解释" class="headerlink" title="网络流中的名词解释"></a>网络流中的名词解释</h5><hr><ul><li>网络：有源汇点的有向图</li><li>容量网络：带有容量值（权值）的有向图（不变）</li><li>流量网络：带有流量值（权值）的有向图（改变），最终形态就是最大网络流</li><li>残留网络: 带有残余流量值（权值）的有向图（改变），残余流量值：容量-流量的剩余量值。就像是，自来水管中，水流量没有达到管道容量时，中空气的体积容量（空的部分）。</li></ul><p><img src="https://img-blog.csdnimg.cn/20190518172846719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p><p><strong>显而易见：残留网络 = 容量网络 - 流量网络</strong></p><ul><li><p>割集：割一些边，使得以源点和汇点为两边，分为两个点集。（非连通图）</p></li><li><p>割：断开一些边，最小割即为断开权值最小的边</p></li></ul><blockquote><p>割集类似于，有小偷把自来水厂和家之间的管道偷走了一些，使得水不管从哪个管道走，都不能到家。</p><p>割则取决于小偷要偷哪个。最小割便是偷走最小，最轻的管道，最省力，最容易达到目的。</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;最大流&quot;&gt;&lt;a href=&quot;#最大流&quot; class=&quot;headerlink&quot; title=&quot;最大流&quot;&gt;&lt;/a&gt;最大流&lt;/h1&gt;&lt;p&gt;交通网络中有人流、车流、货流，供水网络中有水流，金融网络中有金流。这些都涉及到了最大流问题&lt;/p&gt;
-&lt;p&gt;而最大流存在于网络流中&lt;/
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>最大流问题------Ford-Fulkerson算法（增广路径）</title>
-    <link href="http://yoursite.com/2020/04/12/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/"/>
-    <id>http://yoursite.com/2020/04/12/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/</id>
-    <published>2020-04-12T13:27:17.189Z</published>
-    <updated>2020-04-12T13:47:51.834Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Ford-Fulkerson算法（增广路算法）"><a href="#Ford-Fulkerson算法（增广路算法）" class="headerlink" title="Ford-Fulkerson算法（增广路算法）"></a>Ford-Fulkerson算法（增广路算法）</h2><p>增广路定理：设容量网络 G(V, E) 的一个可行流为 f, f 为最大流的充要条件是在容量网络中不存在增广路。</p><blockquote><p>从任何的一个可行流开始，寻找增广路对网络进行增广，直到网络中不存在增广路径。</p></blockquote><h5 id="怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？"><a href="#怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？" class="headerlink" title="怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？"></a>怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？</h5><hr><p>最大流最小割定理：网络的最大流等于最小割。</p><p>证明：</p><ol><li><p><strong>任意一个流 &lt;= 任意一个割</strong></p><blockquote><p>自来水厂通水，水流从自来水厂到家，形成一个流。</p><p>当小偷偷走其中的几个管道，相当于形成一个割。</p><p>这时，几个管道的缺失部分都会有水流出来，流出的水的和 == 原来的流。</p><p>几个管道的容量加起来就是割</p><p>那么流必定小于割<br><img src="https://img-blog.csdnimg.cn/2019051905380363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt=""></p></blockquote></li><li><p><strong>当一个流 == 一个割 ，就构造出和最大流的割</strong></p><blockquote><p>达到最大流时，必定没有增广路，即残留网络中源汇点之间没有通路。</p><p>（ 源点能到的点 ） -&gt; （ 源点到不了的点 ） 的边必定会满流，否则就能增广。</p><p>这些中间的满流边之和就是最大流</p><p>把这些满流边作为割。</p></blockquote></li><li><p><strong>最大流等于最小割</strong></p><blockquote><p>假设残留网络Gf不存在增广路，所以在残留网络中不存在从源点到汇点的路。</p><p>S集合 = 残留网络中源点能够到达的点。</p><p>T集合 = 残留网络中源点不能够到达的点</p><p>(S,T)构成割(S,T)</p><p>f(u,v)=c(u,v)。即满流边。</p><p>f(u,v)&lt;c(u,v)时，源汇点之间有连通路，与v属于T矛盾。</p></blockquote></li></ol><p><strong>所以当找不到增广路时，此时f一定是最大流。</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Ford-Fulkerson算法（增广路算法）&quot;&gt;&lt;a href=&quot;#Ford-Fulkerson算法（增广路算法）&quot; class=&quot;headerlink&quot; title=&quot;Ford-Fulkerson算法（增广路算法）&quot;&gt;&lt;/a&gt;Ford-Fulkerson算法（
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>GIS-Experiment3</title>
-    <link href="http://yoursite.com/2020/04/12/GIS-Experiment3/"/>
-    <id>http://yoursite.com/2020/04/12/GIS-Experiment3/</id>
-    <published>2020-04-12T13:27:11.900Z</published>
-    <updated>2020-04-12T13:48:55.075Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="ArcGIS-操作3"><a href="#ArcGIS-操作3" class="headerlink" title="ArcGIS 操作3"></a>ArcGIS 操作3</h2><h4 id="第1步-裁剪要素"><a href="#第1步-裁剪要素" class="headerlink" title="第1步 裁剪要素"></a>第1步 裁剪要素</h4><p>地理处理 —&gt; ArcToolbox —&gt; 分析工具 —&gt; 提取分析 —&gt; 裁剪</p><h4 id="第2步-拼接图层"><a href="#第2步-拼接图层" class="headerlink" title="第2步 拼接图层"></a>第2步 拼接图层</h4><p>  地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 常规 —&gt; 追加</p><h4 id="第3步-要素融合"><a href="#第3步-要素融合" class="headerlink" title="第3步 要素融合"></a>第3步 要素融合</h4><p> 地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 制图综合 —&gt; 融合</p><h4 id="第4步-图层合并"><a href="#第4步-图层合并" class="headerlink" title="第4步 图层合并"></a>第4步 图层合并</h4><p>地理处理 —&gt; ArcToolbox —&gt; 分析工具 —&gt; 叠加分析 —&gt; 联合</p><h4 id="第5步-图层相交"><a href="#第5步-图层相交" class="headerlink" title="第5步 图层相交"></a>第5步 图层相交</h4><p>地理处理 —&gt; ArcToolbox —&gt; 分析工具 —&gt; 叠加分析 —&gt; 相交</p><h4 id="第6步-定义投影"><a href="#第6步-定义投影" class="headerlink" title="第6步 定义投影"></a>第6步 定义投影</h4><p>地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 投影和变换 —&gt; 定义投影</p><h4 id="第7步-投影变换"><a href="#第7步-投影变换" class="headerlink" title="第7步 投影变换"></a>第7步 投影变换</h4><p>地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 投影和变换 —&gt; 要素 —&gt; 投影</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;ArcGIS-操作3&quot;&gt;&lt;a href=&quot;#ArcGIS-操作3&quot; class=&quot;headerlink&quot; title=&quot;ArcGIS 操作3&quot;&gt;&lt;/a&gt;ArcGIS 操作3&lt;/h2&gt;&lt;h4 id=&quot;第1步-裁剪要素&quot;&gt;&lt;a href=&quot;#第1步-裁剪要素&quot; cla
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>GeoServer发布WMS服务</title>
-    <link href="http://yoursite.com/2020/04/12/Openlayer%20+%20GeoServer%20%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%ADing%EF%BC%89/"/>
-    <id>http://yoursite.com/2020/04/12/Openlayer%20+%20GeoServer%20%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%ADing%EF%BC%89/</id>
-    <published>2020-04-12T13:19:43.937Z</published>
-    <updated>2020-04-12T13:22:10.995Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h5><hr><ol><li>GeoServer发布服务<ul><li><a href="https://enofeng.github.io/2020/04/12/GeoServer%E5%8F%91%E5%B8%83WMS%E6%9C%8D%E5%8A%A1/" target="_blank" rel="noopener">WMS和WTMS</a></li></ul></li><li>Openlayer加载<ul><li><a href="https://enofeng.github.io/2020/04/12/Openlayer%E5%8A%A0%E8%BD%BDGeoServer%E5%8F%91%E5%B8%83%E7%9A%84WMS/" target="_blank" rel="noopener">加载WMS</a></li><li><a href="https://enofeng.github.io/2020/04/12/Openlayer%E5%8A%A0%E8%BD%BDGeoServer%E5%8F%91%E5%B8%83%E7%9A%84WTMS/" target="_blank" rel="noopener">加载WTMS</a></li></ul></li></ol><blockquote><p>3.17更</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h5 id=&quot;学习链接&quot;&gt;&lt;a href=&quot;#学习链接&quot; class=&quot;headerlink&quot; title=&quot;学习链接&quot;&gt;&lt;/a&gt;学习链接&lt;/h5&gt;&lt;hr&gt;
-&lt;ol&gt;
-&lt;li&gt;GeoServer发布服务&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://enofeng.gith
       
     
     </summary>
