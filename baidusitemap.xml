@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://enofeng.github.io/2020/04/12/Openlayer%20+%20GeoServer%20%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%ADing%EF%BC%89/</loc>
+    <lastmod>2020-04-21</lastmod>
+  </url>  <url>
     <loc>https://enofeng.github.io/2020/04/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/</loc>
     <lastmod>2020-04-12</lastmod>
   </url>  <url>
@@ -68,9 +71,6 @@
     <lastmod>2020-04-12</lastmod>
   </url>  <url>
     <loc>https://enofeng.github.io/2020/04/12/GIS%E5%A4%8D%E4%B9%A0%E3%80%90I%E3%80%91/</loc>
-    <lastmod>2020-04-12</lastmod>
-  </url>  <url>
-    <loc>https://enofeng.github.io/2020/04/12/Openlayer%20+%20GeoServer%20%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%ADing%EF%BC%89/</loc>
     <lastmod>2020-04-12</lastmod>
   </url>  <url>
     <loc>https://enofeng.github.io/2020/04/12/GeoServer%E5%8F%91%E5%B8%83WMS%E6%9C%8D%E5%8A%A1/</loc>
