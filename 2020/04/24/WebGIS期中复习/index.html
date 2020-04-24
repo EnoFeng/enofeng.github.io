@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Learn and Life"><meta name="keywords" content="Code, 代码, 程序, GIS, js, 前端, vue, node"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><title>WebGIS期中复习 | Programmer Home</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">WebGIS期中复习</h1><a id="logo" href="/.">Programmer Home</a><p class="description">Learn and Life</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">WebGIS期中复习</h1><div class="post-meta"><a href="/2020/04/24/WebGIS%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/#comments" class="comment-count"></a><p><span class="date">Apr 24, 2020</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h4 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h4><ol>
+<li>施乐公司开发的一个基于Web的地图浏览器，标志着万维网地理信息系统的产生</li>
+<li>WebGIS是使用了Web技术的各种地理信息系统</li>
+<li>WebGIS需要通过Web技术来实现</li>
+<li>WebGIS是一种分布式的地理信息系统</li>
+<li>WebGIS至少需要一个Web应用服务器和一个客户端</li>
+<li>WebGIS开源解决方案：Leaflet、Geoserver服务器、Openlayers平台</li>
+<li>GIS功能：<ul>
+<li>地图可视化与制图</li>
+<li>发现地理事物的隐含关系</li>
+<li>探寻事物的空间分布规律演变趋势</li>
+<li>采集、存储及共享地理数据</li>
+</ul>
+</li>
+<li>WebGIS的优点有：<ul>
+<li>传播的广远性，应用广泛</li>
+<li>较好的跨平台</li>
+<li>费用低廉</li>
+<li>分布式服务体系</li>
+<li>基于Internet标准</li>
+</ul>
+</li>
+<li>WebGIS的功能：<ul>
+<li>空间数据发布</li>
+<li>空间查询检索和联机处理</li>
+<li>空间数据可视化</li>
+<li>空间模型分析服务</li>
+<li>Web资源共享</li>
+</ul>
+</li>
+<li>WebGIS开发平台：<ul>
+<li>商业平台</li>
+<li>开源平台</li>
+<li>高德</li>
+<li>百度地图平台</li>
+<li>基于WebGL或其他图形语言的底层开发</li>
+</ul>
+</li>
+</ol>
+<h3 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h3><ol>
+<li><p>TOMCAT默认端口号为8080</p>
+</li>
+<li><p>arcgis server默认端口号为6080</p>
+</li>
+<li><p>HTTP协议默认端口号是80</p>
+</li>
+<li><p>HTTPS默认端口号是443</p>
+</li>
+<li><p>五种状态码：</p>
+<ul>
+<li>1xx：信息提示，表示请求已被成功接收，继续处理</li>
+<li>2xx：请求被成功提交。</li>
+<li>3xx：客户端被重定向到其他资源。</li>
+<li>4xx：客户端错误状态码，格式错误或者不存在资源。</li>
+<li>5xx：描述服务器内部错误。</li>
+</ul>
+</li>
+<li><p>常见的状态码描述如下：</p>
+<ul>
+<li>200：客户端请求成功，是最常见的状态。</li>
+<li>302：重定向。</li>
+<li>404：请求资源不存在，是最常见的状态。</li>
+<li>400：客户端请求有语法错误，不能被服务器所理解。</li>
+<li>401：请求未经授权。</li>
+<li>403：服务器收到请求，但是拒绝提供服务。</li>
+<li>500：服务器内部错误，是最常见的状态。</li>
+</ul>
+</li>
+<li><p>Web服务器有：Apache、Tomcat、IIS</p>
+</li>
+<li><p>浏览器前端编程技术：Javascript、Flex、Siverlight</p>
+</li>
+<li><p>WebGIS的基本架构包括：</p>
+<ul>
+<li>客户端</li>
+<li>Web服务器</li>
+<li>GIS服务器</li>
+<li>空间数据库服务器</li>
+</ul>
+</li>
+<li><p>一个Web应用的工作流程是使用Web客户端在地址栏上输入<strong>URL</strong>地址，Web服务器收到请求后，搜索服务器上存储的<strong>文件</strong>或<strong>脚本</strong>，并将执行结果返回给<strong>Web客户端</strong>，收到相应结果，并把返回的结果渲染和显示出来。</p>
+</li>
+<li><p>HTTP(HyperText Transfer Protocol)协议是一种<strong>超文本传输协议</strong>，定义了一套进行<strong>超文本传输协议</strong>请求和应答时所遵循的协议规范，它允许将HTML（超文本标记语言）文档从Web服务器传送到Web浏览器。</p>
+</li>
+<li><p>以下HTTP请求消息，可以得到该请求是<strong>POST</strong>请求(方法)，请求的服务器文件是该域名根目录下的<strong>test.php</strong>文件，第三部分说明使用的是<strong>HTTP1.1</strong>协议版本，请求主机地址是<strong><a href="http://www.test.com" target="_blank" rel="noopener">www.test.com</a></strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;test.php HTTP&#x2F;1.1               &#x2F;&#x2F;请求行</span><br><span class="line"></span><br><span class="line">HOST：www.test.com                    &#x2F;&#x2F;请求头</span><br><span class="line"></span><br><span class="line">User-Agent：Mozilla&#x2F;5.0 （windows NT 6.1；rv：15.0）Gecko&#x2F;20100101 Firefox&#x2F;15.0        &#x2F;&#x2F;空白行，代表请求头结束</span><br><span class="line"></span><br><span class="line">Username&#x3D;admin&amp;password&#x3D;admin       &#x2F;&#x2F;请求正文</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="13">
+<li><p>XML转换json</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"COOKING"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Everyday Italian<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>Giada De Laurentiis<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">price</span>&gt;</span>30.00<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"CHILDREN"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"WEB"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Learning XML<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>Erik T. Ray<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">year</span>&gt;</span>2003<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">price</span>&gt;</span>39.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>答案：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"bookstore"</span>: &#123;</span><br><span class="line">    <span class="attr">"book"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"-category"</span>: <span class="string">"COOKING"</span>,</span><br><span class="line">        <span class="attr">"title"</span>: <span class="string">"Everyday Italian"</span>,</span><br><span class="line">        <span class="attr">"author"</span>: <span class="string">"Giada De Laurentiis"</span>,</span><br><span class="line">        <span class="attr">"year"</span>: <span class="string">"2005"</span>,</span><br><span class="line">        <span class="attr">"price"</span>: <span class="string">"30.00"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"-category"</span>: <span class="string">"CHILDREN"</span>,</span><br><span class="line">        <span class="attr">"title"</span>: <span class="string">"Harry Potter"</span>,</span><br><span class="line">        <span class="attr">"author"</span>: <span class="string">"J K. Rowling"</span>,</span><br><span class="line">        <span class="attr">"year"</span>: <span class="string">"2005"</span>,</span><br><span class="line">        <span class="attr">"price"</span>: <span class="string">"29.99"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"-category"</span>: <span class="string">"WEB"</span>,</span><br><span class="line">        <span class="attr">"title"</span>: <span class="string">"Learning XML"</span>,</span><br><span class="line">        <span class="attr">"author"</span>: <span class="string">"Erik T. Ray"</span>,</span><br><span class="line">        <span class="attr">"year"</span>: <span class="string">"2003"</span>,</span><br><span class="line">        <span class="attr">"price"</span>: <span class="string">"39.95"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h4><ol>
+<li>服务器端WebGIS实现方式的优点：<ul>
+<li>瘦客户端，不需要安装插件</li>
+<li>可以执行复杂的空间分析与数据处理</li>
+<li>CGI模式具有跨平台能力</li>
+</ul>
+</li>
+<li>服务器端WebGIS实现方式的缺点：服务器负担重</li>
+<li>客户端WebGIS实现方式的优点：<ul>
+<li>服务器端压力轻</li>
+<li>客户端地图操作响应速度快</li>
+<li>服务器和网络传输负担轻</li>
+</ul>
+</li>
+<li>在栅格切片中第（level i）中的一张切片到第（level i+1）级中变成<strong>4</strong>张</li>
+<li>ArcGIS的矢量瓦片格式是<strong>PBF</strong>，它是一种基于协议缓冲（protocol Buffer）技术的紧凑的二进制格式。</li>
+<li>WebGIS系统的组成：客户端、通信协议、服务器</li>
+<li>服务器端WebGIS实现方式：CGI、Server API</li>
+<li>客户端WebGIS实现方式：GIS plugin、Java Applet、ActiveX</li>
+<li>矢量瓦片和栅格瓦片比优势有：<ul>
+<li>矢量瓦片切片速度快，栅格瓦片切片速度慢</li>
+<li>矢量瓦片数据量小，栅格瓦片数据量大</li>
+<li>矢量瓦片在客户端绘制地图，渲染速度快；栅格瓦片在服务器端制作地图，前端渲染速度不及矢量切片</li>
+<li>矢量瓦片可以在前端修改地图样式，栅格瓦片的地图样式不能修改。</li>
+</ul>
+</li>
+<li>矢量切片与栅格切片原理一样，只是切割的数据内容不一样</li>
+<li>栅格切片的地图瓦片是预先在服务器端生成的。</li>
+<li>矢量切片主要的三种格式是GeoJson、TopoJson、Mapbox Vector Tile（MVT）</li>
+</ol>
+</div><div class="post-copyright"><blockquote><p>原文作者: Eno·feng</p><p>原文链接: <a href="https://enofeng.github.io/2020/04/24/WebGIS期中复习/">https://enofeng.github.io/2020/04/24/WebGIS期中复习/</a></p><p>版权声明: 转载请注明出处(必须保留原文作者署名原文链接)</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/04/12/Hadoop%203.2.1%E7%9A%84%E5%AE%89%E8%A3%85%E3%80%81%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%8F%8Aweb%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E8%B8%A9%E5%9D%91/" class="next">Hadoop 3.2.1的安装、伪分布式部署及web无法访问踩坑</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一章"><span class="toc-text">第一章</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二章"><span class="toc-text">第二章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第三章"><span class="toc-text">第三章</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/24/WebGIS%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">WebGIS期中复习</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Hadoop%203.2.1%E7%9A%84%E5%AE%89%E8%A3%85%E3%80%81%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%8F%8Aweb%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E8%B8%A9%E5%9D%91/">Hadoop 3.2.1的安装、伪分布式部署及web无法访问踩坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Unbutu%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/">Unbutu系统创建及初始配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/">大数据学习记录（更新中）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E7%82%B9/">处理架构知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/Hadoop%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E7%AF%87/">Hadoop入门——环境篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%BF%B0%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/">大数据概述概念总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/JSP%E6%80%BB%E7%BB%93/">JSP总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9C%B0%E5%9B%BE%E5%88%B6%E5%9B%BE%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">计算机地图制图 知识总结</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">78</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://blog.csdn.net/DanBo_C" title="CSDN" target="_blank">CSDN</a><ul></ul><a href="https://github.com/EnoFeng/enofeng.github.io" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://danbo3110.github.io/" title="Old Blog" target="_blank">Old Blog</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Eno·feng.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
