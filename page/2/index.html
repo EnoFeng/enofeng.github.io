@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Learn and Life">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Programmer Home">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="Learn and Life">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-小部件---绑定小部件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%B0%8F%E9%83%A8%E4%BB%B6---%E7%BB%91%E5%AE%9A%E5%B0%8F%E9%83%A8%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.053Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E5%B0%8F%E9%83%A8%E4%BB%B6---%E7%BB%91%E5%AE%9A%E5%B0%8F%E9%83%A8%E4%BB%B6/">绑定小部件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>鼠标滚轮的放大缩小是地图的加载就有的操作方法，绑定的是拉框放大，缩小，全图等方法。</p>
+<h5 id="先看看效果图（拉框放大为例）"><a href="#先看看效果图（拉框放大为例）" class="headerlink" title="先看看效果图（拉框放大为例）"></a>先看看效果图（拉框放大为例）</h5><h6 id="放大前："><a href="#放大前：" class="headerlink" title="放大前："></a>放大前：</h6><p><img src="https://img-blog.csdnimg.cn/20190807000850496.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h6 id="拉框放大："><a href="#拉框放大：" class="headerlink" title="拉框放大："></a>拉框放大：</h6><p><img src="https://img-blog.csdnimg.cn/20190807000940338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h6 id="放大后："><a href="#放大后：" class="headerlink" title="放大后："></a>放大后：</h6><p><img src="https://img-blog.csdnimg.cn/20190807001002224.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="新添加模块：”dojo-query”-“esri-toolbars-navigation”"><a href="#新添加模块：”dojo-query”-“esri-toolbars-navigation”" class="headerlink" title="新添加模块：”dojo/query”   “esri/toolbars/navigation”"></a>新添加模块：”dojo/query”   “esri/toolbars/navigation”</h5><ol>
+<li><code>&quot;dojo/query&quot;</code>绑定点击事件，<strong>注意：该点击事件凡是操作地图的要用query不能用on绑定</strong><br> 例如：<code>query(&quot;button&quot;).on(&quot;click&quot;,function(event)&#123;&#125;)</code>✔<br> <code>on(dom.byId(&quot;button&quot;),&quot;click&quot;,function(event)&#123;&#125;)</code>❌</li>
+<li><code>&quot;esri/toolbars/navigation&quot;</code>实现对地图的操作<br>首先创建地图操作对象，给but等绑定该对象的方法。例如放大、缩小等。</li>
+</ol>
+<h5 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h5><ol>
+<li><p>加载地图</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;mapDiv&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer</span><br><span class="line">			(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer&quot;</span>);</span><br><span class="line">map.addLayer(layer);</span><br></pre></td></tr></table></figure></li>
+<li><p>创建地图操作对象</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> navToolbar = <span class="keyword">new</span> Navigation(map);</span><br></pre></td></tr></table></figure></li>
+<li><p>为btn绑定事件</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">query(<span class="string">&quot;button&quot;</span>).on(<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br></pre></td></tr></table></figure></li>
+<li><p>获取btn的识别信息</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value=<span class="built_in">this</span>.innerHTML;</span><br></pre></td></tr></table></figure></li>
+<li><p>switch选择合适的操作方法</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(value)&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&quot;平移&quot;</span>:</span><br><span class="line">		navToolbar.activate(Navigation.PAN);</span><br><span class="line">		<span class="keyword">break</span>;							</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&quot;拉框缩小&quot;</span>:</span><br><span class="line">		navToolbar.activate(Navigation.ZOOM_OUT);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&quot;拉框放大&quot;</span>:</span><br><span class="line">		navToolbar.activate(Navigation.ZOOM_IN);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="贴代码："><a href="#贴代码：" class="headerlink" title="贴代码："></a>贴代码：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.MapClass</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/query&quot;</span>,<span class="string">&quot;esri/toolbars/navigation&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;dojo/domReady!&quot;</span>],</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">Map</span>,ArcGISDynamicMapServiceLayer,query,Navigation</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;mapDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer</span></span><br><span class="line"><span class="javascript">                (<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">                map.addLayer(layer);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//创建地图操作对象</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> navToolbar = <span class="keyword">new</span> Navigation(map);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//为btn绑定事件</span></span></span><br><span class="line"><span class="javascript">				query(<span class="string">&quot;button&quot;</span>).on(<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//获得btn的识别信息</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> value=<span class="built_in">this</span>.innerHTML;</span></span><br><span class="line"><span class="javascript">					<span class="keyword">switch</span>(value)&#123;</span></span><br><span class="line"><span class="javascript">						<span class="keyword">case</span> <span class="string">&quot;平移&quot;</span>:</span></span><br><span class="line"><span class="javascript">							navToolbar.activate(Navigation.PAN);</span></span><br><span class="line"><span class="javascript">							<span class="keyword">break</span>;							</span></span><br><span class="line"><span class="javascript">						<span class="keyword">case</span> <span class="string">&quot;拉框缩小&quot;</span>:</span></span><br><span class="line"><span class="javascript">							navToolbar.activate(Navigation.ZOOM_OUT);</span></span><br><span class="line"><span class="javascript">							<span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">						<span class="keyword">case</span> <span class="string">&quot;拉框放大&quot;</span>:</span></span><br><span class="line"><span class="javascript">							navToolbar.activate(Navigation.ZOOM_IN);</span></span><br><span class="line"><span class="javascript">							<span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">						<span class="keyword">case</span> <span class="string">&quot;全图&quot;</span>:</span></span><br><span class="line"><span class="javascript">							navToolbar.zoomToFullExtent();</span></span><br><span class="line"><span class="javascript">							<span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">						<span class="keyword">case</span> <span class="string">&quot;漫游&quot;</span>:</span></span><br><span class="line"><span class="javascript">							<span class="comment">//默认是漫游操作</span></span></span><br><span class="line"><span class="javascript">							navToolbar.deactivate();</span></span><br><span class="line"><span class="javascript">							<span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">					&#125;</span></span><br><span class="line"><span class="javascript">				&#125;)</span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">            &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">&quot;tundra&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>拉框放大<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>拉框缩小<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>平移<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>全图<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span>&gt;</span>漫游<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h5 id="结果图"><a href="#结果图" class="headerlink" title="结果图"></a>结果图</h5><p><img src="https://img-blog.csdnimg.cn/20190809192436288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%B0%8F%E9%83%A8%E4%BB%B6---%E7%BB%91%E5%AE%9A%E5%B0%8F%E9%83%A8%E4%BB%B6/" data-id="ckreqntjr001ur07kfnlx8hlo" data-title="绑定小部件" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-唯一值渲染、简单渲染、分级渲染、热力图渲染（完整源码实现）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93%E3%80%81%E7%AE%80%E5%8D%95%E6%B8%B2%E6%9F%93%E3%80%81%E5%88%86%E7%BA%A7%E6%B8%B2%E6%9F%93%E3%80%81%E7%83%AD%E5%8A%9B%E5%9B%BE%E6%B8%B2%E6%9F%93%EF%BC%88%E5%AE%8C%E6%95%B4%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.051Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://img-blog.csdnimg.cn/20200501230409671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>系统中进行了简单封装和提示信息，不需要可以直接删掉，单独成块，不会影响功能。</p>
+</blockquote>
+<h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;home&quot;&gt;</span><br><span class="line">    &lt;!--面包屑导航区域--&gt;</span><br><span class="line">    &lt;el-breadcrumb separator-class=&quot;el-icon-arrow-right&quot;&gt;</span><br><span class="line">      &lt;el-breadcrumb-item :to=&quot;&#123; path: &#x27;/home&#x27; &#125;&quot;&gt;Home&lt;/el-breadcrumb-item&gt;</span><br><span class="line">      &lt;el-breadcrumb-item&gt;Analysis&lt;/el-breadcrumb-item&gt;</span><br><span class="line">      &lt;el-breadcrumb-item&gt;唯一值渲染&lt;/el-breadcrumb-item&gt;</span><br><span class="line">    &lt;/el-breadcrumb&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;btnclass&quot;&gt;</span><br><span class="line">      &lt;el-card&gt;</span><br><span class="line">        &lt;el-switch v-model=&quot;weiyiswithvalue&quot; @change=&quot;weiyiswitchchange()&quot; active-color=&quot;#13ce66&quot;</span><br><span class="line">                   inactive-color=&quot;#ff4949&quot; class=&quot;mar10&quot;&gt;&lt;/el-switch&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line"></span><br><span class="line">        &lt;el-switch v-model=&quot;simpleswithvalue&quot; @change=&quot;simpleswitchchange()&quot; active-color=&quot;#13ce66&quot;</span><br><span class="line">                   inactive-color=&quot;#ff4949&quot; class=&quot;mar10&quot;&gt;&lt;/el-switch&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line"></span><br><span class="line">        &lt;el-switch v-model=&quot;fenjiswithvalue&quot; @change=&quot;fenjiswitchchange()&quot; active-color=&quot;#13ce66&quot;</span><br><span class="line">                   inactive-color=&quot;#ff4949&quot; class=&quot;mar10&quot;&gt;&lt;/el-switch&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line"></span><br><span class="line">        &lt;el-switch v-model=&quot;heatswithvalue&quot; @change=&quot;heatswitchchange()&quot; active-color=&quot;#13ce66&quot;</span><br><span class="line">                   inactive-color=&quot;#ff4949&quot; class=&quot;mar10&quot;&gt;&lt;/el-switch&gt;</span><br><span class="line">      &lt;/el-card&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;button id=&quot;weiyibtn&quot; class=&quot;noable&quot; @click=&quot;weiyiopen&quot;&gt;&lt;/button&gt;</span><br><span class="line">    &lt;button id=&quot;weiyinobtn&quot; class=&quot;noable&quot; @click=&quot;weiyinoopen&quot;&gt;&lt;/button&gt;</span><br><span class="line">    &lt;button id=&quot;simplebtn&quot; class=&quot;noable&quot; @click=&quot;simpleopen&quot;&gt;&lt;/button&gt;</span><br><span class="line">    &lt;button id=&quot;simplenobtn&quot; class=&quot;noable&quot; @click=&quot;simplenoopen&quot;&gt;&lt;/button&gt;</span><br><span class="line">    &lt;button id=&quot;fenjibtn&quot; class=&quot;noable&quot; @click=&quot;fenjiopen&quot;&gt;&lt;/button&gt;</span><br><span class="line">    &lt;button id=&quot;fenjinobtn&quot; class=&quot;noable&quot; @click=&quot;fenjinoopen&quot;&gt;&lt;/button&gt;</span><br><span class="line">    &lt;button id=&quot;heatbtn&quot; class=&quot;noable&quot; @click=&quot;heatopen&quot;&gt;&lt;/button&gt;</span><br><span class="line">    &lt;button id=&quot;heatnobtn&quot; class=&quot;noable&quot; @click=&quot;heatnoopen&quot;&gt;&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import * as esriLoader from &#x27;esri-loader&#x27;</span><br><span class="line">import $ from &#x27;jquery&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      lendgeVisible: true,</span><br><span class="line">      layerlistVisible: true,</span><br><span class="line">      measurementVisible: true,</span><br><span class="line">      weiyiswithvalue: false,</span><br><span class="line">      simpleswithvalue: false,</span><br><span class="line">      fenjiswithvalue: false,</span><br><span class="line">      heatswithvalue: false,</span><br><span class="line">      mapurl: &#x27;http://localhost:6080/arcgis/rest/services/webgis/China_POI_dizhou/MapServer&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  // 我们需要在该组件装载之后做的事情都放在该方法里</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    esriLoader.setDefaultOptions(&#123;</span><br><span class="line">      version: &#x27;3.28&#x27;</span><br><span class="line">    &#125;)</span><br><span class="line">    this.createMap(this)</span><br><span class="line">  &#125;,</span><br><span class="line">  // 我们需要执行的方法都定义在该属性里</span><br><span class="line">  methods: &#123;</span><br><span class="line">    createMap: function (that) &#123;</span><br><span class="line">      esriLoader.loadModules([&#x27;esri/map&#x27;,</span><br><span class="line">        &#x27;esri/layers/ArcGISDynamicMapServiceLayer&#x27;,</span><br><span class="line">        &#x27;esri/layers/FeatureLayer&#x27;,</span><br><span class="line">        &#x27;dojo/on&#x27;,</span><br><span class="line">        &#x27;dojo/colors&#x27;,</span><br><span class="line">        &#x27;esri/symbols/SimpleMarkerSymbol&#x27;,</span><br><span class="line">        &#x27;esri/symbols/SimpleLineSymbol&#x27;,</span><br><span class="line">        &#x27;esri/renderers/UniqueValueRenderer&#x27;,</span><br><span class="line">        &#x27;esri/renderers/SimpleRenderer&#x27;,</span><br><span class="line">        &#x27;esri/renderers/ClassBreaksRenderer&#x27;,</span><br><span class="line">        &#x27;esri/renderers/HeatmapRenderer&#x27;,</span><br><span class="line">        &#x27;dojo/domReady!&#x27;], &#123;</span><br><span class="line">        css: true</span><br><span class="line">      &#125;)</span><br><span class="line">        .then(([Map, ArcGISDynamicMapServiceLayer, FeatureLayer, on, Color, SimpleMarkerSymbol, SimpleLineSymbol, UniqueValueRenderer, SimpleRenderer, ClassBreaksRenderer, HeatmapRenderer]) =&gt; &#123;</span><br><span class="line">          var map = new Map(&#x27;map&#x27;)</span><br><span class="line">          var layer = new FeatureLayer(that.mapurl + &#x27;/1&#x27;)</span><br><span class="line">          map.addLayer(layer)</span><br><span class="line"></span><br><span class="line">          var weiyifeatureLayer</span><br><span class="line">          var simplefeatureLayer</span><br><span class="line">          var fenjifeatureLayer</span><br><span class="line">          var heatfeatureLayer</span><br><span class="line">          // 唯一值渲染</span><br><span class="line">          on($(&#x27;#weiyibtn&#x27;), &#x27;click&#x27;, function () &#123;</span><br><span class="line">            weiyifeatureLayer.show()</span><br><span class="line">          &#125;)</span><br><span class="line">          on($(&#x27;#weiyinobtn&#x27;), &#x27;click&#x27;, function () &#123;</span><br><span class="line">            weiyifeatureLayer.hide()</span><br><span class="line">          &#125;)</span><br><span class="line"></span><br><span class="line">          function addWeiyiFeatureLayer() &#123;</span><br><span class="line">            weiyifeatureLayer = new FeatureLayer(that.mapurl + &#x27;/0&#x27;,</span><br><span class="line">              &#123;</span><br><span class="line">                mode: FeatureLayer.MODE_SNAPSHOT,</span><br><span class="line">                outFields: [&#x27;*&#x27;]</span><br><span class="line">              &#125;)</span><br><span class="line">            var lineSymbol = new SimpleLineSymbol(SimpleLineSymbol.STYLE_NULL, new Color([255, 0, 0]), 0)</span><br><span class="line">            var marker1 = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 12, lineSymbol, new Color([255, 218, 185, 0.4]))</span><br><span class="line">            var marker2 = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 15, lineSymbol, new Color([244, 164, 96, 0.4]))</span><br><span class="line">            var marker3 = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 18, lineSymbol, new Color([210, 105, 30, 0.4]))</span><br><span class="line">            var marker4 = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 12, lineSymbol, new Color([205, 133, 63, 0.4]))</span><br><span class="line">            var marker5 = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 25, lineSymbol, new Color([139, 69, 19, 0.4]))</span><br><span class="line"></span><br><span class="line">            var renderer = new UniqueValueRenderer(marker1, &#x27;jishu&#x27;)</span><br><span class="line">            renderer.addValue(&#x27;1&#x27;, marker1)</span><br><span class="line">            renderer.addValue(&#x27;2&#x27;, marker2)</span><br><span class="line">            renderer.addValue(&#x27;3&#x27;, marker3)</span><br><span class="line">            renderer.addValue(&#x27;4&#x27;, marker4)</span><br><span class="line">            renderer.addValue(&#x27;5&#x27;, marker5)</span><br><span class="line"></span><br><span class="line">            weiyifeatureLayer.setRenderer(renderer)</span><br><span class="line">            map.addLayer(weiyifeatureLayer)</span><br><span class="line">            weiyifeatureLayer.hide()</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          // 简单渲染</span><br><span class="line">          on($(&#x27;#simplebtn&#x27;), &#x27;click&#x27;, function () &#123;</span><br><span class="line">            console.log(&#x27;show&#x27;)</span><br><span class="line">            simplefeatureLayer.show()</span><br><span class="line">          &#125;)</span><br><span class="line">          on($(&#x27;#simplenobtn&#x27;), &#x27;click&#x27;, function () &#123;</span><br><span class="line">            console.log(&#x27;hide&#x27;)</span><br><span class="line">            simplefeatureLayer.hide()</span><br><span class="line">          &#125;)</span><br><span class="line"></span><br><span class="line">          function addSimpleFeatureLayer() &#123;</span><br><span class="line">            simplefeatureLayer = new FeatureLayer(that.mapurl + &#x27;/0&#x27;)</span><br><span class="line">            var lineSymbol = new SimpleLineSymbol(SimpleLineSymbol.STYLE_NULL, new Color([255, 0, 0]), 0)</span><br><span class="line">            var simplemarker = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 18, lineSymbol, new Color([100, 149, 237, 0.4]))</span><br><span class="line"></span><br><span class="line">            var smpRenderer = new SimpleRenderer(simplemarker)</span><br><span class="line">            var sizeInfo = &#123;</span><br><span class="line">              field: &#x27;pm_2_5&#x27;,</span><br><span class="line">              valueUnit: &#x27;unknown&#x27;,</span><br><span class="line">              minSize: 1,</span><br><span class="line">              maxSize: 50,</span><br><span class="line">              minDataValue: 0,</span><br><span class="line">              maxDataValue: 50000</span><br><span class="line">            &#125;</span><br><span class="line">            smpRenderer.setSizeInfo(sizeInfo)</span><br><span class="line">            simplefeatureLayer.setRenderer(smpRenderer)</span><br><span class="line">            map.addLayer(simplefeatureLayer)</span><br><span class="line">            simplefeatureLayer.hide()</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          // 分级渲染</span><br><span class="line">          on($(&#x27;#fenjibtn&#x27;), &#x27;click&#x27;, function () &#123;</span><br><span class="line">            fenjifeatureLayer.show()</span><br><span class="line">          &#125;)</span><br><span class="line">          on($(&#x27;#fenjinobtn&#x27;), &#x27;click&#x27;, function () &#123;</span><br><span class="line">            fenjifeatureLayer.hide()</span><br><span class="line">          &#125;)</span><br><span class="line"></span><br><span class="line">          function addFenjiFeatureLayer() &#123;</span><br><span class="line">            fenjifeatureLayer = new FeatureLayer(that.mapurl + &#x27;/0&#x27;)</span><br><span class="line">            var lineSymbol = new SimpleLineSymbol(SimpleLineSymbol.STYLE_NULL, new Color([255, 0, 0]), 0)</span><br><span class="line">            var marker1 = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 12, lineSymbol, new Color([152, 251, 152, 0.4]))</span><br><span class="line">            var marker2 = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 15, lineSymbol, new Color([0, 255, 0, 0.4]))</span><br><span class="line">            var marker3 = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 18, lineSymbol, new Color([50, 205, 50, 0.4]))</span><br><span class="line">            var marker4 = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 12, lineSymbol, new Color([60, 179, 113, 0.4]))</span><br><span class="line">            var marker5 = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 25, lineSymbol, new Color([46, 139, 87, 0.4]))</span><br><span class="line"></span><br><span class="line">            var fjRenderer = new ClassBreaksRenderer(marker3, &#x27;AQI&#x27;)</span><br><span class="line"></span><br><span class="line">            fjRenderer.addBreak(0, 100, marker1)</span><br><span class="line">            fjRenderer.addBreak(100, 200, marker2)</span><br><span class="line">            fjRenderer.addBreak(200, 300, marker3)</span><br><span class="line">            fjRenderer.addBreak(300, 400, marker4)</span><br><span class="line">            fjRenderer.addBreak(500, 600, marker5)</span><br><span class="line"></span><br><span class="line">            fenjifeatureLayer.setRenderer(fjRenderer)</span><br><span class="line">            map.addLayer(fenjifeatureLayer)</span><br><span class="line">            fenjifeatureLayer.hide()</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          // 热力图渲染</span><br><span class="line">          on($(&#x27;#heatbtn&#x27;), &#x27;click&#x27;, function () &#123;</span><br><span class="line">            heatfeatureLayer.show()</span><br><span class="line">          &#125;)</span><br><span class="line">          on($(&#x27;#heatnobtn&#x27;), &#x27;click&#x27;, function () &#123;</span><br><span class="line">            heatfeatureLayer.hide()</span><br><span class="line">          &#125;)</span><br><span class="line"></span><br><span class="line">          function addHeatFeatureLayer() &#123;</span><br><span class="line">            heatfeatureLayer = new FeatureLayer(that.mapurl + &#x27;/0&#x27;)</span><br><span class="line">            var heatmapRenderer = new HeatmapRenderer(&#123;</span><br><span class="line">              colorStops: [</span><br><span class="line">                &#123; color: &#x27;rgba(63, 40, 102, 0)&#x27;, ratio: 0 &#125;,</span><br><span class="line">                &#123; color: &#x27;#472b77&#x27;, ratio: 0.083 &#125;,</span><br><span class="line">                &#123; color: &#x27;#4e2d87&#x27;, ratio: 0.166 &#125;,</span><br><span class="line">                &#123; color: &#x27;#563098&#x27;, ratio: 0.249 &#125;,</span><br><span class="line">                &#123; color: &#x27;#5d32a8&#x27;, ratio: 0.332 &#125;,</span><br><span class="line">                &#123; color: &#x27;#6735be&#x27;, ratio: 0.415 &#125;,</span><br><span class="line">                &#123; color: &#x27;#7139d4&#x27;, ratio: 0.498 &#125;,</span><br><span class="line">                &#123; color: &#x27;#7b3ce9&#x27;, ratio: 0.581 &#125;,</span><br><span class="line">                &#123; color: &#x27;#853fff&#x27;, ratio: 0.664 &#125;,</span><br><span class="line">                &#123; color: &#x27;#a46fbf&#x27;, ratio: 0.747 &#125;,</span><br><span class="line">                &#123; color: &#x27;#c29f80&#x27;, ratio: 0.83 &#125;,</span><br><span class="line">                &#123; color: &#x27;#e0cf40&#x27;, ratio: 0.913 &#125;,</span><br><span class="line">                &#123; color: &#x27;#ffff00&#x27;, ratio: 1 &#125;</span><br><span class="line">              ],</span><br><span class="line">              blurRadius: 7,</span><br><span class="line">              // field: &#x27;pm2_5&#x27;,</span><br><span class="line">              maxPixelIntensity: 180,</span><br><span class="line">              minPixeltIntensiy: 10</span><br><span class="line">            &#125;)</span><br><span class="line">            heatfeatureLayer.setRenderer(heatmapRenderer)</span><br><span class="line">            console.log(heatfeatureLayer)</span><br><span class="line">            map.addLayer(heatfeatureLayer)</span><br><span class="line">            heatfeatureLayer.hide()</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          addFenjiFeatureLayer()</span><br><span class="line">          addSimpleFeatureLayer()</span><br><span class="line">          addWeiyiFeatureLayer()</span><br><span class="line">          addHeatFeatureLayer()</span><br><span class="line">          // $(&#x27;#fenjibtn&#x27;).click()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    weiyiswitchchange() &#123;</span><br><span class="line">      if (this.weiyiswithvalue === true) $(&#x27;#weiyibtn&#x27;).click()</span><br><span class="line">      else $(&#x27;#weiyinobtn&#x27;).click()</span><br><span class="line">    &#125;,</span><br><span class="line">    simpleswitchchange() &#123;</span><br><span class="line">      if (this.simpleswithvalue === true) $(&#x27;#simplebtn&#x27;).click()</span><br><span class="line">      else $(&#x27;#simplenobtn&#x27;).click()</span><br><span class="line">    &#125;,</span><br><span class="line">    fenjiswitchchange() &#123;</span><br><span class="line">      if (this.fenjiswithvalue === true) $(&#x27;#fenjibtn&#x27;).click()</span><br><span class="line">      else $(&#x27;#fenjinobtn&#x27;).click()</span><br><span class="line">    &#125;,</span><br><span class="line">    heatswitchchange() &#123;</span><br><span class="line">      if (this.heatswithvalue === true) $(&#x27;#heatbtn&#x27;).click()</span><br><span class="line">      else $(&#x27;#heatnobtn&#x27;).click()</span><br><span class="line">    &#125;,</span><br><span class="line">    weiyiopen() &#123;</span><br><span class="line">      const h = this.$createElement</span><br><span class="line"></span><br><span class="line">      this.$notify(&#123;</span><br><span class="line">        title: &#x27;Message&#x27;,</span><br><span class="line">        message: h(&#x27;i&#x27;, &#123; style: &#x27;color: teal&#x27; &#125;, &#x27;AQI级数唯一值渲染&#x27;),</span><br><span class="line">        type: &#x27;success&#x27;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    weiyinoopen() &#123;</span><br><span class="line">      const h = this.$createElement</span><br><span class="line"></span><br><span class="line">      this.$notify(&#123;</span><br><span class="line">        title: &#x27;Message&#x27;,</span><br><span class="line">        message: h(&#x27;i&#x27;, &#123; style: &#x27;color: teal&#x27; &#125;, &#x27;取消AQI级数唯一值渲染&#x27;),</span><br><span class="line">        type: &#x27;warning&#x27;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    simpleopen() &#123;</span><br><span class="line">      const h = this.$createElement</span><br><span class="line"></span><br><span class="line">      this.$notify(&#123;</span><br><span class="line">        title: &#x27;Message&#x27;,</span><br><span class="line">        message: h(&#x27;i&#x27;, &#123; style: &#x27;color: teal&#x27; &#125;, &#x27;pm2.5简单渲染&#x27;),</span><br><span class="line">        type: &#x27;success&#x27;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    simplenoopen() &#123;</span><br><span class="line">      const h = this.$createElement</span><br><span class="line"></span><br><span class="line">      this.$notify(&#123;</span><br><span class="line">        title: &#x27;Message&#x27;,</span><br><span class="line">        message: h(&#x27;i&#x27;, &#123; style: &#x27;color: teal&#x27; &#125;, &#x27;取消pm2.5简单渲染&#x27;),</span><br><span class="line">        type: &#x27;warning&#x27;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    fenjiopen() &#123;</span><br><span class="line">      const h = this.$createElement</span><br><span class="line"></span><br><span class="line">      this.$notify(&#123;</span><br><span class="line">        title: &#x27;Message&#x27;,</span><br><span class="line">        message: h(&#x27;i&#x27;, &#123; style: &#x27;color: teal&#x27; &#125;, &#x27;AQI分级渲染&#x27;),</span><br><span class="line">        type: &#x27;success&#x27;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    fenjinoopen() &#123;</span><br><span class="line">      const h = this.$createElement</span><br><span class="line"></span><br><span class="line">      this.$notify(&#123;</span><br><span class="line">        title: &#x27;Message&#x27;,</span><br><span class="line">        message: h(&#x27;i&#x27;, &#123; style: &#x27;color: teal&#x27; &#125;, &#x27;取消AQI分级渲染&#x27;),</span><br><span class="line">        type: &#x27;warning&#x27;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    heatopen() &#123;</span><br><span class="line">      const h = this.$createElement</span><br><span class="line"></span><br><span class="line">      this.$notify(&#123;</span><br><span class="line">        title: &#x27;Message&#x27;,</span><br><span class="line">        message: h(&#x27;i&#x27;, &#123; style: &#x27;color: teal&#x27; &#125;, &#x27;热力图渲染&#x27;),</span><br><span class="line">        type: &#x27;success&#x27;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    heatnoopen() &#123;</span><br><span class="line">      const h = this.$createElement</span><br><span class="line"></span><br><span class="line">      this.$notify(&#123;</span><br><span class="line">        title: &#x27;Message&#x27;,</span><br><span class="line">        message: h(&#x27;i&#x27;, &#123; style: &#x27;color: teal&#x27; &#125;, &#x27;取消热力图渲染&#x27;),</span><br><span class="line">        type: &#x27;warning&#x27;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93%E3%80%81%E7%AE%80%E5%8D%95%E6%B8%B2%E6%9F%93%E3%80%81%E5%88%86%E7%BA%A7%E6%B8%B2%E6%9F%93%E3%80%81%E7%83%AD%E5%8A%9B%E5%9B%BE%E6%B8%B2%E6%9F%93%EF%BC%88%E5%AE%8C%E6%95%B4%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%89/" data-id="ckreqntjj001hr07k6reb0ih4" data-title="" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-网络流---算法理解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E7%BD%91%E7%BB%9C%E6%B5%81---%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.049Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E7%BD%91%E7%BB%9C%E6%B5%81---%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/">网络流---算法理解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="最大流"><a href="#最大流" class="headerlink" title="最大流"></a>最大流</h1><p>交通网络中有人流、车流、货流，供水网络中有水流，金融网络中有金流。这些都涉及到了最大流问题</p>
+<p>而最大流存在于网络流中</p>
+<h5 id="那么问题来了，什么是网络流？"><a href="#那么问题来了，什么是网络流？" class="headerlink" title="那么问题来了，什么是网络流？"></a>那么问题来了，什么是网络流？</h5><hr>
+<ul>
+<li>首先，你得有一个有向图。即网络</li>
+<li>还得有两个特殊点：起点终点。即源汇</li>
+<li>每条边有一个权值。即容量</li>
+</ul>
+<p>有了这些，就构成了一个基础的网络流</p>
+<p>有点绕。。。换个思路</p>
+<blockquote>
+<p>自来水厂是源，家是汇</p>
+<p>自来水厂和家之间有很多的管道用来输送水。由于地形和地质的影响，管道规格有多种。通过的水容量也各不相同</p>
+</blockquote>
+<h5 id="清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？"><a href="#清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？" class="headerlink" title="清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？"></a>清楚了网络流，那么什么是网络流中能到达汇点的最大流呢？</h5><hr>
+<ul>
+<li>从源点到汇点的最大可行性流量即为最大流</li>
+</ul>
+<blockquote>
+<p>这个问题就是说，自来水厂供水，那么在家能收到的最大的水流量是多少？</p>
+<p>自来水厂开始供水之前，水流量必定是0</p>
+<p>自开水厂开闸供水，水从管道流向家。家开始收到水</p>
+<p>自开水厂再开一个闸门供水，水从管道流向家。家里的水流量增加</p>
+<p>。</p>
+<p>。</p>
+<p>打开若干闸门，水流量持续增加</p>
+<p>。</p>
+<p>。</p>
+<p>自开水厂再开一个闸门供水，水从管道流向家。家里的水流量没有发生改变<br>此时，便达到了从自来水厂到家这个网络的最大可行性流</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20190518172827446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="网络流具有三个性质"><a href="#网络流具有三个性质" class="headerlink" title="网络流具有三个性质"></a>网络流具有三个性质</h5><hr>
+<ol>
+<li><p>容量限制：实际流量 &lt; 每条边的容量</p>
+<blockquote>
+<p>自来水管中的水必定是小于它的最大承载容量。否则水管该爆了。</p>
+</blockquote>
+</li>
+<li><p>流量守恒：每一个点（不包含源汇点）到相邻节点的流量之和为0.</p>
+<blockquote>
+<p>每一个中间点必定是流进来多少水，流出去多少水。</p>
+<p>不可能没有流进来就流出去，也不可能流进来后就不出去。</p>
+<p>至于为什么是中间点，因为我问不用知道自来水厂的水是来自哪里的</p>
+</blockquote>
+</li>
+<li><p>反对称（斜对称）性：u -&gt; v 的流量 == -（v -&gt; u） 的流量</p>
+<blockquote>
+<p>在坐标系中，a 到 b 的位移是 x ，则 b 到 a 的位移是 -x</p>
+<p>同样的 u -&gt; v 的流量为 f ，那么 v -&gt; u 必定是 -f ;</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="网络流中的名词解释"><a href="#网络流中的名词解释" class="headerlink" title="网络流中的名词解释"></a>网络流中的名词解释</h5><hr>
+<ul>
+<li> 网络：有源汇点的有向图</li>
+<li>容量网络：带有容量值（权值）的有向图（不变）</li>
+<li>流量网络：带有流量值（权值）的有向图（改变），最终形态就是最大网络流</li>
+<li>残留网络: 带有残余流量值（权值）的有向图（改变），残余流量值：容量-流量的剩余量值。就像是，自来水管中，水流量没有达到管道容量时，中空气的体积容量（空的部分）。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190518172846719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<p><strong>显而易见：残留网络 = 容量网络 - 流量网络</strong></p>
+<ul>
+<li><p>割集：割一些边，使得以源点和汇点为两边，分为两个点集。（非连通图）</p>
+</li>
+<li><p>割：断开一些边，最小割即为断开权值最小的边</p>
+</li>
+</ul>
+<blockquote>
+<p>割集类似于，有小偷把自来水厂和家之间的管道偷走了一些，使得水不管从哪个管道走，都不能到家。</p>
+<p>割则取决于小偷要偷哪个。最小割便是偷走最小，最轻的管道，最省力，最容易达到目的。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E7%BD%91%E7%BB%9C%E6%B5%81---%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/" data-id="ckreqntjw0027r07kf42ef78l" data-title="网络流---算法理解" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-网络分析（最短路径+最邻近+路网数据）源码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%EF%BC%88%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84+%E6%9C%80%E9%82%BB%E8%BF%91+%E8%B7%AF%E7%BD%91%E6%95%B0%E6%8D%AE%EF%BC%89%E6%BA%90%E7%A0%81/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.047Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%EF%BC%88%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84+%E6%9C%80%E9%82%BB%E8%BF%91+%E8%B7%AF%E7%BD%91%E6%95%B0%E6%8D%AE%EF%BC%89%E6%BA%90%E7%A0%81/">网络分析（最短路径+最邻近+路网数据）源码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="移步码云下载"><a href="#移步码云下载" class="headerlink" title="移步码云下载"></a>移步码云下载</h3><p><a target="_blank" rel="noopener" href="https://gitee.com/DanBo4997/webgis-ND-Demo">请留下一个Star</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%EF%BC%88%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84+%E6%9C%80%E9%82%BB%E8%BF%91+%E8%B7%AF%E7%BD%91%E6%95%B0%E6%8D%AE%EF%BC%89%E6%BA%90%E7%A0%81/" data-id="ckreqntjw0026r07kat674oit" data-title="网络分析（最短路径+最邻近+路网数据）源码" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-书签+图层列表+测量工具+图例+鹰眼+地图切换" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E4%B9%A6%E7%AD%BE+%E5%9B%BE%E5%B1%82%E5%88%97%E8%A1%A8+%E6%B5%8B%E9%87%8F%E5%B7%A5%E5%85%B7+%E5%9B%BE%E4%BE%8B+%E9%B9%B0%E7%9C%BC+%E5%9C%B0%E5%9B%BE%E5%88%87%E6%8D%A2/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.045Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E4%B9%A6%E7%AD%BE+%E5%9B%BE%E5%B1%82%E5%88%97%E8%A1%A8+%E6%B5%8B%E9%87%8F%E5%B7%A5%E5%85%B7+%E5%9B%BE%E4%BE%8B+%E9%B9%B0%E7%9C%BC+%E5%9C%B0%E5%9B%BE%E5%88%87%E6%8D%A2/">书签+图层列表+测量工具+图例+鹰眼+地图切换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://img-blog.csdnimg.cn/20200411105410334.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="1-书签"><a href="#1-书签" class="headerlink" title="1. 书签"></a>1. 书签</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 书签</span><br><span class="line">        var bookmarksList = [</span><br><span class="line">          &#123; extent: &#123; xmin: 106, ymin: 39, xmax: 112, ymax: 32 &#125;, name: &#x27;陕西&#x27; &#125;,</span><br><span class="line">          &#123; extent: &#123; xmin: 111, ymin: 31, xmax: 117, ymax: 35 &#125;, name: &#x27;河南&#x27; &#125;,</span><br><span class="line">          &#123; extent: &#123; xmin: 109, ymin: 35, xmax: 121, ymax: 42 &#125;, name: &#x27;河北&#x27; &#125;,</span><br><span class="line">          &#123; extent: &#123; xmin: 115, ymin: 31, xmax: 121, ymax: 34 &#125;, name: &#x27;江苏&#x27; &#125;,</span><br><span class="line">          &#123; extent: &#123; xmin: 90, ymin: 22, xmax: 114, ymax: 36 &#125;, name: &#x27;四川&#x27; &#125;</span><br><span class="line">        ]</span><br><span class="line">        const bookmarks = new Bookmarks(&#123;</span><br><span class="line">          map: map,</span><br><span class="line">          bookmarks: bookmarksList,</span><br><span class="line">          editable: true</span><br><span class="line">        &#125;, &#x27;bookmarks&#x27;)</span><br><span class="line">        bookmarks.startup()</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-图层列表"><a href="#2-图层列表" class="headerlink" title="2. 图层列表"></a>2. 图层列表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 图层列表</span><br><span class="line">        var myWidget = new LayerList(&#123;</span><br><span class="line">          map: map,</span><br><span class="line">          layers: donglayer</span><br><span class="line">        &#125;, &#x27;layerList&#x27;)</span><br><span class="line">        myWidget.startup()</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-测量工具"><a href="#3-测量工具" class="headerlink" title="3. 测量工具"></a>3. 测量工具</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测量工具</span></span><br><span class="line">        <span class="keyword">var</span> measurement = <span class="keyword">new</span> Measurement(&#123;</span><br><span class="line">          <span class="attr">map</span>: map</span><br><span class="line">        &#125;, <span class="string">&#x27;measurementDiv&#x27;</span>)</span><br><span class="line">        measurement.startup()</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-图例"><a href="#4-图例" class="headerlink" title="4. 图例"></a>4. 图例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 图例</span><br><span class="line">        var legend = new Legend(&#123;</span><br><span class="line">          map: map</span><br><span class="line">        &#125;, &#x27;legendDiv&#x27;)</span><br><span class="line">        legend.startup()</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-鹰眼"><a href="#5-鹰眼" class="headerlink" title="5. 鹰眼"></a>5. 鹰眼</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 鹰眼</span><br><span class="line">        var overviewMapDijit = new OverviewMap(&#123;</span><br><span class="line">          map: map,</span><br><span class="line">          visible: true</span><br><span class="line">        &#125;, &#x27;overview&#x27;)</span><br><span class="line">        overviewMapDijit.startup()</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-地图切换"><a href="#6-地图切换" class="headerlink" title="6. 地图切换"></a>6. 地图切换</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 地图切换</span><br><span class="line">        var basemapToggle = new BasemapToggle(&#123;</span><br><span class="line">          map: map,</span><br><span class="line">          visible: true</span><br><span class="line">        &#125;, &#x27;basemapToggle&#x27;)</span><br><span class="line">        basemapToggle.startup()</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="完整代码："><a href="#完整代码：" class="headerlink" title="完整代码："></a>完整代码：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">   </span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;home&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">el-row</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">&quot;19&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-content bg-purple&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;overview&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height: 100px; width: 150px; float:left;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">&quot;5&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-content bg-purple-light&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">el-card</span> <span class="attr">id</span>=<span class="string">&quot;mapOut&quot;</span> <span class="attr">style</span>=<span class="string">&quot;overflow-y: scroll;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">              <span class="comment">&lt;!-- 书签--&gt;</span></span></span><br><span class="line"><span class="xml">              <span class="tag">&lt;<span class="name">el-card</span> <span class="attr">style</span>=<span class="string">&quot; padding: 5px;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;bookmarks&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">              <span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></span></span><br><span class="line"><span class="xml">              <span class="comment">&lt;!-- 图层列表--&gt;</span></span></span><br><span class="line"><span class="xml">              <span class="tag">&lt;<span class="name">el-card</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;layerListPane&quot;</span> <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/ContentPane&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;layerList&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">              <span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">              <span class="tag">&lt;<span class="name">el-card</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;titlePane&quot;</span> <span class="attr">class</span>=<span class="string">&quot;esriLayerList&quot;</span> <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/TitlePane&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;measurementDiv&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">              <span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></span></span><br><span class="line"><span class="xml">              <span class="comment">&lt;!-- 图例--&gt;</span></span></span><br><span class="line"><span class="xml">              <span class="tag">&lt;<span class="name">el-card</span> <span class="attr">shadow</span>=<span class="string">&quot;always&quot;</span> <span class="attr">class</span>=<span class="string">&quot;box-card&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 100%&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">&quot;header&quot;</span> <span class="attr">class</span>=<span class="string">&quot;clearfix&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Lendge<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">                  <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">style</span>=<span class="string">&quot;float: right; padding: 3px 0&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">                             @<span class="attr">click</span>=<span class="string">&quot;lendgeVisible ? hideLendge() : showLendge()&quot;</span>&gt;</span>&#123;&#123;this.lendgeVisible&#125;&#125;</span></span><br><span class="line"><span class="xml">                  <span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;legendDiv&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">              <span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: absolute; bottom: 20px; z-Index:999;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;basemapToggle&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">import</span> * <span class="keyword">as</span> esriLoader <span class="keyword">from</span> <span class="string">&#x27;esri-loader&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">&#x27;jquery&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="keyword">return</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="attr">lendgeVisible</span>: <span class="literal">true</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="comment">// 我们需要在该组件装载之后做的事情都放在该方法里</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    esriLoader.setDefaultOptions(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="attr">version</span>: <span class="string">&#x27;3.28&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="built_in">this</span>.createMap()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="comment">// 我们需要执行的方法都定义在该属性里</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="attr">methods</span>: &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="attr">createMap</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      esriLoader.loadModules([<span class="string">&#x27;esri/map&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;dojo/dom&#x27;</span>, <span class="string">&#x27;dojo/on&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/layers/ArcGISDynamicMapServiceLayer&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/dijit/Scalebar&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/dijit/OverviewMap&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/dijit/BasemapToggle&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/dijit/BasemapGallery&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/dijit/Bookmarks&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/dijit/Measurement&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/dijit/Legend&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/dijit/LayerList&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/tasks/PrintTask&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/tasks/PrintTemplate&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/tasks/PrintParameters&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;dojo/domReady!&#x27;</span>], &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">css</span>: <span class="literal">true</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">      &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        .then(<span class="function">(<span class="params">[<span class="built_in">Map</span>, dom, on, ArcGISDynamicMapServiceLayer, Scalebar, OverviewMap, BasemapToggle, BasemapGallery, Bookmarks, Measurement, Legend, LayerList, PrintTask, PrintTemplate, PrintParameters]</span>) =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> dongURL = <span class="string">&#x27;http://localhost:6080/arcgis/rest/services/webgis/China_POI/MapServer&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> donglayer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(dongURL)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 初始化容器</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&#x27;map&#x27;</span>, &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">center</span>: [<span class="number">108.934518</span>, <span class="number">34.35333</span>],</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">zoom</span>: <span class="number">7</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">logo</span>: <span class="literal">false</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">basemap</span>: <span class="string">&#x27;oceans&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          map.addLayer(donglayer)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 鹰眼</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> overviewMapDijit = <span class="keyword">new</span> OverviewMap(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">map</span>: map,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">visible</span>: <span class="literal">true</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;, <span class="string">&#x27;overview&#x27;</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          overviewMapDijit.startup()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 地图切换</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> basemapToggle = <span class="keyword">new</span> BasemapToggle(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">map</span>: map,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">visible</span>: <span class="literal">true</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;, <span class="string">&#x27;basemapToggle&#x27;</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          basemapToggle.startup()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 书签</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> bookmarksList = [</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#123; <span class="attr">extent</span>: &#123; <span class="attr">xmin</span>: <span class="number">106</span>, <span class="attr">ymin</span>: <span class="number">39</span>, <span class="attr">xmax</span>: <span class="number">112</span>, <span class="attr">ymax</span>: <span class="number">32</span> &#125;, <span class="attr">name</span>: <span class="string">&#x27;陕西&#x27;</span> &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#123; <span class="attr">extent</span>: &#123; <span class="attr">xmin</span>: <span class="number">111</span>, <span class="attr">ymin</span>: <span class="number">31</span>, <span class="attr">xmax</span>: <span class="number">117</span>, <span class="attr">ymax</span>: <span class="number">35</span> &#125;, <span class="attr">name</span>: <span class="string">&#x27;河南&#x27;</span> &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#123; <span class="attr">extent</span>: &#123; <span class="attr">xmin</span>: <span class="number">109</span>, <span class="attr">ymin</span>: <span class="number">35</span>, <span class="attr">xmax</span>: <span class="number">121</span>, <span class="attr">ymax</span>: <span class="number">42</span> &#125;, <span class="attr">name</span>: <span class="string">&#x27;河北&#x27;</span> &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#123; <span class="attr">extent</span>: &#123; <span class="attr">xmin</span>: <span class="number">115</span>, <span class="attr">ymin</span>: <span class="number">31</span>, <span class="attr">xmax</span>: <span class="number">121</span>, <span class="attr">ymax</span>: <span class="number">34</span> &#125;, <span class="attr">name</span>: <span class="string">&#x27;江苏&#x27;</span> &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#123; <span class="attr">extent</span>: &#123; <span class="attr">xmin</span>: <span class="number">90</span>, <span class="attr">ymin</span>: <span class="number">22</span>, <span class="attr">xmax</span>: <span class="number">114</span>, <span class="attr">ymax</span>: <span class="number">36</span> &#125;, <span class="attr">name</span>: <span class="string">&#x27;四川&#x27;</span> &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          ]</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">const</span> bookmarks = <span class="keyword">new</span> Bookmarks(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">map</span>: map,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">bookmarks</span>: bookmarksList,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">editable</span>: <span class="literal">true</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;, <span class="string">&#x27;bookmarks&#x27;</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          bookmarks.startup()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 测量工具</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> measurement = <span class="keyword">new</span> Measurement(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">map</span>: map</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;, <span class="string">&#x27;measurementDiv&#x27;</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          measurement.startup()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 图层列表</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> myWidget = <span class="keyword">new</span> LayerList(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">map</span>: map,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">layers</span>: donglayer</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;, <span class="string">&#x27;layerList&#x27;</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          myWidget.startup()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 图例</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> legend = <span class="keyword">new</span> Legend(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">map</span>: map</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;, <span class="string">&#x27;legendDiv&#x27;</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          legend.startup()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="function"><span class="title">hideLendge</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="built_in">this</span>.lendgeVisible = !<span class="built_in">this</span>.lendgeVisible</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      $(<span class="string">&#x27;#legendDiv&#x27;</span>).hide()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="function"><span class="title">showLendge</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="built_in">this</span>.lendgeVisible = !<span class="built_in">this</span>.lendgeVisible</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      $(<span class="string">&#x27;#legendDiv&#x27;</span>).show()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="function"><span class="title">opensuccess</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="built_in">this</span>.$message(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">message</span>: <span class="string">&#x27;success&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">type</span>: <span class="string">&#x27;success&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">      &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="function"><span class="title">openWarning</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="built_in">this</span>.$message(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">message</span>: <span class="string">&#x27;非地理坐标系&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">type</span>: <span class="string">&#x27;warning&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">      &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E4%B9%A6%E7%AD%BE+%E5%9B%BE%E5%B1%82%E5%88%97%E8%A1%A8+%E6%B5%8B%E9%87%8F%E5%B7%A5%E5%85%B7+%E5%9B%BE%E4%BE%8B+%E9%B9%B0%E7%9C%BC+%E5%9C%B0%E5%9B%BE%E5%88%87%E6%8D%A2/" data-id="ckreqntja0014r07kc2pw4wo0" data-title="书签+图层列表+测量工具+图例+鹰眼+地图切换" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-联动" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E8%81%94%E5%8A%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.043Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E8%81%94%E5%8A%A8/">联动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="这次采用了使用4-x的功能实现联动，3-x的extent-change可以实现，但是会出现延迟。"><a href="#这次采用了使用4-x的功能实现联动，3-x的extent-change可以实现，但是会出现延迟。" class="headerlink" title="这次采用了使用4.x的功能实现联动，3.x的extent-change可以实现，但是会出现延迟。"></a>这次采用了使用4.x的功能实现联动，3.x的<code>extent-change</code>可以实现，但是会出现延迟。</h5><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>嗯，很简单，创建两个Mapview，监听事件，设置center和zoom<br>但是设置zoom，总是会莫名的出BUG，或者在多监听一个滚轮<br>方便一点就是现在使用的办法。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/DanBo_C/article/details/101103817">4.x 动态地图的加载</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">view01.on([<span class="string">&quot;pointer-down&quot;</span>, <span class="string">&quot;pointer-move&quot;</span>], <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">	view02.center = view01.center;</span><br><span class="line">	view02.scale = view01.scale;<span class="comment">//代替zoom</span></span><br><span class="line">&#125;);</span><br><span class="line">view02.on([<span class="string">&quot;pointer-down&quot;</span>, <span class="string">&quot;pointer-move&quot;</span>], <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">	view01.center = view02.center;</span><br><span class="line">	view01.scale = view02.scale;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E8%81%94%E5%8A%A8/" data-id="ckreqntjx0028r07khz5l2lba" data-title="联动" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-空间数据库总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.041Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/">空间数据库总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="空间数据库"><a href="#空间数据库" class="headerlink" title="空间数据库"></a>空间数据库</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h4 id="1-数据的特点：数据与其语义不可分割"><a href="#1-数据的特点：数据与其语义不可分割" class="headerlink" title="1. 数据的特点：数据与其语义不可分割"></a>1. 数据的特点：数据与其语义不可分割</h4><h4 id="2-数据库的特点："><a href="#2-数据库的特点：" class="headerlink" title="2. 数据库的特点："></a>2. 数据库的特点：</h4><ul>
+<li>数据共享</li>
+<li>数据独立（程序和数据结构之间相互独立）</li>
+<li>减少数据冗余</li>
+<li>避免数据不一致和加强了数据保护</li>
+</ul>
+<h4 id="3-数据库管理系统DBMS的功能："><a href="#3-数据库管理系统DBMS的功能：" class="headerlink" title="3. 数据库管理系统DBMS的功能："></a>3. 数据库管理系统DBMS的功能：</h4><ol>
+<li>数据定义功能：提供数据定义语言(DDL)，对数据库、表、索引的定义</li>
+<li>数据操作功能：提供数据操纵语言(DML)，实现对数据库的基本操作  (查询、插入、删除和修改)</li>
+<li>数据库运行控制功能：并发控制、安全性检查、完整性约束条件的检查和执行、索引的自动建立</li>
+<li>数据库的建立和维护功能：初始数据的输入、转换，数据的存储组织，数据库的转储恢复，性能监视、分析功能等</li>
+</ol>
+<h4 id="4-数据库系统DBS的构成"><a href="#4-数据库系统DBS的构成" class="headerlink" title="4. 数据库系统DBS的构成"></a>4. 数据库系统DBS的构成</h4><ul>
+<li>数据库</li>
+<li>数据库管理系统</li>
+<li>数据库管理员、用户</li>
+<li>应用程序</li>
+</ul>
+<h4 id="5-数据库系统DBS特点"><a href="#5-数据库系统DBS特点" class="headerlink" title="5. 数据库系统DBS特点"></a>5. 数据库系统DBS特点</h4><ul>
+<li>数据结构化</li>
+<li>数据的共享性高，冗余度低，易扩充</li>
+<li>数据独立性高</li>
+<li>数据由DBMS统一管理和控制</li>
+</ul>
+<h4 id="6-数据管理技术"><a href="#6-数据管理技术" class="headerlink" title="6. 数据管理技术"></a>6. 数据管理技术</h4><ul>
+<li>人工管理阶段(20世纪40年代中–50年代中)</li>
+<li>文件系统阶段(20世纪50年代末–60年代中)</li>
+<li>数据库系统阶段(20世纪60年代末–现在)</li>
+</ul>
+<h4 id="7-内部结构：三级模式，两级映像，逻辑独立性和物理独立性"><a href="#7-内部结构：三级模式，两级映像，逻辑独立性和物理独立性" class="headerlink" title="7. 内部结构：三级模式，两级映像，逻辑独立性和物理独立性"></a>7. 内部结构：三级模式，两级映像，逻辑独立性和物理独立性</h4><ul>
+<li><h5 id="三级模式：对数据的三个抽象级别"><a href="#三级模式：对数据的三个抽象级别" class="headerlink" title="三级模式：对数据的三个抽象级别"></a>三级模式：对数据的三个抽象级别</h5><ul>
+<li>模式</li>
+<li>外模式（子模式或用户模式）：介于模式与应用之间。同一个模式可以有任意多个外模式。模式与外模式的关系：一对多，外模式与应用的关系：一对多</li>
+<li>内模式（也称存储模式）：数据物理结构和存储方式的描述。一个数据库只有一个内模式</li>
+</ul>
+</li>
+<li><h5 id="两级映像：在DBMS内部实现这三个抽象层次的联系和转换"><a href="#两级映像：在DBMS内部实现这三个抽象层次的联系和转换" class="headerlink" title="两级映像：在DBMS内部实现这三个抽象层次的联系和转换"></a>两级映像：在DBMS内部实现这三个抽象层次的联系和转换</h5><ul>
+<li>外模式／模式映像：每一个外模式，数据库系统都有一个外模式／模式映象，定义外模式与模式之间的对应关系，保证数据的逻辑独立性</li>
+<li>模式／内模式映像 ：定义了数据全局逻辑结构与存储结构之间的对应关系。模式／内模式映象是唯一的。保证数据的物理独立性</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-数据模型"><a href="#8-数据模型" class="headerlink" title="8. 数据模型"></a>8. 数据模型</h4><ul>
+<li>概念模型：实体－联系法(E-R图法)</li>
+<li>逻辑模型</li>
+<li>物理模型</li>
+</ul>
+<p>三要素：</p>
+<ul>
+<li>数据结构</li>
+<li>数据操作</li>
+<li>完整性约束条件</li>
+</ul>
+<h4 id="9-常用模型"><a href="#9-常用模型" class="headerlink" title="9.  常用模型"></a>9.  常用模型</h4><ul>
+<li>层次（树形结构）</li>
+<li>网状（图）</li>
+<li>关系（二维表)</li>
+</ul>
+<h4 id="10-关系的完整性约束条件"><a href="#10-关系的完整性约束条件" class="headerlink" title="10. 关系的完整性约束条件"></a>10. 关系的完整性约束条件</h4><ul>
+<li>实体完整性</li>
+<li>参照完整性</li>
+<li>用户定义的完整性</li>
+</ul>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><h4 id="1-空间数据及特征："><a href="#1-空间数据及特征：" class="headerlink" title="1.  空间数据及特征："></a>1.  空间数据及特征：</h4><blockquote>
+<p> 空间数据：</p>
+<ol>
+<li>对空间事物的描述</li>
+<li>以地球表面空间位置为参照，用来描述空间实体的位置、形状、大小及其分布特征诸多方面信息的数据</li>
+<li>一种带有空间坐标的数据</li>
+<li>空间数据获取方式包括人工统计、仪器测量等必然产生误差</li>
+</ol>
+<p> 特征：</p>
+<ul>
+<li>时空特征（空间特征、属性特征、时态特征）</li>
+<li>多维特征（空间三维与时间维，多维属性信息）</li>
+<li>多尺度特征（空间多尺度、时间多尺度，空间坐标和空间关系变长结构，非结构化特征）</li>
+<li>海量数据特征</li>
+</ul>
+<p> 空间数据类型（P9）</p>
+<ul>
+<li>地图数据</li>
+<li>影像数据</li>
+<li>地形数据</li>
+<li>属性数据</li>
+</ul>
+</blockquote>
+<h4 id="2-空间数据库SDB的概念和构成"><a href="#2-空间数据库SDB的概念和构成" class="headerlink" title="2. 空间数据库SDB的概念和构成"></a>2. 空间数据库SDB的概念和构成</h4><p>概念：描述与特定空间位置相关的真实世界对象的数据集合</p>
+<p>构成</p>
+<ul>
+<li>空间数据库</li>
+<li>空间数据管理系统</li>
+<li>空间数据库应用程序</li>
+<li>用户</li>
+</ul>
+<h4 id="3-五种空间数据的管理模式"><a href="#3-五种空间数据的管理模式" class="headerlink" title="3.五种空间数据的管理模式"></a>3.五种空间数据的管理模式</h4><blockquote>
+<ol>
+<li>文件管理方式</li>
+<li>二元化空间数据库管理系统</li>
+<li>全关系型空间数据库管理系统</li>
+<li>对象－关系空间数据库管理系统</li>
+<li>面向对象空间数据库管理系统</li>
+</ol>
+</blockquote>
+<h4 id="4-空间信息（概念）模型"><a href="#4-空间信息（概念）模型" class="headerlink" title="4. 空间信息（概念）模型"></a>4. 空间信息（概念）模型</h4><blockquote>
+<ul>
+<li>数据模型：表示空间参考对象也即要将空间实体抽象为数据模型。</li>
+</ul>
+<ul>
+<li>场模型：连续对象的描述（二维，三维），不能够对单独对象进行描述</li>
+<li>对象模型：强调单个对象，把空间对象当做空间要素来表达（点线面体）</li>
+<li>网络模型：网络状对象的描述</li>
+</ul>
+<h5 id="场的组成部分"><a href="#场的组成部分" class="headerlink" title="场的组成部分"></a>场的组成部分</h5><ul>
+<li><p>空间框架：构建了场的定义域</p>
+<ul>
+<li>连续平面：坐标定位</li>
+<li>离散网格：编码定位</li>
+</ul>
+</li>
+<li><p>场函数：属性域</p>
+<ul>
+<li>例子中的森林单一场：空间框架f(x,y)→属性域（冷杉，橡树，松树）</li>
+</ul>
+</li>
+<li><p>场操作</p>
+<ul>
+<li>局部操作</li>
+<li>聚焦操作</li>
+<li>区域操作</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/20191226144811744.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+</ul>
+</blockquote>
+<h4 id="5-拓扑操作（几何不变性）、九交矩阵描述"><a href="#5-拓扑操作（几何不变性）、九交矩阵描述" class="headerlink" title="5. 拓扑操作（几何不变性）、九交矩阵描述"></a>5. 拓扑操作（几何不变性）、九交矩阵描述</h4><blockquote>
+<img src="https://img-blog.csdnimg.cn/20191226150029325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom: 67%;" />
+</blockquote>
+<h2 id="第三章-第四章"><a href="#第三章-第四章" class="headerlink" title="第三章 + 第四章"></a>第三章 + 第四章</h2><h4 id="1-关系模型的三要素-1-8"><a href="#1-关系模型的三要素-1-8" class="headerlink" title="1. 关系模型的三要素 1.8"></a>1. 关系模型的三要素 1.8</h4><ul>
+<li>集合运算：并、交、差、笛卡尔积</li>
+<li>专门的关系运算：选择、投影、连接、除</li>
+<li>五种基本：并、差、笛卡尔积、选择、投影</li>
+</ul>
+<h4 id="2-关系的性质（了解）"><a href="#2-关系的性质（了解）" class="headerlink" title="2. 关系的性质（了解）"></a>2. 关系的性质（了解）</h4><ol>
+<li><p>列是同质的：同一属性名下的诸属性是同类型数据，且必须来自同一个域</p>
+</li>
+<li><p>不同列属性必须有不同属性名</p>
+</li>
+<li><p>列、行的次序无所谓、可以任意交换</p>
+</li>
+<li><p>任意两个元组不能完全相同</p>
+</li>
+<li><p>不允许“表中套表”，即分量必须取原子值，每一个分量必须是不可分的数据项</p>
+</li>
+</ol>
+<h4 id="3-关系代数的写法"><a href="#3-关系代数的写法" class="headerlink" title="3. 关系代数的写法"></a>3. 关系代数的写法</h4><blockquote>
+<p><code>&lt;!-- 写关系代数 --&gt;</code></p>
+</blockquote>
+<h4 id="4-SQL语句的写法"><a href="#4-SQL语句的写法" class="headerlink" title="4. SQL语句的写法"></a>4. SQL语句的写法</h4><blockquote>
+<p><code>&lt;!-- SQL语句 --&gt;</code></p>
+</blockquote>
+<h4 id="5-SQL的特点：非过程化（了解）"><a href="#5-SQL的特点：非过程化（了解）" class="headerlink" title="5. SQL的特点：非过程化（了解）"></a>5. SQL的特点：非过程化（了解）</h4><ol>
+<li>一体化特点。</li>
+<li>高度非过程化。</li>
+<li>语言简洁，易学易用。</li>
+<li>统一的语法结构对待不同的工作方式。</li>
+<li>面向集合的操作方式。</li>
+<li>SQL语言可以对两种基本数据结构进行操作，一种是“表”，另一种是“视图(View)”。</li>
+</ol>
+<h4 id="6-数据定义的命令"><a href="#6-数据定义的命令" class="headerlink" title="6.  数据定义的命令"></a>6.  数据定义的命令</h4><blockquote>
+<ul>
+<li>表<ul>
+<li>create</li>
+<li>Alter ( add, drop, modify修改 )</li>
+<li>drop</li>
+</ul>
+</li>
+<li>视图<ul>
+<li>create</li>
+<li>( update, delete, Insert )</li>
+<li>drop</li>
+</ul>
+</li>
+<li>索引<ul>
+<li>create</li>
+<li>drop</li>
+<li>×</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><h4 id="1-E-R图-，带象形图的E-R图：将对象插在方框内的微缩图"><a href="#1-E-R图-，带象形图的E-R图：将对象插在方框内的微缩图" class="headerlink" title="1. E-R图 ，带象形图的E-R图：将对象插在方框内的微缩图"></a>1. E-R图 ，带象形图的E-R图：将对象插在方框内的微缩图</h4><img src="https://img-blog.csdnimg.cn/20191226150541297.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:67%;" />
+
+<h4 id="2-扩展SQL，SQL3和SQL99版本，有了用户自定义类型"><a href="#2-扩展SQL，SQL3和SQL99版本，有了用户自定义类型" class="headerlink" title="2. 扩展SQL，SQL3和SQL99版本，有了用户自定义类型"></a>2. 扩展SQL，SQL3和SQL99版本，有了用户自定义类型</h4><p>对象关系数据库</p>
+<ul>
+<li>关键特性就是支持SQL3/SQL99。</li>
+<li>SQL3中支持用户自定义数据类型。</li>
+<li>空间数据库就是要研究SQL3/SQL99，对标准SQL语言进行扩展，从而操纵和获取空间数据。</li>
+</ul>
+<h4 id="3-OGIS联盟-标准操作：8种-P74-75"><a href="#3-OGIS联盟-标准操作：8种-P74-75" class="headerlink" title="3. OGIS联盟 标准操作：8种 P74-75"></a>3. OGIS联盟 标准操作：8种 P74-75</h4><blockquote>
+<h5 id="拓朴-集合运算："><a href="#拓朴-集合运算：" class="headerlink" title="拓朴/集合运算："></a>拓朴/集合运算：</h5><table>
+<thead>
+<tr>
+<th><strong>Equal</strong></th>
+<th><strong>如果两个几何体完全相同返回真</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Disjoint</strong></td>
+<td><strong>两个几何体内部和边界都不相交返回真</strong></td>
+</tr>
+<tr>
+<td><strong>Intersect</strong></td>
+<td><strong>两几何体相交则返回真</strong></td>
+</tr>
+<tr>
+<td><strong>Touch</strong></td>
+<td><strong>两几何体边界相交则返回真</strong></td>
+</tr>
+<tr>
+<td><strong>Cross</strong></td>
+<td><strong>如果线和面的内部相交则返回真</strong></td>
+</tr>
+<tr>
+<td><strong>Within</strong></td>
+<td><strong>给定几何内部不和另一几何的外部相交返回真</strong></td>
+</tr>
+<tr>
+<td><strong>Contains</strong></td>
+<td><strong>判断给定几何体是否包含另一几何体</strong></td>
+</tr>
+<tr>
+<td><strong>Overlap</strong></td>
+<td><strong>如果两几何体内部有非空交集返回真</strong></td>
+</tr>
+</tbody></table>
+</blockquote>
+<h4 id="4-创建空间表"><a href="#4-创建空间表" class="headerlink" title="4. 创建空间表"></a>4. 创建空间表</h4><blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Country(</span><br><span class="line">	Name  <span class="type">varchar</span>(<span class="number">35</span>)   <span class="keyword">Primary</span> key, </span><br><span class="line">	Pop  <span class="type">Integer</span>, </span><br><span class="line">	GDP  <span class="keyword">double</span></span><br><span class="line">	Life  <span class="type">FLOAT</span>,</span><br><span class="line">	Shape  Polygon)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="5-空间查询"><a href="#5-空间查询" class="headerlink" title="5. 空间查询"></a>5. 空间查询</h4><blockquote>
+<p>P76  第五章PPT P52</p>
+</blockquote>
+<h2 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h2><h4 id="1-物理、空间模型：实现逻辑模型"><a href="#1-物理、空间模型：实现逻辑模型" class="headerlink" title="1. 物理、空间模型：实现逻辑模型"></a>1. 物理、空间模型：实现逻辑模型</h4><h4 id="2-存储架构"><a href="#2-存储架构" class="headerlink" title="2. 存储架构"></a>2. 存储架构</h4><ul>
+<li>主存（提升性能）——速度很快（纳秒级），但关电源后存储内容丢失</li>
+<li>二级存储设备（存储数据）——速度慢（微秒级），但存储内容不受电源的影响</li>
+<li>三级存储设备（存储备份）——速度更慢，存储内容不受电源影响，往往存储容量非常大。</li>
+</ul>
+<h4 id="3-磁盘物理结构："><a href="#3-磁盘物理结构：" class="headerlink" title="3. 磁盘物理结构："></a>3. 磁盘物理结构：</h4><ul>
+<li>盘片：物理圆形磁片</li>
+<li>磁道：盘片上的同心圆，磁道密度决定容量</li>
+<li>柱面：所有盘片上的直径相同的磁道</li>
+<li>扇区：组成页面（存储）的最小单位，有扇区号</li>
+<li>页面：磁盘和主存间的最小传输单位，一般为扇区的整数倍</li>
+</ul>
+<h4 id="4-存取时间和构成：ts、tt、tl"><a href="#4-存取时间和构成：ts、tt、tl" class="headerlink" title="4. 存取时间和构成：ts、tt、tl"></a>4. 存取时间和构成：ts、tt、tl</h4><blockquote>
+<ul>
+<li>寻道时间：移动磁头到相应磁道上的时间ts</li>
+<li>延迟时间：要读取页面旋转到磁头下的时间tl</li>
+<li>传输时间：磁头读或写相应数据的时间tt</li>
+<li>ts&gt;tl&gt;tt</li>
+<li>tt一般在初始时固定，但ts和tl可能通过优化策略缩短。</li>
+</ul>
+</blockquote>
+<h4 id="5-主存上缓冲区管理器及缓冲策略-DBMS模块：先进先出"><a href="#5-主存上缓冲区管理器及缓冲策略-DBMS模块：先进先出" class="headerlink" title="5. 主存上缓冲区管理器及缓冲策略 DBMS模块：先进先出"></a>5. 主存上缓冲区管理器及缓冲策略 DBMS模块：先进先出</h4><ul>
+<li>缓冲区管理器<ul>
+<li>DBMS的一个软件模块</li>
+<li>负责缓冲区空间分配调度的子系统</li>
+</ul>
+</li>
+<li>缓冲区替换策略<ul>
+<li>最近使用（LRU）<ul>
+<li>替换出最长时间没有读或写过的块</li>
+</ul>
+</li>
+<li>先进先出（FIFO）<ul>
+<li>替换出被同一个块占用时间最长的缓冲块</li>
+</ul>
+</li>
+<li>“时钟”算法<ul>
+<li>LRU的一个常见的、有效的近似</li>
+</ul>
+</li>
+<li>系统控制<ul>
+<li>查询优化器或者其它的DBMS部件可以给缓冲区管理器提供建议来避免象LRU，FIFO，或者时钟这样的严格的策略可能引起的问题</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-根据存储容量从小到大采用什么存储策略"><a href="#6-根据存储容量从小到大采用什么存储策略" class="headerlink" title="6. 根据存储容量从小到大采用什么存储策略"></a>6. 根据存储容量从小到大采用什么存储策略</h4><blockquote>
+<p>从小到大</p>
+<ul>
+<li>同一扇区</li>
+<li>相邻扇区 = 同一个磁道</li>
+<li>同一柱面 减少存到时间</li>
+<li>相邻柱面</li>
+</ul>
+</blockquote>
+<h4 id="7-文件结构-PPT-P33"><a href="#7-文件结构-PPT-P33" class="headerlink" title="7. 文件结构 PPT P33"></a>7. 文件结构 PPT P33</h4><ul>
+<li>无序（堆）文件</li>
+<li>顺序文件</li>
+<li>散列文件</li>
+<li>聚类文件（用于空间数据存储）</li>
+</ul>
+<h4 id="8-空间填充曲线（过程）"><a href="#8-空间填充曲线（过程）" class="headerlink" title="8. 空间填充曲线（过程）"></a>8. 空间填充曲线（过程）</h4><blockquote>
+<p><code>&lt;!-- 画图 --&gt;</code></p>
+<ul>
+<li>Z曲线</li>
+<li>hilbert</li>
+</ul>
+</blockquote>
+<h4 id="9-空间数据的组织"><a href="#9-空间数据的组织" class="headerlink" title="9. 空间数据的组织"></a>9. 空间数据的组织</h4><ul>
+<li><p>横向分幅（标准分幅或区域分幅等）</p>
+<ul>
+<li>标准经纬度分块</li>
+<li>矩形分块</li>
+<li>任意区域多边形分块</li>
+</ul>
+<p><code>&lt;!--小比例尺按经纬线分幅，大比例尺地图按矩形分幅。--&gt;</code></p>
+</li>
+<li><p>纵向分层</p>
+<ul>
+<li>专题分层<ul>
+<li>每个图层对应一个专题，包含某一种或某一类数据。如地貌层、水系层、道路层、居民地层等。</li>
+</ul>
+</li>
+<li>时间序列分层<ul>
+<li>把不同时间或不同时期的数据作为多个数据层。</li>
+</ul>
+</li>
+<li>地面垂直高度分层<ul>
+<li>把不同垂直高度的数据作为一个数据层。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>分层分块索引</p>
+</li>
+<li><p>金字塔含义和性质（分辨率变、范围不变、每块不同）</p>
+<ul>
+<li>核心：对遥感影像进行分层、分块<ul>
+<li>分层就是把原始影像数据按照不同分辨率进行管理，具体就是把分辨率高的影像层依次通过重采样算法生成其上层的影像数据。</li>
+<li>分块是对分层之后的影像数据按照设定好的影像块进行分割存储。分块之后只需要将需要显示和处理的若干个影像块数据读入内存，而并非未分块前的一整幅影像。</li>
+<li>最后对每层的影像块（分块大小相等）统一组织存储。</li>
+</ul>
+</li>
+<li>性质：<ul>
+<li>从底层到顶层，分辨率越来越低，但表示的空间范围不变。</li>
+<li>一般采用固定大小（通常取2的幂次方）的分块方法。目前建立影像数据库多采用数据块大小为 128×128或 256×256。</li>
+</ul>
+</li>
+</ul>
+<p><code>&lt;!--影像的尺寸越来越小，但描述的空间范围是不变的，最终分辨率降低。--&gt;</code></p>
+</li>
+</ul>
+<h4 id="10-B-数和B-数-–》R树"><a href="#10-B-数和B-数-–》R树" class="headerlink" title="10. B-数和B+数  –》R树"></a>10. B-数和B+数  –》R树</h4><ul>
+<li><p>B-树是一种平衡的多路查找树，m阶树</p>
+<ol>
+<li>根结点或者是叶子，或者至少有两棵子树，至多有m棵子树</li>
+<li>除根结点外，所有非终端结点至少有m/2棵子树，至多有m棵子树； </li>
+<li>所有叶子结点都在树的同一层上；</li>
+<li>每个结点应包含如下信息：<pre><code>(n，A0，K1，A1，K2，A2，… ，Kn，An)
+</code></pre>
+其中Ki(1≤i≤n)是关键字，且Ki&lt;Ki+1 (1≤i≤n-1)；Ai(i=0，1，… ，n)为指向孩子结点的指针，且Ai-1所指向的子树中所有结点的关键字都小于Ki ，Ai所指向的子树中所有结点的关键字都大于Ki ；n是结点中关键字的个数，且（m/2)-1≤n≤m-1，n+1为子树的棵数。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">B- 树</th>
+<th>3阶</th>
+<th>4阶</th>
+<th>5阶</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">根结点子树</td>
+<td>2-3</td>
+<td>2-4</td>
+<td>2-5</td>
+</tr>
+<tr>
+<td align="center">根/非终端结点子树</td>
+<td>2-3</td>
+<td>2-4</td>
+<td>3-5</td>
+</tr>
+<tr>
+<td align="center">根/结点中关键字</td>
+<td>1-2</td>
+<td>1-3</td>
+<td>2-4</td>
+</tr>
+<tr>
+<td align="center">根结点中关键字</td>
+<td>1-2</td>
+<td>1-3</td>
+<td>1-4</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>B+树</p>
+<ul>
+<li><p>从最小关键字顺序查找</p>
+</li>
+<li><p>从根结点开始随机查找</p>
+</li>
+</ul>
+<ol>
+<li>每个结点至多有m个子结点； </li>
+<li>除根结点和叶结点外，其它每个结点至少有m/2 个子结点；</li>
+<li>若根结点不是叶子结点，则至少有两个子结点；</li>
+<li>所有的叶结点在同一层；</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">B+ 树</th>
+<th>3阶</th>
+<th>4阶</th>
+<th>5阶</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">根结点子树</td>
+<td>2-3</td>
+<td>2-4</td>
+<td>2-5</td>
+</tr>
+<tr>
+<td align="center">根/非终端结点子树</td>
+<td>2-3</td>
+<td>2-4</td>
+<td>3-5</td>
+</tr>
+<tr>
+<td align="center">根/结点中关键字</td>
+<td>2-3</td>
+<td>2-4</td>
+<td>3-5</td>
+</tr>
+<tr>
+<td align="center">根结点中关键字</td>
+<td>1-3</td>
+<td>1-4</td>
+<td>1-5</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="11-什么是空间索引？"><a href="#11-什么是空间索引？" class="headerlink" title="11. 什么是空间索引？"></a>11. 什么是空间索引？</h4><blockquote>
+<p>空间索引：依据空间对象的位置和形状或空间对象之间的空间关系，按一定的顺序排列的一种数据结构。</p>
+<p>基本思想：近似体的使用</p>
+<ul>
+<li><p>常见的空间索引：</p>
+<ul>
+<li><p>对象范围索引（两级过滤）</p>
+<ul>
+<li>初次过滤根据空间要素外包矩形来过滤掉大部分不在查询范围的空间要素；</li>
+<li>第二级过滤则用查询空间范围直接和初次过滤结果集中空间要素的二进制边界坐标比较，从而得到查询的准确结果</li>
+</ul>
+<p><code>&lt;!-- 没有真正的空间索引文件，而是为空间对象添加外接矩形，依靠空间计算能力判别 --&gt;</code></p>
+<p><code>&lt;!-- 查询时仍需要对整个空间对象进行检索，某些对象可以通过矩形范围直接判别 --&gt;</code></p>
+<p><code>&lt;!-- 该方法仍需要花费大量时间进行空间检索，计算机处理速度加快，弥补了效率的要求 --&gt;</code></p>
+</li>
+<li><p>格网索引（固定网格结构，固定网格结构是固定的，它的目录稀疏而巨大）</p>
+<p><code>&lt;!-- 将研究区域用横竖线条划分大小相等或不等的格网，记录每一个格网所包含的空间实体 --&gt;</code></p>
+<p><code>&lt;!-- 空间查询时，首先计算出用户查询对象所在格网，然后在该网格中快速查询所选空间实体 --&gt;</code></p>
+<img src="https://img-blog.csdnimg.cn/20191226174219994.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" />
+
+<ul>
+<li><p>第一阶段（RDBMS完成）：</p>
+<ul>
+<li>接收SQL语句，获取空间过滤器的封装边界</li>
+<li>检测空间过滤器的封装边界跨越的网格</li>
+<li>到空间索引表中检索出封装边界所在网格内的要素</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/20191226175417164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+<li><p>第二阶段：几何过滤器的封装边界与第一阶段检索出的要素的边界相比较，找出具有重叠关系的要素</p>
+<img src="https://img-blog.csdnimg.cn/20191226175436550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+<li><p>第三阶段：几何过滤器的坐标与第二阶段检索出的要素的边界比较，找出<strong>边界</strong>在几何过滤器内的要素</p>
+<img src="https://img-blog.csdnimg.cn/20191226175558410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+<li><p>第四阶段：几何过滤器的坐标与第三阶段检索出的要素的坐标比较，找出最终在几何过滤器内的要素类</p>
+<img src="C:\Users\盒子先生\AppData\Roaming\Typora\typora-user-images\image-20191226175620184.png" alt="image-20191226175620184" style="zoom:50%;" /></li>
+</ul>
+</li>
+<li><p>格网索引（网格文件）</p>
+</li>
+<li><p>四叉树索引</p>
+<ul>
+<li>在建立四叉树索引时，根据所有空间对象覆盖的范围，进行四叉树分割，使每个子块中包含单个实体，然后根据包含每个实体的子块层数或子块大小，建立相应的索引。</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/20191226193222179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+</ul>
+</li>
+<li><p>R树索引</p>
+<ul>
+<li>根结点到每一个叶结点的深度相等 。            </li>
+<li>树中每个非叶结点有n到M个子结点，M 对特定的树是固定的(阶数)。2=&lt; n&lt;= M/2</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="12-对象范围索引中有一个检索关系式"><a href="#12-对象范围索引中有一个检索关系式" class="headerlink" title="12.对象范围索引中有一个检索关系式"></a>12.对象范围索引中有一个检索关系式</h4><p>空间对象被检索    <code>Xmax ≥ XW and Xmin≤XE AND Ymax ≥ YS and Ymin≤YN</code></p>
+<p>空间对象不被检索<code>Xmax ≤ XW  OR  Xmin ≥ XE OR Ymax ≤ YS  OR  Ymin ≥YN</code></p>
+<img src="https://img-blog.csdnimg.cn/20191226194319587.png" style="zoom:67%;" />
+
+<h4 id="13-网格文件索引"><a href="#13-网格文件索引" class="headerlink" title="13. 网格文件索引"></a>13. 网格文件索引</h4><blockquote>
+<p><code>&lt;!-- 画图 --&gt;</code></p>
+<ul>
+<li>根据空间维度划分k维空间。</li>
+<li>将平面索引空间划分为相等或不等的一些小方格网。</li>
+<li>与每个格网相关联的空间目标存储到同一磁盘页面（桶）或多个磁盘页面（溢出桶）。</li>
+<li>页面的访问地址通过格网的线性标量（数组下标）求得。</li>
+<li>线性标量是空间目标实际坐标按照线型比例生成的索引。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191226175935417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:33%;" /><img src="https://img-blog.csdnimg.cn/20191226175949699.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:33%;" /></p>
+</blockquote>
+<h4 id="14-R树特征-10-12条"><a href="#14-R树特征-10-12条" class="headerlink" title="14. R树特征(10-12条)"></a>14. R树特征(10-12条)</h4><blockquote>
+<ol>
+<li>每个叶结点包含m至M条索引记录(其中m&lt;=M/2 )</li>
+<li>一个叶结点上的每条索引记录了最小外包矩形。</li>
+<li>每个非叶结点都有m至M个子结点。</li>
+<li>对于非叶结点中的每个条目包含其子结点中矩形的最小外包矩形。</li>
+<li>根结点至少有两子结点。</li>
+<li>所有叶结点出现在同一层。</li>
+<li>所有MBR的边与一个全局坐标系的轴平行。</li>
+</ol>
+<ul>
+<li>R树允许结点相互覆盖,这种交叠可以使R树保持较高的空间利用率和保持树的平衡。</li>
+<li>过多交叠可能会造成查询效率的降低,最坏的情况下对某一对象的查询可能造成对整个树的搜索。</li>
+<li>R树搜索的性能取决于两个参数：覆盖和交叠。<ul>
+<li>树的某一层覆盖是指这一层所有节点的MBR所覆盖的全部区域。</li>
+</ul>
+</li>
+<li>若想要得到一个高效的R树，覆盖和交叠都应该很小。</li>
+</ul>
+</blockquote>
+<h4 id="15-最优R树画法"><a href="#15-最优R树画法" class="headerlink" title="15. 最优R树画法"></a>15. 最优R树画法</h4><blockquote>
+<p><code>&lt;!-- 画图 --&gt;</code></p>
+</blockquote>
+<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><h4 id="1-策略"><a href="#1-策略" class="headerlink" title="1. 策略"></a>1. 策略</h4><blockquote>
+<ul>
+<li>选择运算尽可能先做</li>
+<li>投影运算和选择运算同时进行</li>
+<li>把投影运算同其前后的双目运算结合执行</li>
+<li>执行连接运算前，进行适当的预处理</li>
+<li>选择运算和笛卡尔积运算结合成连接运算</li>
+<li>找出公共子表达式，避免重复运算</li>
+</ul>
+</blockquote>
+<h4 id="2-空间操作的两步处理：过滤步骤、精炼步骤"><a href="#2-空间操作的两步处理：过滤步骤、精炼步骤" class="headerlink" title="2. 空间操作的两步处理：过滤步骤、精炼步骤"></a>2. 空间操作的两步处理：过滤步骤、精炼步骤</h4><h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2><ol>
+<li>数据库系统的特点是<code>数据共享</code>、数据独立、减少数据冗余、避免数据不一致和加强了数据保护。</li>
+<li>数据库管理系统（DBMS）是<code>系统软件</code></li>
+<li>数据库管理系统能实现对数据库中数据的查询、插入、修改和删除等操作．这种功能称为<code>数据操纵功能</code></li>
+<li>在数据库的三级模式结构中，描述数据库中全体数据的全局逻辑结构和特征的是<code>模式</code></li>
+<li>数据库系统的数据独立性是指<code>不会因为数据的变化而影响应用程序</code></li>
+<li>数据库类型是按照<code>数据模型</code>来划分的</li>
+<li>一组具有相同数据类型的值的集合称为<code>域</code></li>
+<li>在数据库中存储的是<code>数据以及数据之间的联系</code></li>
+<li>按所使用的数据模型来分，数据库可分为<code>层次、关系和网状</code>三种模型</li>
+<li>在数据库设计中用关系模型来表示实体和实体之间的联系。关系模型的结构是<code>二维表结构 </code></li>
+<li>在关系模型中，实现”关系中不允许出现相同的元组”的约束是通过<code>主键</code></li>
+<li><code>关系模型</code>由数据结构、关系操作集合和完整性约束三部分组成</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93/" data-id="ckreqntk0002br07ka61cc7uq" data-title="空间数据库总结" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-卷帘" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%8D%B7%E5%B8%98/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.039Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E5%8D%B7%E5%B8%98/">卷帘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ol>
+<li>定义要素图层</li>
+<li>new一个卷帘对象</li>
+<li>开启小部件<br>PS：要素图层需要添加在map容器中才能在卷帘对象中设置layers</li>
+</ol>
+<h6 id="实用方法"><a href="#实用方法" class="headerlink" title="实用方法"></a>实用方法</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">swipeWidget01.disable();//禁用小部件</span><br><span class="line">swipeWidget23.enable();//启用小部件</span><br></pre></td></tr></table></figure>
+
+<h4 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;initial-scale=1, maximum-scale=1,user-scalable=no&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Layer Swipe<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;esri.css&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;tundra.css&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">html</span>,</span></span><br><span class="line"><span class="css">        <span class="selector-tag">body</span>,</span></span><br><span class="line"><span class="css">        <span class="selector-id">#map</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.29/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">&quot;calcite&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;swipeDiv&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">require</span>([</span></span><br><span class="line"><span class="javascript">        <span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="string">&quot;esri/layers/FeatureLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="string">&quot;esri/dijit/LayerSwipe&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="string">&quot;dojo/domReady!&quot;</span></span></span><br><span class="line"><span class="javascript">    ], <span class="function"><span class="keyword">function</span> (<span class="params"></span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">        <span class="built_in">Map</span>, FeatureLayer, LayerSwipe</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">    </span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;map&quot;</span>);</span></span><br><span class="line"><span class="javascript">        thingslayer0 = <span class="keyword">new</span> FeatureLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/gaofen/bazhou/MapServer&quot;</span> + <span class="string">&quot;/0&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">mode</span>: FeatureLayer.MODE_ONDEMAND,</span></span><br><span class="line"><span class="javascript">            <span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>]</span></span><br><span class="line"><span class="javascript">        &#125;);</span></span><br><span class="line"><span class="javascript">        thingslayer1 = <span class="keyword">new</span> FeatureLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/gaofen/bazhou/MapServer&quot;</span> + <span class="string">&quot;/1&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">mode</span>: FeatureLayer.MODE_ONDEMAND,</span></span><br><span class="line"><span class="javascript">            <span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>]</span></span><br><span class="line"><span class="javascript">        &#125;);</span></span><br><span class="line"><span class="javascript">        <span class="comment">//矢量</span></span></span><br><span class="line"><span class="javascript">        map.addLayer(thingslayer0);</span></span><br><span class="line"><span class="javascript">        map.addLayer(thingslayer1);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> swipeWidget = <span class="keyword">new</span> LayerSwipe(&#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">type</span>: <span class="string">&quot;vertical&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">map</span>: map,</span></span><br><span class="line"><span class="javascript">            <span class="comment">// 要卷帘哪些图层</span></span></span><br><span class="line"><span class="javascript">            <span class="attr">layers</span>: [thingslayer0, thingslayer1],</span></span><br><span class="line"><span class="javascript">        &#125;, <span class="string">&quot;swipeDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">        swipeWidget.startup();</span></span><br><span class="line"><span class="javascript">    &#125;);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%8D%B7%E5%B8%98/" data-id="ckreqntjh001fr07k441l3lsk" data-title="卷帘" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-加载---闪烁Layer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%8A%A0%E8%BD%BD---%E9%97%AA%E7%83%81Layer/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.037Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E5%8A%A0%E8%BD%BD---%E9%97%AA%E7%83%81Layer/">加载---闪烁Layer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h6 id="一个简单的图层切换闪烁动画，js入门练手"><a href="#一个简单的图层切换闪烁动画，js入门练手" class="headerlink" title="一个简单的图层切换闪烁动画，js入门练手"></a>一个简单的图层切换闪烁动画，js入门练手</h6><h5 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h5><p>设置显示图层<code>layer.setVisibleLayers([0]);</code></p>
+<h6 id="查看图层编号步骤："><a href="#查看图层编号步骤：" class="headerlink" title="查看图层编号步骤："></a>查看图层编号步骤：</h6><ol>
+<li>查看已经发布地图服务<br><img src="https://img-blog.csdnimg.cn/20190805233722433.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></li>
+<li>功能—REST URL<br><img src="https://img-blog.csdnimg.cn/20190805233747291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></li>
+<li>查看<br><img src="https://img-blog.csdnimg.cn/20190805233756705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></li>
+</ol>
+<h5 id="贴代码"><a href="#贴代码" class="headerlink" title="贴代码"></a>贴代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">		<span class="selector-class">.MapClass</span> &#123;</span></span><br><span class="line"><span class="css">			<span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">			<span class="attribute">height</span>: <span class="number">960px</span>;</span></span><br><span class="line"><span class="css">			<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span></span><br><span class="line"><span class="css">		&#125;</span></span><br><span class="line"><span class="css">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> flag = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> Max_layer=<span class="number">30</span>;</span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">&quot;btn0&quot;</span>);</span></span><br><span class="line"><span class="javascript">			<span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				btn.click();</span></span><br><span class="line"><span class="javascript">			&#125;,<span class="number">500</span>);</span></span><br><span class="line"><span class="javascript">			&#125;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/on&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/dom&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/domReady!&quot;</span>],</span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">Map</span>, on, dom,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">				ArcGISDynamicMapServiceLayer</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">			</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;MyMapDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer</span></span><br><span class="line"><span class="javascript">					(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/WLFX_huanbao/MapServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">				map.addLayer(layer);</span></span><br><span class="line"><span class="javascript">				layer.setVisibleLayers([<span class="number">0</span>]);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">				on(dom.byId(<span class="string">&quot;btn0&quot;</span>),<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">					flag++;</span></span><br><span class="line"><span class="javascript">					<span class="keyword">if</span>(flag&lt;=Max_layer)</span></span><br><span class="line"><span class="javascript">						layer.setVisibleLayers([flag]);</span></span><br><span class="line"><span class="javascript">					<span class="keyword">else</span></span></span><br><span class="line"><span class="javascript">						flag=<span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">				&#125;)</span></span><br><span class="line"><span class="javascript">				</span></span><br><span class="line"><span class="javascript">			&#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">&quot;init()&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;MyMapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">id</span>=<span class="string">&quot;btn0&quot;</span> &gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%8A%A0%E8%BD%BD---%E9%97%AA%E7%83%81Layer/" data-id="ckreqntjg001dr07k3oda32h7" data-title="加载---闪烁Layer" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-加载---加载动态图层+注册文件夹" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%8A%A0%E8%BD%BD---%E5%8A%A0%E8%BD%BD%E5%8A%A8%E6%80%81%E5%9B%BE%E5%B1%82+%E6%B3%A8%E5%86%8C%E6%96%87%E4%BB%B6%E5%A4%B9/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.035Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E5%8A%A0%E8%BD%BD---%E5%8A%A0%E8%BD%BD%E5%8A%A8%E6%80%81%E5%9B%BE%E5%B1%82+%E6%B3%A8%E5%86%8C%E6%96%87%E4%BB%B6%E5%A4%B9/">加载---加载动态图层+注册文件夹</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="基础：加载动态图层"><a href="#基础：加载动态图层" class="headerlink" title="基础：加载动态图层"></a>基础：<a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/04/12/%E5%8A%A0%E8%BD%BD---%E5%8A%A8%E6%80%81%20_%20%E5%88%87%E7%89%87%E5%9C%B0%E5%9B%BE%E5%8A%A0%E8%BD%BD/">加载动态图层</a></h5><h5 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h5><ol>
+<li><p>添加一个button（添加动态图层），给button绑定on模块的点击事件</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">on(dom.byId(<span class="string">&quot;btn&quot;</span>),<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>定义数据源，设置命名空间，设置命名空间下面的shp</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dataSource = <span class="keyword">new</span> TableDataSource();</span><br><span class="line">dataSource.workspaceId = <span class="string">&quot;demo&quot;</span>;</span><br><span class="line">dataSource.dataSourceName = <span class="string">&quot;demoShp.shp&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>定义图层数据源，对其赋值</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> layerSource = <span class="keyword">new</span> LayerDataSource();</span><br><span class="line">layerSource.dataSource = dataSource;</span><br></pre></td></tr></table></figure></li>
+<li><p>定义要素图层（动态图层）</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> layer2 = <span class="keyword">new</span> FeatureLayer</span><br><span class="line">(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer/dynamicLayer&quot;</span>, &#123;</span><br><span class="line">	<span class="attr">mode</span>: FeatureLayer.MODE_ONDEMAND,</span><br><span class="line">	<span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>],</span><br><span class="line">	<span class="attr">source</span>: layerSource</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>定义线符号，渲染器</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lineSymbol = <span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> dojo.Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span><br><span class="line"><span class="keyword">var</span> renderer = <span class="keyword">new</span> esri.renderer.SimpleRenderer(lineSymbol);</span><br><span class="line">				</span><br></pre></td></tr></table></figure></li>
+<li><p>给要素图层设置渲染器</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">layer2.setRenderer(renderer);</span><br><span class="line">layer2.refresh();</span><br></pre></td></tr></table></figure></li>
+<li><p>把要素图层添加到map上</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.addLayer(layer2);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="贴代码"><a href="#贴代码" class="headerlink" title="贴代码"></a>贴代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/dijit/themes/tundra/tundra.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">type</span>=<span class="string">&quot;text/Javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/dom&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/on&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/FeatureLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/TableDataSource&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/LayerDataSource&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/renderers/SimpleRenderer&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;dojo/domReady!&quot;</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                <span class="built_in">Map</span>,dom,on, ArcGISDynamicMapServiceLayer, FeatureLayer, TableDataSource, LayerDataSource, SimpleRenderer,SimpleLineSymbol</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;mapDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> layer1 = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">            map.addLayer(layer1);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">			on(dom.byId(<span class="string">&quot;btn&quot;</span>),<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">// 定义数据源，设置命名空间，设置命名空间下面的shp</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> dataSource = <span class="keyword">new</span> TableDataSource();</span></span><br><span class="line"><span class="javascript">				dataSource.workspaceId = <span class="string">&quot;demo&quot;</span>;</span></span><br><span class="line"><span class="javascript">				dataSource.dataSourceName = <span class="string">&quot;demoShp.shp&quot;</span>;</span></span><br><span class="line"><span class="javascript">				<span class="comment">// 定义图层数据源，对其赋值</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> layerSource = <span class="keyword">new</span> LayerDataSource();</span></span><br><span class="line"><span class="javascript">				layerSource.dataSource = dataSource;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//定义一个要素图层:动态图层</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> layer2 = <span class="keyword">new</span> FeatureLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer/dynamicLayer&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">					<span class="attr">mode</span>: FeatureLayer.MODE_ONDEMAND,</span></span><br><span class="line"><span class="javascript">					<span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>],</span></span><br><span class="line"><span class="javascript">					<span class="attr">source</span>: layerSource</span></span><br><span class="line"><span class="javascript">				&#125;);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//定义线符号，渲染器</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> lineSymbol = <span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> dojo.Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> renderer = <span class="keyword">new</span> esri.renderer.SimpleRenderer(lineSymbol);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//给要素图层设置渲染器</span></span></span><br><span class="line"><span class="javascript">				layer2.setRenderer(renderer);</span></span><br><span class="line"><span class="javascript">				layer2.refresh();</span></span><br><span class="line"><span class="javascript">				<span class="comment">//把要素图层添加到map上</span></span></span><br><span class="line"><span class="javascript">				map.addLayer(layer2);</span></span><br><span class="line"><span class="javascript">			&#125;)</span></span><br><span class="line"><span class="javascript">            </span></span><br><span class="line"><span class="javascript">        &#125;);</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mapDiv&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height:600px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>添加动态图层<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%8A%A0%E8%BD%BD---%E5%8A%A0%E8%BD%BD%E5%8A%A8%E6%80%81%E5%9B%BE%E5%B1%82+%E6%B3%A8%E5%86%8C%E6%96%87%E4%BB%B6%E5%A4%B9/" data-id="ckreqntje001br07kfhq1a5m2" data-title="加载---加载动态图层+注册文件夹" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

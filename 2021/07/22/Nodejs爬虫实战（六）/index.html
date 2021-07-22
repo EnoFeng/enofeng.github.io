@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Nodejs爬虫实战（六） | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1. 处理数据 上一步获取结果中含有p标签，用正则筛选，去掉标签，只留下文本。      var myHtml &#x3D; document.querySelector(&#39;.read-content&#39;).innerHTML.replace(&#x2F;&lt;[^&gt;]+&gt;&#x2F;g,&#39;&#39;)   统计词的个数首先需要文本分词  分词模块segment(盘古分词组件)，实例化，使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodejs爬虫实战（六）">
+<meta property="og:url" content="http://example.com/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%85%AD%EF%BC%89/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="1. 处理数据 上一步获取结果中含有p标签，用正则筛选，去掉标签，只留下文本。      var myHtml &#x3D; document.querySelector(&#39;.read-content&#39;).innerHTML.replace(&#x2F;&lt;[^&gt;]+&gt;&#x2F;g,&#39;&#39;)   统计词的个数首先需要文本分词  分词模块segment(盘古分词组件)，实例化，使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-22T09:54:48.948Z">
+<meta property="article:modified_time" content="2020-04-12T12:49:07.848Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Nodejs爬虫实战（六）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%85%AD%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.948Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Nodejs爬虫实战（六）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="1-处理数据"><a href="#1-处理数据" class="headerlink" title="1. 处理数据"></a>1. 处理数据</h4><ol>
+<li>上一步获取结果中含有<code>p</code>标签，用正则筛选，去掉标签，只留下文本。</li>
+</ol>
+<pre><code>    var myHtml = document.querySelector(&#39;.read-content&#39;).innerHTML.replace(/&lt;[^&gt;]+&gt;/g,&#39;&#39;)
+</code></pre>
+<ol start="2">
+<li><p>统计词的个数首先需要文本分词</p>
+</li>
+<li><p>分词模块<code>segment</code>(盘古分词组件)，实例化，使用默认的识别模块及字典，载入字典文件需要1秒，仅初始化时执行一次即可</p>
+<pre><code> let seg = new Segment();
+ seg.useDefault();
+</code></pre>
+</li>
+<li><p>开始分词。</p>
+<pre><code> var arr = seg.doSegment(myHtml);
+</code></pre>
+</li>
+<li><p>结果其中<code>w</code>表示内容，<code>p</code>表示词性，<a target="_blank" rel="noopener" href="https://github.com/leizongmin/node-segment/blob/master/lib/POSTAG.js" title="词性收录">词性收录</a></p>
+<pre><code> [ &#123; w: &#39;这是&#39;, p: 0 &#125;,
+   &#123; w: &#39;一个&#39;, p: 2097152 &#125;,
+   &#123; w: &#39;基于&#39;, p: 262144 &#125;,
+   &#123; w: &#39;Node.js&#39;, p: 8 &#125;,
+   &#123; w: &#39;的&#39;, p: 8192 &#125;,
+   &#123; w: &#39;中文&#39;, p: 1048576 &#125;,
+   &#123; w: &#39;分词&#39;, p: 4096 &#125;,
+   &#123; w: &#39;模块&#39;, p: 1048576 &#125;,
+   &#123; w: &#39;。&#39;, p: 2048 &#125; ]
+</code></pre>
+</li>
+<li><p>去掉词性为<code>2048</code>的标点</p>
+<pre><code> var myarr = [];
+
+ arr.forEach(data=&gt;&#123;
+     if(data.p !=2048)&#123;
+         myarr.push(data.w)
+     &#125;
+ &#125;);
+</code></pre>
+</li>
+<li><p>JSON格式统计词内容</p>
+<pre><code> var myJson = &#123;&#125;;
+ myarr.forEach(data=&gt;&#123;
+     if(!myJson[data])&#123;
+         myJson[data] = 1;
+     &#125;
+     else&#123;
+         myJson[data]++;
+     &#125;
+ &#125;);
+</code></pre>
+</li>
+<li><p>去掉其中只出现一次的</p>
+<pre><code> let arr2 = [];
+ for(let word in myJson)&#123;
+     if(myJson[word]&lt;=1)&#123;
+         continue;
+     &#125;
+     arr2.push(&#123;
+         w:word,
+         c:myJson[word]
+     &#125;)
+ &#125;;
+</code></pre>
+</li>
+<li><p>结果排序</p>
+<pre><code> arr2.sort((json1,json2)=&gt;json2.c-json1.c);
+</code></pre>
+</li>
+</ol>
+<pre><code>###### 完整代码
+
+    var index = 0;
+    const fs = require(&#39;fs&#39;);
+    const url = require(&#39;url&#39;);
+    const gbk = require(&#39;gbk&#39;);
+    const JSDOM = require(&#39;jsdom&#39;).JSDOM;
+    const Segment = require(&#39;segment&#39;);
+    let seg = new Segment();
+    seg.useDefault();
+    
+    GetUrl(&#39;https://www.xs8.cn/chapter/7373911103301701/19794192502339694&#39;,(data)=&gt;&#123;
+        let DOM = new JSDOM(data);
+        let document = DOM.window.document;
+    
+        var myHtml = document.querySelector(&#39;.read-content&#39;).innerHTML.replace(/&lt;[^&gt;]+&gt;/g,&#39;&#39;)
+        var arr = seg.doSegment(myHtml);
+        //去掉没用的
+        var myarr = [];
+        arr.forEach(data=&gt;&#123;
+            if(data.p !=2048)&#123;
+                myarr.push(data.w)
+            &#125;
+        &#125;);
+        //计算个数，存为json格式
+        var myJson = &#123;&#125;;
+        myarr.forEach(data=&gt;&#123;
+            if(!myJson[data])&#123;
+                myJson[data] = 1;
+            &#125;
+            else&#123;
+                myJson[data]++;
+            &#125;
+        &#125;);
+        //去掉只出现1次的 
+        let arr2 = [];
+        for(let word in myJson)&#123;
+            if(myJson[word]&lt;=1)&#123;
+                continue;
+            &#125;
+            arr2.push(&#123;
+                w:word,
+                c:myJson[word]
+            &#125;)
+        &#125;;
+        arr2.sort((json1,json2)=&gt;json2.c-json1.c);
+        console.log(arr2);
+    &#125;)
+    function GetUrl(sUrl,success)&#123;
+        index++;
+        var urlObj = url.parse(sUrl);
+        var http =&#39;&#39;;
+        if(urlObj.protocol == &#39;http:&#39;)&#123;
+            http = require(&#39;http&#39;);
+        &#125;
+        else&#123;
+            http = require(&#39;https&#39;);
+        &#125;
+    
+        let req = http.request(&#123;
+            &#39;hostname&#39;:urlObj.hostname,
+            &#39;path&#39;:urlObj.path
+        &#125;,res=&gt;&#123;
+            if(res.statusCode == 200)&#123;
+                var str = &#39;&#39;;
+                res.on(&#39;data&#39;,buffer=&gt;&#123;
+                    str +=buffer;
+                &#125;);
+                res.on(&#39;end&#39;,()=&gt;&#123;    
+                    success &amp;&amp; success(str);
+                &#125;)
+            &#125;
+            else if(res.statusCode == 302 || res.statusCode == 301)&#123;
+                console.log(`第$&#123;index&#125;次重定向`,res.headers.location);
+                GetUrl(res.headers.location,success)
+            &#125;
+        &#125;);
+        req.end();
+        req.on(&#39;error&#39;,()=&gt;&#123;
+            console.log(&#39;404了，哥们&#39;);
+        &#125;)
+    &#125;
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%85%AD%EF%BC%89/" data-id="ckreqntix000lr07k756g96um" data-title="Nodejs爬虫实战（六）" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Nodejs爬虫实战（七）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%BA%8C%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Nodejs爬虫实战（二）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

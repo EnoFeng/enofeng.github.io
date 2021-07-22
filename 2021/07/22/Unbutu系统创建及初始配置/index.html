@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Unbutu系统创建及初始配置 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="创建 1. 创建2. next   3. 稍后    4. Ununtu 64位，不是Ubuntu    5. 更改位置，选择一个至少20G的磁盘 6. next直到完成。系统初始化设置 1. 选择中文，安装Ubuntu2. 选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除    3. 然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unbutu系统创建及初始配置">
+<meta property="og:url" content="http://example.com/2021/07/22/Unbutu%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="创建 1. 创建2. next   3. 稍后    4. Ununtu 64位，不是Ubuntu    5. 更改位置，选择一个至少20G的磁盘 6. next直到完成。系统初始化设置 1. 选择中文，安装Ubuntu2. 选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除    3. 然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200313013649977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200313013735511.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020031301382273.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200313013842942.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200313021557617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020031301424793.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200313014858282.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200313015145739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200313020404451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200313020633763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200313020704786.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200313020750189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200313020828236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-07-22T09:54:48.971Z">
+<meta property="article:modified_time" content="2020-04-12T14:10:01.171Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200313013649977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Unbutu系统创建及初始配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/Unbutu%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.971Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Unbutu系统创建及初始配置
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><hr>
+<h4 id="1-创建"><a href="#1-创建" class="headerlink" title="1. 创建"></a>1. 创建<img src="https://img-blog.csdnimg.cn/20200313013649977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></h4><h4 id="2-next"><a href="#2-next" class="headerlink" title="2. next   "></a>2. next   <img src="https://img-blog.csdnimg.cn/20200313013735511.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></h4><h4 id="3-稍后"><a href="#3-稍后" class="headerlink" title="3. 稍后"></a>3. 稍后</h4><p>   <img src="https://img-blog.csdnimg.cn/2020031301382273.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="4-Ununtu-64位，不是Ubuntu"><a href="#4-Ununtu-64位，不是Ubuntu" class="headerlink" title="4. Ununtu 64位，不是Ubuntu"></a>4. Ununtu 64位，不是Ubuntu</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313013842942.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="5-更改位置，选择一个至少20G的磁盘"><a href="#5-更改位置，选择一个至少20G的磁盘" class="headerlink" title="5. 更改位置，选择一个至少20G的磁盘"></a>5. 更改位置，选择一个至少20G的磁盘</h4><p><img src="https://img-blog.csdnimg.cn/20200313021557617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="6-next直到完成。"><a href="#6-next直到完成。" class="headerlink" title="6. next直到完成。"></a>6. next直到完成。</h4><h1 id="系统初始化设置"><a href="#系统初始化设置" class="headerlink" title="系统初始化设置"></a>系统初始化设置</h1><hr>
+<h4 id="1-选择中文，安装Ubuntu"><a href="#1-选择中文，安装Ubuntu" class="headerlink" title="1. 选择中文，安装Ubuntu"></a>1. 选择中文，安装Ubuntu</h4><h4 id="2-选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除"><a href="#2-选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除" class="headerlink" title="2. 选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除"></a>2. 选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除</h4><p>   <img src="https://img-blog.csdnimg.cn/2020031301424793.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="3-然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。"><a href="#3-然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。" class="headerlink" title="3. 然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。"></a>3. 然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。</h4><h4 id="4-安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了"><a href="#4-安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了" class="headerlink" title="4. 安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了"></a>4. 安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了</h4><h4 id="5-第一次进来的时候，分辨率是不会自适应的。需要安装open-vm-tools-desktop。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装"><a href="#5-第一次进来的时候，分辨率是不会自适应的。需要安装open-vm-tools-desktop。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装" class="headerlink" title="5. 第一次进来的时候，分辨率是不会自适应的。需要安装open-vm-tools-desktop。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装"></a>5. 第一次进来的时候，分辨率是不会自适应的。需要安装<code>open-vm-tools-desktop</code>。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313014858282.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="6-更新apt，用来安装软件。"><a href="#6-更新apt，用来安装软件。" class="headerlink" title="6. 更新apt，用来安装软件。"></a>6. 更新apt，用来安装软件。</h4><p>   <code>sudo apt-get update</code></p>
+<p>   <img src="https://img-blog.csdnimg.cn/20200313015145739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<p>   出现这个说明正常安装，如果不能正常安装，<a target="_blank" rel="noopener" href="https://blog.csdn.net/DanBo_C/article/details/104832786">更改软件源</a>。然后重新更新即可，如果是无网络状态，<a target="_blank" rel="noopener" href="https://blog.csdn.net/DanBo_C/article/details/104832837">解决</a></p>
+<h4 id="7-安装编辑器Vimsudo-apt-get-install-vim，Ubuntu18-0-4自带了gedit。"><a href="#7-安装编辑器Vimsudo-apt-get-install-vim，Ubuntu18-0-4自带了gedit。" class="headerlink" title="7. 安装编辑器Vimsudo apt-get install vim，Ubuntu18.0.4自带了gedit。"></a>7. 安装编辑器Vim<code>sudo apt-get install vim</code>，Ubuntu18.0.4自带了gedit。</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313020404451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="8-Ubuntu-已安装SSH-client，还需要安装-SSH-server"><a href="#8-Ubuntu-已安装SSH-client，还需要安装-SSH-server" class="headerlink" title="8. Ubuntu 已安装SSH client，还需要安装 SSH server"></a>8. Ubuntu 已安装SSH client，还需要安装 SSH server</h4><p>   <code>sudo apt-get install openssh-server</code></p>
+<p>   <img src="https://img-blog.csdnimg.cn/20200313020633763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="9-登录本机，首次登陆会有提示信息"><a href="#9-登录本机，首次登陆会有提示信息" class="headerlink" title="9. 登录本机，首次登陆会有提示信息"></a>9. 登录本机，首次登陆会有提示信息</h4><p>   <code>ssh localhost</code></p>
+<p>   <img src="https://img-blog.csdnimg.cn/20200313020704786.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="10-退出"><a href="#10-退出" class="headerlink" title="10. 退出"></a>10. 退出</h4><pre><code>`exit`
+</code></pre>
+<h4 id="11-创建-ssh目录"><a href="#11-创建-ssh目录" class="headerlink" title="11. 创建.ssh目录"></a>11. 创建<code>.ssh</code>目录</h4><pre><code>`cd ~/.ssh/`
+</code></pre>
+<h4 id="12-生成密钥"><a href="#12-生成密钥" class="headerlink" title="12. 生成密钥"></a>12. 生成密钥</h4><pre><code>`ssh-keygen -t rsa` 一路回车
+</code></pre>
+<p>  <img src="https://img-blog.csdnimg.cn/20200313020750189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="13-配置SSH无密码登录"><a href="#13-配置SSH无密码登录" class="headerlink" title="13. 配置SSH无密码登录"></a>13. 配置SSH无密码登录</h4><pre><code>`cat ./id_rsa.pub &gt;&gt; ./authorized_keys`加入授权，重新登录验证，不再需要输入密码
+</code></pre>
+<p>   <img src="https://img-blog.csdnimg.cn/20200313020828236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/Unbutu%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/" data-id="ckreqntj0000rr07k6sv3gnn4" data-title="Unbutu系统创建及初始配置" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/Vue%20+%20ArcGIS%20api%20%E8%AE%BE%E7%BD%AE%E8%8C%83%E5%9B%B4+%E5%9D%90%E6%A0%87/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Vue + ArcGIS api 设置范围+坐标
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/QueryTask%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2+%E7%A9%BA%E9%97%B4%E6%9F%A5%E8%AF%A2%EF%BC%88%E9%99%84%E6%A0%B7%E4%BE%8B%E6%BA%90%E7%A0%81%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">QueryTask属性查询+空间查询（附样例源码）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

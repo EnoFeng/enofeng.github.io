@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>渲染---分类渲染 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1.效果图 2.与唯一值渲染相比不同的只有渲染方式的设置  唯一值渲染：  1234renderer.addValue(&quot;C&quot;, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([0, 255, 0, 0.5])));renderer.addValue(&quot;B&quot;,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渲染---分类渲染">
+<meta property="og:url" content="http://example.com/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%88%86%E7%B1%BB%E6%B8%B2%E6%9F%93/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="1.效果图 2.与唯一值渲染相比不同的只有渲染方式的设置  唯一值渲染：  1234renderer.addValue(&quot;C&quot;, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([0, 255, 0, 0.5])));renderer.addValue(&quot;B&quot;,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190811134347838.png">
+<meta property="article:published_time" content="2021-07-22T09:54:49.062Z">
+<meta property="article:modified_time" content="2020-04-12T12:29:21.799Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190811134347838.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-渲染---分类渲染" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%88%86%E7%B1%BB%E6%B8%B2%E6%9F%93/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.062Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      渲染---分类渲染
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1.效果图"></a>1.效果图</h5><p><img src="https://img-blog.csdnimg.cn/20190811134347838.png"></p>
+<h5 id="2-与唯一值渲染相比"><a href="#2-与唯一值渲染相比" class="headerlink" title="2.与唯一值渲染相比"></a>2.与唯一值渲染相比</h5><p>不同的只有渲染方式的设置</p>
+<ul>
+<li>唯一值渲染：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">renderer.addValue(&quot;C&quot;, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([0, 255, 0, 0.5])));</span><br><span class="line">renderer.addValue(&quot;B&quot;, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([0, 0, 255, 0.5])));</span><br><span class="line">renderer.addValue(&quot;A&quot;,new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([255, 0, 255, 0.5])));</span><br><span class="line">renderer.addValue(&quot;O&quot;, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([255, 255, 255, 0.75])));</span><br></pre></td></tr></table></figure>
+<ul>
+<li> 分类渲染：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">renderer.addBreak(0,20, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([0, 255, 0, 0.5])));</span><br><span class="line">renderer.addBreak(20,30, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([0, 0, 255, 0.5])));</span><br><span class="line">renderer.addBreak(30,40,new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([255, 0, 255, 0.5])));</span><br><span class="line">renderer.addBreak(40,60, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([255, 255, 255, 0.75])));				</span><br></pre></td></tr></table></figure>
+
+<p>分类渲染即将选择字段的值分为不同阶段渲染为不同颜色</p>
+<h5 id="3-贴代码"><a href="#3-贴代码" class="headerlink" title="3.贴代码"></a>3.贴代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>UniqueValueRenderer<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/dijit/themes/tundra/tundra.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">type</span>=<span class="string">&quot;text/Javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.MapClass</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">					<span class="string">&quot;dojo/on&quot;</span>,</span></span><br><span class="line"><span class="javascript">					<span class="string">&quot;dojo/dom&quot;</span>,</span></span><br><span class="line"><span class="javascript">					<span class="string">&quot;dojo/colors&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;esri/symbols/SimpleFillSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;esri/layers/FeatureLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;esri/renderers/ClassBreaksRenderer&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;dojo/domReady!&quot;</span>],</span></span><br><span class="line"><span class="javascript">                <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">Map</span>, ArcGISDynamicMapServiceLayer,on,dom,Color,SimpleFillSymbol, FeatureLayer, SimpleLineSymbol,ClassBreaksRenderer</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> map = <span class="keyword">new</span> esri.Map(<span class="string">&quot;MyMapDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">                    map.addLayer(layer);</span></span><br><span class="line"><span class="javascript">					<span class="comment">//获得id为btn的DOM元素</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> btn=dom.byId(<span class="string">&quot;btn&quot;</span>);</span></span><br><span class="line"><span class="javascript">					<span class="comment">//绑定相应的事件</span></span></span><br><span class="line"><span class="javascript">					on(btn,<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">						<span class="comment">//定义一个要素图层</span></span></span><br><span class="line"><span class="javascript">						<span class="keyword">var</span> featureLayer = <span class="keyword">new</span> FeatureLayer(</span></span><br><span class="line"><span class="javascript">						<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer/1&quot;</span>,</span></span><br><span class="line"><span class="javascript">                         &#123;</span></span><br><span class="line"><span class="javascript">                            <span class="attr">mode</span>:FeatureLayer.MODE_SNAPSHOT,</span></span><br><span class="line"><span class="javascript">                            <span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>]</span></span><br><span class="line"><span class="javascript">                         &#125;);</span></span><br><span class="line"><span class="javascript">						<span class="comment">//定义线符号</span></span></span><br><span class="line"><span class="javascript">						<span class="keyword">var</span> lineSymbol=<span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span></span><br><span class="line"><span class="javascript">						<span class="comment">//定义面符号</span></span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> fill=<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color(<span class="string">&quot;#FFFFCC&quot;</span>));</span></span><br><span class="line"><span class="javascript">						<span class="comment">//定义唯一值渲染器，对字段alias进行渲染，fill是默认的渲染符号</span></span></span><br><span class="line"><span class="javascript">						<span class="keyword">var</span> renderer = <span class="keyword">new</span> ClassBreaksRenderer(fill, <span class="string">&quot;OBJECTID&quot;</span>);</span></span><br><span class="line"><span class="javascript">						<span class="comment">//设置渲染间隔</span></span></span><br><span class="line"><span class="javascript">						renderer.addBreak(<span class="number">0</span>,<span class="number">20</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.5</span>])));</span></span><br><span class="line"><span class="javascript">                        renderer.addBreak(<span class="number">20</span>,<span class="number">30</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.5</span>])));</span></span><br><span class="line"><span class="javascript">                        renderer.addBreak(<span class="number">30</span>,<span class="number">40</span>,<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.5</span>])));</span></span><br><span class="line"><span class="javascript">                        renderer.addBreak(<span class="number">40</span>,<span class="number">60</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.75</span>])));</span></span><br><span class="line"><span class="javascript">						featureLayer.setRenderer(renderer);</span></span><br><span class="line"><span class="javascript">                        map.addLayer(featureLayer);				 </span></span><br><span class="line"><span class="javascript">					&#125;)	</span></span><br><span class="line"><span class="javascript">                &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;MyMapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>渲染<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%88%86%E7%B1%BB%E6%B8%B2%E6%9F%93/" data-id="ckreqntjv0023r07k86o3dnj3" data-title="渲染---分类渲染" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%86%E7%B1%BB%E6%B8%B2%E6%9F%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          渲染---服务器分类渲染
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/%E5%B0%8F%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">小操作</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

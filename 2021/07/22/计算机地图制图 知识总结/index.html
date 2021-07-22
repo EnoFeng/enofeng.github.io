@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>计算机地图制图 知识总结 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="计算机地图制图第一章1. 计算机制图的概念 P1 数字地图，电子地图的概念（PPT），区分，名词解释 计算机地图制图（数字地图制图）：以传统的地图制图原理为基础，以计算机及其外围设备为工具，采用数据库技术和图形数据处理方法，实现地图信息的采集、存储、处理、显示和绘图的应用科学。实质: 从图形（连续）转换为数字（离散），经过一定处理，再由数字转换为图形的过程。 数字地图：一定坐标系内，空间数据 +">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机地图制图 知识总结">
+<meta property="og:url" content="http://example.com/2021/07/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9C%B0%E5%9B%BE%E5%88%B6%E5%9B%BE%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="计算机地图制图第一章1. 计算机制图的概念 P1 数字地图，电子地图的概念（PPT），区分，名词解释 计算机地图制图（数字地图制图）：以传统的地图制图原理为基础，以计算机及其外围设备为工具，采用数据库技术和图形数据处理方法，实现地图信息的采集、存储、处理、显示和绘图的应用科学。实质: 从图形（连续）转换为数字（离散），经过一定处理，再由数字转换为图形的过程。 数字地图：一定坐标系内，空间数据 +">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191218193213975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103212951526.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103213038212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191231201130626.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191231202136388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191231202151609.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191231202222116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191231202236243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191231213953664.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191231214019233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101192119629.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101192301880.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101195917682.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101200854117.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101200943545.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101201216683.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020010120125550.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101201312626.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101201432607.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101201532799.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101204211481.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101212900685.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020010121295142.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101213217330.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101213700473.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101213711480.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101214852656.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101214946115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101215216926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200101215839985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200102132406959.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200102142050754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200102142207900.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200102155956904.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200102160456219.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-07-22T09:54:49.031Z">
+<meta property="article:modified_time" content="2020-04-12T13:48:28.735Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191218193213975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-计算机地图制图 知识总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9C%B0%E5%9B%BE%E5%88%B6%E5%9B%BE%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.031Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      计算机地图制图 知识总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="计算机地图制图"><a href="#计算机地图制图" class="headerlink" title="计算机地图制图"></a>计算机地图制图</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h4 id="1-计算机制图的概念-P1-数字地图，电子地图的概念（PPT），区分，名词解释"><a href="#1-计算机制图的概念-P1-数字地图，电子地图的概念（PPT），区分，名词解释" class="headerlink" title="1. 计算机制图的概念 P1 数字地图，电子地图的概念（PPT），区分，名词解释"></a>1. 计算机制图的概念 P1 数字地图，电子地图的概念（PPT），区分，名词解释</h4><ul>
+<li>计算机地图制图（数字地图制图）：以传统的地图制图原理为基础，以计算机及其外围设备为工具，采用数据库技术和图形数据处理方法，实现地图信息的采集、存储、处理、显示和绘图的应用科学。<strong>实质:</strong> 从图形（连续）转换为数字（离散），经过一定处理，再由数字转换为图形的过程。</li>
+<li>数字地图：一定坐标系内，空间数据 + 属性标志的离散数据，以数字形式存储的数据 。</li>
+<li>电子地图：利用计算机技术，以数字方式存储和查阅的地图，数字地图在屏幕上显示的地图。</li>
+<li>模拟地图（传统地图）：电子地图在一定比例尺下出图，打印成纸质地图。</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/20191218193213975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom: 50%;" />
+
+<h4 id="2-计算机制图的优点-P2"><a href="#2-计算机制图的优点-P2" class="headerlink" title="2. 计算机制图的优点 P2"></a>2. 计算机制图的优点 P2</h4><ol>
+<li><p>易于编辑更新，交互性强</p>
+<p>允许同样的数据进行不同图形表示的实验</p>
+</li>
+<li><p>提高绘图速度和精度</p>
+<p>便宜、自动化的引入导致整个生产过程工时节省和技术革新</p>
+</li>
+<li><p>易于存储，容量大，降低了成本</p>
+<p>改变了仅以印刷地图作为空间数据存储介质的现状，增大了载负量，因而减少了数据压缩分类和数据综合对质量的影响）</p>
+</li>
+<li><p>丰富了地图品种</p>
+<p>能生产特殊用户需要的地图，能生产手工方法难以生产的地图，如三维地图，立体地图等</p>
+</li>
+<li><p>便于信息共享</p>
+<p>大量无损失复制，可通过网络进行传播</p>
+</li>
+</ol>
+<h4 id="3-计算机制图的构成-P6"><a href="#3-计算机制图的构成-P6" class="headerlink" title="3. 计算机制图的构成 P6"></a>3. 计算机制图的构成 P6</h4><ol>
+<li><p>硬件 - 各种设备-物质基础</p>
+<ul>
+<li>输入设备：键盘、鼠标、数字化仪（跟踪式、扫描式）扫描仪</li>
+<li>输出设备：图形显示终端、打印机、绘图仪</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>设 备</th>
+<th>图形输出方式</th>
+<th>精度</th>
+<th>特      点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>矢量绘图机</td>
+<td>矢量线划</td>
+<td>高</td>
+<td>绘制线划图；进行刻图等</td>
+</tr>
+<tr>
+<td>喷墨打印机</td>
+<td>网格点阵</td>
+<td>高</td>
+<td>彩色地图和影像地图</td>
+</tr>
+<tr>
+<td>高分辨率彩显</td>
+<td>屏幕像元点阵</td>
+<td>一般</td>
+<td>实时显示GIS的各种图形、图像产品</td>
+</tr>
+<tr>
+<td>行式打印机</td>
+<td>字符点阵</td>
+<td>差</td>
+<td>以打印字符输出各类地图。</td>
+</tr>
+<tr>
+<td>胶片拷贝机</td>
+<td>光栅</td>
+<td>较高</td>
+<td>将屏幕图形复制至胶片，用于制作幻灯片和正胶片。</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>软件 - 支持数据采集、存储、加工、回答用户问题的计算机程序系统</p>
+<ul>
+<li>计算机系统软件</li>
+<li>计算机制图数据库软件</li>
+<li>计算机地图制图应用软件</li>
+</ul>
+</li>
+<li><p>制图数据 - 系统分析与处理的对象、构成系统的应用基础</p>
+<ul>
+<li>地理要素空间数据</li>
+<li>地理要素属性数据</li>
+<li>地理要素空间关系</li>
+<li>地图符号库</li>
+<li>地图注记</li>
+<li>元数据</li>
+</ul>
+</li>
+<li><p>制图人员 - GIS服务的对象，分为一般用户和从事建立、维护、管理和更新的高级用户</p>
+</li>
+</ol>
+<h4 id="4-计算机制图的基本过程-P13"><a href="#4-计算机制图的基本过程-P13" class="headerlink" title="4. 计算机制图的基本过程 P13"></a>4. 计算机制图的基本过程 P13</h4><blockquote>
+<p>简答</p>
+</blockquote>
+<ol>
+<li>数据获取<ul>
+<li>二 –》1</li>
+</ul>
+</li>
+<li>数据处理<ul>
+<li>预处理</li>
+<li>投影变换</li>
+<li>图形处理</li>
+<li>制图综合　</li>
+<li>符号化</li>
+</ul>
+</li>
+<li>数据输出<ul>
+<li>普通地图</li>
+<li>专题地图</li>
+<li>统计图表</li>
+</ul>
+</li>
+</ol>
+<h4 id="5-计算机制图与地理信息系统（CAD）之间的区别联系-P18-（-必考）"><a href="#5-计算机制图与地理信息系统（CAD）之间的区别联系-P18-（-必考）" class="headerlink" title="5. 计算机制图与地理信息系统（CAD）之间的区别联系 P18 （################必考）"></a>5. 计算机制图与地理信息系统（CAD）之间的区别联系 P18 （################必考）</h4><ol>
+<li><p>与GIS</p>
+<p>都是基于空间数据库的空间信息的表达、显示和处理。</p>
+<ul>
+<li>计算机地图制图是地理信息系统的一部分；</li>
+<li>GIS是计算机地图制图之上的超结构。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>制图</th>
+<th>GIS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模型</td>
+<td>位置＋符号</td>
+<td>位置＋符号＋属性</td>
+</tr>
+<tr>
+<td>数据管理</td>
+<td>地图数据库</td>
+<td>空间数据库、关系数据库</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>输出地图</td>
+<td>输出地图，提供空间对象供用户使用，查询检索和分析决策</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>CAD</p>
+<ul>
+<li>CAD和GIS都有坐标参考系统，CAD的是相对坐标，没有空间意义，不能空间分析。地图制图是对空间数据的处理，是有坐标的。</li>
+<li>计算机辅助制图多为规则的几何图形或组合，图形及其关系更复杂，空间数据和属性数据的相互操作频繁，空间数据的处理和符号化功能较强，属性功能相对较弱；</li>
+<li>CAD是平面设计软件，建筑行业频繁使用的软件。</li>
+</ul>
+</li>
+</ol>
+<h2 id="第二章-数据采集"><a href="#第二章-数据采集" class="headerlink" title="第二章 数据采集"></a>第二章 数据采集</h2><h4 id="1-数字地图的数据源有哪些？怎么获取？"><a href="#1-数字地图的数据源有哪些？怎么获取？" class="headerlink" title="1. 数字地图的数据源有哪些？怎么获取？"></a>1. 数字地图的数据源有哪些？怎么获取？</h4><p>地图数据 ，遥感数据， 文本数据，统计数据  实测数据，多媒体数据，已有地图数据库…</p>
+<ol>
+<li>几何数据采集：<ol>
+<li>已有数字数据：转换后输入数据库</li>
+<li>外野测量获取的几何数据：预处理（平板测量、全野外数字测图、空间定位测量）后导入地图数据库</li>
+<li>遥感影像数据：预处理（几何纠正、图像变换、影响分类、特征提取）</li>
+<li>纸质地图：地图数字化（手扶跟踪数字化、扫描矢量化）</li>
+<li>摄影测量方法：摄影测量包括航空摄影测量和地面摄影测量</li>
+</ol>
+</li>
+<li>属性数据采集：<ol>
+<li>键盘，人机对话</li>
+<li>程序批量输入</li>
+</ol>
+</li>
+</ol>
+<h4 id="2-GIS里面矢量、栅格数据，"><a href="#2-GIS里面矢量、栅格数据，" class="headerlink" title="2. GIS里面矢量、栅格数据，"></a>2. GIS里面矢量、栅格数据，</h4><blockquote>
+<p>名词解释</p>
+</blockquote>
+<p>矢量数据结构和栅格数据结构是两种地图空间数据结构。</p>
+<p>矢量数据结构：通过记录坐标的方式尽可能精确地理实体，坐标空间设为连续，允许任意位置、长度和面积的精确定义。<strong>特点：定位明显，属性隐含</strong></p>
+<p>栅格数据结构：将地表划分成为紧密相邻的网格阵列。每个网格的位置由行列号定义，并包含一个代码，以表示该网格的属性。<strong>特点：属性明显，定位隐含</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20200103212951526.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom: 50%;" /><img src="https://img-blog.csdnimg.cn/20200103213038212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom: 67%;" /></p>
+<p>通过记录坐标的方式尽可能精确地理实体，坐标空间设为连续，允许任意位置、长度和面积的精确定义。<strong>特点：定位明显，属性隐含</strong></p>
+<h6 id="如何选择？"><a href="#如何选择？" class="headerlink" title="如何选择？"></a>如何选择？</h6><ul>
+<li>栅格结构：利于叠加分析。大范围小比例尺的自然资源、环境、农林业等区域问题的研究。</li>
+<li>矢量结构：表达事物比较精细。城市分区或详细规划、土地管理、公用事业管理等方面的应用。</li>
+</ul>
+<h4 id="3-数据质量"><a href="#3-数据质量" class="headerlink" title="3. 数据质量"></a>3. 数据质量</h4><p>数据的质量包括五个方面：</p>
+<ol>
+<li>位置（几何）精度：如数学基础、平面精度、高程精度等，用以描述几何数据的误差。</li>
+<li>属性精度：如要素分类的正确性、属性编码的正确性、注记的正确性等，用以反映属性数据的质量。</li>
+<li>完备性：如数据分类的完备性、实体类型的完备性、属性数据的完备性、注记的完整性，数据层完整性，检验完整性等。</li>
+<li>现势性：如数据的采集时间、数据的更新时间等。 </li>
+<li>逻辑一致性：如多边形的闭合精度、结点匹配精度、拓扑关系的正确性等，由几何或属性误差也会引起逻辑误差。</li>
+</ol>
+<p>质量的控制：</p>
+<ol>
+<li>误差带法：该方法适用于任何类型的GIS数据，关键是如何给出合理的ε值。</li>
+<li>对比法：把数字化后的数据，用绘图机绘出，与原图叠合，选择明显地物点进行量测，以确定误差。</li>
+<li>相关法：依据地图要素自身的相关性来分析数据的质量。如河流与等高线的套合程度。</li>
+</ol>
+<h2 id="第五章-P103"><a href="#第五章-P103" class="headerlink" title="第五章 P103"></a>第五章 P103</h2><h4 id="1-数据预处理"><a href="#1-数据预处理" class="headerlink" title="1. 数据预处理"></a>1. 数据预处理</h4><p>坐标变换，数据压缩，数据匹配</p>
+<ul>
+<li>坐标变换<ul>
+<li>几何纠正</li>
+<li>投影变换</li>
+</ul>
+</li>
+<li>数据压缩 主要对象：现状要素中心轴线和面状要素边界数据<ul>
+<li>间隔取点法</li>
+<li>垂距法</li>
+<li>偏角法</li>
+<li>道格拉斯普克法</li>
+<li>光栏法</li>
+</ul>
+</li>
+<li>数据匹配：实现误差纠正。<ul>
+<li>顶点匹配</li>
+<li>数字接边</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-坐标变换-几何纠正"><a href="#2-坐标变换-几何纠正" class="headerlink" title="2. 坐标变换 几何纠正#####"></a>2. 坐标变换 几何纠正#####</h4><p>P105 性质，什么情况使用哪个，有多少个未知数，道理是啥。</p>
+<ul>
+<li><p>高次变换：12个未知数，需要6对以上控制点坐标</p>
+</li>
+<li><p>二次变换：10个未知数，需要5对以上控制点坐标。适用于原图有非线性变形</p>
+</li>
+<li><p>一次变换：6个未知数，需要不在一条直线上的3对以上控制点坐标。由于误差，需要多观测一组。一共需要四对控制点坐标</p>
+<ul>
+<li><p>同素变换：</p>
+</li>
+<li><p>仿射变换：只考虑x方向和y反向上的变形。（经过对坐标的缩放，旋转，平移后原坐标在新坐标域中的值）</p>
+<p>仿射变换 = 线性变化 + 平移</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-投影变换（转换的思想）"><a href="#3-投影变换（转换的思想）" class="headerlink" title="3. 投影变换（转换的思想）"></a>3. 投影变换（转换的思想）</h4><ul>
+<li>解析变换：找出两投影间坐标变换的解析计算公式<ul>
+<li>正解变换：将具有经纬度的地理坐标转换为直角坐标系下的坐标</li>
+<li>反解变换：将具有直角坐标系下的坐标转换为经纬度</li>
+</ul>
+</li>
+<li>数值变换：在不易求出两投影坐标之间的直接关系，采用多项式逼近建立变公式。20个未知数，10个控制点坐标</li>
+<li>数值解析变换：已知新的投影公式，但不知道原投影公式，可选择通过数值变化法求出原投影点的地理坐标，然后代入新投影公式中，求出新投影点的坐标。</li>
+</ul>
+<h4 id="4-数据压缩（论述）"><a href="#4-数据压缩（论述）" class="headerlink" title="4. 数据压缩（论述）"></a>4. 数据压缩（论述）</h4><p>压缩条件：</p>
+<ol>
+<li>保持曲线的形状特征</li>
+<li>保持密度对比</li>
+<li>保持转折点的精度</li>
+<li>保持空间关系正确</li>
+</ol>
+<h5 id="道格拉斯普克法：（画图，思路）"><a href="#道格拉斯普克法：（画图，思路）" class="headerlink" title="道格拉斯普克法：（画图，思路）"></a>道格拉斯普克法：（画图，思路）</h5><p>对给定曲线的首末点虚连一条直线，求中间所有点与直线间的距离，并找出最大距离dmax，用dmax与限差 L比较。dmax ≥L，保留对应点，以该点为界将曲线分为两段，对每一段重复使用该方法。dmax&lt;L，舍去所有中间点。</p>
+<img src="https://img-blog.csdnimg.cn/20191231201130626.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" />
+
+<h5 id="光栏法：（画图，思路，简单说）"><a href="#光栏法：（画图，思路，简单说）" class="headerlink" title="光栏法：（画图，思路，简单说）"></a>光栏法：（画图，思路，简单说）</h5><p>定义一个扇形区域，通过判断曲线上的点在扇形外还是在扇形内，确定保留还是舍去。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191231202136388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /><img src="https://img-blog.csdnimg.cn/20191231202151609.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></p>
+<p><img src="https://img-blog.csdnimg.cn/20191231202222116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:47%;" /><img src="https://img-blog.csdnimg.cn/20191231202236243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:45%;" /></p>
+<h4 id="5-图形编辑"><a href="#5-图形编辑" class="headerlink" title="5. 图形编辑"></a>5. 图形编辑</h4><p>P110 </p>
+<ul>
+<li><p>地图开窗：按照用户指定的空间范围，进行图形子集的选取。这个指定的范围被称为窗口</p>
+</li>
+<li><p>正开窗：选取整个图形数据在窗口内的子集合</p>
+</li>
+<li><p>负开窗：选取整个图形数据在窗口外的子集合</p>
+</li>
+</ul>
+<ul>
+<li>点的选取：计算C和P之间的距离是否小于限差</li>
+<li>线的选取：通过计算光标点C到该线的每条线段的距离d，与搜索半径D比较。如果d&lt;D，则认为找到；反之则未成功。</li>
+<li>面的选取：铅垂线法：从待判别点引铅垂线，由该铅垂线（注意：是一条射线）与多边形交点个数的奇偶性来判断点是否在多边形内。</li>
+</ul>
+<h6 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h6><ol>
+<li>第一步，计算多边形最小投影矩形，若点在最小投影矩形外，则点一定在多边形外，算法结束；否则执行第二步。</li>
+<li>第二步，设置记录交点个数的计数器Num=0。</li>
+<li>第三步，从待判断的点作铅垂线，顺次判断该铅垂线与多边形各边是否相交，若相交，求出交点并记录下来。每有一次相交，把Num数值增加1。</li>
+<li>第四步，若Num为偶数，则该点在多边形外；否则，该点在多边形内。算法结束。</li>
+</ol>
+<p>异常情况：</p>
+<ol>
+<li>交点位于多边形顶点：若在同侧，Num不变，否则Num加1。 </li>
+<li>铅垂线与多边形的一条边重合：若在同侧，Num不变，否则Num加1。 </li>
+</ol>
+<img src="https://img-blog.csdnimg.cn/20191231213953664.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" />
+
+<img src="https://img-blog.csdnimg.cn/20191231214019233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" />
+
+<h4 id="6-几何变换-P114"><a href="#6-几何变换-P114" class="headerlink" title="6. 几何变换  P114"></a>6. 几何变换  P114</h4><blockquote>
+<p> 变换矩阵：平移变换，比值变换，对称变换，旋转变换，错切，符合，，，，，理解</p>
+</blockquote>
+<p>1.平移变换</p>
+<img src="https://img-blog.csdnimg.cn/20200101192119629.png" />
+
+<p>2.旋转变换</p>
+<img src="https://img-blog.csdnimg.cn/20200101192301880.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:67%;" />
+
+<p>3.比例变换：分别给定X轴和Y轴上的两个比例系数</p>
+<img src="https://img-blog.csdnimg.cn/20200101195917682.png" style="zoom:67%;" />
+
+<p>以上几种基本变换的处理形式不统一，如何解决？齐次坐标</p>
+<blockquote>
+<p>二维点（x,y）的齐次坐标表示为（hx,hy,h），那么变换h，都表示二维空间中同一个点的齐次坐标。<br>（12,8,4） (6,4,2)  (3,2,1) 均表示（3,2）这一点的齐次坐标。</p>
+</blockquote>
+<ol>
+<li><p>平移变化：只改变图形的位置，不改变图形的大小和形状</p>
+<img src="https://img-blog.csdnimg.cn/20200101200854117.png" style="zoom:50%;" /></li>
+<li><p>比例变换：</p>
+<img src="https://img-blog.csdnimg.cn/20200101200943545.png" style="zoom:50%;" />
+
+<ul>
+<li>以坐标原点为放缩参照点。</li>
+<li>当Sx=Sy=1时：恒等比例变换。</li>
+<li>当Sx=Sy&gt;1时：沿x,y方向等比例放大。</li>
+<li>当Sx=Sy&lt;1时：沿x,y方向等比例缩小。</li>
+<li>当SxSy时：沿x,y方向作非均匀的比例变换，图形变形。</li>
+<li>当Sx=1，Sy=－1，关于X轴的对称变换。</li>
+<li>当Sx=－1，Sy=1时，为关于Y轴的对称变换。</li>
+<li>当Sx=Sy=－1，为关于坐标原点的对称变换。</li>
+</ul>
+</li>
+<li><p>对称变换：</p>
+<img src="https://img-blog.csdnimg.cn/20200101201216683.png" style="zoom:50%;" />
+
+<ul>
+<li>当d=b=0,a=-1,e=1时，(x* y* 1)=(-x y 1)：与y轴对称的反射变换。</li>
+<li>当d=b=0,a=1,e=-1时，(x* y* 1)=( x -y 1)：与x轴对称的反射变换。</li>
+<li>当d=b=0,a=e=-1时，(x* y* 1)=(-x -y 1)：与原点对称的反射变换。</li>
+<li>当d=b=1,a=e=0时，(x* y* 1)=(y x 1)：与y=x对称的反射变换。</li>
+<li>当d=b=-1,a=e=0时，(x* y* 1)=(-y -x 1)：与y=-x对称的反射变换</li>
+</ul>
+</li>
+<li><p>旋转变换：</p>
+<p><img src="https://img-blog.csdnimg.cn/2020010120125550.png"></p>
+<img src="https://img-blog.csdnimg.cn/20200101201312626.png" style="zoom:50%;" /></li>
+<li><p>错切变换：错切变换引起图形角度关系的改变，甚至导致图形发生变形</p>
+<img src="https://img-blog.csdnimg.cn/20200101201432607.png" style="zoom:50%;" />
+
+<ul>
+<li>当b=0时， (x* y* 1)=(x+by y 1)：图形的y坐标不变；</li>
+<li>当d&gt;0：图形沿+x方向作错切位移。ABCD→A1B1C1D1</li>
+<li>当d&lt;0：图形沿-x方向作错切位移。ABCD→ A2B2C2D2</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/20200101201532799.png" style="zoom:50%;" /></li>
+<li><p>复合变换：指在XY平面内，对一个已定义的图形，按一定顺序进行多次变换而得到新的图形，也即对图形做一次以上的几何变换。<br>注意：任何一个线性变换都可以分解为上述几类变换。</p>
+<p>​    <img src="https://img-blog.csdnimg.cn/20200101204211481.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom: 50%;" /></p>
+</li>
+</ol>
+<h4 id="7-矢量数据向栅格数据转换-P123（简答）"><a href="#7-矢量数据向栅格数据转换-P123（简答）" class="headerlink" title="7. 矢量数据向栅格数据转换 P123（简答）"></a>7. 矢量数据向栅格数据转换 P123（简答）</h4><blockquote>
+<p>简答</p>
+<p>点线面。。。点和线的一样的。答点和面。。。。 </p>
+</blockquote>
+<h5 id="矢量转栅格："><a href="#矢量转栅格：" class="headerlink" title="矢量转栅格："></a>矢量转栅格：</h5><ol>
+<li>栅格数据分辨率和栅格数的确定</li>
+<li>点的栅格化</li>
+<li>线的栅格化：八方向栅格化、分带法、恒密度栅格化</li>
+<li>面的栅格化：内部点扩散法、射线算法、扫描算法边界代数算法</li>
+</ol>
+<h2 id="第六章-栅格数据的处理"><a href="#第六章-栅格数据的处理" class="headerlink" title="第六章 栅格数据的处理"></a>第六章 栅格数据的处理</h2><h4 id="1-栅格图像平移-P128（看懂）"><a href="#1-栅格图像平移-P128（看懂）" class="headerlink" title="1.  栅格图像平移 P128（看懂）"></a>1.  栅格图像平移 P128（看懂）</h4><p>平移、算术运算、逻辑运算、宏运算  看懂</p>
+<ul>
+<li>灰度级变换：对每一像素的灰度级进行变换，扩大图像灰度的范围，达到图像增强的目的。</li>
+<li>平移：原始的栅格影像按照一定的方向平移确定的像元数目。</li>
+<li>算术组合：两个栅格图像相互叠置，对应的像元灰度值相加、相减、相乘等</li>
+<li>逻辑组合：对应的像元灰度进行逻辑运算，或，与，非，异或</li>
+</ul>
+<p>宏运算</p>
+<ul>
+<li><p>扩张：向指定的方向和给定的像元数据进行扩张，平移同时做或运算</p>
+<p>例：向右平移一个像元</p>
+<p><img src="https://img-blog.csdnimg.cn/20200101212900685.png" style="zoom:50%;" /><img src="https://img-blog.csdnimg.cn/2020010121295142.png" style="zoom:50%;" /><img src="https://img-blog.csdnimg.cn/20200101213217330.png" style="zoom:50%;" /></p>
+</li>
+<li><p>侵蚀：向侵蚀方向移动确定的像元格</p>
+<p><img src="https://img-blog.csdnimg.cn/20200101213700473.png" style="zoom:50%;" /><img src="https://img-blog.csdnimg.cn/20200101213711480.png" style="zoom:50%;" /></p>
+</li>
+<li><p>加粗：分为四方向和八方向</p>
+<p><img src="https://img-blog.csdnimg.cn/20200101214852656.png" style="zoom:50%;" /><img src="https://img-blog.csdnimg.cn/20200101214946115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></p>
+</li>
+</ul>
+<ul>
+<li><p>减细：加粗的逆运算</p>
+</li>
+<li><p>填充</p>
+<ul>
+<li><p>逐步蔓延加粗法：让单个像元作为填充胚，在给定的区域范围内，通过某种方法进行蔓延，最终填充满整个多边形区域。四邻法、八邻法</p>
+<img src="https://img-blog.csdnimg.cn/20200101215216926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:67%;" /></li>
+<li><p>逐行填充法：对种子所在的行进行填充，在每次填充一行后，应搜索该行的上下两侧以确定新的种子，对于相互连通的一侧，只需一个种子，并将其放入栈中。</p>
+<img src="https://img-blog.csdnimg.cn/20200101215839985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom: 67%;" /></li>
+</ul>
+</li>
+</ul>
+<h4 id="2-栅格数据向矢量数据转换的算法-P139"><a href="#2-栅格数据向矢量数据转换的算法-P139" class="headerlink" title="2. 栅格数据向矢量数据转换的算法 P139"></a>2. 栅格数据向矢量数据转换的算法 P139</h4><blockquote>
+<p> 算法</p>
+</blockquote>
+<h5 id="栅格转矢量："><a href="#栅格转矢量：" class="headerlink" title="栅格转矢量："></a>栅格转矢量：</h5><ol>
+<li><p>点的矢量化：</p>
+</li>
+<li><p>线的矢量化：实质：将具有相同属性值的连续的单元格搜索出来，最后得到细化的一条线。两种算法思想：细化矢量化和非细化矢量化</p>
+</li>
+<li><p>多边形的矢量化：实质：将具有同一属性的单元归为一类，再检测两类不同属性的边界作为多边形的便，最终提取以栅格集合表示的区域边界和边界的拓扑关系。</p>
+<p>一般过程：栅格数据的二值化、多边形边界提取和细化、多边界跟踪、去除多余及曲线光滑、矢量数据转换的过程</p>
+<ol>
+<li>二值化。栅格数据是按0～255的不同灰度值表达的。为了简化追踪算法，将256个灰阶压缩为2个灰阶，即0和1两级。</li>
+<li>边界细化。使每一条线只保留代表其轴线或周围轮廓线（对多边形而言）位置的单个栅格的宽度。</li>
+<li>边界跟踪。把细化后的栅格数据整理为从结点出发的线段或闭合的线条，并以矢量形式加以存储。</li>
+<li>曲线化简及光滑 。直接提取的边界线节点密集、有明显的抖动锯齿感，需进行化简及光滑处理。</li>
+<li>生成拓扑关系，建立节点、弧段及多边形间的连接关系。</li>
+</ol>
+</li>
+</ol>
+<h2 id="第七章-地图符号"><a href="#第七章-地图符号" class="headerlink" title="第七章 地图符号"></a>第七章 地图符号</h2><h4 id="1-地图符号和地图符号化的概念"><a href="#1-地图符号和地图符号化的概念" class="headerlink" title="1. 地图符号和地图符号化的概念"></a>1. 地图符号和地图符号化的概念</h4><p>地图符号：地图的主要表达形式，它是地图区别于其他表示地理环境方法的一个重要特征。地图符号不仅能反映地图要素的存在、类别及其数量和质量特征，而且通过他们的组合，还能反映出地理要素的空间分布、结构、联系以及变化等。</p>
+<p>地图符号化：地图数据的符号化，两层含义：</p>
+<ol>
+<li>在地图设计工作中，指利用符号将地图数据进行分类、分级、概括、抽象的过程；</li>
+<li>在数字地图转换为模拟地图的过程中，指将已处理好的矢量地图数据恢复成可见的图形，并附之以不同符号表示的过程。</li>
+</ol>
+<ul>
+<li>编程法</li>
+<li>信息法<ul>
+<li>直接信息法：直接表示符号图形的各个细部，在信息块中直接存储符号图形的矢量数据或栅格数据</li>
+<li>间接信息法：信息块中不直接存储符号图形数据，而只存储符号图形的几何参数</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-符号绘制-P214"><a href="#2-符号绘制-P214" class="headerlink" title="2. 符号绘制 P214"></a>2. 符号绘制 P214</h4><blockquote>
+<p>没找到</p>
+</blockquote>
+<h4 id="3-地图符号库采用的算法"><a href="#3-地图符号库采用的算法" class="headerlink" title="3. 地图符号库采用的算法"></a>3. 地图符号库采用的算法</h4><p>矢量符号库：信息块法，程序块法，综合法</p>
+<p>栅格符号库：信息块法</p>
+<ul>
+<li>信息块法：用人工或程序将要绘制的符号里三成坐标信息，用统一的结构和方法进行描述，这些描述信息存放在数据文件中形成符号库。</li>
+<li>程序块法：对每一类地图符号编写一个绘图子程序，由这些子程序组成符号库。绘图时按照符号的编号调用库中相应的程序，输入相应参数，由程序根据参数及已知数据计算矢量，从而完成地图符号的绘制。</li>
+<li>综合法：其实质是把信息块法和程序法结合在一起，绘制组合式符号。</li>
+</ul>
+<h4 id="4-点符号的生成算法-P215"><a href="#4-点符号的生成算法-P215" class="headerlink" title="4. 点符号的生成算法 P215"></a>4. 点符号的生成算法 P215</h4><ul>
+<li>点状符号信息块法</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/20200102132406959.png" style="zoom:67%;" />
+
+<ul>
+<li><p>程序块法</p>
+<p>任何圆都可以用正多边形来逼近，边数越多，圆越光滑。</p>
+<ul>
+<li>以圆弧的起始点坐标，圆弧的起始角、圆弧的终止角、圆弧的起始点半径和终止点半径为参数设计绘圆程序，这个程序就既能绘制圆也能绘制圆弧和螺线。</li>
+<li>以椭圆的起始点坐标、长半轴、短半轴、长半轴与 x 轴的夹角、起始点和终止点到中心点连线分别于x轴的夹角为参数来设计绘制椭圆的程序，这个程序就能绘制椭圆，也能绘制椭圆弧并调整椭圆长轴的方向。</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-线符号的生成算法，线状符号信息块法、土堤符号绘制原理-P219"><a href="#5-线符号的生成算法，线状符号信息块法、土堤符号绘制原理-P219" class="headerlink" title="5. 线符号的生成算法，线状符号信息块法、土堤符号绘制原理 P219"></a>5. 线符号的生成算法，线状符号信息块法、土堤符号绘制原理 P219</h4><ul>
+<li><p>信息块法：把各类线状符号看作是由符号单元沿线状要素中轴线重复串接而成。</p>
+</li>
+<li><p>程序块法：</p>
+<p>解决两个问题：</p>
+<ol>
+<li>确定每一条短横线的位置，确定横短线与中轴线的交点坐标</li>
+<li>确定横短线两端点的坐标</li>
+</ol>
+<blockquote>
+</blockquote>
+</li>
+</ul>
+<h4 id="6-面符号。。。。。信息块法"><a href="#6-面符号。。。。。信息块法" class="headerlink" title="6. 面符号。。。。。信息块法"></a>6. 面符号。。。。。信息块法</h4><ul>
+<li><p>信息块法：存储的是填充符号的单元信息，结构类似线状符号中线—线信息块，但需要增加三种信息：行距、行向倾角（晕线与x轴夹角）、排列方式（“井”型、交错和散列）。</p>
+</li>
+<li><p>程序法：</p>
+<ul>
+<li><p>填充点状符号算法</p>
+<img src="https://img-blog.csdnimg.cn/20200102142050754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+<li><p>填充线状符号算法</p>
+<p>算法总体思路:计算所填绘的每条线符与多边形的交点，然后调绘线符绘制程序在两交点间绘制出所要求的线符即可。</p>
+<img src="https://img-blog.csdnimg.cn/20200102142207900.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="第八章-数字表面模型"><a href="#第八章-数字表面模型" class="headerlink" title="第八章 数字表面模型"></a>第八章 数字表面模型</h2><h4 id="1-DEM和数字地面模型（DTM）的区别"><a href="#1-DEM和数字地面模型（DTM）的区别" class="headerlink" title="1. DEM和数字地面模型（DTM）的区别"></a>1. DEM和数字地面模型（DTM）的区别</h4><p>数字正射影像(DOM)</p>
+<ul>
+<li>数字地面模型(DTM)，是要素的平面坐标(x，y)和其他物性质的数据集合。如果此属性是高程z，则此数字地面模型又称为数字高程模型(DEM)。</li>
+<li>DEM是建立DTM的基础数据。</li>
+<li>实际上地形模型不仅包含高程属性，还包含其它的地表形态属性，如坡度、坡向等。</li>
+</ul>
+<p>DEM和DTM主要用于描述地面起伏状况，可以用于提取各种地形参数，如坡度、坡向、粗糙度等，并进行通视分析、流域结构生成等应用分析。</p>
+<p>DEM在各个领域中被广泛使用。</p>
+<p>DEM可以有多种表达方法，包括网格、等高线、三角网等。</p>
+<h4 id="2-Delaunay三角网、泰森多边形的概念，关系。"><a href="#2-Delaunay三角网、泰森多边形的概念，关系。" class="headerlink" title="2. Delaunay三角网、泰森多边形的概念，关系。"></a>2. Delaunay三角网、泰森多边形的概念，关系。</h4><ul>
+<li><p>定义：</p>
+<p>不规则三角网（TIN）：由一系列相连的但不重叠的三角形的集合, 而且这些三角形的外接圆不包含这个面域的其他任何点。存储表达：对于每一个三角形、边和节点都对应一个记录。</p>
+<p>Delaunay三角网：表示数字高程模型的方法，它既减少规则格网方法带来的数据冗余，同时在计算（如坡度）效率方面又优于纯粹基于等高线的方法。</p>
+<p>泰森多边形—冯洛诺伊图（Voronoi diagram）：指用不规则的小面块来逼近和模拟自然界不规则地理单元的一种方法。对Delaunay三角网的各个边做中垂线，中垂线上的顶点相连就构成了泰森多边形。</p>
+</li>
+<li><p>关系：Voronoi图（泰森多边形） 和 Delaunay三角形 互为对偶图</p>
+</li>
+</ul>
+<h4 id="3-三角网的特点，性质。"><a href="#3-三角网的特点，性质。" class="headerlink" title="3. 三角网的特点，性质。"></a>3. 三角网的特点，性质。</h4><ul>
+<li>Delaunay三角网特性：<br>1）其Delaunay三角网是唯一的；<br>2）三角网的外边界构成了点集P的凸多边形“外壳”；<br>3）没有任何点在三角形的外接圆内部，反之，如果一个三角网满足此条件，那么它就是Delaunay三角网。<br>4）如果将三角网中的每个三角形的最小角进行升序排列，则Delaunay三角网的排列得到的数值最大，从这个意义上讲，Delaunay三角网是“最接近于规则化”的三角网。 </li>
+<li>Delaunay三角形性质（基本准则）：<ol>
+<li>外接圆准则：任何一个Delaunay三角形的外接圆的内部不能包含其它任何点。</li>
+<li>最大化最小角原则：每两个相邻的三角形构成的凸四边形的对角线，在相互交换后，六个内角的最小角不再增大。</li>
+<li>局部优化准则：先求出包含新插入点p的外接圆的三角形，这种三角形称为影响三角形。删除影响三角形的公共边，将p与全部影响三角形的顶点连接，完成p点在原Delaunay三角形中的插入。</li>
+</ol>
+</li>
+</ul>
+<h4 id="4-泰森的应用范围，应用场景，多边形特征"><a href="#4-泰森的应用范围，应用场景，多边形特征" class="headerlink" title="4. 泰森的应用范围，应用场景，多边形特征"></a>4. 泰森的应用范围，应用场景，多边形特征</h4><ul>
+<li>泰森多边形应用范围：<ul>
+<li>泰森多边形可用于定性分析、统计分析、邻近分析等。</li>
+<li>例如，可以用离散点的性质来描述泰森多边形区域的性质；可用离散点的数据来计算泰森多边形区域的数据；判断一个离散点与其它哪些离散点相邻时，可根据泰森多边形直接得出，且若泰森多边形是n边形，则就与n个离散点相邻；当某一数据点落入某一泰森多边形中时，它与相应的离散点最邻近，无需计算距离。</li>
+</ul>
+</li>
+<li>泰森多边形特点<ul>
+<li>多边形的边总垂直平分两个邻接采样点的连线</li>
+<li>多边形内任何位置总是离该多边形内样点的距离最近，离相邻多边形内样点最远</li>
+<li>每个多边形内只有一个点</li>
+<li>泰森多边形内部的顶点必有3条边同它连接，这些边相邻的3个三多边形的两两拼接的公共边</li>
+<li>泰森多边形内部的顶点周围有3个离散数据点，将其连成三角形后，该三角形的外接圆心即为该顶点</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-如何用点集生成TIN"><a href="#3-如何用点集生成TIN" class="headerlink" title="3. 如何用点集生成TIN"></a>3. 如何用点集生成TIN</h4><p>不规则点集生成TIN</p>
+<ol>
+<li><p>凸包生成</p>
+</li>
+<li><p>环切边界法凸包三角剖分</p>
+<blockquote>
+</blockquote>
+</li>
+<li><p>离散点内插(局部优化准则)</p>
+<blockquote>
+</blockquote>
+</li>
+</ol>
+<h4 id="4-格网DEM转成TIN（规则分布的采样点生成TIN）"><a href="#4-格网DEM转成TIN（规则分布的采样点生成TIN）" class="headerlink" title="4. 格网DEM转成TIN（规则分布的采样点生成TIN）"></a>4. 格网DEM转成TIN（规则分布的采样点生成TIN）</h4><p>目的是尽量减少TIN的顶点数目，同时尽可能多地保留地形信息，如山峰、山脊、谷底和坡度突变处。</p>
+<ul>
+<li><p>保留重要点法</p>
+<img src="https://img-blog.csdnimg.cn/20200102155956904.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:33%;" /></li>
+<li><p>启发丢弃法</p>
+<p>1）可以将格网DEM作为输入，此时所有格网点视为TIN的节点，将格网中4个节点中的两个对角点相连，将每个格网剖分成两个三角形。<br>2）取TIN的一个节点O及与其相邻的其它节点，如图9-9所示，O的邻点（称Delaunay邻接点）为A，B，C，D, E，使用Delaunay三角构造算法，将O的邻点进行Delaunay三角形重构，图中实线所示。</p>
+<p>3）判断该节点O位于哪个新生成的Delaunay三角形中，如图为三角形BCE。计算O点的高程和过O点与三角形BCE交点O’的高程差d。若高程差d大于阈值de，则O点为重要点，保留，否则，可删除。de为阈值。<br>4）对TIN中所有的节点，重复进行上述判断过程。<br>5）直到TIN中所有的节点满足条件d&gt;de，结束。</p>
+<img src="https://img-blog.csdnimg.cn/20200102160456219.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+<li><p>等高线转成格网DEM</p>
+</li>
+</ul>
+<h4 id="4-蒂洛尼三角网–空壳-PPT"><a href="#4-蒂洛尼三角网–空壳-PPT" class="headerlink" title="4. 蒂洛尼三角网–空壳 (PPT)"></a>4. 蒂洛尼三角网–空壳 (PPT)</h4><blockquote>
+</blockquote>
+<h2 id="第三、四章-地图的设计和制作"><a href="#第三、四章-地图的设计和制作" class="headerlink" title="第三、四章 地图的设计和制作"></a>第三、四章 地图的设计和制作</h2><h4 id="1-色彩-P83"><a href="#1-色彩-P83" class="headerlink" title="1. 色彩 P83"></a>1. 色彩 P83</h4><ul>
+<li><p>设色的要求P87 </p>
+<ol>
+<li>地图的色彩应与地图的性质、用途相协调</li>
+<li>地图的色彩应层次分明突出重点内容</li>
+<li>充分利用色彩的感觉和象征性</li>
+<li>地图色彩应系统协调突出特色</li>
+</ol>
+</li>
+<li><p>色彩在地图的应用 P88-P102</p>
+<blockquote>
+<p>论述题</p>
+</blockquote>
+<ol>
+<li><p>地图色彩的类别</p>
+<ul>
+<li>点状色彩</li>
+<li>线状色彩</li>
+<li>注记色彩</li>
+<li>面状色彩（质别底色、区域底色、色级底色、衬托底色）</li>
+</ul>
+</li>
+<li><p>地图设计中的色彩设计</p>
+<ul>
+<li>点状符号的色彩设计</li>
+<li>线状符号的色彩设计</li>
+<li>面状符号的色彩设计：<ol>
+<li>根据性质选用色值</li>
+<li>同类元素应在同一色系中选色</li>
+<li>面状色之间协调选色</li>
+<li>面状色应选用柔和的色值</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>色彩对比的应用</p>
+<ol>
+<li><p>色彩明度对比的应用：</p>
+<ul>
+<li>明度对比与图面的清晰感</li>
+<li>明度对比与地图的层次感</li>
+<li>明度对比与图面的节奏感</li>
+<li>明度对比与图面的空间感</li>
+<li>明度对比与图面的多样统一美</li>
+</ul>
+</li>
+<li><p>色相对比的应用</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li><p>纯度对比的应用</p>
+<ol start="4">
+<li>地图层次设计中色彩对比手法的综合运用：</li>
+</ol>
+<ul>
+<li>冷暖对比<ul>
+<li>纯度对比</li>
+<li>明度对比</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>地图色彩在地图制作中如何运用和设计的？</p>
+<ol>
+<li>分区用多色相，避免用原色</li>
+<li>运用色彩视觉心理特性</li>
+<li>色彩过渡自然</li>
+<li>注意等值线的色彩</li>
+</ol>
+</li>
+<li><p>色彩的作用</p>
+<ol>
+<li>色彩的运用简化了图形符号系统</li>
+<li>丰富了地图内容，提高了地图传递空间信息的容量</li>
+<li>提高地图内容表现的科学性</li>
+<li>改善地图语言的视觉效果</li>
+<li>提高地图的审美价值</li>
+</ol>
+</li>
+</ul>
+<h4 id="2-地图符号，注记-（论述）"><a href="#2-地图符号，注记-（论述）" class="headerlink" title="2. 地图符号，注记 （论述）"></a>2. 地图符号，注记 （论述）</h4><p>地图符号设计，注记进行页面布局 P204点状，线，面的设计。。。</p>
+<p>点状符号系统的设计：主要差异：类别和层次。对应下面</p>
+<ul>
+<li>横向对比：不同类型的地图要素符号系统之间的形态差异，内容简单的地图，无论具象符号还是抽象符号的形态设计，均能比较容易的表现出要素的差异。</li>
+<li>纵向对比： 属于不同要素之间或同一要素内部的层次差异，适用于内部尺寸、结构、虚实、明度等对比要素来反映。</li>
+</ul>
+<p>面状符号的对比设计：</p>
+<ul>
+<li>横向对比设计：以纹样对比为主，只要能表达出地图内容，原则上网纹越简单越好。</li>
+</ul>
+<p>注记 P236  主要是P236的地图注记设计</p>
+<blockquote>
+<p><strong>论述题</strong></p>
+<p>地图设计三大块，总结，注意什么</p>
+<p>制图过程是什么样的，怎运用书上的理论，怎么改进。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9C%B0%E5%9B%BE%E5%88%B6%E5%9B%BE%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" data-id="ckreqntk3002er07kegymhuh0" data-title="计算机地图制图 知识总结" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/%E5%8A%A0%E8%BD%BD---%E5%8A%A8%E6%80%81%20_%20%E5%88%87%E7%89%87%E5%9C%B0%E5%9B%BE%E5%8A%A0%E8%BD%BD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          加载---动态 / 切片地图加载
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/%E5%87%A0%E4%BD%95%E5%A4%84%E7%90%86-%E7%BB%98%E5%9B%BE%EF%BC%88%E7%82%B9%EF%BC%8C%E5%A4%9A%E7%82%B9%EF%BC%8C%E7%BA%BF%EF%BC%8C%E7%AE%AD%E5%A4%B4%E7%BA%BF%EF%BC%8C%E9%9D%A2%EF%BC%8C%E5%BE%92%E6%89%8B%E7%BA%BF%EF%BC%8C%E5%BE%92%E6%89%8B%E9%9D%A2%EF%BC%8C%E5%9C%86%EF%BC%8C%E7%9F%A9%E5%BD%A2%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">几何处理-绘图（点，多点，线，箭头线，面，徒手线，徒手面，圆，矩形）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

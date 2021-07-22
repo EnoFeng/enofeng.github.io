@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Java程序设计复习总结 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Java程序设计期中复习总结第一章 概述1. 应用程序的结构：package import class2. 源文件的扩展名.java，字节文件的扩展名：.class3. Java语言的工作原理：先编译后解释4. 一个源文件中最多可以有一个public类，并且文件名与public类名相同。5. 常用命令javac编译，java运行。6. 一个应用程序最少有一个main方法。 第二章 Java基础1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java程序设计复习总结">
+<meta property="og:url" content="http://example.com/2021/07/22/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="Java程序设计期中复习总结第一章 概述1. 应用程序的结构：package import class2. 源文件的扩展名.java，字节文件的扩展名：.class3. Java语言的工作原理：先编译后解释4. 一个源文件中最多可以有一个public类，并且文件名与public类名相同。5. 常用命令javac编译，java运行。6. 一个应用程序最少有一个main方法。 第二章 Java基础1.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190426132236356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190426132259697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-07-22T09:54:48.942Z">
+<meta property="article:modified_time" content="2020-04-12T13:47:03.169Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190426132236356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Java程序设计复习总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.942Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Java程序设计复习总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Java程序设计期中复习总结"><a href="#Java程序设计期中复习总结" class="headerlink" title="Java程序设计期中复习总结"></a>Java程序设计期中复习总结</h2><h3 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h3><h6 id="1-应用程序的结构：package-import-class"><a href="#1-应用程序的结构：package-import-class" class="headerlink" title="1. 应用程序的结构：package import class"></a>1. 应用程序的结构：package import class</h6><h6 id="2-源文件的扩展名-java，字节文件的扩展名：-class"><a href="#2-源文件的扩展名-java，字节文件的扩展名：-class" class="headerlink" title="2. 源文件的扩展名.java，字节文件的扩展名：.class"></a>2. 源文件的扩展名.java，字节文件的扩展名：.class</h6><h6 id="3-Java语言的工作原理：先编译后解释"><a href="#3-Java语言的工作原理：先编译后解释" class="headerlink" title="3. Java语言的工作原理：先编译后解释"></a>3. Java语言的工作原理：先编译后解释</h6><h6 id="4-一个源文件中最多可以有一个public类，并且文件名与public类名相同。"><a href="#4-一个源文件中最多可以有一个public类，并且文件名与public类名相同。" class="headerlink" title="4. 一个源文件中最多可以有一个public类，并且文件名与public类名相同。"></a>4. 一个源文件中最多可以有一个public类，并且文件名与public类名相同。</h6><h6 id="5-常用命令javac编译，java运行。"><a href="#5-常用命令javac编译，java运行。" class="headerlink" title="5. 常用命令javac编译，java运行。"></a>5. 常用命令javac编译，java运行。</h6><h6 id="6-一个应用程序最少有一个main方法。"><a href="#6-一个应用程序最少有一个main方法。" class="headerlink" title="6. 一个应用程序最少有一个main方法。"></a>6. 一个应用程序最少有一个main方法。</h6><hr>
+<h3 id="第二章-Java基础"><a href="#第二章-Java基础" class="headerlink" title="第二章 Java基础"></a>第二章 Java基础</h3><h6 id="1-标识符命名规则，能够区分合法标识符"><a href="#1-标识符命名规则，能够区分合法标识符" class="headerlink" title="1. 标识符命名规则，能够区分合法标识符"></a>1. 标识符命名规则，能够区分合法标识符</h6><pre><code>标识符命名规则
+1. 标识符由26个英文字符大小写（a~zA~Z）、数字(0~9)、下划线(_)和美元符号($)组成。
+2. 不能以数字开头，不能是关键字。
+3. 严格区分大小写。
+4. 标识符的可以为任意长度。
+</code></pre>
+<h6 id="2-所有关键字都是小写"><a href="#2-所有关键字都是小写" class="headerlink" title="2. 所有关键字都是小写"></a>2. 所有关键字都是小写</h6><h6 id="3-基本数据类型的名称、长度和默认值，注意float类型的定义方法：float-f-3-14F；float-f-3-14f；没有大写或者小写f是错误的。"><a href="#3-基本数据类型的名称、长度和默认值，注意float类型的定义方法：float-f-3-14F；float-f-3-14f；没有大写或者小写f是错误的。" class="headerlink" title="3. 基本数据类型的名称、长度和默认值，注意float类型的定义方法：float f=3.14F；float f=3.14f；没有大写或者小写f是错误的。"></a>3. 基本数据类型的名称、长度和默认值，注意float类型的定义方法：float f=3.14F；float f=3.14f；没有大写或者小写f是错误的。</h6><h6 id="4-while和do-while的区别"><a href="#4-while和do-while的区别" class="headerlink" title="4. while和do-while的区别"></a>4. while和do-while的区别</h6><ul>
+<li>do-while语句</li>
+</ul>
+<pre><code>后测试循环语句，即只有在循环体中的代码执行之后，才会测试出口条件。
+</code></pre>
+<ul>
+<li>while语句  前测试循环语句，即在循环体内的代码被执行之前，就会对出口条件求值。</li>
+</ul>
+<h6 id="5-数组使用length属性获得长度"><a href="#5-数组使用length属性获得长度" class="headerlink" title="5. 数组使用length属性获得长度"></a>5. 数组使用length属性获得长度</h6><pre><code>int[] arr=&#123;&quot;11&quot;,&quot;22&quot;,33&quot;&#125;;
+arr.length;//3
+</code></pre>
+<h6 id="6-int-a-b-c是定义了3个数组，int-a-b-c是定义了一个数组a，两个变量b，c"><a href="#6-int-a-b-c是定义了3个数组，int-a-b-c是定义了一个数组a，两个变量b，c" class="headerlink" title="6. int [] a,b,c是定义了3个数组，int a[],b,c是定义了一个数组a，两个变量b，c"></a>6. int [] a,b,c是定义了3个数组，int a[],b,c是定义了一个数组a，两个变量b，c</h6><h6 id="7-掌握基本数据类型的名称、长度、默认值和数据类型对应的封装类"><a href="#7-掌握基本数据类型的名称、长度、默认值和数据类型对应的封装类" class="headerlink" title="7. 掌握基本数据类型的名称、长度、默认值和数据类型对应的封装类"></a>7. 掌握基本数据类型的名称、长度、默认值和数据类型对应的封装类</h6><p><img src="https://img-blog.csdnimg.cn/20190426132236356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h6 id="8-字符串转基本类型的方法"><a href="#8-字符串转基本类型的方法" class="headerlink" title="8. 字符串转基本类型的方法"></a>8. 字符串转基本类型的方法</h6><ul>
+<li><p>字符串转换为基本类型</p>
+<ol>
+<li>Integer包装类的parseXxx静态方法</li>
+<li>Integer包装类的valueOf()方法[自动拆箱]</li>
+</ol>
+<blockquote>
+<p>String str = “123”;</p>
+<p>int a = Integer.parseInt(str);</p>
+<p>int b = Integer.valueOf(str);</p>
+</blockquote>
+</li>
+<li><p>基本类型转换为字符串</p>
+<ol>
+<li>Integer包装类的toString()方法</li>
+<li>String类的valueOf()方法</li>
+<li>n + “”<blockquote>
+<p>int n = 6;</p>
+<p>String str = Integer.toString(n);</p>
+<p>String str = String.valueOf(n);</p>
+<p>String str = n + “”;</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="第三章-类和对象"><a href="#第三章-类和对象" class="headerlink" title="第三章 类和对象"></a>第三章 类和对象</h3><h6 id="1-什么是方法的重载"><a href="#1-什么是方法的重载" class="headerlink" title="1. 什么是方法的重载"></a>1. 什么是方法的重载</h6><ul>
+<li><p>名字相同，参数列表不同的两个（或多个）方法</p>
+<ol>
+<li>参数类型不同</li>
+<li>参数个数不同</li>
+</ol>
+</li>
+<li><p>重载方法的依据方法参数列表的不同，是编译器用来区分调用哪一个</p>
+</li>
+</ul>
+<h6 id="2-构造方法是用来进行成员变量初始化的"><a href="#2-构造方法是用来进行成员变量初始化的" class="headerlink" title="2. 构造方法是用来进行成员变量初始化的"></a>2. 构造方法是用来进行成员变量初始化的</h6><h6 id="3-构造方法的名字和类名相同"><a href="#3-构造方法的名字和类名相同" class="headerlink" title="3. 构造方法的名字和类名相同"></a>3. 构造方法的名字和类名相同</h6><h6 id="4-构造方法可以有也可以没有，没有系统会自动添加一个无参的方法，也可以有多个构造方法，构造方法可重载"><a href="#4-构造方法可以有也可以没有，没有系统会自动添加一个无参的方法，也可以有多个构造方法，构造方法可重载" class="headerlink" title="4. 构造方法可以有也可以没有，没有系统会自动添加一个无参的方法，也可以有多个构造方法，构造方法可重载"></a>4. 构造方法可以有也可以没有，没有系统会自动添加一个无参的方法，也可以有多个构造方法，构造方法可重载</h6><h6 id="5-static关键字可以修饰变量和方法，可以使用类名直接调用，也可以使用对象调用"><a href="#5-static关键字可以修饰变量和方法，可以使用类名直接调用，也可以使用对象调用" class="headerlink" title="5. static关键字可以修饰变量和方法，可以使用类名直接调用，也可以使用对象调用"></a>5. static关键字可以修饰变量和方法，可以使用类名直接调用，也可以使用对象调用</h6><h6 id="6-public、private、默认、peorected修饰符可以修饰什么？作用范围分别是什么"><a href="#6-public、private、默认、peorected修饰符可以修饰什么？作用范围分别是什么" class="headerlink" title="6. public、private、默认、peorected修饰符可以修饰什么？作用范围分别是什么"></a>6. public、private、默认、peorected修饰符可以修饰什么？作用范围分别是什么</h6><ul>
+<li>public：public表明该数据成员、成员函数是对所有用户开放的，所有用户都可以直接进行调用 </li>
+<li>private：私有.就是除了class自己之外，任何人都不可以直接使用，即便是子女，朋友，都不可以使用。</li>
+<li>protected：对于子女、朋友来说，是public可以自由使用，没有限制，而对于其他的外部class，protected就变成private。 </li>
+<li>默认(无修饰词)，同一个包内可以访问，包级访问权限；</li>
+</ul>
+<p>权限修饰符用来修饰类、接口、方法、变量。</p>
+<ul>
+<li>修饰类：public、默认（default）。</li>
+<li>修饰接口：public、默认（default）。</li>
+<li>修饰方法：private、默认、protected、public</li>
+<li>修饰变量：private、默认、protected、public</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190426132259697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h6 id="7-类、方法和变量等可以使用多个修饰符修饰"><a href="#7-类、方法和变量等可以使用多个修饰符修饰" class="headerlink" title="7. 类、方法和变量等可以使用多个修饰符修饰"></a>7. 类、方法和变量等可以使用多个修饰符修饰</h6><h6 id="8-所有类的直接或者间接父类是Object类"><a href="#8-所有类的直接或者间接父类是Object类" class="headerlink" title="8. 所有类的直接或者间接父类是Object类"></a>8. 所有类的直接或者间接父类是Object类</h6><hr>
+<h3 id="第四章-继承"><a href="#第四章-继承" class="headerlink" title="第四章 继承"></a>第四章 继承</h3><h6 id="1-类之间使用extends关键字继承"><a href="#1-类之间使用extends关键字继承" class="headerlink" title="1. 类之间使用extends关键字继承"></a>1. 类之间使用extends关键字继承</h6><h6 id="2-子类继承父类成员后，在子类中定义与父类相同的成员叫重写（覆盖）"><a href="#2-子类继承父类成员后，在子类中定义与父类相同的成员叫重写（覆盖）" class="headerlink" title="2. 子类继承父类成员后，在子类中定义与父类相同的成员叫重写（覆盖）"></a>2. 子类继承父类成员后，在子类中定义与父类相同的成员叫重写（覆盖）</h6><h6 id="3-final修饰类、变量和方法，不能被继承和改写"><a href="#3-final修饰类、变量和方法，不能被继承和改写" class="headerlink" title="3. final修饰类、变量和方法，不能被继承和改写"></a>3. final修饰类、变量和方法，不能被继承和改写</h6><h6 id="4-Java所有的类都是java-lang-Object类的子类"><a href="#4-Java所有的类都是java-lang-Object类的子类" class="headerlink" title="4. Java所有的类都是java.lang.Object类的子类"></a>4. Java所有的类都是java.lang.Object类的子类</h6><hr>
+<h3 id="第五章-抽象类、接口"><a href="#第五章-抽象类、接口" class="headerlink" title="第五章 抽象类、接口"></a>第五章 抽象类、接口</h3><h6 id="1-定义接口使用interface，实现接口implements"><a href="#1-定义接口使用interface，实现接口implements" class="headerlink" title="1. 定义接口使用interface，实现接口implements"></a>1. 定义接口使用interface，实现接口implements</h6><h6 id="2-abstract修饰的类为抽象类，方法为抽象方法，抽象方法没有方法体"><a href="#2-abstract修饰的类为抽象类，方法为抽象方法，抽象方法没有方法体" class="headerlink" title="2. abstract修饰的类为抽象类，方法为抽象方法，抽象方法没有方法体"></a>2. abstract修饰的类为抽象类，方法为抽象方法，抽象方法没有方法体</h6><h6 id="3-抽象类可以没有抽象方法，有抽象方法的类必定是抽象类"><a href="#3-抽象类可以没有抽象方法，有抽象方法的类必定是抽象类" class="headerlink" title="3. 抽象类可以没有抽象方法，有抽象方法的类必定是抽象类"></a>3. 抽象类可以没有抽象方法，有抽象方法的类必定是抽象类</h6><h6 id="4-使用interface关键字定义接口，类使用implements实现（继承）接口"><a href="#4-使用interface关键字定义接口，类使用implements实现（继承）接口" class="headerlink" title="4. 使用interface关键字定义接口，类使用implements实现（继承）接口"></a>4. 使用interface关键字定义接口，类使用implements实现（继承）接口</h6><h6 id="5-接口中只有常量和抽象方法，并且都是public-abstract的抽象方法，都是public-static-final的常量"><a href="#5-接口中只有常量和抽象方法，并且都是public-abstract的抽象方法，都是public-static-final的常量" class="headerlink" title="5. 接口中只有常量和抽象方法，并且都是public abstract的抽象方法，都是public static final的常量"></a>5. 接口中只有常量和抽象方法，并且都是public abstract的抽象方法，都是public static final的常量</h6><h6 id="6-接口可以实现多重继承，定义类的模板"><a href="#6-接口可以实现多重继承，定义类的模板" class="headerlink" title="6. 接口可以实现多重继承，定义类的模板"></a>6. 接口可以实现多重继承，定义类的模板</h6><h6 id="7-多态有两种体现重载和重写（覆盖），重载称为编译时多态，重写为运行时多态"><a href="#7-多态有两种体现重载和重写（覆盖），重载称为编译时多态，重写为运行时多态" class="headerlink" title="7. 多态有两种体现重载和重写（覆盖），重载称为编译时多态，重写为运行时多态"></a>7. 多态有两种体现重载和重写（覆盖），重载称为编译时多态，重写为运行时多态</h6><hr>
+<h3 id="第六章-字符串"><a href="#第六章-字符串" class="headerlink" title="第六章 字符串"></a>第六章 字符串</h3><h6 id="1-字符串分为静态字符串（String）和动态字符串（StringBuffer）"><a href="#1-字符串分为静态字符串（String）和动态字符串（StringBuffer）" class="headerlink" title="1. 字符串分为静态字符串（String）和动态字符串（StringBuffer）"></a>1. 字符串分为静态字符串（String）和动态字符串（StringBuffer）</h6><h6 id="2-使用length（）方法获得字符串的长度"><a href="#2-使用length（）方法获得字符串的长度" class="headerlink" title="2. 使用length（）方法获得字符串的长度"></a>2. 使用length（）方法获得字符串的长度</h6><pre><code>String str=&quot;asdfghjkl&quot;;
+str.length();//9
+</code></pre>
+<h6 id="3-其他常用方法chatAt（）、equals（）"><a href="#3-其他常用方法chatAt（）、equals（）" class="headerlink" title="3. 其他常用方法chatAt（）、equals（）"></a>3. 其他常用方法chatAt（）、equals（）</h6><ul>
+<li>chatAt（）<ul>
+<li>返回位于字符串的指定索引处的字符</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>equals（）<ol>
+<li>所有的对象都拥有标识(内存地址)和状态(数据)，“==”比较两个对象的的内存地址，使用Object的equals()方法是比较两个对象的内存地址是否相等，即若object1.equals(object2)为true，则表示equals1和equals2实际上是引用同一个对象。</li>
+<li>String、Math等封装类都对equals()方法进行了重写。比较的是两个对象的状态</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="第七章-异常处理"><a href="#第七章-异常处理" class="headerlink" title="第七章 异常处理"></a>第七章 异常处理</h3><h6 id="1-什么是异常"><a href="#1-什么是异常" class="headerlink" title="1. 什么是异常"></a>1. 什么是异常</h6><pre><code>异常是程序中的一些错误，但并不是所有的错误都是异常，并且错误有时候是可以避免的。
+在程序执行期间发生的事件，它中断正在执行的程序的正常指令流。
+</code></pre>
+<h6 id="2-为什么要进行异常处理"><a href="#2-为什么要进行异常处理" class="headerlink" title="2. 为什么要进行异常处理"></a>2. 为什么要进行异常处理</h6><p>为了能够及时有效地处理程序中的运行错误，必须使用异常类。</p>
+<ul>
+<li><p>用户输入了非法数据。</p>
+</li>
+<li><p>要打开的文件不存在。</p>
+</li>
+<li><p>网络通信时连接中断，或者JVM内存溢出。</p>
+<h6 id="3-所有异常的父类是Throwable类，它有两个直接子类为Error和Exception"><a href="#3-所有异常的父类是Throwable类，它有两个直接子类为Error和Exception" class="headerlink" title="3. 所有异常的父类是Throwable类，它有两个直接子类为Error和Exception"></a>3. 所有异常的父类是Throwable类，它有两个直接子类为Error和Exception</h6></li>
+<li><p>Error:程序无法处理的错误，表示运行应用程序中较严重问题。恢复不是不可能但很困难的情况下的一种严重问题。</p>
+<p>  例如，内存溢出，Java虚拟机运行错误（Virtual MachineError），当 JVM 不再有继续执行操作所需的内存资源时，将出现 OutOfMemoryError。这些异常发生时，Java虚拟机（JVM）一般会选择线程终止。</p>
+</li>
+<li><p>Exception:是程序本身可以处理的异常。<br>  exception 设计或实现问题。也就是说，它表示如果程序运行正常，从不会发生的情况</p>
+</li>
+</ul>
+<h6 id="4-异常分为运行时异常和非运行时异常"><a href="#4-异常分为运行时异常和非运行时异常" class="headerlink" title="4. 异常分为运行时异常和非运行时异常"></a>4. 异常分为运行时异常和非运行时异常</h6><p>unchecked exception 非检查异常</p>
+<ul>
+<li>运行时异常（RuntimeException）</li>
+<li>Error</li>
+</ul>
+<p>对于运行时异常，java编译器不要求必须进行异常捕获处理或者抛出声明，由程序员自行决定。 </p>
+<p>checked exception 非运行时异常（运行时异常以外的异常就是非运行时异常）</p>
+<ul>
+<li>java编译器强制程序员必须进行捕获处理，比如IOExeption和SQLException。</li>
+<li>对于非运行时异常如果不进行捕获或者抛出声明处理，编译都不会通过。</li>
+</ul>
+<h6 id="5-异常的处理过程是先抛弃后捕获"><a href="#5-异常的处理过程是先抛弃后捕获" class="headerlink" title="5. 异常的处理过程是先抛弃后捕获"></a>5. 异常的处理过程是先抛弃后捕获</h6><h6 id="6-处理方法有三种："><a href="#6-处理方法有三种：" class="headerlink" title="6. 处理方法有三种："></a>6. 处理方法有三种：</h6><ul>
+<li>运行时异常可回避</li>
+<li>throws可回避交给上级调用模块处理</li>
+<li>try-catch-finally自行处理</li>
+</ul>
+<h6 id="7-进行异常捕获时，先发生的放在前面，后发生的放后面；子类异常放前面，父类放后面"><a href="#7-进行异常捕获时，先发生的放在前面，后发生的放后面；子类异常放前面，父类放后面" class="headerlink" title="7. 进行异常捕获时，先发生的放在前面，后发生的放后面；子类异常放前面，父类放后面"></a>7. 进行异常捕获时，先发生的放在前面，后发生的放后面；子类异常放前面，父类放后面</h6><h6 id="8-使用throw制造异常"><a href="#8-使用throw制造异常" class="headerlink" title="8. 使用throw制造异常"></a>8. 使用throw制造异常</h6><p>throw 抛出的只能够是可抛出类Throwable 或者其子类的实例对象</p>
+<hr>
+<h3 id="第八章-输入输出"><a href="#第八章-输入输出" class="headerlink" title="第八章 输入输出"></a>第八章 输入输出</h3><h6 id="1-输入输出需要引入java-io包"><a href="#1-输入输出需要引入java-io包" class="headerlink" title="1. 输入输出需要引入java.io包"></a>1. 输入输出需要引入java.io包</h6><h6 id="2-文件和目录使用File类"><a href="#2-文件和目录使用File类" class="headerlink" title="2. 文件和目录使用File类"></a>2. 文件和目录使用File类</h6><h6 id="3-InputStream和OutputStream是字节输入输出流父接口，Reader和Writer是字符输入输出流父接口"><a href="#3-InputStream和OutputStream是字节输入输出流父接口，Reader和Writer是字符输入输出流父接口" class="headerlink" title="3. InputStream和OutputStream是字节输入输出流父接口，Reader和Writer是字符输入输出流父接口"></a>3. InputStream和OutputStream是字节输入输出流父接口，Reader和Writer是字符输入输出流父接口</h6><h6 id="4-完成文件内容拷贝练习题"><a href="#4-完成文件内容拷贝练习题" class="headerlink" title="4. 完成文件内容拷贝练习题"></a>4. 完成文件内容拷贝练习题</h6><h3 id="第九章-JDBC"><a href="#第九章-JDBC" class="headerlink" title="第九章 JDBC"></a>第九章 JDBC</h3><h6 id="1-需要引入的包是java-sql"><a href="#1-需要引入的包是java-sql" class="headerlink" title="1. 需要引入的包是java.sql"></a>1. 需要引入的包是java.sql</h6><h3 id="第十章-事件处理"><a href="#第十章-事件处理" class="headerlink" title="第十章 事件处理"></a>第十章 事件处理</h3><h6 id="1-事件处理模型是授权处理模型"><a href="#1-事件处理模型是授权处理模型" class="headerlink" title="1. 事件处理模型是授权处理模型"></a>1. 事件处理模型是授权处理模型</h6><h6 id="2-常用的五种布局管理器是哪些？"><a href="#2-常用的五种布局管理器是哪些？" class="headerlink" title="2. 常用的五种布局管理器是哪些？"></a>2. 常用的五种布局管理器是哪些？</h6><ul>
+<li><p>FlowLayout 流式布局</p>
+</li>
+<li><p>BorderLayout 边框式布局</p>
+</li>
+<li><p>GridLayout 网格布局</p>
+</li>
+<li><p>CardLayout 卡片布局</p>
+</li>
+<li><p>BoxLayout 盒式布局</p>
+<h6 id="3-JFrame的默认布局管理器是BorderLayout"><a href="#3-JFrame的默认布局管理器是BorderLayout" class="headerlink" title="3.JFrame的默认布局管理器是BorderLayout"></a>3.JFrame的默认布局管理器是BorderLayout</h6><h6 id="4-JPanel是FlowLayout，FlowLayout的控件大小不随容器大小变化而改变"><a href="#4-JPanel是FlowLayout，FlowLayout的控件大小不随容器大小变化而改变" class="headerlink" title="4. JPanel是FlowLayout，FlowLayout的控件大小不随容器大小变化而改变"></a>4. JPanel是FlowLayout，FlowLayout的控件大小不随容器大小变化而改变</h6><h3 id="第十章-多线程"><a href="#第十章-多线程" class="headerlink" title="第十章 多线程"></a>第十章 多线程</h3><h6 id="1-线程的状态：初始状态、就绪状态、运行状态、阻塞状态、终止状态；新建的线程不能立即运行"><a href="#1-线程的状态：初始状态、就绪状态、运行状态、阻塞状态、终止状态；新建的线程不能立即运行" class="headerlink" title="1 .线程的状态：初始状态、就绪状态、运行状态、阻塞状态、终止状态；新建的线程不能立即运行"></a>1 .线程的状态：初始状态、就绪状态、运行状态、阻塞状态、终止状态；新建的线程不能立即运行</h6><h6 id="2-启动线程需要调用start（）方法，不需要调用run（）方法"><a href="#2-启动线程需要调用start（）方法，不需要调用run（）方法" class="headerlink" title="2. 启动线程需要调用start（）方法，不需要调用run（）方法"></a>2. 启动线程需要调用start（）方法，不需要调用run（）方法</h6><h6 id="3-在定义Thread类时，run（）方法必须要重写"><a href="#3-在定义Thread类时，run（）方法必须要重写" class="headerlink" title="3. 在定义Thread类时，run（）方法必须要重写"></a>3. 在定义Thread类时，run（）方法必须要重写</h6><h6 id="4-线程提供了wait、notify和notifyAll方法实现线程的同步"><a href="#4-线程提供了wait、notify和notifyAll方法实现线程的同步" class="headerlink" title="4. 线程提供了wait、notify和notifyAll方法实现线程的同步"></a>4. 线程提供了wait、notify和notifyAll方法实现线程的同步</h6></li>
+<li><p>start()：启动线程</p>
+</li>
+<li><p>wait()：将当前线程置入休眠状态</p>
+</li>
+<li><p>notify()：唤醒在此对象监视器上等待的单个线程。</p>
+</li>
+<li><p>notifyAll()：唤醒在此对象监视器上等待的所有线程。</p>
+</li>
+<li><p>setPriority()：更改线程的优先级。</p>
+</li>
+<li><p>join()：使其他线程等待当前线程终止</p>
+</li>
+<li><p>interrupt()：中断线程</p>
+</li>
+<li><p>isAlive()：测试线程是否处于活动状态。</p>
+</li>
+</ul>
+<p><strong>static：</strong></p>
+<ul>
+<li>sleep()：线程休眠</li>
+<li>yield()：暂停当前正在执行的线程对象，并执行其他线程。</li>
+<li>currentThread()：返回对当前正在执行的线程对象的引用。</li>
+</ul>
+<h6 id="5-线程的优先级从1到10，程序员可以在编程时定义"><a href="#5-线程的优先级从1到10，程序员可以在编程时定义" class="headerlink" title="5. 线程的优先级从1到10，程序员可以在编程时定义"></a>5. 线程的优先级从1到10，程序员可以在编程时定义</h6><h6 id="6-创建线程的方法继承Thread类和实现Runnable方法"><a href="#6-创建线程的方法继承Thread类和实现Runnable方法" class="headerlink" title="6. 创建线程的方法继承Thread类和实现Runnable方法"></a>6. 创建线程的方法继承Thread类和实现Runnable方法</h6><h3 id="第十一章-网络编程"><a href="#第十一章-网络编程" class="headerlink" title="第十一章 网络编程"></a>第十一章 网络编程</h3><h6 id="1-TCP编程使用ServerSocket和Socket，采用流式进行通讯，Socket代表客户端，ServerSocket代表服务器端"><a href="#1-TCP编程使用ServerSocket和Socket，采用流式进行通讯，Socket代表客户端，ServerSocket代表服务器端" class="headerlink" title="1. TCP编程使用ServerSocket和Socket，采用流式进行通讯，Socket代表客户端，ServerSocket代表服务器端"></a>1. TCP编程使用ServerSocket和Socket，采用流式进行通讯，Socket代表客户端，ServerSocket代表服务器端</h6><h6 id="2-与网络通讯相关的类都封装在java-net包下"><a href="#2-与网络通讯相关的类都封装在java-net包下" class="headerlink" title="2. 与网络通讯相关的类都封装在java.net包下"></a>2. 与网络通讯相关的类都封装在java.net包下</h6><hr>
+<h3 id="编程题"><a href="#编程题" class="headerlink" title="编程题"></a>编程题</h3><h4 id="1、评委打分"><a href="#1、评委打分" class="headerlink" title="1、评委打分"></a>1、评委打分</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> dafen;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">a1</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//评委打分</span></span><br><span class="line">		Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> N=scanner.nextInt();</span><br><span class="line">		<span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">			arr[i] = scanner.nextInt();</span><br><span class="line">		&#125;</span><br><span class="line">		Arrays.sort(arr);</span><br><span class="line">		<span class="keyword">int</span> score=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length-<span class="number">1</span>; i++) &#123;</span><br><span class="line">			score += arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;最终得分：&quot;</span>+score/(arr.length-<span class="number">2</span>));	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="2、工厂零件"><a href="#2、工厂零件" class="headerlink" title="2、工厂零件"></a>2、工厂零件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Area.java</span></span><br><span class="line"><span class="keyword">package</span> area;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> area.JieKou.Jiekou;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Area</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arg)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//工厂零件求面积</span></span><br><span class="line">		Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">double</span> r;</span><br><span class="line">		r=scanner.nextDouble();</span><br><span class="line">		Jiekou jk = <span class="keyword">new</span> Yuan(r);</span><br><span class="line">		System.out.println(jk.getArea()+<span class="string">&quot; &quot;</span>+jk.getZhouchang());</span><br><span class="line">		h=scanner.nextDouble();</span><br><span class="line">		Jiekou jk = <span class="keyword">new</span> YuanZhu(r,h);</span><br><span class="line">		System.out.println(jk.getArea()+<span class="string">&quot; &quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//JieKou.java</span></span><br><span class="line"><span class="keyword">package</span> area;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JieKou</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Jiekou</span></span></span><br><span class="line"><span class="class">	</span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">double</span> <span class="title">getZhouchang</span><span class="params">()</span></span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Yuan.java</span></span><br><span class="line"><span class="keyword">package</span> area;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> area.JieKou.Jiekou;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Yuan</span> <span class="keyword">implements</span> <span class="title">Jiekou</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">double</span> PI = <span class="number">3.14</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> r;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Yuan</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Yuan</span><span class="params">(<span class="keyword">double</span> r)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.r = r;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> PI*r*r;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getZhouchang</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">2</span>*PI*r;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//YuanZhu.java</span></span><br><span class="line"><span class="keyword">package</span> area;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YuanZhu</span> <span class="keyword">extends</span> <span class="title">Yuan</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> h;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">YuanZhu</span><span class="params">(<span class="keyword">double</span> r,<span class="keyword">double</span> h)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(r);</span><br><span class="line">		<span class="keyword">this</span>.h=h;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="keyword">super</span>.getArea()*h);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、文件copy操作"><a href="#3、文件copy操作" class="headerlink" title="3、文件copy操作"></a>3、文件copy操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> file;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">filecopy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] avg)</span> <span class="keyword">throws</span> Exception</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//复制</span></span><br><span class="line">			song();</span><br><span class="line">			<span class="comment">//字符读写 切割处理</span></span><br><span class="line">			rwFileSplitEnglish();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">rwFileSplitEnglish</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		String str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">		<span class="comment">//FileReader reader = new FileReader(&quot;fileIn\\txt1&quot;);</span></span><br><span class="line">		BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">&quot;fileIn\\txt1&quot;</span>));</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span> len;</span><br><span class="line">		<span class="keyword">while</span>((len = reader.read())!=-<span class="number">1</span>)</span><br><span class="line">			str +=(<span class="keyword">char</span>)len;</span><br><span class="line">		reader.close();</span><br><span class="line">		</span><br><span class="line">		System.out.println(str);</span><br><span class="line">		</span><br><span class="line">		String re  = <span class="string">&quot; &quot;</span>;</span><br><span class="line">		String s[] = str.split(re);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">			System.out.print(s[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(str.length());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">song</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		InputStream in = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;fileIn\\你一生的故事.mp3&quot;</span>);</span><br><span class="line">		</span><br><span class="line">		OutputStream out =  <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;fileOut\\你一生的故事2.mp3&quot;</span>);</span><br><span class="line">		<span class="keyword">int</span> len;</span><br><span class="line">		<span class="keyword">long</span> begintime = System.currentTimeMillis();</span><br><span class="line">		<span class="keyword">while</span>((len=in.read())!=-<span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			out.write(len);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">long</span> endtime = System.currentTimeMillis();</span><br><span class="line">		System.out.println(endtime-begintime);</span><br><span class="line">		in.close();</span><br><span class="line">		out.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4、JDBC"><a href="#4、JDBC" class="headerlink" title="4、JDBC"></a>4、JDBC</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/DanBo_C/article/details/93480519">Dao模式</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/" data-id="ckreqntit000er07khmr9h1xs" data-title="Java程序设计复习总结" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/JSP%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          JSP总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/IdentifyTask%E6%9F%A5%E8%AF%A2%EF%BC%88%E9%99%84%E6%A0%B7%E4%BE%8B%E6%BA%90%E7%A0%81%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">IdentifyTask查询（附样例源码）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

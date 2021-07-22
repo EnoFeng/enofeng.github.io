@@ -78,10 +78,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-最大流问题------Ford-Fulkerson算法（增广路径）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/07/22/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-07-22T09:49:44.338Z" itemprop="datePublished">2021-07-22</time>
+    <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.075Z" itemprop="datePublished">2021-07-22</time>
 </a>
     
   </div>
@@ -92,7 +92,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/hello-world/">Hello World</a>
+      <a class="p-name article-title" href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
     </h1>
   
 
@@ -100,24 +100,1435 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h2 id="Ford-Fulkerson算法（增广路算法）"><a href="#Ford-Fulkerson算法（增广路算法）" class="headerlink" title="Ford-Fulkerson算法（增广路算法）"></a>Ford-Fulkerson算法（增广路算法）</h2><p>增广路定理：设容量网络 G(V, E) 的一个可行流为 f, f 为最大流的充要条件是在容量网络中不存在增广路。</p>
+<blockquote>
+<p>从任何的一个可行流开始，寻找增广路对网络进行增广，直到网络中不存在增广路径。</p>
+</blockquote>
+<h5 id="怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？"><a href="#怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？" class="headerlink" title="怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？"></a>怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？</h5><hr>
+<p>最大流最小割定理：网络的最大流等于最小割。</p>
+<p>证明：</p>
+<ol>
+<li><p><strong>任意一个流 &lt;= 任意一个割</strong></p>
+<blockquote>
+<p>自来水厂通水，水流从自来水厂到家，形成一个流。</p>
+<p>当小偷偷走其中的几个管道，相当于形成一个割。</p>
+<p>这时，几个管道的缺失部分都会有水流出来，流出的水的和 == 原来的流。</p>
+<p>几个管道的容量加起来就是割</p>
+<p>那么流必定小于割<br><img src="https://img-blog.csdnimg.cn/2019051905380363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</blockquote>
+</li>
+<li><p><strong>当一个流 == 一个割 ，就构造出和最大流的割</strong></p>
+<blockquote>
+<p>达到最大流时，必定没有增广路，即残留网络中源汇点之间没有通路。</p>
+<p>（ 源点能到的点 ） -&gt; （ 源点到不了的点 ） 的边必定会满流，否则就能增广。</p>
+<p>这些中间的满流边之和就是最大流</p>
+<p>把这些满流边作为割。</p>
+</blockquote>
+</li>
+<li><p><strong>最大流等于最小割</strong></p>
+<blockquote>
+<p>假设残留网络Gf不存在增广路，所以在残留网络中不存在从源点到汇点的路。</p>
+<p>S集合 = 残留网络中源点能够到达的点。</p>
+<p>T集合 = 残留网络中源点不能够到达的点</p>
+<p>(S,T)构成割(S,T)</p>
+<p>f(u,v)=c(u,v)。即满流边。</p>
+<p>f(u,v)&lt;c(u,v)时，源汇点之间有连通路，与v属于T矛盾。</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>所以当找不到增广路时，此时f一定是最大流。</strong></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/22/hello-world/" data-id="ckreqlik10000pc7k6lppd77d" data-title="Hello World" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/" data-id="ckreqntjs001wr07kgofr5t5v" data-title="最大流问题------Ford-Fulkerson算法（增广路径）" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-在Ubuntu上安装java环境" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.072Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="JDK的安装"><a href="#JDK的安装" class="headerlink" title="JDK的安装"></a>JDK的安装</h2><hr>
+<h4 id="1-下载安装包-提取码：nmrf"><a href="#1-下载安装包-提取码：nmrf" class="headerlink" title="1. 下载安装包 提取码：nmrf"></a>1. <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1O2ZJREGXoQ9i9LiUQJAuLQ">下载安装包</a> 提取码：nmrf</h4><h4 id="2-创建目录存放jvm"><a href="#2-创建目录存放jvm" class="headerlink" title="2. 创建目录存放jvm"></a>2. 创建目录存放<code>jvm</code></h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lib</span><br><span class="line">sudo mkdir jvm</span><br><span class="line">cd ~ #进入hadoop主目录</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="https://img-blog.csdnimg.cn/20200313022139917.png"></p>
+<h4 id="3-将下载好的压缩包放在系统中，并在终端cd，我放在了主目录的下载下面"><a href="#3-将下载好的压缩包放在系统中，并在终端cd，我放在了主目录的下载下面" class="headerlink" title="3. 将下载好的压缩包放在系统中，并在终端cd，我放在了主目录的下载下面"></a>3. 将下载好的压缩包放在系统中，并在终端<code>cd</code>，我放在了主目录的下载下面</h4>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 下载</span><br><span class="line">sudo tar -zxvf ./jdk-8u162-linux-x64.tar.gz -C /usr/lib/jvm</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="https://img-blog.csdnimg.cn/20200313022151596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="4-配置环境变量"><a href="#4-配置环境变量" class="headerlink" title="4. 配置环境变量"></a>4. 配置环境变量</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-进入了vim编辑器，可见光标在最开始，敲击i进入编辑模式，粘贴shift-ctrl-v以下代码到最开始"><a href="#5-进入了vim编辑器，可见光标在最开始，敲击i进入编辑模式，粘贴shift-ctrl-v以下代码到最开始" class="headerlink" title="5. 进入了vim编辑器，可见光标在最开始，敲击i进入编辑模式，粘贴shift+ctrl+v以下代码到最开始"></a>5. 进入了vim编辑器，可见光标在最开始，敲击<code>i</code>进入编辑模式，粘贴<code>shift+ctrl+v</code>以下代码到最开始</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_162</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-esc退出编辑模式，键入：wq保存退出文件"><a href="#6-esc退出编辑模式，键入：wq保存退出文件" class="headerlink" title="6. esc退出编辑模式，键入：wq保存退出文件"></a>6. <code>esc</code>退出编辑模式，键入<code>：wq</code>保存退出文件</h4><h4 id="7-让配置立即生效"><a href="#7-让配置立即生效" class="headerlink" title="7. 让配置立即生效"></a>7. 让配置立即生效</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-查看java版本"><a href="#8-查看java版本" class="headerlink" title="8. 查看java版本"></a>8. 查看java版本</h4>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="https://img-blog.csdnimg.cn/20200313022908716.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/" data-id="ckreqntjj001ir07kg36s2y0k" data-title="在Ubuntu上安装java环境" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-遥感原理与应用【Ⅱ】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.070Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1、电磁波的是3个特性在遥感中的应用"><a href="#1、电磁波的是3个特性在遥感中的应用" class="headerlink" title="1、电磁波的是3个特性在遥感中的应用"></a>1、电磁波的是3个特性在遥感中的应用</h2><p>大（小）———— 频率（波长）————   小（大）<br>————————————————————————<br>Y射线  X射线  紫外线  可见光  红外线  微波  无线电</p>
+<p><strong>三个特性：</strong></p>
+<ol>
+<li><p>波粒二重性（波动性、粒子性）</p>
+<ul>
+<li>波动性包括干涉、衍射、偏振等现象</li>
+<li>以离散形式存在。其离散单元成为光子或量子。</li>
+</ul>
+</li>
+<li><p>波长与光子能量成反比关系</p>
+</li>
+<li><p>波长越短光子能量越大，则穿透力越强</p>
+</li>
+</ol>
+<p><strong>应用</strong></p>
+<ol>
+<li><p>干涉：干涉雷达指采用干涉测量技术的合成孔径雷达</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190415072828223.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>相干条件：两列频率相同、震动方向相同、相位差恒定的波。</p>
+</blockquote>
+</li>
+<li><p>衍射：设计遥感仪器和提高遥感图像几何分辨率、数字影像的处理</p>
+<blockquote>
+<p>光通过有限大小的障碍物时偏离直线路径的现象</p>
+</blockquote>
+</li>
+<li><p>偏振（极化）：雷达遥感系统常用四种极化方式——HH、VV、HV、VH</p>
+<ul>
+<li>水平极化（H）：电场方向平行于电磁波投射的平面</li>
+<li>垂直极化（V）：垂直于水平极化的方向</li>
+<li>HH、VV：同向极化</li>
+<li>HV、VH：交叉极化</li>
+</ul>
+<blockquote>
+<p>自然光（非偏正光）<br>振动方向不变光<br>振动面是一个固定平面</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="2、黑体辐射（三个特性）"><a href="#2、黑体辐射（三个特性）" class="headerlink" title="2、黑体辐射（三个特性）"></a>2、黑体辐射（三个特性）</h2><ul>
+<li>一个物体对于任何波长的电磁辐射都全部吸收（能量由温度决定）</li>
+</ul>
+<p><strong>特性：</strong></p>
+<ol>
+<li><p>辐射通量密度随波长连续变化，每条曲线只有一个最大值。</p>
+</li>
+<li><p>温度越高，总的辐射通量密度越大，不同温度的曲线不同且不相交</p>
+</li>
+<li><p>随着温度的升高，辐射最大值所对应的波长向短波方向移动（维恩位移定律 ）</p>
+<blockquote>
+<p>热红外遥感探测和识别原理</p>
+<p>斯忒藩-玻尔兹曼公式：绝对黑体表面上，单位面积发出的总辐射能与绝对温度的四次方成正比。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="3、大气窗口"><a href="#3、大气窗口" class="headerlink" title="3、大气窗口"></a>3、大气窗口</h2><p>电磁波通过大气衰减较小，透过率较高的波段</p>
+<blockquote>
+<ul>
+<li>紫外、可见光、近红外：白天探测</li>
+<li>近红外：白天夜间，地质遥感</li>
+<li>中红外：探测高温目标，森林火灾</li>
+<li>远红外：探测地物的发射率及温度</li>
+</ul>
+</blockquote>
+<h2 id="4、地物反射类型"><a href="#4、地物反射类型" class="headerlink" title="4、地物反射类型"></a>4、地物反射类型</h2><ul>
+<li>镜面反射</li>
+<li>漫反射</li>
+<li>方向反射<h2 id="5、反射波谱曲线"><a href="#5、反射波谱曲线" class="headerlink" title="5、反射波谱曲线"></a>5、反射波谱曲线</h2>物体的 <strong>反射波谱特性曲线</strong> ：反射波谱是某物体得反射率（或反射辐射能）随波长变化的规律、以波长为横坐标，反射率为纵坐标所得到的曲线</li>
+</ul>
+<ol>
+<li><p>植被</p>
+<ul>
+<li>在可见光波段：（叶绿素吸收）<ul>
+<li> 0.45μm蓝波段有一个吸收谷</li>
+<li> 0.55μm绿波段有一个反射峰</li>
+<li> 0.67μm红波段有一个吸收谷</li>
+</ul>
+</li>
+<li>在近红外波段：(近红外穿透叶绿素，被多孔薄壁组织反射)<ul>
+<li> 0.76μm反射率迅速增大，在1.1处达到峰值，形成植被的独有特征。</li>
+</ul>
+</li>
+</ul>
+<p> 影响植被波谱曲线的因素：</p>
+<blockquote>
+<p> 植被类型</p>
+</blockquote>
+<blockquote>
+<p> 生长季节</p>
+</blockquote>
+<blockquote>
+<p> 植被病虫害</p>
+</blockquote>
+<p> 根据植被波谱曲线特征的差异，区分植被的类型和生长状态。</p>
+</li>
+<li><p>水体</p>
+<ul>
+<li>反射特性:<ul>
+<li> 在蓝绿波段具有反射率</li>
+<li> 在近红外、中红外波段完全吸收</li>
+</ul>
+</li>
+</ul>
+<p> 影响水体波谱曲线的因素：</p>
+<blockquote>
+<p> 水中含有泥沙，在可见光波段反射率会增加，峰值出现在黄红区。</p>
+</blockquote>
+<blockquote>
+<p>水中还有绿色植被时，近红外波段反射率明显提高。</p>
+</blockquote>
+<ul>
+<li>影响地物光谱反射率变化的因素：</li>
+<li>时间效应：<br>  地物的光谱特性一般随时间季节变化。</li>
+<li>空间效应：<br>  处在不同地理位置和区域的同种地物具有不同的光谱特性。</li>
+<li>太阳高度，大气条件，环境状况</li>
+<li>地形（阴影、坡度），气候、植物的病变<h2 id="6、遥感平台"><a href="#6、遥感平台" class="headerlink" title="6、遥感平台"></a>6、遥感平台</h2></li>
+</ul>
+</li>
+</ol>
+<p>地面平台、航空平台、航天平台。</p>
+<h2 id="7、卫星轨道6参数"><a href="#7、卫星轨道6参数" class="headerlink" title="7、卫星轨道6参数"></a>7、卫星轨道6参数</h2><p>卫星轨道面与赤道面的相对位置</p>
+<ul>
+<li>升交点赤经Ω ：升交点和赤道面春分点的夹角</li>
+<li>近地点角距 ：轨道平面近地点和升交点的夹角</li>
+<li>轨道倾角 ：轨道面和赤道面的夹角</li>
+<li>卫星过近地点时刻</li>
+</ul>
+<p>卫星轨道的形状</p>
+<ul>
+<li>卫星轨道长半轴</li>
+<li>卫星轨道扁率<br><img src="https://img-blog.csdnimg.cn/20190415120749522.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><h2 id="8、卫星姿态角"><a href="#8、卫星姿态角" class="headerlink" title="8、卫星姿态角"></a>8、卫星姿态角</h2></li>
+<li>滚动角：绕X轴旋转的姿态角</li>
+<li>俯仰角：绕Y轴旋转的姿态角</li>
+<li>航偏角：绕Z轴旋转的姿态角</li>
+</ul>
+<h2 id="9、传感器分类"><a href="#9、传感器分类" class="headerlink" title="9、传感器分类"></a>9、传感器分类</h2><p>按工作方式：</p>
+<ul>
+<li>主动遥感</li>
+<li>被动遥感</li>
+</ul>
+<p>按成像方式：</p>
+<ul>
+<li>摄影成像传感器        x</li>
+<li>扫描成像传感器</li>
+<li>雷达成像传感器    x</li>
+<li>非图像传感器</li>
+</ul>
+<h2 id="10、扫描类型的传感器"><a href="#10、扫描类型的传感器" class="headerlink" title="10、扫描类型的传感器"></a>10、扫描类型的传感器</h2><p><strong>逐点逐行地以时序方式获取二维图像</strong></p>
+<ol>
+<li>对地面扫描的成像仪<br> 特点：对地面直接扫描成像    -  红外扫描仪    - 多光谱扫描仪    - 成像扫描仪</li>
+<li>瞬间在像面上先形成一条线图像 / 二维影像，然后对影像扫描成像<ul>
+<li>线阵列CCD推扫式成像仪</li>
+<li>电视摄影机<h2 id="11、MSS多光谱扫描仪"><a href="#11、MSS多光谱扫描仪" class="headerlink" title="11、MSS多光谱扫描仪"></a>11、MSS多光谱扫描仪</h2><img src="https://img-blog.csdnimg.cn/20190415072933214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></li>
+</ul>
+</li>
+</ol>
+<p>Landsat含24+2个探测元，按波段排列成四列，每列由六个探测元，<br>每个探测元的地面观察面积为79m×79m。陆地卫星2、3上增加一个热红外通道，<br>分辨率为240m×240m，仅用两个探测元构成。每个波段由六个相同大小的探测元与飞行方向平行排列，这样在瞬间看到的地面大小474m×79m，又由于扫描总视场为11.56度，地面宽度为185km，因此扫描一次每个波段获取六条扫描图像，其地面范围为474m×185km。又因卫星速度6.5km/s，在扫描一次的时间里卫星正好往前移动474m，因此扫描现恰好衔接。 </p>
+<ul>
+<li>扫描行不垂直于飞行轨道</li>
+<li>从西向东扫描</li>
+</ul>
+<h2 id="12、数字图像的存储"><a href="#12、数字图像的存储" class="headerlink" title="12、数字图像的存储"></a>12、数字图像的存储</h2><p>BSQ：按波段顺序依次排列，保证了像素空间位置的连续性。<br>BIL：以行为单位分块，像素的空间位置在列的方向上是连续的。<br>BIP：以像素为核心，为图像数据波谱的存取提供最佳性能。</p>
+<ul>
+<li>BSQ：按波段顺序依次排列的数据格式，即先按照波段顺序分块排列，在每个波段块内，再按照行列顺序排列。通一波段的像素保存在一个快中，保证了像素空间位置的连续性。<br><img src="https://img-blog.csdnimg.cn/2019041513241930.png"></li>
+<li>BIL：以行为单位分块，在每个块内，按照波段顺序排列像素。同一行不同波段的数据保存在一个数据块中。像素的空间位置在列的方向上是连续的。<br><img src="https://img-blog.csdnimg.cn/201904150732269.png"></li>
+<li>BIP：以像素为核心，同一像素不同波段数据保存在一起。每个块内为当前像素不同波段的像素值。该格式为图像数据波谱的存取提供最佳性能。<br><img src="https://img-blog.csdnimg.cn/20190415073245293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<h2 id="13、遥感图像的构像方程"><a href="#13、遥感图像的构像方程" class="headerlink" title="13、遥感图像的构像方程"></a>13、遥感图像的构像方程</h2><pre><code>遥感图像几何处理的目的？
+&gt; 遥感任务是获取地物的空间信息和属性信息；
+&gt; 在利用遥感图像提取信息的过程中，要求将所有提取的信息
+  表达在某一个规定的图像投影参照系统内；
+&gt;遥感图像成图时，因为各种因素的影响，图像本身的
+  几何形状与其对应的地物形状不一致。
+&gt;遥感图像的几何处理：统一坐标系，解决遥感图像的几何变形问题，
+ 消除遥感图像的几何误差，获得所提取地物的几何位置。
+</code></pre>
+<h4 id="1、通用构像方程"><a href="#1、通用构像方程" class="headerlink" title="1、通用构像方程"></a>1、通用构像方程</h4><p>设地面点P在地面坐标系中的坐标为(X, Y ,Z)P，P在传感器坐标系中的坐标为(U V W)P，传感器投影中心S在地面坐标系中的坐标为(X Y Z)S，A为传感器坐标相对于地面坐标系统的旋转矩阵，则通用构像方程为：<br><img src="https://img-blog.csdnimg.cn/20190415073302255.png"><br><img src="https://img-blog.csdnimg.cn/20190415073322662.png"></p>
+<h5 id="主要坐标系："><a href="#主要坐标系：" class="headerlink" title="主要坐标系："></a>主要坐标系：</h5><ul>
+<li>传感器坐标系S-UVW，S为传感器投影中心，作为传感器坐标系的坐标原点，U轴的方向为遥感平台的飞行方向，W轴为传感器指向地底点方向的负方向，V轴垂直于WU平面，该坐标系描述了像点在空间的位置。</li>
+<li>地面坐标系O-XYZ，主要采用地心坐标系统。当传感器对地成像时， Z轴与原点的天顶方向一致，XY平面与Z轴垂直。</li>
+<li>图像（像点）坐标系o-xyf，(x,y)为像点在图像上的平面坐标，f为传感器成像时的等效焦距，方向与S-UVW一致。</li>
+</ul>
+<h4 id="2、中心投影构像方程"><a href="#2、中心投影构像方程" class="headerlink" title="2、中心投影构像方程"></a>2、中心投影构像方程</h4><p><strong>中心投影</strong>：等比例缩放<br><img src="https://img-blog.csdnimg.cn/20190415073337176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>中心投影构像方程</strong>：中心投影像片坐标与地面点大地坐标的关系</p>
+<p><strong>共线方程</strong>：描述像点、对应地物点和传感器中心之间的关系</p>
+<p><strong>共线方程物理意义：</strong><br><img src="https://img-blog.csdnimg.cn/20190415073414209.png"><br>当地物点P、对应像点p和投影中心S位于同一条直线上时，上式公式成立。</p>
+<pre><code>为什么说中心投影构像方程是遥感构像方程的基础？
+
+答：框幅式影像属于纯中心投影构像，
+    全景影像属于多中心等焦距圆柱投影，
+    多光谱影像属于多中心扫描投影，
+    HRV影像属于多中心推扫扫描投影，
+    合成孔径侧视雷达属于多中心斜距投影。
+</code></pre>
+<h2 id="14、几何变形"><a href="#14、几何变形" class="headerlink" title="14、几何变形"></a>14、几何变形</h2><ul>
+<li><p><strong>静态误差</strong>：传感器相对于地球表面呈静止状态时所具有的各种变形误差。</p>
+</li>
+<li><p><strong>动态误差</strong>：由于地球的旋转等因素所造成的图像变形误差。</p>
+</li>
+<li><p><strong>内部变形误差</strong>：由于传感器自身的性能技术指标偏移标准数值所造成的。</p>
+</li>
+<li><p><strong>外部变形误差</strong>：由传感器以外的各种因素所造成的误差，如传感器的外方位元素变化，传播介质不均匀，地球曲率，地形起伏以及地球旋转等因素引起的变形误差。</p>
+<h2 id="15、几何处理"><a href="#15、几何处理" class="headerlink" title="15、几何处理"></a>15、几何处理</h2><h5 id="1-粗加工处理"><a href="#1-粗加工处理" class="headerlink" title="1. 粗加工处理"></a>1. 粗加工处理</h5><p>作用：消除传感器误差</p>
+<h5 id="2-精纠正处理"><a href="#2-精纠正处理" class="headerlink" title="2. 精纠正处理"></a>2. 精纠正处理</h5><p>消除图像中的几何变形，产生一副符合某种地图投影或图形表达要求的新图像</p>
+<h6 id="环节："><a href="#环节：" class="headerlink" title="环节："></a>环节：</h6></li>
+</ul>
+<ol>
+<li>像素坐标的变换，即将图像坐标转变为地图或地面坐标</li>
+<li>对坐标变换后的像素亮度值进行重采样。</li>
+</ol>
+<h6 id="处理过程："><a href="#处理过程：" class="headerlink" title="处理过程："></a>处理过程：</h6><blockquote>
+<ol>
+<li>根据图像的成像方式确定图像坐标和地面坐标之间的数学模型</li>
+<li>根据地面控制点和对应像点坐标进行平差计算变换参数，平定精度。</li>
+<li>对原始图像进行几何变换计算，像素亮度重采样。</li>
+</ol>
+</blockquote>
+<h6 id="纠正方法："><a href="#纠正方法：" class="headerlink" title="纠正方法："></a>纠正方法：</h6><ol>
+<li>基于多项式的遥感图像纠正</li>
+<li>基于共线方程的遥感图像纠正</li>
+<li>基于有理函数的遥感图像纠正</li>
+</ol>
+<h2 id="16、基于多项式的遥感图像纠正"><a href="#16、基于多项式的遥感图像纠正" class="headerlink" title="16、基于多项式的遥感图像纠正"></a>16、基于多项式的遥感图像纠正</h2><p>多项式纠正直接对图像变形的本身进行数字模拟。对各种类型传感器图像的纠正是适用的。</p>
+<p>利用地面控制点的图像坐标和其同名点的地面坐标通过平差原理计算多项式中的系数，然后用该多项式对图像进行纠正。</p>
+<p>常用的多项式有一般多项式、勒让德多项式以及双变量分区插值多项式等。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190415073641676.png"></p>
+<p>多项式系数求解：</p>
+<ul>
+<li>可预测的图像变形参数构成；</li>
+<li>利用已知控制点的坐标值按最小二乘法原理求解</li>
+</ul>
+<p><strong>多项式的项数（即系数个数）N与其阶数n有着固定的关系：<br>N=(n+1)(n+2)/2</strong></p>
+<ul>
+<li><p>一次项纠正：可以纠正图像因平移、旋转、比例尺变化和仿射变形等引起的线性变形。</p>
+</li>
+<li><p>二次项纠正时：在改正一次项各种变形的基础上，改正二次非线性变形。</p>
+</li>
+<li><p>三次项纠正：改正更高次的非线性变形。</p>
+</li>
+</ul>
+<p>例题：<br><img src="https://img-blog.csdnimg.cn/20190415073654610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="多项式纠正步骤："><a href="#多项式纠正步骤：" class="headerlink" title="多项式纠正步骤："></a>多项式纠正步骤：</h4><ol>
+<li><p>利用已知地面控制点求解多项式系数</p>
+<p> 地面控制点（GCP）：图像的配准以地面坐标在地图或遥感图像上相对应的点为匹配标准，这些对应的点称为地面控制点。</p>
+<ol>
+<li>地面控制点数目的确定</li>
+<li>地面控制点选取原则<ul>
+<li>图像上为明显的地物点，易于判读（道路交叉口、河流转弯处等）。</li>
+<li>图像上均匀分布（图像的边缘部分选取控制点，尽量满幅均匀选取）。</li>
+<li>数量要足够（特征变化大的地区，多选控制点）。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>遥感图像的纠正变换</p>
+<ol>
+<li>纠正后数字图像范围的确定</li>
+<li>直接法和间接法纠正</li>
+</ol>
+</li>
+<li><p>数字图像亮度值的重采样</p>
+<h2 id="17、图像亮度值的重采样"><a href="#17、图像亮度值的重采样" class="headerlink" title="17、图像亮度值的重采样"></a>17、图像亮度值的重采样</h2><h5 id="最邻近像元法"><a href="#最邻近像元法" class="headerlink" title="最邻近像元法"></a>最邻近像元法</h5></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20190415073711895.png"></p>
+<ul>
+<li>优点：简单容易，计算简单。</li>
+<li>缺点：图像的灰度具有不连续性。</li>
+</ul>
+<h5 id="双线性内插法"><a href="#双线性内插法" class="headerlink" title="双线性内插法"></a>双线性内插法</h5><p><img src="https://img-blog.csdnimg.cn/20190415073724556.png"></p>
+<ul>
+<li>优点：对灰度不连续现象或线状特征的块状化有明显的改善，对图像起到平滑作用</li>
+<li>缺点：使对比度明显的分界线变得模糊。</li>
+</ul>
+<h5 id="双三次卷积法"><a href="#双三次卷积法" class="headerlink" title="双三次卷积法"></a>双三次卷积法<img src="https://img-blog.csdnimg.cn/20190415073742859.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></h5><ul>
+<li>优点：精度高。</li>
+<li>缺点：计算量大。</li>
+</ul>
+<h2 id="18、辐射误差"><a href="#18、辐射误差" class="headerlink" title="18、辐射误差"></a>18、辐射误差</h2><p>传感器接受的电磁波能量包含三部分：</p>
+<ol>
+<li>太阳光经大气衰减后照射到地面，经地面反射后，又经大气第二次衰减进入传感器的能量。</li>
+<li>大气散射、反射、辐射的能量</li>
+<li>地面本身辐射的能量经大气后进入传感器的能量。</li>
+</ol>
+<p>内容：</p>
+<ol>
+<li>传感器本身的性能引起  ==》 辐射定标</li>
+<li>大气的散射和吸收引起   ==》 大气校正</li>
+<li>地形影响和光照条件的变化引起的辐射误差   ==》 太阳高度角、日地距离矫正和地形影响引起的辐射误差矫正。</li>
+</ol>
+<h2 id="19、辐射定标"><a href="#19、辐射定标" class="headerlink" title="19、辐射定标"></a>19、辐射定标</h2><p>辐射定标：指传感器探测值的标定过程、方法，用以确定传感器入口处的准确辐射值。</p>
+<p>辐射定标分为绝对定标和相对定标。<br>绝对定标：要建立传感器测量的数字信号与对应的辐射能量之间的数量关系。</p>
+<p>绝对定标方法：传感器定标、星上定标、场地定标</p>
+<ul>
+<li>优点：实现了对遥感器运行状态下与获取地面图像完全同条件的绝对校正</li>
+<li>缺点：需要测量和计算空中遥感器过顶时的大气环境和地物反射率。</li>
+</ul>
+<h2 id="20、大气校正"><a href="#20、大气校正" class="headerlink" title="20、大气校正"></a>20、大气校正</h2><p>大气的影响：大气对阳光和来自目标的辐射产生吸收和散射。</p>
+<h5 id="大气校正的方法"><a href="#大气校正的方法" class="headerlink" title="大气校正的方法"></a>大气校正的方法</h5><ol>
+<li>基于辐射传输方程的大气校正</li>
+<li>基于地面场地数据或辅助数据进行辐射校正</li>
+<li>利用某些不受大气影响或影响小的特性来校正其他波段的大气影响。</li>
+</ol>
+<p>辐射校正：指消除或改正遥感图像成像过程中附加在传感器输出的辐射能量中的各种噪声的过程。</p>
+<h2 id="21、遥感图像辐射增强"><a href="#21、遥感图像辐射增强" class="headerlink" title="21、遥感图像辐射增强"></a>21、遥感图像辐射增强</h2><h5 id="一、图像灰度直方图"><a href="#一、图像灰度直方图" class="headerlink" title="一、图像灰度直方图"></a>一、图像灰度直方图</h5><ul>
+<li>反映了一幅图像中灰度级与其出现概率之间的关系。</li>
+<li>可以看成一个随机分布密度函数，其分布状态用灰度均值和标准差来衡量。</li>
+<li>可以判断图像质量</li>
+</ul>
+<h5 id="二、图像反差调整"><a href="#二、图像反差调整" class="headerlink" title="二、图像反差调整"></a>二、图像反差调整</h5><ol>
+<li><p>线性变换：按比例拉伸原始图像灰度等级范围。</p>
+<p> 目的：提高图像对比度。</p>
+<p> 特点：一对一关系，像元总数不变。</p>
+<pre><code> ![](https://img-blog.csdnimg.cn/201904150738009.png)
+</code></pre>
+</li>
+<li><p>直方图均衡化</p>
+<p> 将随机分布的图像直方图修改成均匀分布的直方图，其实质是对图像进行非线性拉伸，重新分配图像像元值，使一定灰度范围内的像元的数量大致相等。<img src="https://img-blog.csdnimg.cn/20190414210405692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<p> 特点：各级灰度值所占图像的面积近似相等</p>
+<pre><code> 原图像上频率小的灰度级被合并、频率高的灰度级被保留
+ 增强图像上大面积地物与周围地物的反差
+ 具体增强效果不能控制，只能全局均衡
+</code></pre>
+</li>
+<li><p>直方图正太化</p>
+<p> 将随机分布的原图像直方图修改成高斯分布的直方图<br><img src="https://img-blog.csdnimg.cn/20190415073815262.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</li>
+<li><p>直方图匹配</p>
+</li>
+<li><p>密度分割</p>
+<p> 密度分割与直方图均衡类似。原始图像的灰度值被分成等间隔的离散的灰度级，每一级有其灰度值。<br><img src="https://img-blog.csdnimg.cn/20190415073829116.png"></p>
+</li>
+<li><p>其他非线性变换</p>
+<p> 对数变换、指数变换、平方根变换、标准偏差变换、直方图周期性变换。<br> <img src="https://img-blog.csdnimg.cn/20190415073842559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>灰度反转<br> 结果：原来亮的地方变暗，原来暗的地方变亮。</p>
+</li>
+</ol>
+<h2 id="22、图像融合"><a href="#22、图像融合" class="headerlink" title="22、图像融合"></a>22、图像融合</h2><h5 id="目的：提高分类精度"><a href="#目的：提高分类精度" class="headerlink" title="目的：提高分类精度"></a>目的：提高分类精度</h5><ul>
+<li>提高空间分辨率</li>
+<li>改善配准精度</li>
+<li>增强目标特征</li>
+<li>提高分类精度</li>
+<li>信息互补</li>
+</ul>
+<h2 id="23、景物特征及其判读标志"><a href="#23、景物特征及其判读标志" class="headerlink" title="23、景物特征及其判读标志"></a>23、景物特征及其判读标志</h2><h5 id="1-光谱特征"><a href="#1-光谱特征" class="headerlink" title="1. 光谱特征"></a>1. 光谱特征</h5><p>地物的反射波谱特性一般是用一条连续的曲线表示</p>
+<h5 id="2-空间特征"><a href="#2-空间特征" class="headerlink" title="2. 空间特征"></a>2. 空间特征</h5><pre><code>形状：指各种地物的外形和轮廓
+大小：地物尺寸、面积、体积在图像上按比例缩小后的相似性记录
+图形：自然或人造复合地物所构成的图形
+阴影：由于地物高度Z的变化，阻挡太阳光照射而产生的阴影。表示地物隆起高度，侧面形状
+位置：地物存在的地点和所处的环境
+纹理：同类地物聚集分布。光滑的、波纹的、斑纹的、线性、不规则的纹理特征。
+类型：各大类别组成系统。水系系统、地貌系统、地质构造系统等，在各自类型中，根据形状、结构、图形分为许多种类。
+</code></pre>
+<h5 id="3-时间特征"><a href="#3-时间特征" class="headerlink" title="3. 时间特征"></a>3. 时间特征</h5><h2 id="24、影响景物特征及其判读的因素"><a href="#24、影响景物特征及其判读的因素" class="headerlink" title="24、影响景物特征及其判读的因素"></a>24、影响景物特征及其判读的因素</h2><ol>
+<li>地物本身的复杂性<ul>
+<li>大类地物特征 / 光谱特征不同</li>
+<li>同类地物特征 / 光谱特征类似</li>
+<li>同种地物由于自身因素或外界环境因素影响导致光谱信息不同</li>
+</ul>
+</li>
+<li>传感器特性的影响<ul>
+<li>几何分辨率：传感器瞬时视场内所观察到的地面场元的宽度</li>
+<li>辐射分辨率：传感器能区分两种辐射强度最小差别的能力</li>
+<li>光谱分辨率：探测波段宽度、波段数、各波段波长范围和间隔</li>
+<li>时间分辨率：对同一地区重复获取图像所需的时间间隔</li>
+</ul>
+</li>
+<li>目视能力<ul>
+<li>空间分辨能力：与眼睛分辨角、影像距离人眼距离、照明条件、图像形状和反差等有关。</li>
+<li>灰阶分辨能力：取决于视网膜上的视杆细胞的灵敏度</li>
+<li>色别和色阶分辨能力：RGB的分辨能力</li>
+</ul>
+</li>
+</ol>
+<h2 id="25、特征变换"><a href="#25、特征变换" class="headerlink" title="25、特征变换"></a>25、特征变换</h2><h5 id="什么？"><a href="#什么？" class="headerlink" title="什么？"></a>什么？</h5><p>将原有的m量值集合通过某种变换，然后产生n（ m &gt;= n ）个特征</p>
+<h5 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h5><ul>
+<li>减少参加分类的特征图像的数目</li>
+<li>从原始信息中抽取能更好进行分类的特征图像</li>
+</ul>
+<h6 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h6><ul>
+<li>主分量变化</li>
+<li>哈达玛变换</li>
+<li>比值变换</li>
+<li>缨帽变换</li>
+</ul>
+<h5 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h5><p>均方误差最小的最佳正交线变换</p>
+<h5 id="主分量变换步骤"><a href="#主分量变换步骤" class="headerlink" title="主分量变换步骤"></a>主分量变换步骤</h5><ol>
+<li>计算 均值向量M和协方差矩阵C</li>
+<li>计算 矩阵C的特征值和特征向量、</li>
+<li>特征值的排序（大到小）</li>
+<li>选择前几个特征值（及对应特征向量）构造变换矩阵Φn</li>
+<li>根据Y=ΦnX变换，得到新特征影像，即结果。<br><img src="https://img-blog.csdnimg.cn/20190621145443413.png"><h5 id="缨帽变换"><a href="#缨帽变换" class="headerlink" title="缨帽变换"></a>缨帽变换</h5>经验性线性特征变换</li>
+</ol>
+<h5 id="什么是特征选择？"><a href="#什么是特征选择？" class="headerlink" title="什么是特征选择？"></a>什么是特征选择？</h5><ul>
+<li>选择一组最佳的特征影响分类</li>
+<li>从原有的m个测量值集合中，按某一准则选择出n个特征</li>
+</ul>
+<p><strong>定量选择方法：</strong></p>
+<ul>
+<li>距离测度  </li>
+<li>散布矩阵测度<ul>
+<li>类内散矩阵 </li>
+<li>类间散布矩阵  </li>
+<li>总体散布矩阵<h5 id="监督分类过程"><a href="#监督分类过程" class="headerlink" title="监督分类过程"></a>监督分类过程</h5>（1）确定感兴趣的类别数<br>（2）特征变换和特征选择<br>（3）选择训练样区（准确性、代表性和统计性）<br>（4）确定判决函数和判决规则<br>（5）根据判决函数和判决规则对非训练样区的图像区域进行分类<br><img src="https://img-blog.csdnimg.cn/20190621145349645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><h5 id="K-均值聚类法"><a href="#K-均值聚类法" class="headerlink" title="K-均值聚类法"></a>K-均值聚类法</h5>准则：点到类别中心的距离的平方和最小。<br>思想：通过迭代，逐次移动各类的中心，直至得到最好的聚类结果为止。</li>
+</ul>
+</li>
+</ul>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>选择m个类的初始中心</li>
+<li>按照到类中心距离最小的原则对像元分类</li>
+<li>重新计算类中心</li>
+<li>类中心不变，算法结束；否则返回(2)<br><img src="https://img-blog.csdnimg.cn/20190621150021985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><h5 id="IOSDATA算法聚类分析"><a href="#IOSDATA算法聚类分析" class="headerlink" title="IOSDATA算法聚类分析"></a>IOSDATA算法聚类分析</h5></li>
+</ol>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>初始化；</li>
+<li>选择初始中心；</li>
+<li>按一定规则(如距离最小)对所有像元划分；</li>
+<li>重新计算每个集群的均值和方差；按初始化的参数进行分裂和合并；</li>
+<li>结束，迭代若干次数或者两次迭代之间类别均值变化小于阈值</li>
+<li>否则，重复3-5；</li>
+<li>确认类别，精度评定. </li>
+</ol>
+<h2 id="26、-监督分类与非监督分类的结合"><a href="#26、-监督分类与非监督分类的结合" class="headerlink" title="26、 监督分类与非监督分类的结合"></a>26、 监督分类与非监督分类的结合</h2><ol>
+<li>选择一些有代表性的区域进行非监督分类。</li>
+<li>获得多个聚类类别的先验知识。</li>
+<li>特征选择。选择最适合的特征图像进行后续分类。</li>
+<li>使用监督法对整个影像进行分类。 </li>
+<li>输出标记图像。</li>
+</ol>
+<h2 id="27、分类后的处理"><a href="#27、分类后的处理" class="headerlink" title="27、分类后的处理"></a>27、分类后的处理</h2><h5 id="为什么？-1"><a href="#为什么？-1" class="headerlink" title="为什么？"></a>为什么？</h5><p>用光谱信息对影像逐个像元地分类，在结果的分类地图上会出现“噪声” 。<br>分类是正确的，但某种类别零星分布于地面，占的面积很小 ，希望用综合的方法使它从图面上消失。</p>
+<h5 id="分类平滑技术"><a href="#分类平滑技术" class="headerlink" title="分类平滑技术"></a>分类平滑技术</h5><p>采用邻区处理法。<br>平滑时中心像元值取周围倒数的类别。</p>
+<h2 id="28、混淆矩阵（计算）"><a href="#28、混淆矩阵（计算）" class="headerlink" title="28、混淆矩阵（计算）"></a>28、混淆矩阵（计算）</h2><p>行：错分。用户精度<br>列：漏分。制图精度</p>
+<p>Kappa系数 = （ Pa - Pe ）/ （ 1 - Pe ）</p>
+<p>Pa = （ P11+P22+…+Pnn）/ ( P )<br>Pe =   ( P1+ * P+1) +  ( P2+ * P+2) + … +( Pn+ * P+n)  / P^2</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/" data-id="ckreqntk1002dr07k7qa22r71" data-title="遥感原理与应用【Ⅱ】" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-遥感原理与应用 【I】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.068Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>态度决定一切。小时候常听，长大了才懂。</p>
+<p>文章较长，建议从目录选取感兴趣内容，然后Ctry+F搜索、跳转</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><strong>1、电磁波的是3个特性在遥感中的应用<br>2、电磁波谱<br>3、黑体辐射（三个特性）<br>4、大气对辐射的影响<br>5、大气窗口<br>6、一般物体的发射辐射<br>7、光谱反射率<br>8、反射波谱曲线<br>9、假彩色<br>10、为什么天是蓝色的？<br>11、遥感平台<br>12、卫星轨道6参数<br>13、传感器分类<br>14、扫描成像传感器<br>15、MSS多光谱扫描仪<br>16、CCD线阵列传感器<br>17、成像光谱仪<br>18、遥感传感器记录地物电磁波的图像形式<br>19、数字图像的存储<br>20、遥感图像的构像方程<br>21、几何变形<br>22、传感器外方位元素变化的影响<br>24、大气折射引起的图像变形<br>25、地球自转引起的图像变形<br>26、基于多项式的遥感图像纠正<br>27、图像亮度值的重采样<br>28、辐射误差<br>29、大气校正<br>30、遥感图像辐射增强<br>31、图像融合</strong></p>
+<p>———————————————正文———————————————————–</p>
+<h2 id="1、电磁波的是3个特性在遥感中的应用"><a href="#1、电磁波的是3个特性在遥感中的应用" class="headerlink" title="1、电磁波的是3个特性在遥感中的应用"></a>1、电磁波的是3个特性在遥感中的应用</h2><p><strong>三个特性：</strong></p>
+<ol>
+<li><p>波粒二重性（波动性、粒子性）</p>
+<ul>
+<li>波动性包括干涉、衍射、偏振等现象</li>
+<li>以离散形式存在。其离散单元成为光子或量子。</li>
+</ul>
+</li>
+<li><p>波长与光子能量成反比关系</p>
+</li>
+<li><p>波长越短光子能量越大，则穿透力越强</p>
+</li>
+</ol>
+<p><strong>应用</strong></p>
+<ol>
+<li><p>干涉：干涉雷达指采用干涉测量技术的合成孔径雷达</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190415072828223.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>相干条件：两列频率相同、震动方向相同、相位差恒定的波。</p>
+</blockquote>
+</li>
+<li><p>衍射：设计遥感仪器和提高遥感图像几何分辨率、数字影像的处理</p>
+<blockquote>
+<p>光通过有限大小的障碍物时偏离直线路径的现象</p>
+</blockquote>
+</li>
+<li><p>偏振（极化）：雷达遥感系统常用四种极化方式——HH、VV、HV、VH</p>
+<ul>
+<li>水平极化（H）：电场方向平行于电磁波投射的平面</li>
+<li>垂直极化（V）：垂直于水平极化的方向</li>
+<li>HH、VV：同向极化</li>
+<li>HV、VH：交叉极化</li>
+</ul>
+<blockquote>
+<p>自然光（非偏正光）<br>振动方向不变光<br>振动面是一个固定平面</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="2、电磁波谱"><a href="#2、电磁波谱" class="headerlink" title="2、电磁波谱"></a>2、电磁波谱</h2><p><strong>电磁波在真空中传播的波长或频率递增或递减顺序排序</strong></p>
+<p> 电磁波包括：γ射线、X射线、紫外线、可见光、红外线、微波</p>
+<p>遥感应用波段：</p>
+<ul>
+<li>紫外线：0.01~0.38μm，对油污染敏感</li>
+<li>可见光：0.38~0.76μm，</li>
+<li>红外线：0.76~1000μm，（近、中、远、超远）</li>
+<li>微波：1mm~1m，穿透性好，不受云雾影响</li>
+</ul>
+<p><strong>应用</strong></p>
+<blockquote>
+<p>遥感就是根据感兴趣的地物的波谱特性，选择相应的电磁波段通过传感器探测不同的电磁波谱的发射或反射能量而成像的。</p>
+</blockquote>
+<h2 id="3、黑体辐射（三个特性）"><a href="#3、黑体辐射（三个特性）" class="headerlink" title="3、黑体辐射（三个特性）"></a>3、黑体辐射（三个特性）</h2><ul>
+<li>一个物体对于任何波长的电磁辐射都全部吸收（能量由温度决定）</li>
+</ul>
+<p>特性：</p>
+<ol>
+<li><p>辐射通量密度随波长连续变化，每条曲线只有一个最大值。</p>
+</li>
+<li><p>温度越高，总的辐射通量密度越大，不同温度的曲线不同且不相交</p>
+</li>
+<li><p>随着温度的升高，辐射最大值所对应的波长向短波方向移动（维恩位移定律 ）</p>
+<blockquote>
+<p>热红外遥感探测和识别原理</p>
+<p>斯忒藩-玻尔兹曼公式：绝对黑体表面上，单位面积发出的总辐射能与绝对温度的四次方成正比。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="4、大气对辐射的影响"><a href="#4、大气对辐射的影响" class="headerlink" title="4、大气对辐射的影响"></a>4、大气对辐射的影响</h2><ol>
+<li><p>地球大气</p>
+<p> 对流层、平流层、电离层、大气外层</p>
+</li>
+<li><p>大气对太阳辐射的吸收、散射、反射</p>
+<p> （1）大气对遥感波段的影响（吸收）</p>
+<blockquote>
+<ul>
+<li><p>可见光波段：分子散射</p>
+</li>
+<li><p>紫外、红外、微波：大气吸收</p>
+</li>
+</ul>
+</blockquote>
+<p> （2）散射：电磁波与物质相互作用后，电磁波传播方向发生改变，并向各个方向散开。</p>
+<blockquote>
+<ul>
+<li>主要发生在可见光，只改变传播方向</li>
+<li>对遥感图像，降低了传感器接收数据的质量，造成图像模糊不清。</li>
+<li>米氏散射、均匀散射、瑞利散射</li>
+</ul>
+</blockquote>
+<pre><code> 思考：为什么微波遥感具有穿透能力？
+ 微波波长比粒子的直径大很多，属于瑞利散射，
+ 波长越长散射强度越小，所以微波才可能由最小散射，最大投射，
+ 而被称为具有穿云透雾的能力。
+ 晴好的天气可见光通过大气时发生瑞利散射，蓝光比红光散射多；
+ 当天空有云层或雨时，满足均匀反射条件，
+ 各波长散射强度相同，天空云呈现白色，此时散射最大，
+ 可见光难以通过云层，即阴天不利于用可见光进行遥感探测地物。
+</code></pre>
+<h2 id="５、大气窗口"><a href="#５、大气窗口" class="headerlink" title="５、大气窗口"></a>５、大气窗口</h2></li>
+</ol>
+<p>电磁波通过大气衰减较小，透过率较高的波段</p>
+<blockquote>
+<ul>
+<li>紫外、可见光、近红外：白天探测</li>
+<li>近红外：白天夜间，地质遥感</li>
+<li>中红外：探测高温目标，森林火灾</li>
+<li>远红外：探测地物的发射率及温度</li>
+</ul>
+</blockquote>
+<h2 id="6、一般物体的发射辐射"><a href="#6、一般物体的发射辐射" class="headerlink" title="6、一般物体的发射辐射"></a>6、一般物体的发射辐射</h2><p>依据光谱发射率随波长的变化形式，将地物分为：</p>
+<blockquote>
+<ul>
+<li>绝对黑体：发射率等于1</li>
+<li>灰体：发射率小于1，各波长处的发射率相等</li>
+<li>选择性辐射体，发射率小于1，各波长发射率不同</li>
+<li>绝对白体，发射率为0。</li>
+</ul>
+</blockquote>
+<pre><code>影响发射率的因素：地物的性质、表面状况、温度（比热，热惯量）。
+比热大、热惯量大以及具有保温作用的地物一般发射率大
+
+任何材料的吸收率等于发射率
+发射率 + 反射率 = 1
+</code></pre>
+<h2 id="７、光谱反射率"><a href="#７、光谱反射率" class="headerlink" title="７、光谱反射率"></a>７、光谱反射率</h2><p>物体在特定波长上的辐射通量与该波长的入射通量之比。</p>
+<h2 id="8、反射波谱曲线"><a href="#8、反射波谱曲线" class="headerlink" title="8、反射波谱曲线"></a>8、反射波谱曲线</h2><p>以波长为横坐标，反射率为纵坐标所得到的曲线</p>
+<ol>
+<li><p>植被</p>
+<ul>
+<li>在可见光波段：（叶绿素吸收）<ul>
+<li> 0.45μm蓝波段有一个吸收谷</li>
+<li> 0.55μm绿波段有一个反射峰</li>
+<li> 0.67μm红波段有一个吸收谷</li>
+</ul>
+</li>
+<li>在近红外波段：(近红外穿透叶绿素，被多孔薄壁组织反射)<ul>
+<li> 0.76μm反射率迅速增大，在1.1处达到峰值，形成植被的独有特征。</li>
+</ul>
+</li>
+</ul>
+<p> 影响植被波谱曲线的因素：</p>
+<blockquote>
+<p> 植被类型</p>
+</blockquote>
+<blockquote>
+<p> 生长季节</p>
+</blockquote>
+<blockquote>
+<p> 植被病虫害</p>
+</blockquote>
+<p> 根据植被波谱曲线特征的差异，区分植被的类型和生长状态。</p>
+</li>
+<li><p>水体</p>
+<ul>
+<li>反射特性:<ul>
+<li> 在蓝绿波段具有反射率</li>
+<li> 在近红外、中红外波段完全吸收</li>
+</ul>
+</li>
+</ul>
+<p> 影响水体波谱曲线的因素：</p>
+<blockquote>
+<p> 水中含有泥沙，在可见光波段反射率会增加，峰值出现在黄红区。</p>
+</blockquote>
+<blockquote>
+<p>水中还有绿色植被时，近红外波段反射率明显提高。</p>
+</blockquote>
+</li>
+<li><p>城市道路、建筑</p>
+<ul>
+<li>反射特性<ul>
+<li> 红外波段较可见光波段反射强。</li>
+<li> 石棉瓦较其他材料反射强。</li>
+<li> 沥青较其他材料反射弱。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>土壤</p>
+<ul>
+<li>反射特性<ul>
+<li> 自然状态下土壤的反射波谱曲线没有明显的峰值和谷值。                         </li>
+<li> 与土壤质地组成有关。</li>
+<li> 土壤含水量增加，反射率下降</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+</blockquote>
+<pre><code>- 影响地物光谱反射率变化的因素：
+- 时间效应：
+    地物的光谱特性一般随时间季节变化。
+- 空间效应：
+    处在不同地理位置和区域的同种地物具有不同的光谱特性。
+- 太阳高度，大气条件，环境状况
+- 地形（阴影、坡度），气候、植物的病变
+</code></pre>
+<h2 id="9、假彩色"><a href="#9、假彩色" class="headerlink" title="9、假彩色"></a>9、假彩色</h2><pre><code>（B）Band2 --&gt; 绿光波段
+（G）Band3 --&gt; 红光波段
+（R）Band4 --&gt; 近红外波段
+</code></pre>
+<ol>
+<li><p>植被</p>
+<p>绿色与红色相加为品红，但红多绿少，因此品红偏红，植被在影像中大致呈红色。</p>
+</li>
+<li><p>水体</p>
+<p> 水体的反射主要在蓝绿光波段，绿波段被赋蓝，因此水库呈蓝偏黑。</p>
+</li>
+</ol>
+<h2 id="10、为什么天蓝"><a href="#10、为什么天蓝" class="headerlink" title="10、为什么天蓝"></a>10、为什么天蓝</h2><p>阳光在穿过大气层时，波长较长的红光、橙光、黄光都能穿透大气层，直接射到地面，而波长较短的蓝、紫、靛等色光，很容易被悬浮在空气中的微粒阻挡，从而使光线散射向四方，使天空呈现出蔚蓝色。</p>
+<h2 id="11、遥感平台"><a href="#11、遥感平台" class="headerlink" title="11、遥感平台"></a>11、遥感平台</h2><p>地面平台、航空平台、航天平台。</p>
+<h2 id="12、卫星轨道6参数"><a href="#12、卫星轨道6参数" class="headerlink" title="12、卫星轨道6参数"></a>12、卫星轨道6参数</h2><p>卫星轨道面与赤道面的相对位置</p>
+<ul>
+<li>升交点赤经Ω ：升交点和赤道面春分点的夹角</li>
+<li>近地点角距 ：轨道平面近地点和升交点的夹角</li>
+<li>轨道倾角 ：轨道面和赤道面的夹角</li>
+<li>卫星过近地点时刻</li>
+</ul>
+<p>卫星轨道的形状</p>
+<ul>
+<li>卫星轨道长半轴</li>
+<li>卫星轨道扁率<br><img src="https://img-blog.csdnimg.cn/20190415120749522.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><h2 id="13、传感器分类"><a href="#13、传感器分类" class="headerlink" title="13、传感器分类"></a>13、传感器分类</h2></li>
+</ul>
+<p>按工作方式：</p>
+<ul>
+<li>主动遥感</li>
+<li>被动遥感</li>
+</ul>
+<p>按成像方式：</p>
+<ul>
+<li>摄影成像传感器        x</li>
+<li>扫描成像传感器</li>
+<li>雷达成像传感器    x</li>
+<li>非图像传感器</li>
+</ul>
+<h2 id="14、扫描成像传感器"><a href="#14、扫描成像传感器" class="headerlink" title="14、扫描成像传感器"></a>14、扫描成像传感器</h2><ul>
+<li><p>红外扫描仪-分辨率</p>
+<p>  瞬时视场：在扫描成像过程中一个光敏探测元件通过望远镜系统投射到地面上的直径或对应的视场角度。</p>
+<p>  注意：</p>
+<ol>
+<li>垂直观测时分辨率，即星下点空间分辨率</li>
+<li>对于一个使用着的传感器，β在设计时已确定，地面分辨率变化只与航高有关。航高越大，a指越大，地面分辨率差</li>
+<li>观测视线倾斜时，即非星下点时</li>
+</ol>
+<p>  <strong>扫描仪空间分辨率是变化的，产生全景畸变。</strong></p>
+</li>
+<li><p>红外扫描仪-扫描线的衔接<br><img src="https://img-blog.csdnimg.cn/20190415120538990.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>  假定旋转棱镜扫描一次的时间为t，探测器地面分辨率为a，若要使两条扫描带的重叠度为0，但又不能有空隙，必须 W = a/t</p>
+<blockquote>
+<p>Wt&gt;a 出现扫描漏洞</p>
+</blockquote>
+<blockquote>
+<p>Wt&lt;a 出现扫描重叠</p>
+</blockquote>
+</li>
+<li><p>红外扫描仪-影响特征</p>
+<p>  热红外像片上的色调变化与相应的地物的辐射强度变化呈函数关系。</p>
+<p>  地物发射电磁波的功率和地物的发射率成正比，与地物温度的四次方成正比。</p>
+</li>
+</ul>
+<h2 id="15、MSS多光谱扫描仪"><a href="#15、MSS多光谱扫描仪" class="headerlink" title="15、MSS多光谱扫描仪"></a>15、MSS多光谱扫描仪</h2><p><img src="https://img-blog.csdnimg.cn/20190415072933214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<p>Landsat含24+2个探测元，按波段排列成四列，每列由六个探测元，<br>每个探测元的地面观察面积为79m×79m。陆地卫星2、3上增加一个热红外通道，<br>分辨率为240m×240m，仅用两个探测元构成。每个波段由六个相同大小的探测元与飞行方向平行排列，这样在瞬间看到的地面大小474m×79m，又由于扫描总视场为11.56度，地面宽度为185km，因此扫描一次每个波段获取六条扫描图像，其地面范围为474m×185km。又因卫星速度6.5km/s，在扫描一次的时间里卫星正好往前移动474m，因此扫描现恰好衔接。 </p>
+<ul>
+<li>扫描行不垂直于飞行轨道</li>
+<li>从西向东扫描</li>
+</ul>
+<h2 id="16、CCD线阵列传感器"><a href="#16、CCD线阵列传感器" class="headerlink" title="16、CCD线阵列传感器"></a>16、CCD线阵列传感器</h2><p>HRV（高分辨率可见光扫描仪）是一种CCD线阵列传感器，又称为线阵列推扫式扫描仪。</p>
+<p>不需要扫描镜的摆动，像缝隙式摄影机那样，以“推扫”方式获取连续条带影像。</p>
+<p>将若干个CCD元器件排成一行，称为CCD线阵列传感器。 CCD上植入的微小光敏物质称作像素。一块CCD上包含的像素数越多，其提供的画面分辨率也就越高。</p>
+<p><strong>目前发射高分辨率卫星几乎均为线阵列</strong><br><img src="https://img-blog.csdnimg.cn/20190415072950830.png" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>CCD工作原理</p>
+<ul>
+<li>仪器中的平面反射镜将地面辐射来的电磁波反射到反射镜组</li>
+<li>电磁波聚焦在CCD线阵列元件上</li>
+<li>CCD输出端输出时间序列视频信号，以推扫的方式获取沿轨道方向的连续图像条带。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/2019041507300938.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>HRV-CCD优点</p>
+<ol>
+<li>CCD线阵上的每个点同时曝光，保证了每个点上都有最大限度的曝光时间。</li>
+<li>机械部件大大简化，运行稳定，几何精度比较高。</li>
+<li>灵敏度高，可以探测到地面0.5％的反射变化信息。</li>
+<li>突破了光/机扫描仪要求探测元件的响应速度足够快的要求。</li>
+</ol>
+</li>
+</ul>
+<h2 id="17、成像光谱仪"><a href="#17、成像光谱仪" class="headerlink" title="17、成像光谱仪"></a>17、成像光谱仪</h2><p>成像光谱仪其构造与像面扫描仪或物面扫描仪相近，但通道多。<br>光谱分辨率高，可以获得接近连续的光谱。</p>
+<p>特点：<br>波段更窄，波段数更多<br><img src="https://img-blog.csdnimg.cn/20190415073026586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>面</strong>阵探测器加推扫式扫描仪的成像光谱仪：</p>
+<p>   它利用线阵列探测器进行扫描，利用色散元件和面阵探测器完成光谱扫描，<br>利用线阵列探测器及其沿轨道方向的运动完成空间扫描。</p>
+<p><strong>线</strong>阵列探测器加光机扫描仪的成像光谱仪：</p>
+<p>   它利用点探测器收集光谱信息，经色散元件后分成不同的波段，分别在线阵列<br>探测器的不同元件上，通过点扫描镜在垂直于轨道方向的面内摆动以及沿轨道方向的运动完成空间扫描，而利用线探测器完成光谱扫描。</p>
+<h2 id="18、遥感传感器记录地物电磁波的图像形式"><a href="#18、遥感传感器记录地物电磁波的图像形式" class="headerlink" title="18、遥感传感器记录地物电磁波的图像形式"></a>18、遥感传感器记录地物电磁波的图像形式</h2><p><img src="https://img-blog.csdnimg.cn/20190415073049281.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="（1）光学图像"><a href="#（1）光学图像" class="headerlink" title="（1）光学图像"></a>（1）光学图像</h3><pre><code>- 一个二维的连续的光密度函数
+- 像片上的密度随坐标x,y变化而变化
+</code></pre>
+<p><strong>特点</strong>：光照位置和光照强度均为连续变化的。</p>
+<h3 id="（2）数字图像"><a href="#（2）数字图像" class="headerlink" title="（2）数字图像"></a>（2）数字图像</h3><pre><code>- 一个二维的离散的光密度（或亮度）函数
+- 以矩阵f（x，y） ( x=0,1,…,m-1;y=0,1, …,n-1)表示
+- 空间坐标（x,y）和密度上都已离散化
+</code></pre>
+<h3 id="（3）光学图像与数字图像的转换"><a href="#（3）光学图像与数字图像的转换" class="headerlink" title="（3）光学图像与数字图像的转换"></a>（3）光学图像与数字图像的转换</h3><p>1.光学图像转化为数字图像</p>
+<p><img src="https://img-blog.csdnimg.cn/20190415073116235.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>采样：数字化坐标值。
+
+- 采样间隔越大，所得图像像素数越少，空间分辨率低，质量差，严重时出现马赛克效应；
+- 采样间隔越小，所得图像像素数越多，空间分辨率高，图像质量好，但数据量大。
+
+dx和dy采样窗口，Δx和Δy为采样间隔
+
+量化：无穷多个离散值约简为有限个离散值（整数来表示）
+</code></pre>
+<h5 id="图像数字化："><a href="#图像数字化：" class="headerlink" title="图像数字化："></a>图像数字化：</h5><pre><code>- 连续图像
+- 扫描线AB亮度分布
+- 采样和量化
+- 数字扫描线
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20190415073131115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20190415073147364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<ol start="2">
+<li>数字图像转化为光学图像<ol>
+<li>通过显示终端设备显示出来，利用数模转换设备将数字信号以模拟方式表现出来</li>
+<li>通过照相或打印的方式输出，彩色打印机。</li>
+</ol>
+</li>
+</ol>
+<h2 id="19、数字图像的存储"><a href="#19、数字图像的存储" class="headerlink" title="19、数字图像的存储"></a>19、数字图像的存储</h2><p>BSQ：按波段顺序依次排列，保证了像素空间位置的连续性。<br>BIL：以行为单位分块，像素的空间位置在列的方向上是连续的。<br>BIP：以像素为核心，为图像数据波谱的存取提供最佳性能。</p>
+<ul>
+<li>BSQ：按波段顺序依次排列的数据格式，即先按照波段顺序分块排列，在每个波段块内，再按照行列顺序排列。通一波段的像素保存在一个快中，保证了像素空间位置的连续性。<br><img src="https://img-blog.csdnimg.cn/2019041513241930.png"></li>
+<li>BIL：以行为单位分块，在每个块内，按照波段顺序排列像素。同一行不同波段的数据保存在一个数据块中。像素的空间位置在列的方向上是连续的。<br><img src="https://img-blog.csdnimg.cn/201904150732269.png"></li>
+<li>BIP：以像素为核心，同一像素不同波段数据保存在一起。每个块内为当前像素不同波段的像素值。该格式为图像数据波谱的存取提供最佳性能。<br><img src="https://img-blog.csdnimg.cn/20190415073245293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<h2 id="20、遥感图像的构像方程"><a href="#20、遥感图像的构像方程" class="headerlink" title="20、遥感图像的构像方程"></a>20、遥感图像的构像方程</h2><pre><code>遥感图像几何处理的目的？
+&gt; 遥感任务是获取地物的空间信息和属性信息；
+&gt; 在利用遥感图像提取信息的过程中，要求将所有提取的信息
+  表达在某一个规定的图像投影参照系统内；
+&gt;遥感图像成图时，因为各种因素的影响，图像本身的
+  几何形状与其对应的地物形状不一致。
+&gt;遥感图像的几何处理：统一坐标系，解决遥感图像的几何变形问题，
+ 消除遥感图像的几何误差，获得所提取地物的几何位置。
+</code></pre>
+<h4 id="1、通用构像方程"><a href="#1、通用构像方程" class="headerlink" title="1、通用构像方程"></a>1、通用构像方程</h4><p>设地面点P在地面坐标系中的坐标为(X, Y ,Z)P，P在传感器坐标系中的坐标为(U V W)P，传感器投影中心S在地面坐标系中的坐标为(X Y Z)S，A为传感器坐标相对于地面坐标系统的旋转矩阵，则通用构像方程为：<br><img src="https://img-blog.csdnimg.cn/20190415073302255.png"><br><img src="https://img-blog.csdnimg.cn/20190415073322662.png"></p>
+<h4 id="2、中心投影构像方程"><a href="#2、中心投影构像方程" class="headerlink" title="2、中心投影构像方程"></a>2、中心投影构像方程</h4><p><strong>中心投影</strong>：等比例缩放<br><img src="https://img-blog.csdnimg.cn/20190415073337176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>中心投影构像方程</strong>：中心投影像片坐标与地面点大地坐标的关系</p>
+<p><img src="https://img-blog.csdnimg.cn/20190415073357338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><strong>共线方程</strong>：描述像点、对应地物点和传感器中心之间的关系</p>
+<p><strong>共线方程物理意义：</strong><br><img src="https://img-blog.csdnimg.cn/20190415073414209.png"><br>当地物点P、对应像点p和投影中心S位于同一条直线上时，上式公式成立。</p>
+<pre><code>为什么说中心投影构像方程是遥感构像方程的基础？
+
+答：框幅式影像属于纯中心投影构像，
+    全景影像属于多中心等焦距圆柱投影，
+    多光谱影像属于多中心扫描投影，
+    HRV影像属于多中心推扫扫描投影，
+    合成孔径侧视雷达属于多中心斜距投影。
+</code></pre>
+<h4 id="3、全景摄影机的构像方程"><a href="#3、全景摄影机的构像方程" class="headerlink" title="3、全景摄影机的构像方程"></a>3、全景摄影机的构像方程</h4><p>全景摄影机影像是由一条曝光缝隙沿旁向扫描而成，对于每条缝隙图像的形成，其几何关系等效于中心投影沿旁向倾斜一个扫描角θ<br><img src="https://img-blog.csdnimg.cn/20190415073515464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="4、推扫式传感器的构像方程"><a href="#4、推扫式传感器的构像方程" class="headerlink" title="4、推扫式传感器的构像方程"></a>4、推扫式传感器的构像方程</h4><p><img src="https://img-blog.csdnimg.cn/20190415073527323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20190415073554560.png"></p>
+<h4 id="5、扫描式传感器的构像方程"><a href="#5、扫描式传感器的构像方程" class="headerlink" title="5、扫描式传感器的构像方程"></a>5、扫描式传感器的构像方程</h4><p><img src="https://img-blog.csdnimg.cn/20190415073624989.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="21、几何变形"><a href="#21、几何变形" class="headerlink" title="21、几何变形"></a>21、几何变形</h2><ul>
+<li><p><strong>静态误差</strong>：传感器相对于地球表面呈静止状态时所具有的各种变形误差。</p>
+</li>
+<li><p><strong>动态误差</strong>：由于地球的旋转等因素所造成的图像变形误差。</p>
+</li>
+<li><p><strong>内部误差</strong>：由于传感器自身的性能技术指标偏移标准数值所造成的。</p>
+</li>
+<li><p><strong>外部变形误差</strong>：由传感器以外的各种因素所造成的误差，如传感器的外方位元素变化，传播介质不均匀，地球曲率，地形起伏以及地球旋转等因素引起的变形误差。</p>
+</li>
+</ul>
+<h2 id="22、传感器外方位元素变化的影响"><a href="#22、传感器外方位元素变化的影响" class="headerlink" title="22、传感器外方位元素变化的影响"></a>22、传感器外方位元素变化的影响</h2><p>传感器的外方位元素：传感器成像时的位置（Xs,Ys,Zs）和姿态角（φ,ω,κ）</p>
+<blockquote>
+<ul>
+<li>dXs、dYs、dZs 、dκ——线性变化</li>
+<li>dφ、dω——非线性变形 </li>
+</ul>
+</blockquote>
+<h2 id="23、地球曲率引起的图像变形"><a href="#23、地球曲率引起的图像变形" class="headerlink" title="23、地球曲率引起的图像变形"></a>23、地球曲率引起的图像变形</h2><p>地球曲率引起的像点位移与地形起伏引起的像点位移类似。只要把地球表面（把地球表面看成球面）上的点到地球切平面的正射投影距离看作是一种系统的地形起伏，就可以利用前面介绍的像点位移公式来估计地球曲率所引起的像点位移。</p>
+<h2 id="24、大气折射引起的图像变形"><a href="#24、大气折射引起的图像变形" class="headerlink" title="24、大气折射引起的图像变形"></a>24、大气折射引起的图像变形</h2><p>大气层不是一个均匀的介质，它的密度是随离地面高度的增加而递减，因此电磁波在大气层中传播时的折射率也随高度而变化，使得电磁波的传播路径不是一条直线而变成了曲线，从而引起像点的位移，这种像点位移就是大气层折射的影响。</p>
+<h2 id="25、地球自转引起的图像变形"><a href="#25、地球自转引起的图像变形" class="headerlink" title="25、地球自转引起的图像变形"></a>25、地球自转引起的图像变形</h2><p>在常规框幅摄影机成像的情况下，地球自转不会引起图像变形，因为其整幅图像是在瞬间一次曝光成像的。</p>
+<p>地球自转主要是对动态传感器的图像产生变形影响，特别是对卫星遥感图像。当卫星由北向南运行的同时，地球表面也在由西向东自转，由于卫星图像每条扫描线的成像时间不同，因而造成扫描线在地面上的投影依次向西平移，最终使得图像发生扭曲。</p>
+<h2 id="26、基于多项式的遥感图像纠正"><a href="#26、基于多项式的遥感图像纠正" class="headerlink" title="26、基于多项式的遥感图像纠正"></a>26、基于多项式的遥感图像纠正</h2><p>多项式纠正直接对图像变形的本身进行数字模拟。对各种类型传感器图像的纠正是适用的。</p>
+<p>利用地面控制点的图像坐标和其同名点的地面坐标通过平差原理计算多项式中的系数，然后用该多项式对图像进行纠正。</p>
+<p>常用的多项式有一般多项式、勒让德多项式以及双变量分区插值多项式等。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190415073641676.png"></p>
+<p>多项式系数求解：</p>
+<ul>
+<li>可预测的图像变形参数构成；</li>
+<li>利用已知控制点的坐标值按最小二乘法原理求解</li>
+</ul>
+<p>多项式的项数（即系数个数）N与其阶数n有着固定的关系：<br>N=(n+1)(n+2)/2</p>
+<ul>
+<li><p>一次项纠正：可以纠正图像因平移、旋转、比例尺变化和仿射变形等引起的线性变形。</p>
+</li>
+<li><p>二次项纠正时：在改正一次项各种变形的基础上，改正二次非线性变形。</p>
+</li>
+<li><p>三次项纠正：改正更高次的非线性变形。</p>
+</li>
+</ul>
+<p>例题：<br><img src="https://img-blog.csdnimg.cn/20190415073654610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="多项式纠正步骤："><a href="#多项式纠正步骤：" class="headerlink" title="多项式纠正步骤："></a>多项式纠正步骤：</h4><ol>
+<li><p>利用已知地面控制点求解多项式系数</p>
+<p> 地面控制点（GCP）：图像的配准以地面坐标在地图或遥感图像上相对应的点为匹配标准，这些对应的点称为地面控制点。</p>
+<ol>
+<li>地面控制点数目的确定</li>
+<li>地面控制点选取原则<ul>
+<li>图像上为明显的地物点，易于判读（道路交叉口、河流转弯处等）。</li>
+<li>图像上均匀分布（图像的边缘部分选取控制点，尽量满幅均匀选取）。</li>
+<li>数量要足够（特征变化大的地区，多选控制点）。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="27、图像亮度值的重采样"><a href="#27、图像亮度值的重采样" class="headerlink" title="27、图像亮度值的重采样"></a>27、图像亮度值的重采样</h2><h5 id="最邻近像元法"><a href="#最邻近像元法" class="headerlink" title="最邻近像元法"></a>最邻近像元法</h5><p><img src="https://img-blog.csdnimg.cn/20190415073711895.png"></p>
+<ul>
+<li>优点：简单容易，计算简单。</li>
+<li>缺点：图像的灰度具有不连续性。</li>
+</ul>
+<h5 id="双线性内插法"><a href="#双线性内插法" class="headerlink" title="双线性内插法"></a>双线性内插法</h5><p><img src="https://img-blog.csdnimg.cn/20190415073724556.png"></p>
+<ul>
+<li>优点：对灰度不连续现象或线状特征的块状化有明显的改善，对图像起到平滑作用</li>
+<li>缺点：使对比度明显的分界线变得模糊。</li>
+</ul>
+<h5 id="双三次卷积法"><a href="#双三次卷积法" class="headerlink" title="双三次卷积法"></a>双三次卷积法<img src="https://img-blog.csdnimg.cn/20190415073742859.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></h5><ul>
+<li>优点：精度高。</li>
+<li>缺点：计算量大。</li>
+</ul>
+<h2 id="28、辐射误差"><a href="#28、辐射误差" class="headerlink" title="28、辐射误差"></a>28、辐射误差</h2><p>内容：</p>
+<ol>
+<li>传感器本身的性能引起</li>
+<li>大气的散射和吸收引起</li>
+<li>地形影响和光照条件的辩护引起的辐射误差</li>
+</ol>
+<p>辐射处理：</p>
+<ol>
+<li>辐射定标：指传感器探测值的标定过程方法，用以确定传感器入口处的准确辐射值。</li>
+</ol>
+<pre><code>辐射定标分为绝对定标和相对定标。
+
+绝对定标要建立传感器测量的数字信号与对应的辐射能量之间的数量关系。
+
+绝对定标方法：
+传感器定标、星上定标、场地定标
+
+- 优点：实现了对遥感器运行状态下与获取地面图像完全同条件的绝对校正
+- 缺点：需要测量和计算空中遥感器过顶时的大气环境和地物反射率。
+</code></pre>
+<ol start="2">
+<li>辐射校正：指消除或改正遥感图像成像过程中附加在传感器输出的辐射能量中的各种噪声的过程。</li>
+</ol>
+<h2 id="29、大气校正"><a href="#29、大气校正" class="headerlink" title="29、大气校正"></a>29、大气校正</h2><p>大气的影响：大气对阳光和来自目标的辐射产生吸收和散射。</p>
+<h5 id="大气校正的方法"><a href="#大气校正的方法" class="headerlink" title="大气校正的方法"></a>大气校正的方法</h5><ol>
+<li>基于辐射传输方程的大气校正</li>
+<li>基于地面场地数据或辅助数据进行辐射校正</li>
+<li>利用某些不受大气影响或影响小的特性来校正其他波段的大气影响。</li>
+</ol>
+<h2 id="30、遥感图像辐射增强"><a href="#30、遥感图像辐射增强" class="headerlink" title="30、遥感图像辐射增强"></a>30、遥感图像辐射增强</h2><h5 id="一、图像灰度直方图"><a href="#一、图像灰度直方图" class="headerlink" title="一、图像灰度直方图"></a>一、图像灰度直方图</h5><ul>
+<li>反映了一幅图像中灰度级与其出现概率之间的关系。</li>
+<li>可以看成一个随机分布密度函数，其分布状态用灰度均值和标准差来衡量。</li>
+</ul>
+<h5 id="二、图像反差调整"><a href="#二、图像反差调整" class="headerlink" title="二、图像反差调整"></a>二、图像反差调整</h5><ol>
+<li><p>线性变换：按比例拉伸原始图像灰度等级范围。</p>
+<p> 目的：提高图像对比度。</p>
+<p> 特点：一对一关系，像元总数不变。</p>
+<pre><code> ![](https://img-blog.csdnimg.cn/201904150738009.png)
+</code></pre>
+</li>
+<li><p>直方图均衡化</p>
+<p> 将随机分布的图像直方图修改成均匀分布的直方图，其实质是对图像进行非线性拉伸，重新分配图像像元值，使一定灰度范围内的像元的数量大致相等。<img src="https://img-blog.csdnimg.cn/20190414210405692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<p> 特点：各级灰度值所占图像的面积近似相等</p>
+<pre><code> 原图像上频率小的灰度级被合并、频率高的灰度级被保留
+ 增强图像上大面积地物与周围地物的反差
+ 具体增强效果不能控制，只能全局均衡
+</code></pre>
+</li>
+<li><p>直方图正太化</p>
+<p> 将随机分布的原图像直方图修改成高斯分布的直方图<br><img src="https://img-blog.csdnimg.cn/20190415073815262.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</li>
+<li><p>直方图匹配</p>
+</li>
+<li><p>密度分割</p>
+<p> 密度分割与直方图均衡类似。原始图像的灰度值被分成等间隔的离散的灰度级，每一级有其灰度值。<br><img src="https://img-blog.csdnimg.cn/20190415073829116.png"></p>
+</li>
+<li><p>其他非线性变换</p>
+<p> 对数变换、指数变换、平方根变换、标准偏差变换、直方图周期性变换。<br> <img src="https://img-blog.csdnimg.cn/20190415073842559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>灰度反转<br> 结果：原来亮的地方变暗，原来暗的地方变亮。</p>
+</li>
+</ol>
+<h2 id="31、图像融合"><a href="#31、图像融合" class="headerlink" title="31、图像融合"></a>31、图像融合</h2><h5 id="目的："><a href="#目的：" class="headerlink" title="目的："></a>目的：</h5><ul>
+<li>空间分辨率的提高</li>
+<li>目标特征增强</li>
+<li>提高分类精度</li>
+<li>信息互补<br><img src="https://img-blog.csdnimg.cn/20190415073936545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></li>
+</ul>
+<h5 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h5><p><img src="https://img-blog.csdnimg.cn/20190415073947736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h5><ul>
+<li>融合图像应包括不同空间和光谱分辨率</li>
+<li>融合的图像应是同一区域</li>
+<li>图像应尽可能精确配准</li>
+<li>在不同时间获取的图像中，其内容没有大的变化</li>
+</ul>
+<h5 id="基于像素的图像融合的方法"><a href="#基于像素的图像融合的方法" class="headerlink" title="基于像素的图像融合的方法"></a>基于像素的图像融合的方法</h5><ul>
+<li>加权融合</li>
+<li>基于HIS变换的图像融合</li>
+<li>基于主分量变换的图像融合</li>
+<li>基于小波变换的图像融合</li>
+<li>比值变换融合</li>
+<li>乘积变换融合<h5 id="基于IHS变换的图像融合"><a href="#基于IHS变换的图像融合" class="headerlink" title="基于IHS变换的图像融合"></a>基于IHS变换的图像融合</h5></li>
+</ul>
+<p>IHS变换将图像处理常用的RGB彩色空间变换到IHS空间。</p>
+<ul>
+<li>I：亮度（Intensity）</li>
+<li>H：色调（Hue）</li>
+<li>S：饱和度(Saturation)</li>
+</ul>
+<p>IHS变换可以把图像的亮度、色调和饱和度分开，图像融合只在亮度通道上进行，图像的色调和饱和度保持不变。</p>
+<h5 id="效果评价"><a href="#效果评价" class="headerlink" title="效果评价"></a>效果评价</h5><ul>
+<li>IHS变换融合：分辨率提高，图像变得清晰，光谱信息明显降低，色彩严重失真 </li>
+<li>比值变换融合：亮度太低，反差不合适，目视效果不好 ，光谱信息丢失严重</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/" data-id="ckreqntk0002cr07k1gdcbrcn" data-title="遥感原理与应用 【I】" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-渲染---唯一值渲染" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.066Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1.效果图"></a>1.效果图</h5><p><img src="https://img-blog.csdnimg.cn/20190811133714177.png"></p>
+<h5 id="2-通过定义唯一值渲染器，渲染字段，设置渲染方式渲染"><a href="#2-通过定义唯一值渲染器，渲染字段，设置渲染方式渲染" class="headerlink" title="2.通过定义唯一值渲染器，渲染字段，设置渲染方式渲染"></a>2.通过定义唯一值渲染器，渲染字段，设置渲染方式渲染</h5><p>唯一值写死，方式设置参考官方api</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义唯一值渲染器，对字段alias进行渲染，fill是默认的渲染符号</span></span><br><span class="line"><span class="keyword">var</span> renderer = <span class="keyword">new</span> UniqueValueRenderer(fill, <span class="string">&quot;name&quot;</span>);</span><br><span class="line"><span class="comment">//设置渲染的方式</span></span><br><span class="line">renderer.addValue(<span class="string">&quot;C&quot;</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.5</span>])));</span><br><span class="line">renderer.addValue(<span class="string">&quot;B&quot;</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.5</span>])));</span><br><span class="line">renderer.addValue(<span class="string">&quot;A&quot;</span>,<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.5</span>])));</span><br><span class="line">renderer.addValue(<span class="string">&quot;O&quot;</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.75</span>])));</span><br><span class="line">featureLayer.setRenderer(renderer);</span><br></pre></td></tr></table></figure>
+
+<h6 id="贴代码"><a href="#贴代码" class="headerlink" title="贴代码"></a>贴代码</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>UniqueValueRenderer<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/dijit/themes/tundra/tundra.css&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">type</span>=<span class="string">&quot;text/Javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span></span><br><span class="line"><span class="css"><span class="xml">        <span class="selector-class">.MapClass</span>&#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">            <span class="attribute">width</span>:<span class="number">100%</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">            <span class="attribute">height</span>:<span class="number">600px</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">            <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					<span class="string">&quot;dojo/on&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					<span class="string">&quot;dojo/dom&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					<span class="string">&quot;dojo/colors&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;esri/symbols/SimpleFillSymbol&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;esri/layers/FeatureLayer&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;esri/renderers/UniqueValueRenderer&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;dojo/domReady!&quot;</span>],</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">Map</span>, ArcGISDynamicMapServiceLayer,on,dom,Color,SimpleFillSymbol, FeatureLayer, SimpleLineSymbol,UniqueValueRenderer</span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="keyword">var</span> map = <span class="keyword">new</span> esri.Map(<span class="string">&quot;MyMapDiv&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    map.addLayer(layer);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					<span class="comment">//获得id为btn的DOM元素</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">					<span class="keyword">var</span> btn=dom.byId(<span class="string">&quot;btn&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					<span class="comment">//绑定相应的事件</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">					on(btn,<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">						<span class="comment">//定义一个要素图层</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">						<span class="keyword">var</span> featureLayer = <span class="keyword">new</span> FeatureLayer(</span></span></span><br><span class="line"><span class="javascript"><span class="xml">						<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer/2&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                         &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                            <span class="attr">mode</span>:FeatureLayer.MODE_SNAPSHOT,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                            <span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>]</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                         &#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">						<span class="comment">//定义线符号</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">						<span class="keyword">var</span> lineSymbol=<span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">						<span class="comment">//定义面符号</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        <span class="keyword">var</span> fill=<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color(<span class="string">&quot;#FFFFCC&quot;</span>));</span></span></span><br><span class="line"><span class="javascript"><span class="xml">						<span class="comment">//定义唯一值渲染器，对字段alias进行渲染，fill是默认的渲染符号</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">						<span class="keyword">var</span> renderer = <span class="keyword">new</span> UniqueValueRenderer(fill, <span class="string">&quot;name&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">						<span class="comment">//设置渲染的方式</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">						renderer.addValue(<span class="string">&quot;C&quot;</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.5</span>])));</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        renderer.addValue(<span class="string">&quot;B&quot;</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.5</span>])));</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        renderer.addValue(<span class="string">&quot;A&quot;</span>,<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.5</span>])));</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        renderer.addValue(<span class="string">&quot;O&quot;</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.75</span>])));</span></span></span><br><span class="line"><span class="javascript"><span class="xml">						featureLayer.setRenderer(renderer);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        map.addLayer(featureLayer);				 </span></span></span><br><span class="line"><span class="javascript"><span class="xml">					&#125;)	</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                &#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;MyMapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>渲染<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/" data-id="ckreqntjv0024r07kbg6tghnb" data-title="渲染---唯一值渲染" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-渲染---服务器分类渲染" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%86%E7%B1%BB%E6%B8%B2%E6%9F%93/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.063Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%86%E7%B1%BB%E6%B8%B2%E6%9F%93/">渲染---服务器分类渲染</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-引入模块"><a href="#1-引入模块" class="headerlink" title="1.引入模块"></a>1.引入模块</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;esri/tasks/GenerateRendererTask&quot;,</span><br><span class="line">         &quot;esri/tasks/GenerateRendererParameters&quot;,</span><br><span class="line">         &quot;esri/tasks/ClassBreaksDefinition&quot;,</span><br><span class="line">         &quot;esri/tasks/AlgorithmicColorRamp&quot;,</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-与前两个相比"><a href="#2-与前两个相比" class="headerlink" title="2.与前两个相比"></a>2.与前两个相比</h5><p>当数据量很大的时候，服务器渲染的速度明显快过客户端渲染。<br>客户端和服务端的渲染都分为两种：唯一值渲染和分类渲染</p>
+<h5 id="3-服务器分类步骤相比客户端较多，有层次"><a href="#3-服务器分类步骤相比客户端较多，有层次" class="headerlink" title="3.服务器分类步骤相比客户端较多，有层次"></a>3.服务器分类步骤相比客户端较多，有层次</h5><ol>
+<li>创建对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lineSymbol=<span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> dojo.Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span><br><span class="line"><span class="keyword">var</span> fill=<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> dojo.Color(<span class="string">&quot;#FFFFCC&quot;</span>));</span><br><span class="line"><span class="comment">//创建服务器渲染对象</span></span><br><span class="line"><span class="keyword">var</span> RenderAnalyst = <span class="keyword">new</span> GenerateRendererTask(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer/1&quot;</span>);</span><br><span class="line"><span class="comment">//创建服务器渲染参数对象</span></span><br><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> GenerateRendererParameters();   </span><br><span class="line"><span class="comment">//创建颜色坡道对象</span></span><br><span class="line">            <span class="keyword">var</span> colorRamp = <span class="keyword">new</span> AlgorithmicColorRamp();</span><br></pre></td></tr></table></figure></li>
+<li>设置颜色位置、类型<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//颜色的起始位置</span></span><br><span class="line">            colorRamp.fromColor = dojo.colorFromHex(<span class="string">&quot;#998ec3&quot;</span>);</span><br><span class="line"><span class="comment">//颜色的终止位置</span></span><br><span class="line">            colorRamp.toColor = dojo.colorFromHex(<span class="string">&quot;#f1a340&quot;</span>);</span><br><span class="line"><span class="comment">//颜色的类型</span></span><br><span class="line">            colorRamp.algorithm = <span class="string">&quot;hsv&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li>渲染器样式、分类字段，怎么分，分几类</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//渲染器样式</span></span><br><span class="line"><span class="keyword">var</span> unidef = <span class="keyword">new</span> ClassBreaksDefinition();</span><br><span class="line"><span class="comment">//分类字段</span></span><br><span class="line">unidef.classificationField = <span class="string">&quot;Shape.STArea()&quot;</span>;</span><br><span class="line"><span class="comment">//如何分类</span></span><br><span class="line">            unidef.classificationMethod=<span class="string">&quot;natural-breaks&quot;</span>;</span><br><span class="line"><span class="comment">//几类</span></span><br><span class="line">unidef.breakCount = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>显示分类符号，颜色，赋值渲染<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//默认的符号</span></span><br><span class="line">            unidef.baseSymbol=fill;</span><br><span class="line"><span class="comment">//将自定义的颜色坡道告诉服务器</span></span><br><span class="line">            unidef.colorRamp=colorRamp;</span><br><span class="line"><span class="comment">//给渲染参数对象赋值</span></span><br><span class="line">            params.classificationDefinition = unidef;</span><br><span class="line"><span class="comment">//进行服务器渲染</span></span><br><span class="line">            RenderAnalyst.execute(params, showRender);		</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="4-贴代码"><a href="#4-贴代码" class="headerlink" title="4.贴代码"></a>4.贴代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>GenerateRendererTask<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/dijit/themes/tundra/tundra.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">type</span>=<span class="string">&quot;text/Javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.MapClass</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>:<span class="number">500px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/dom&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/on&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/GenerateRendererTask&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/FeatureLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/symbols/SimpleFillSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/GenerateRendererParameters&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/ClassBreaksDefinition&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/AlgorithmicColorRamp&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;dojo/domReady!&quot;</span>], <span class="function"><span class="keyword">function</span></span></span></span><br><span class="line"><span class="function"><span class="javascript">                (<span class="params"><span class="built_in">Map</span>,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                 ArcGISDynamicMapServiceLayer,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">				 dom,on,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                 GenerateRendererTask,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                 FeatureLayer,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                 SimpleFillSymbol,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                 SimpleLineSymbol,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                 GenerateRendererParameters,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                 ClassBreaksDefinition,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                 AlgorithmicColorRamp</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                </span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="comment">//服务器端渲染</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> MyMap = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;MyMapDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer</span></span><br><span class="line"><span class="javascript">            (<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer/&quot;</span>);</span></span><br><span class="line"><span class="javascript">            MyMap.addLayer(layer)</span></span><br><span class="line"><span class="javascript">			<span class="comment">//获得id为Btn的DOM对象</span></span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> btn=dom.byId(<span class="string">&quot;Btn&quot;</span>);</span></span><br><span class="line"><span class="javascript">			<span class="comment">//给btn绑定点击事件</span></span></span><br><span class="line"><span class="javascript">			on(btn,<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//定义线符号</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> lineSymbol=<span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> dojo.Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//定义面符号</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> fill=<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> dojo.Color(<span class="string">&quot;#FFFFCC&quot;</span>));</span></span><br><span class="line"><span class="javascript">				<span class="comment">//创建服务器渲染对象</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> RenderAnalyst = <span class="keyword">new</span> GenerateRendererTask(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer/1&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//创建服务器渲染参数对象</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> params = <span class="keyword">new</span> GenerateRendererParameters();   </span></span><br><span class="line"><span class="javascript">				<span class="comment">//创建颜色坡道对象</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> colorRamp = <span class="keyword">new</span> AlgorithmicColorRamp();</span></span><br><span class="line"><span class="javascript">				<span class="comment">//颜色的起始位置</span></span></span><br><span class="line"><span class="javascript">                colorRamp.fromColor = dojo.colorFromHex(<span class="string">&quot;#998ec3&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//颜色的终止位置</span></span></span><br><span class="line"><span class="javascript">                colorRamp.toColor = dojo.colorFromHex(<span class="string">&quot;#f1a340&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//颜色的类型</span></span></span><br><span class="line"><span class="javascript">                colorRamp.algorithm = <span class="string">&quot;hsv&quot;</span>;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//渲染器样式</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> unidef = <span class="keyword">new</span> ClassBreaksDefinition();</span></span><br><span class="line"><span class="javascript">				<span class="comment">//分类字段</span></span></span><br><span class="line"><span class="javascript">				unidef.classificationField = <span class="string">&quot;Shape.STArea()&quot;</span>;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//如何分类</span></span></span><br><span class="line"><span class="javascript">                unidef.classificationMethod=<span class="string">&quot;natural-breaks&quot;</span>;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//几类</span></span></span><br><span class="line"><span class="javascript">				unidef.breakCount = <span class="number">3</span>;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//默认的符号</span></span></span><br><span class="line"><span class="javascript">                unidef.baseSymbol=fill;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//将自定义的颜色坡道告诉服务器</span></span></span><br><span class="line"><span class="javascript">                unidef.colorRamp=colorRamp;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//给渲染参数对象赋值</span></span></span><br><span class="line"><span class="javascript">                params.classificationDefinition = unidef;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//进行服务器渲染</span></span></span><br><span class="line"><span class="javascript">                RenderAnalyst.execute(params, showRender);</span></span><br><span class="line"><span class="javascript">				</span></span><br><span class="line"><span class="javascript">				</span></span><br><span class="line"><span class="javascript">			&#125;);</span></span><br><span class="line"><span class="javascript">			<span class="comment">//处理服务器返回来的结果</span></span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">showRender</span>(<span class="params">renderer</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (renderer != <span class="literal">null</span>) &#123;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//定义要素图层，注意：这个地方我们用到并不是要素服务，而是地图服务</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> featureLayer = <span class="keyword">new</span> FeatureLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer/1&quot;</span>,&#123;</span></span><br><span class="line"><span class="javascript">						<span class="attr">mode</span>:  FeatureLayer.MODE_SNAPSHOT,</span></span><br><span class="line"><span class="javascript">						<span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>]</span></span><br><span class="line"><span class="javascript">					&#125;);		</span></span><br><span class="line"><span class="javascript">					<span class="comment">//赋予渲染器</span></span></span><br><span class="line"><span class="javascript">                    featureLayer.setRenderer(renderer);</span></span><br><span class="line"><span class="javascript">                    featureLayer.refresh();</span></span><br><span class="line"><span class="javascript">                    MyMap.addLayer(featureLayer);</span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;);</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;MyMapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">id</span>=<span class="string">&quot;Btn&quot;</span> <span class="attr">value</span>=<span class="string">&quot;服务器渲染&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E6%B8%B2%E6%9F%93---%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%86%E7%B1%BB%E6%B8%B2%E6%9F%93/" data-id="ckreqntjv0025r07k5mcm7toz" data-title="渲染---服务器分类渲染" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-渲染---分类渲染" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%88%86%E7%B1%BB%E6%B8%B2%E6%9F%93/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.062Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%88%86%E7%B1%BB%E6%B8%B2%E6%9F%93/">渲染---分类渲染</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1.效果图"></a>1.效果图</h5><p><img src="https://img-blog.csdnimg.cn/20190811134347838.png"></p>
+<h5 id="2-与唯一值渲染相比"><a href="#2-与唯一值渲染相比" class="headerlink" title="2.与唯一值渲染相比"></a>2.与唯一值渲染相比</h5><p>不同的只有渲染方式的设置</p>
+<ul>
+<li>唯一值渲染：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">renderer.addValue(&quot;C&quot;, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([0, 255, 0, 0.5])));</span><br><span class="line">renderer.addValue(&quot;B&quot;, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([0, 0, 255, 0.5])));</span><br><span class="line">renderer.addValue(&quot;A&quot;,new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([255, 0, 255, 0.5])));</span><br><span class="line">renderer.addValue(&quot;O&quot;, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([255, 255, 255, 0.75])));</span><br></pre></td></tr></table></figure>
+<ul>
+<li> 分类渲染：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">renderer.addBreak(0,20, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([0, 255, 0, 0.5])));</span><br><span class="line">renderer.addBreak(20,30, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([0, 0, 255, 0.5])));</span><br><span class="line">renderer.addBreak(30,40,new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([255, 0, 255, 0.5])));</span><br><span class="line">renderer.addBreak(40,60, new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,new Color([255, 255, 255, 0.75])));				</span><br></pre></td></tr></table></figure>
+
+<p>分类渲染即将选择字段的值分为不同阶段渲染为不同颜色</p>
+<h5 id="3-贴代码"><a href="#3-贴代码" class="headerlink" title="3.贴代码"></a>3.贴代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>UniqueValueRenderer<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/dijit/themes/tundra/tundra.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">type</span>=<span class="string">&quot;text/Javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.MapClass</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">					<span class="string">&quot;dojo/on&quot;</span>,</span></span><br><span class="line"><span class="javascript">					<span class="string">&quot;dojo/dom&quot;</span>,</span></span><br><span class="line"><span class="javascript">					<span class="string">&quot;dojo/colors&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;esri/symbols/SimpleFillSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;esri/layers/FeatureLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;esri/renderers/ClassBreaksRenderer&quot;</span>,</span></span><br><span class="line"><span class="javascript">                    <span class="string">&quot;dojo/domReady!&quot;</span>],</span></span><br><span class="line"><span class="javascript">                <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">Map</span>, ArcGISDynamicMapServiceLayer,on,dom,Color,SimpleFillSymbol, FeatureLayer, SimpleLineSymbol,ClassBreaksRenderer</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> map = <span class="keyword">new</span> esri.Map(<span class="string">&quot;MyMapDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">                    map.addLayer(layer);</span></span><br><span class="line"><span class="javascript">					<span class="comment">//获得id为btn的DOM元素</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> btn=dom.byId(<span class="string">&quot;btn&quot;</span>);</span></span><br><span class="line"><span class="javascript">					<span class="comment">//绑定相应的事件</span></span></span><br><span class="line"><span class="javascript">					on(btn,<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">						<span class="comment">//定义一个要素图层</span></span></span><br><span class="line"><span class="javascript">						<span class="keyword">var</span> featureLayer = <span class="keyword">new</span> FeatureLayer(</span></span><br><span class="line"><span class="javascript">						<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer/1&quot;</span>,</span></span><br><span class="line"><span class="javascript">                         &#123;</span></span><br><span class="line"><span class="javascript">                            <span class="attr">mode</span>:FeatureLayer.MODE_SNAPSHOT,</span></span><br><span class="line"><span class="javascript">                            <span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>]</span></span><br><span class="line"><span class="javascript">                         &#125;);</span></span><br><span class="line"><span class="javascript">						<span class="comment">//定义线符号</span></span></span><br><span class="line"><span class="javascript">						<span class="keyword">var</span> lineSymbol=<span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span></span><br><span class="line"><span class="javascript">						<span class="comment">//定义面符号</span></span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> fill=<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color(<span class="string">&quot;#FFFFCC&quot;</span>));</span></span><br><span class="line"><span class="javascript">						<span class="comment">//定义唯一值渲染器，对字段alias进行渲染，fill是默认的渲染符号</span></span></span><br><span class="line"><span class="javascript">						<span class="keyword">var</span> renderer = <span class="keyword">new</span> ClassBreaksRenderer(fill, <span class="string">&quot;OBJECTID&quot;</span>);</span></span><br><span class="line"><span class="javascript">						<span class="comment">//设置渲染间隔</span></span></span><br><span class="line"><span class="javascript">						renderer.addBreak(<span class="number">0</span>,<span class="number">20</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.5</span>])));</span></span><br><span class="line"><span class="javascript">                        renderer.addBreak(<span class="number">20</span>,<span class="number">30</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.5</span>])));</span></span><br><span class="line"><span class="javascript">                        renderer.addBreak(<span class="number">30</span>,<span class="number">40</span>,<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.5</span>])));</span></span><br><span class="line"><span class="javascript">                        renderer.addBreak(<span class="number">40</span>,<span class="number">60</span>, <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol,<span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.75</span>])));</span></span><br><span class="line"><span class="javascript">						featureLayer.setRenderer(renderer);</span></span><br><span class="line"><span class="javascript">                        map.addLayer(featureLayer);				 </span></span><br><span class="line"><span class="javascript">					&#125;)	</span></span><br><span class="line"><span class="javascript">                &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;MyMapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>渲染<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%88%86%E7%B1%BB%E6%B8%B2%E6%9F%93/" data-id="ckreqntjv0023r07k86o3dnj3" data-title="渲染---分类渲染" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-小操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%B0%8F%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.059Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E5%B0%8F%E6%93%8D%E4%BD%9C/">小操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="2019-9-21-更"><a href="#2019-9-21-更" class="headerlink" title="2019.9.21 更"></a>2019.9.21 更</h5><p>添加图层<code>map.addLayer(Shp);</code><br>移除图层<code>map.removeLayer(Shp);</code><br>隐藏图层<code>shp.hide();</code><br>显示图层<code>shp.show();</code>、</p>
+<h5 id="2020-3-20更"><a href="#2020-3-20更" class="headerlink" title="2020.3.20更"></a>2020.3.20更</h5><p>定位地图中心</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setMapCenter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> point = <span class="keyword">new</span> Point(<span class="number">121.453</span>, <span class="number">31.709</span>);</span><br><span class="line">    map.centerAt(point);</span><br><span class="line">&#125;</span><br><span class="line">dojo.connect(dojo.byId(<span class="string">&quot;btn5&quot;</span>), <span class="string">&quot;onclick&quot;</span>, setMapCenter);</span><br></pre></td></tr></table></figure>
+
+<p>开关图层</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载动态地图</span></span><br><span class="line">       <span class="keyword">var</span> dynamicUrl = <span class="string">&quot;http://localhost:6080/arcgis/rest/services/webgis/School/MapServer&quot;</span>;</span><br><span class="line">       <span class="keyword">var</span> dynamicLayer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(dynamicUrl);</span><br><span class="line">       map.addLayer(dynamicLayer);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 关闭所有显示</span></span><br><span class="line">       visible = [-<span class="number">1</span>];</span><br><span class="line">       dynamicLayer.setVisibleLayers(visible);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 打开所有显示</span></span><br><span class="line">       visible = [];</span><br><span class="line">       <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; dynamicLayer.layerInfos.length; i++) &#123;</span><br><span class="line">           visible.push(i);</span><br><span class="line">       &#125;</span><br><span class="line">       dynamicLayer.setVisibleLayers(visible);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%B0%8F%E6%93%8D%E4%BD%9C/" data-id="ckreqntjq001sr07kcpdwfxd8" data-title="小操作" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-小部件---鹰眼图" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%B0%8F%E9%83%A8%E4%BB%B6---%E9%B9%B0%E7%9C%BC%E5%9B%BE/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.057Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E5%B0%8F%E9%83%A8%E4%BB%B6---%E9%B9%B0%E7%9C%BC%E5%9B%BE/">鹰眼图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1. 效果图"></a>1. 效果图</h5><p><img src="https://img-blog.csdnimg.cn/20190809185602811.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="2-引用模块"><a href="#2-引用模块" class="headerlink" title="2. 引用模块"></a>2. 引用模块</h5><p>鹰眼图<code>&quot;esri/dijit/OverviewMap&quot;,</code></p>
+<h5 id="3-增加了一个鹰眼图，div的布局会不会有什么变化？"><a href="#3-增加了一个鹰眼图，div的布局会不会有什么变化？" class="headerlink" title="3. 增加了一个鹰眼图，div的布局会不会有什么变化？"></a>3. 增加了一个鹰眼图，div的布局会不会有什么变化？</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height: 800px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>拉框放大<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>拉框缩小<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>平移<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>全图<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>漫游<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>嗯，，，似乎是没有任何变化</p>
+<p>这样看来。鹰眼图就像是map的属性一样，本身便存在，需要设置它的setVisibleXX来控制它的可见性。我猜是这样</p>
+<h5 id="4-看一下JS代码证实一下猜想"><a href="#4-看一下JS代码证实一下猜想" class="headerlink" title="4. 看一下JS代码证实一下猜想"></a>4. 看一下JS代码证实一下猜想</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var overviewMapDijit = new OverviewMap(&#123;</span><br><span class="line">         map: map,</span><br><span class="line">         //LOOK LOOK </span><br><span class="line">         visible: true</span><br><span class="line">   &#125;);</span><br><span class="line">   overviewMapDijit.startup();</span><br></pre></td></tr></table></figure>
+<p>OverviewMap就是创建鹰眼图的类。<br>创建参数中第一个绑定地图。第二个就是设置鹰眼图的可见性。<br>并且它的可见性默认是false（亲测）</p>
+<h5 id="5-试试在上一篇中的绑定小部件上加上鹰眼图，贴代码"><a href="#5-试试在上一篇中的绑定小部件上加上鹰眼图，贴代码" class="headerlink" title="5. 试试在上一篇中的绑定小部件上加上鹰眼图，贴代码"></a>5. 试试在上一篇中的<a target="_blank" rel="noopener" href="https://blog.csdn.net/DanBo_C/article/details/98677151">绑定小部件</a>上加上鹰眼图，贴代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;initial-scale=1, maximum-scale=1,user-scalable=no&quot;</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Overview Map<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      <span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123; <span class="attribute">height</span>: <span class="number">100%</span>; <span class="attribute">width</span>: <span class="number">100%</span>; <span class="attribute">margin</span>: <span class="number">0</span>; <span class="attribute">padding</span>: <span class="number">0</span>; &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.29/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> map;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="built_in">require</span>([</span></span><br><span class="line"><span class="javascript">        <span class="string">&quot;esri/map&quot;</span>, <span class="string">&quot;esri/dijit/OverviewMap&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="string">&quot;dojo/parser&quot;</span>, </span></span><br><span class="line"><span class="javascript">        <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="string">&quot;dojo/query&quot;</span>,<span class="string">&quot;esri/toolbars/navigation&quot;</span>,</span></span><br><span class="line"><span class="javascript">            </span></span><br><span class="line"><span class="javascript">        <span class="string">&quot;dijit/layout/BorderContainer&quot;</span>, <span class="string">&quot;dijit/layout/ContentPane&quot;</span>, <span class="string">&quot;dojo/domReady!&quot;</span></span></span><br><span class="line"><span class="javascript">      ], <span class="function"><span class="keyword">function</span> (<span class="params"></span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">        <span class="built_in">Map</span>, OverviewMap, parser,ArcGISDynamicMapServiceLayer,query,Navigation</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        parser.parse(); </span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;map&quot;</span>);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer</span></span><br><span class="line"><span class="javascript">                (<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">        map.addLayer(layer);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> overviewMapDijit = <span class="keyword">new</span> OverviewMap(&#123;</span></span><br><span class="line"><span class="javascript">          <span class="attr">map</span>: map,</span></span><br><span class="line"><span class="javascript">          <span class="attr">visible</span>: <span class="literal">true</span></span></span><br><span class="line"><span class="javascript">        &#125;);</span></span><br><span class="line"><span class="javascript">        overviewMapDijit.startup();</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">//创建地图操作对象</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> navToolbar = <span class="keyword">new</span> Navigation(map);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//给按钮添加绑定事件</span></span></span><br><span class="line"><span class="javascript">				query(<span class="string">&quot;button&quot;</span>).on(<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//获得按钮的文本信息</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> value=<span class="built_in">this</span>.innerHTML;</span></span><br><span class="line"><span class="javascript">					<span class="keyword">switch</span>(value)&#123;</span></span><br><span class="line"><span class="javascript">						<span class="keyword">case</span> <span class="string">&quot;平移&quot;</span>:</span></span><br><span class="line"><span class="javascript">							navToolbar.activate(Navigation.PAN);</span></span><br><span class="line"><span class="javascript">							<span class="keyword">break</span>;							</span></span><br><span class="line"><span class="javascript">						<span class="keyword">case</span> <span class="string">&quot;拉框缩小&quot;</span>:</span></span><br><span class="line"><span class="javascript">							navToolbar.activate(Navigation.ZOOM_OUT);</span></span><br><span class="line"><span class="javascript">							<span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">						<span class="keyword">case</span> <span class="string">&quot;拉框放大&quot;</span>:</span></span><br><span class="line"><span class="javascript">							navToolbar.activate(Navigation.ZOOM_IN);</span></span><br><span class="line"><span class="javascript">							<span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">						<span class="keyword">case</span> <span class="string">&quot;全图&quot;</span>:</span></span><br><span class="line"><span class="javascript">							navToolbar.zoomToFullExtent();</span></span><br><span class="line"><span class="javascript">							<span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">						<span class="keyword">case</span> <span class="string">&quot;漫游&quot;</span>:</span></span><br><span class="line"><span class="javascript">							<span class="comment">//默认是漫游操作</span></span></span><br><span class="line"><span class="javascript">							navToolbar.deactivate();</span></span><br><span class="line"><span class="javascript">							<span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">					&#125;</span></span><br><span class="line"><span class="javascript">                &#125;);</span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">      &#125;);</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height: 800px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>拉框放大<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>拉框缩小<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>平移<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>全图<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>漫游<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="6-结果"><a href="#6-结果" class="headerlink" title="6. 结果"></a>6. 结果</h5><p><img src="https://img-blog.csdnimg.cn/20190809192253797.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="7-拓展：尝试设置重新鹰眼图的位置"><a href="#7-拓展：尝试设置重新鹰眼图的位置" class="headerlink" title="7. 拓展：尝试设置重新鹰眼图的位置"></a>7. 拓展：尝试设置重新鹰眼图的位置</h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%B0%8F%E9%83%A8%E4%BB%B6---%E9%B9%B0%E7%9C%BC%E5%9B%BE/" data-id="ckreqntjr001vr07k55phdvuz" data-title="鹰眼图" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-小部件---图例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%B0%8F%E9%83%A8%E4%BB%B6---%E5%9B%BE%E4%BE%8B/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.055Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E5%B0%8F%E9%83%A8%E4%BB%B6---%E5%9B%BE%E4%BE%8B/">图例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1. 效果图"></a>1. 效果图</h5><p><img src="https://img-blog.csdnimg.cn/20190809193823493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="2-引用模块"><a href="#2-引用模块" class="headerlink" title="2. 引用模块"></a>2. 引用模块</h5><p>图例 <code>&quot;esri/dijit/Legend&quot;,</code></p>
+<h5 id="3-右侧增加的图例框会不会对div有一定的影响？"><a href="#3-右侧增加的图例框会不会对div有一定的影响？" class="headerlink" title="3. 右侧增加的图例框会不会对div有一定的影响？"></a>3. 右侧增加的图例框会不会对div有一定的影响？</h5><p>先看一下HTML结构</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">&quot;claro&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/BorderContainer&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">data-dojo-props</span>=<span class="string">&quot;design:&#x27;headline&#x27;, gutters:true&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">style</span>=<span class="string">&quot;width: 100%; height: 100%; margin: 0;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;rightPane&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/ContentPane&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">data-dojo-props</span>=<span class="string">&quot;region:&#x27;right&#x27;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/AccordionContainer&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/ContentPane&quot;</span> <span class="attr">id</span>=<span class="string">&quot;legendPane&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">data-dojo-props</span>=<span class="string">&quot;title:&#x27;Legend&#x27;, selected:true&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;legendDiv&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/ContentPane&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">data-dojo-props</span>=<span class="string">&quot;title:&#x27;Pane 2&#x27;&quot;</span>&gt;</span></span><br><span class="line">        This pane could contain tools or additional content</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/ContentPane&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">data-dojo-props</span>=<span class="string">&quot;region:&#x27;center&#x27;&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">style</span>=<span class="string">&quot;overflow:hidden;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>好吧，很乱。大致分为四层。如图<br><img src="https://img-blog.csdnimg.cn/20190809211343606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><strong>与之对应的图例中：</strong><br><img src="https://img-blog.csdnimg.cn/2019080921244124.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><strong>解释一下</strong>：<br>①：获取的图例对象的内容即框中的数据<br>②：显示图例的标签卡及其平行标签卡，可以当作是对图例对象显示上的改进<br>④：与map平行的同级div，border: solid #CCC 1px（灰色边框）<br>③：②和④中间的间隙，它取决于②，换句话说，如果②为空，那么③的存在就没有意义。</p>
+<p>除了①中的是必须获取的数据之外，剩余的有都是由Esri官方提供的方便开发的方法。不妨尝试进一步美化。这样看来，右侧增加的图例框的真实存在的div，但是它也是获取map中的数据。所以它更像是map对象的一种方法，而非属性。这也是和鹰眼图比较根本上的区别。</p>
+<h5 id="4-大概因为都与map对象密切相关，所以鹰眼图和图例在启动上都十分相似，看一眼JS代码"><a href="#4-大概因为都与map对象密切相关，所以鹰眼图和图例在启动上都十分相似，看一眼JS代码" class="headerlink" title="4. 大概因为都与map对象密切相关，所以鹰眼图和图例在启动上都十分相似，看一眼JS代码"></a>4. 大概因为都与map对象密切相关，所以鹰眼图和图例在启动上都十分相似，看一眼JS代码</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//add the legend</span></span><br><span class="line"><span class="keyword">var</span> legend = <span class="keyword">new</span> Legend(&#123;</span><br><span class="line">	<span class="attr">map</span>:map</span><br><span class="line">  &#125;,<span class="string">&quot;legendDiv&quot;</span>);</span><br><span class="line">  	  legend.startup();</span><br></pre></td></tr></table></figure>
+<p>相比而言，图例只是不用设置它的可见性。但我认为它们还是由本质上的区别。（个人拙见）</p>
+<h5 id="5-贴代码"><a href="#5-贴代码" class="headerlink" title="5. 贴代码"></a>5. 贴代码</h5><h6 id="动态图层"><a href="#动态图层" class="headerlink" title="动态图层"></a>动态图层</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;initial-scale=1, maximum-scale=1,user-scalable=no&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Map with legend<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.29/dijit/themes/claro/claro.css&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.29/esri/css/esri.css&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">99%</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">99%</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-id">#rightPane</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">20%</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-id">#legendPane</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">border</span>: solid <span class="number">#97DCF2</span> <span class="number">1px</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.29/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> map;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">require</span>([</span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;esri/map&quot;</span>, <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>, <span class="string">&quot;esri/dijit/Legend&quot;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;dojo/_base/array&quot;</span>, <span class="string">&quot;dojo/parser&quot;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;dijit/layout/BorderContainer&quot;</span>, <span class="string">&quot;dijit/layout/ContentPane&quot;</span>, </span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;dijit/layout/AccordionContainer&quot;</span>, <span class="string">&quot;dojo/domReady!&quot;</span></span></span><br><span class="line"><span class="javascript">    ], <span class="function"><span class="keyword">function</span>(<span class="params"></span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">      <span class="built_in">Map</span>, ArcGISDynamicMapServiceLayer, Legend,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">      arrayUtils, parser</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">    </span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      parser.parse();</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;map&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">logo</span>:<span class="literal">false</span></span></span><br><span class="line"><span class="javascript">      &#125;);</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer</span></span><br><span class="line"><span class="javascript">			(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">		map.addLayer(layer)</span></span><br><span class="line"><span class="javascript">		<span class="comment">//不设置显示图层，默认显示&#x27;[0]&#x27;的图层</span></span></span><br><span class="line"><span class="javascript">		layer.setVisibleLayers([<span class="number">0</span>]);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="comment">//add the legend</span></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> legend = <span class="keyword">new</span> Legend(&#123;</span></span><br><span class="line"><span class="javascript">			<span class="attr">map</span>:map</span></span><br><span class="line"><span class="javascript">		  &#125;,<span class="string">&quot;legendDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">      legend.startup();</span></span><br><span class="line"><span class="javascript">      </span></span><br><span class="line"><span class="javascript">    &#125;);</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">&quot;claro&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/BorderContainer&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">data-dojo-props</span>=<span class="string">&quot;design:&#x27;headline&#x27;, gutters:true&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">style</span>=<span class="string">&quot;width: 100%; height: 100%; margin: 0;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;rightPane&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/ContentPane&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">data-dojo-props</span>=<span class="string">&quot;region:&#x27;right&#x27;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/AccordionContainer&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/ContentPane&quot;</span> <span class="attr">id</span>=<span class="string">&quot;legendPane&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">data-dojo-props</span>=<span class="string">&quot;title:&#x27;Legend&#x27;, selected:true&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;legendDiv&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/ContentPane&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">data-dojo-props</span>=<span class="string">&quot;title:&#x27;Pane 2&#x27;&quot;</span>&gt;</span></span><br><span class="line">        This pane could contain tools or additional content</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">data-dojo-type</span>=<span class="string">&quot;dijit/layout/ContentPane&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">data-dojo-props</span>=<span class="string">&quot;region:&#x27;center&#x27;&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">style</span>=<span class="string">&quot;overflow:hidden;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<h5 id="要素图层"><a href="#要素图层" class="headerlink" title="要素图层"></a>要素图层</h5><p>将其中的对应的改为下面的代码即可<br><strong>注意：需要引入模块：<code>&quot;esri/layers/FeatureLayer&quot;</code></strong><br>注意加载的时候为单图层，及动态图层后加显示序号</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> map;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">require</span>([</span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;esri/map&quot;</span>, <span class="string">&quot;esri/layers/FeatureLayer&quot;</span>, <span class="string">&quot;esri/dijit/Legend&quot;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;dojo/_base/array&quot;</span>, <span class="string">&quot;dojo/parser&quot;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;dijit/layout/BorderContainer&quot;</span>, <span class="string">&quot;dijit/layout/ContentPane&quot;</span>, </span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;dijit/layout/AccordionContainer&quot;</span>, <span class="string">&quot;dojo/domReady!&quot;</span></span></span><br><span class="line"><span class="javascript">    ], <span class="function"><span class="keyword">function</span>(<span class="params"></span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">      <span class="built_in">Map</span>, FeatureLayer, Legend,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">      arrayUtils, parser</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">    </span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      parser.parse();</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;map&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">logo</span>:<span class="literal">false</span></span></span><br><span class="line"><span class="javascript">      &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> rivers = <span class="keyword">new</span> FeatureLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer/1&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">mode</span>: FeatureLayer.MODE_ONDEMAND,</span></span><br><span class="line"><span class="javascript">        <span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>]</span></span><br><span class="line"><span class="javascript">      &#125;);</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> waterbodies = <span class="keyword">new</span> FeatureLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer/0&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">mode</span>: FeatureLayer.MODE_ONDEMAND,</span></span><br><span class="line"><span class="javascript">        <span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>]</span></span><br><span class="line"><span class="javascript">      &#125;);</span></span><br><span class="line"><span class="javascript">      map.addLayers([waterbodies, rivers]);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//add the legend</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> legend = <span class="keyword">new</span> Legend(&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">map</span>:map</span></span><br><span class="line"><span class="javascript">      &#125;,<span class="string">&quot;legendDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">      legend.startup();</span></span><br><span class="line"><span class="javascript">      s</span></span><br><span class="line"><span class="javascript">    &#125;);</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>要素图层显示效果：</strong><br>加载了两个要素图层，所以也会显示两个图例信息。<br>个人认为交互性的动态图层更加方便，单一展示的要素图层更加方便。<br><img src="https://img-blog.csdnimg.cn/20190809214446380.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="7-拓展："><a href="#7-拓展：" class="headerlink" title="7. 拓展："></a>7. 拓展：</h5><p>上面贴的代码中引入模块中多了三个<code>&quot;dijit/layout/BorderContainer&quot;, &quot;dijit/layout/ContentPane&quot;,  &quot;dijit/layout/AccordionContainer&quot;</code></p>
+<p>如果删掉这三个模块，最终结果没有变化，但是在加载过程中，显示最终结果之前出现了一个过度样式，如下图：<br><img src="https://img-blog.csdnimg.cn/20190809215031387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br>显然图里位置改变了，并且注意图最下方的地方<br><img src="https://img-blog.csdnimg.cn/20190809215139701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br>可见图幅的大小也改变了。</p>
+<p>为什么呢？后解。</p>
+<h6 id="文章中不正确的地方，麻烦大家指出，一起改进"><a href="#文章中不正确的地方，麻烦大家指出，一起改进" class="headerlink" title="文章中不正确的地方，麻烦大家指出，一起改进"></a>文章中不正确的地方，麻烦大家指出，一起改进</h6>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%B0%8F%E9%83%A8%E4%BB%B6---%E5%9B%BE%E4%BE%8B/" data-id="ckreqntjr001tr07k58ih0448" data-title="图例" class="article-share-link">分享</a>
       
       
       
@@ -130,6 +1541,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
 
 </section>
         
@@ -160,7 +1576,23 @@
       <ul>
         
           <li>
-            <a href="/2021/07/22/hello-world/">Hello World</a>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
           </li>
         
       </ul>

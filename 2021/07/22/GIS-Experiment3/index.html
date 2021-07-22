@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>GIS-Experiment3 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="ArcGIS 操作3第1步 裁剪要素地理处理 —&gt; ArcToolbox —&gt; 分析工具 —&gt; 提取分析 —&gt; 裁剪 第2步 拼接图层  地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 常规 —&gt; 追加 第3步 要素融合 地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 制图综合 —&gt; 融合 第4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GIS-Experiment3">
+<meta property="og:url" content="http://example.com/2021/07/22/GIS-Experiment3/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="ArcGIS 操作3第1步 裁剪要素地理处理 —&gt; ArcToolbox —&gt; 分析工具 —&gt; 提取分析 —&gt; 裁剪 第2步 拼接图层  地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 常规 —&gt; 追加 第3步 要素融合 地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 制图综合 —&gt; 融合 第4">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-22T09:54:48.916Z">
+<meta property="article:modified_time" content="2020-04-12T13:48:55.075Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GIS-Experiment3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/GIS-Experiment3/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.916Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      GIS-Experiment3
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="ArcGIS-操作3"><a href="#ArcGIS-操作3" class="headerlink" title="ArcGIS 操作3"></a>ArcGIS 操作3</h2><h4 id="第1步-裁剪要素"><a href="#第1步-裁剪要素" class="headerlink" title="第1步 裁剪要素"></a>第1步 裁剪要素</h4><p>地理处理 —&gt; ArcToolbox —&gt; 分析工具 —&gt; 提取分析 —&gt; 裁剪</p>
+<h4 id="第2步-拼接图层"><a href="#第2步-拼接图层" class="headerlink" title="第2步 拼接图层"></a>第2步 拼接图层</h4><p>  地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 常规 —&gt; 追加</p>
+<h4 id="第3步-要素融合"><a href="#第3步-要素融合" class="headerlink" title="第3步 要素融合"></a>第3步 要素融合</h4><p> 地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 制图综合 —&gt; 融合</p>
+<h4 id="第4步-图层合并"><a href="#第4步-图层合并" class="headerlink" title="第4步 图层合并"></a>第4步 图层合并</h4><p>地理处理 —&gt; ArcToolbox —&gt; 分析工具 —&gt; 叠加分析 —&gt; 联合</p>
+<h4 id="第5步-图层相交"><a href="#第5步-图层相交" class="headerlink" title="第5步 图层相交"></a>第5步 图层相交</h4><p>地理处理 —&gt; ArcToolbox —&gt; 分析工具 —&gt; 叠加分析 —&gt; 相交</p>
+<h4 id="第6步-定义投影"><a href="#第6步-定义投影" class="headerlink" title="第6步 定义投影"></a>第6步 定义投影</h4><p>地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 投影和变换 —&gt; 定义投影</p>
+<h4 id="第7步-投影变换"><a href="#第7步-投影变换" class="headerlink" title="第7步 投影变换"></a>第7步 投影变换</h4><p>地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 投影和变换 —&gt; 要素 —&gt; 投影</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/GIS-Experiment3/" data-id="ckreqntij0002r07kbmdwbsp2" data-title="GIS-Experiment3" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/GIS%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          GIS程序设计 知识总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/GeoServer%E5%8F%91%E5%B8%83WMS%E6%9C%8D%E5%8A%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">GeoServer发布WMS服务</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

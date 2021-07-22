@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>JSP总结 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="JSP第三章 JSP语法 HTML创建表单表格12345678910&lt;form action&#x3D;&quot;&lt;%&#x3D;request.getContextPath() %&gt;&#x2F;loginservlet&quot; method&#x3D;&quot;post&quot; &gt;     ...	账户：     &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSP总结">
+<meta property="og:url" content="http://example.com/2021/07/22/JSP%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="JSP第三章 JSP语法 HTML创建表单表格12345678910&lt;form action&#x3D;&quot;&lt;%&#x3D;request.getContextPath() %&gt;&#x2F;loginservlet&quot; method&#x3D;&quot;post&quot; &gt;     ...	账户：     &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191220150213169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191220155546582.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-07-22T09:54:48.944Z">
+<meta property="article:modified_time" content="2020-04-12T13:47:41.400Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191220150213169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-JSP总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/JSP%E6%80%BB%E7%BB%93/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.944Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      JSP总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h1><h2 id="第三章-JSP语法"><a href="#第三章-JSP语法" class="headerlink" title="第三章 JSP语法"></a>第三章 JSP语法</h2><ol>
+<li><h4 id="HTML创建表单表格"><a href="#HTML创建表单表格" class="headerlink" title="HTML创建表单表格"></a>HTML创建表单表格</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">&quot;&lt;%=request.getContextPath() %&gt;/loginservlet&quot;</span> method=<span class="string">&quot;post&quot;</span> &gt;</span><br><span class="line">     ...</span><br><span class="line">	账户：</span><br><span class="line">     &lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;userid&quot;</span> id=<span class="string">&quot;userid&quot;</span> &gt;</span><br><span class="line">     密码：</span><br><span class="line">	&lt;input type=<span class="string">&quot;Password&quot;</span> name=<span class="string">&quot;userpwd&quot;</span> id=<span class="string">&quot;userpwd&quot;</span>&gt;</span><br><span class="line">	<span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">submit</span>&gt;</span> </span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">reset</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">&quot;form1&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">action</span>=<span class="string">&quot;login_deal.jsp&quot;</span>&gt;</span></span><br><span class="line">    用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span>  </span><br><span class="line">    密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;pwd&quot;</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">id</span>=<span class="string">&quot;pwd&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">name</span>=<span class="string">&quot;Submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span> /&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">name</span>=<span class="string">&quot;Submit2&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(“utf-<span class="number">8</span><span class="string">&quot;);</span></span><br><span class="line"><span class="string">String username= request.getParameter(&quot;</span>username<span class="string">&quot;);</span></span><br><span class="line"><span class="string">String pwd= request.getParameter(&quot;</span>pwd<span class="string">&quot;);</span></span><br><span class="line"><span class="string">out.println(&quot;</span>用户名为：<span class="string">&quot;+username);</span></span><br><span class="line"><span class="string">if ( pwd!=null &amp;&amp; pwd!=“” ) &#123;</span></span><br><span class="line"><span class="string">   int int_pwd = Integer.parseInt(pwd);</span></span><br><span class="line"><span class="string">   out.println(&quot;</span>密码为：<span class="string">&quot;+int_pwd);    </span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%String path=request.getContextPath();%&gt;</span><br><span class="line">&lt;a href=&quot;&lt;%=path%&gt;/a.jsp&quot;&gt;aaa&lt;/a&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><h4 id="脚本元素："><a href="#脚本元素：" class="headerlink" title="脚本元素："></a>脚本元素：</h4><ul>
+<li><h4 id="隐藏注释、-lt-gt"><a href="#隐藏注释、-lt-gt" class="headerlink" title="隐藏注释、&lt;%-- --%&gt;"></a>隐藏注释、<code>&lt;%-- --%&gt;</code></h4></li>
+<li><h4 id="声明、-lt-gt"><a href="#声明、-lt-gt" class="headerlink" title="声明、&lt;%! %&gt;"></a>声明、<code>&lt;%! %&gt;</code></h4><p>变量可以用访问修饰符如private修饰、可以声明方法，方法能被代码块调用、可以定义静态语句块</p>
+</li>
+<li><h4 id="脚本片段、-lt-gt"><a href="#脚本片段、-lt-gt" class="headerlink" title="脚本片段、&lt;% %&gt;"></a>脚本片段、<code>&lt;% %&gt;</code></h4><p>不能添加访问控制修饰符、不能定义方法、不能定义static语句块</p>
+</li>
+<li><h4 id="表达式、-lt-gt"><a href="#表达式、-lt-gt" class="headerlink" title="表达式、&lt;%= %&gt;"></a>表达式、<code>&lt;%= %&gt;</code></h4><p>不以 <code>;</code>结尾，<code>out.write(表达式);</code></p>
+</li>
+</ul>
+</li>
+<li><h4 id="指令元素：-lt-gt"><a href="#指令元素：-lt-gt" class="headerlink" title="指令元素：&lt;%@ %&gt;"></a>指令元素：<code>&lt;%@ %&gt;</code></h4><ul>
+<li><h4 id="页指令-lt-page-gt"><a href="#页指令-lt-page-gt" class="headerlink" title="页指令 &lt;%@page %&gt; "></a>页指令 <code>&lt;%@page %&gt; </code></h4><p><code>&lt;%@page import=&quot;dao.UserDao&quot; %&gt;</code>导包</p>
+<p>设置当前JSP页面的相关信息、一个JSP页面可以包含多个Page指令。</p>
+</li>
+<li><h4 id="包含指令-lt-include-gt"><a href="#包含指令-lt-include-gt" class="headerlink" title="包含指令&lt;%@include %&gt;"></a>包含指令<code>&lt;%@include %&gt;</code></h4><p>用于在当前JSP页面中，在当前使用该指令的位置嵌入其他的文件</p>
+<p>合并显示两个页面内容、形成一个.java文件，一个.class文件</p>
+<p>静态联编两个文件间可以共享同一变量</p>
+</li>
+<li><h4 id="标签库指令-lt-taglib-gt"><a href="#标签库指令-lt-taglib-gt" class="headerlink" title="标签库指令&lt;%@taglib %&gt;"></a>标签库指令<code>&lt;%@taglib %&gt;</code></h4></li>
+</ul>
+</li>
+<li><h4 id="动作元素：-lt-jsp-useBean-gt-、-lt-jsp-setProperty-gt-、-lt-jsp-getProperty-gt-、-lt-jsp-include-gt-、-lt-jsp-forward-gt-、-lt-jsp-param-gt"><a href="#动作元素：-lt-jsp-useBean-gt-、-lt-jsp-setProperty-gt-、-lt-jsp-getProperty-gt-、-lt-jsp-include-gt-、-lt-jsp-forward-gt-、-lt-jsp-param-gt" class="headerlink" title="动作元素：&lt; jsp:useBean &gt;、&lt; jsp:setProperty &gt;、&lt; jsp:getProperty &gt;、&lt; jsp:include &gt;、&lt; jsp:forward &gt;、&lt; jsp:param &gt;"></a>动作元素：<code>&lt; jsp:useBean &gt;</code>、<code>&lt; jsp:setProperty &gt;</code>、<code>&lt; jsp:getProperty &gt;</code>、<code>&lt; jsp:include &gt;</code>、<code>&lt; jsp:forward &gt;</code>、<code>&lt; jsp:param &gt;</code></h4><ul>
+<li><p><code>&lt; jsp:forward page = “next.jsp”/&gt;</code></p>
+<p>发起页面内容不能显示到浏览器中，程序<strong>直接跳转next.jsp</strong>，显示内容。运行后形成2个.java文件，2个.class文件</p>
+</li>
+<li><p><code>&lt; jsp:include page = “next.jsp”/&gt; </code> </p>
+<p>发起页面和目标页面都能显示在浏览器中。程序<strong>显示两个文件内容</strong>。运行后形成2个.java文件，2个.class文件。<br>运行时把两个.class文件内容显示到浏览器中，动态联编。</p>
+</li>
+</ul>
+<p>PS:动态联编，两个文件之间不共享同名变量，因为是两个独立的类。</p>
+<ul>
+<li><p><code>&lt;jsp:param name=“参数 ” value=“值&quot;/&gt; </code>用来提供key/value 的信息，不单独使用 </p>
+</li>
+<li><p><code>&lt;jsp:useBean id=&quot;Goods&quot; scope=&quot;page&quot; class=&quot;handle.shangping&quot;/&gt;</code></p>
+<p><code>id</code>：变量名</p>
+<p><code>scope</code>: 存储范围,<code>page</code>: 页面直接使用，scope指定范围内，id指定的实例不存在，则生成实例</p>
+<p><code>class</code>: 完整类名</p>
+</li>
+<li><p><code>&lt;jsp:setProperty&gt;</code>通常与<code>&lt;jsp:useBean&gt;</code>标识一起使用，它将调用Bean中的setXxx()方法给Bean的简单或索引属性赋值。赋的值可以是请求中携带的参数。</p>
+</li>
+</ul>
+</li>
+<li><h4 id="lt-include-page-”文件”-gt-与-lt-jsp-include-gt-lt-jsp-include-gt-的区别"><a href="#lt-include-page-”文件”-gt-与-lt-jsp-include-gt-lt-jsp-include-gt-的区别" class="headerlink" title="&lt;%@include page=”文件”%&gt;与&lt;jsp:include&gt;&lt;/jsp:include&gt;的区别"></a><code>&lt;%@include page=”文件”%&gt;</code>与<code>&lt;jsp:include&gt;&lt;/jsp:include&gt;</code>的区别</h4><ol>
+<li>执行时间上:<ul>
+<li> 前者在翻译阶段</li>
+<li> 后者在请求处理阶段</li>
+</ul>
+</li>
+<li>引入内容不同<ul>
+<li>前者引入静态文本(html,jsp),在JSP页面被转化成<code>servlet</code>之前和它融和到一起。 </li>
+<li>后者引入执行页面或servlet所生成的应答文本。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="第四章-内置对象"><a href="#第四章-内置对象" class="headerlink" title="第四章  内置对象"></a>第四章  内置对象</h2><p>HTTP–无状态的</p>
+<ul>
+<li><code>request</code>对象获取客户浏览器的请求</li>
+<li><code>response</code>对客户浏览器进行响应</li>
+<li><code>session</code>保存着会话期间所需要传递的数据信息，基于用户，随用户的断开而消失，可在多个页面之间传递一个用户的特定信息</li>
+<li><code>application</code>提供应用程序在服务器中运行时的全局信息，实现用户之间共享数据，基于服务器，随服务的关闭而消失，可在一个页面上保留多个用户的信息</li>
+<li><code>out</code></li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/20191220150213169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:67%;" />
+
+<ol start="2">
+<li><h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><p><code>response</code>对象中的<code>sendRedirect(url)</code>方法</p>
+<p>两次请求和响应，不是一个<code>request</code>，地址变化</p>
+</li>
+<li><h4 id="定时刷新"><a href="#定时刷新" class="headerlink" title="定时刷新"></a>定时刷新</h4><p><code>response.setHeader(&quot;Refresh&quot;,&quot;1&quot;);</code></p>
+<p><code>response.setHeader(“Refresh”,“3;url=index.jsp&quot;);</code>跳转新页面</p>
+</li>
+</ol>
+<h2 id="第五章-JavaBean"><a href="#第五章-JavaBean" class="headerlink" title="第五章 JavaBean"></a>第五章<code> JavaBean</code></h2><p>分离静态工作部分和动态工作部分。</p>
+<h4 id="1-值Bean"><a href="#1-值Bean" class="headerlink" title="1. 值Bean"></a>1. 值Bean</h4><p>严格遵循了<code>JavaBean</code>的命名规范，通常用来封装表单数据、数据库数据，作为信息的容器</p>
+<h4 id="2-工具Bean"><a href="#2-工具Bean" class="headerlink" title="2. 工具Bean"></a>2. 工具Bean</h4><p>可以不遵循<code>JavaBean</code>规范，通常用于封装业务逻辑，数据操作等，例如连接数据库，对数据库进行增、删、改、查和解决中文乱码等操作。</p>
+<h4 id="3-JavaBean规范"><a href="#3-JavaBean规范" class="headerlink" title="3. JavaBean规范"></a>3. <code>JavaBean</code>规范</h4><ol>
+<li><p>实现<code>java.io.Serializable</code>接口：实现对象在网络不同操作系统中传输、对象存储等。</p>
+</li>
+<li><p><code>JavaBean</code>是一个<code>public</code>的类</p>
+</li>
+<li><p>类中必须存在一个<code>public</code>无参的构造函数</p>
+</li>
+<li><p>如果类的成员变量的名字是xxx（通常private），则类中可（不必须）使用两个方法：</p>
+<ol>
+<li><p><code>public</code> 类型 <code>getXxx()</code>:用来获取属性xxx</p>
+</li>
+<li><p><code>pubic void setXxx(类型 值)</code> :用来修改属性xxx</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="4-JavaBean属性"><a href="#4-JavaBean属性" class="headerlink" title="4. JavaBean属性"></a>4. <code>JavaBean</code>属性</h4><ol>
+<li>简单属性（Simple）: <code>getxxx() / setxxx()</code></li>
+<li>索引属性（Indexed）: 通常为数组类型的属性</li>
+<li>绑定属性（Bound）</li>
+<li>约束属性（Constrained）</li>
+</ol>
+<h4 id="5-Bean的存放目录："><a href="#5-Bean的存放目录：" class="headerlink" title="5. Bean的存放目录："></a>5. Bean的存放目录：</h4><p><code>Bean</code>的源文件连同包放在<code>src</code>下,编译成功的Bean连同包放在站点<code>\WEB-INF\classes</code>目录下。</p>
+<h4 id="6-使用"><a href="#6-使用" class="headerlink" title="6. 使用"></a>6. 使用</h4><ul>
+<li><p>用<code>&lt;jsp:usebean&gt;</code>定义要用的JavaBean</p>
+</li>
+<li><p>用<code>&lt;jsp:setproperty&gt;</code>存储属性值</p>
+</li>
+<li><p>用<code>&lt;jsp:getproperty&gt;</code>提取属性值</p>
+</li>
+<li><p><code>&lt;jsp:useBean id=&quot;Goods&quot; scope=&quot;page&quot; class=&quot;handle.shangping&quot;/&gt;</code></p>
+<p><code>id</code>：变量名</p>
+<p><code>scope</code>: 存储范围,<code>page</code>: 页面直接使用，scope指定范围内，id指定的实例不存在，则生成实例</p>
+<table>
+<thead>
+<tr>
+<th><strong>取值</strong></th>
+<th><strong>获取方式</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page</td>
+<td>页面直接使用</td>
+<td>创建的JavaBean实例只能够在当前的JSP文件中使用，包括通过include静态指令包含的页面中有效</td>
+</tr>
+<tr>
+<td>request</td>
+<td>request对象的getAttribute方法获取</td>
+<td>创建的JavaBean实例可以在请求范围内进行存取</td>
+</tr>
+<tr>
+<td>session</td>
+<td>session对象的getAttribute方法获取</td>
+<td>创建的JavaBean实例可以在session范围内进行存取</td>
+</tr>
+<tr>
+<td>application</td>
+<td>application对象的getAttribute方法获取</td>
+<td>创建的JavaBean实例可以在application范围内进行存取</td>
+</tr>
+</tbody></table>
+<p><code>class</code>: 完整类名</p>
+</li>
+<li><p><code>&lt;jsp:setProperty&gt;</code>通常与<code>&lt;jsp:useBean&gt;</code>标识一起使用，它将调用Bean中的setXxx()方法给Bean的简单或索引属性赋值。赋的值可以是请求中携带的参数。</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%-- 单独用 --%&gt;</span><br><span class="line">&lt;jsp:useBean ……/&gt; </span><br><span class="line">&lt;jsp:setPropery  ……/&gt; </span><br><span class="line">&lt;%-- 作为子标签：只有bean实例是新创建的情况才执行setProperty --%&gt;</span><br><span class="line">&lt;jsp:useBean ……&gt;         </span><br><span class="line">	&lt;jsp:setPropery ……/&gt; </span><br><span class="line">&lt;/jsp:useBean&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>&lt;jsp:getProperty name=&quot;Bean实例名&quot; property=&quot;propertyName&quot;/&gt;</code>读取属性值，输出到页面</p>
+</li>
+</ul>
+<h2 id="第六章-Servlet"><a href="#第六章-Servlet" class="headerlink" title="第六章 Servlet"></a>第六章 <code>Servlet</code></h2><h4 id="1-生命周期"><a href="#1-生命周期" class="headerlink" title="1. 生命周期"></a>1. 生命周期</h4><ol>
+<li>客户端请求服务器，服务器加载<code>Servlet</code>，并创建一个<code>Servlet</code>实例；</li>
+<li>容器调用<code>Servlet</code>的init()方法；</li>
+<li>容器封装请求响应对象，调用<code>service()</code>方法；</li>
+<li>请求处理结束后，将结果返回给容器；</li>
+<li>容器将结果返回给客户端进行显示；</li>
+<li><code>Web</code>服务器关闭时，调用<code>destroy() </code>销毁Servlet实例。</li>
+</ol>
+<img src="https://img-blog.csdnimg.cn/20191220155546582.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:65%;" />
+
+<h4 id="2-会创建doGet-doPost"><a href="#2-会创建doGet-doPost" class="headerlink" title="2. 会创建doGet / doPost"></a>2. 会创建<code>doGet / doPost</code></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">throws</span> ServletException, I0Exception </span>&#123;</span><br><span class="line">	doGet(request, response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-获取客户端提交的信息"><a href="#3-获取客户端提交的信息" class="headerlink" title="3. 获取客户端提交的信息"></a>3. 获取客户端提交的信息</h4><h4 id="4-调用JavaBean处理结果返回客户端"><a href="#4-调用JavaBean处理结果返回客户端" class="headerlink" title="4. 调用JavaBean处理结果返回客户端"></a>4. 调用<code>JavaBean</code>处理结果返回客户端</h4><h2 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h2><h4 id="JavaWeb应用程序"><a href="#JavaWeb应用程序" class="headerlink" title="JavaWeb应用程序"></a><code>JavaWeb</code>应用程序</h4><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--login.jsp--%&gt;</span><br><span class="line"></span><br><span class="line">&lt;form action=<span class="string">&quot;&lt;%=request.getContextPath() %&gt;/loginservlet&quot;</span> method=<span class="string">&quot;post&quot;</span> &gt;</span><br><span class="line">    用户名：&lt;input name=<span class="string">&quot;username&quot;</span> type=<span class="string">&quot;text&quot;</span> /&gt;&lt;br/&gt;  </span><br><span class="line">    密码：&lt;input name=<span class="string">&quot;pwd&quot;</span> type=<span class="string">&quot;password&quot;</span> id=<span class="string">&quot;pwd&quot;</span> /&gt;&lt;br/&gt;</span><br><span class="line">  	&lt;input type=<span class="string">&quot;submit&quot;</span> name=<span class="string">&quot;Submit&quot;</span> value=<span class="string">&quot;提交&quot;</span> /&gt;</span><br><span class="line">  	&lt;input type=<span class="string">&quot;reset&quot;</span> name=<span class="string">&quot;Submit2&quot;</span> value=<span class="string">&quot;重置&quot;</span> /&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//loginservlet.java</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet(&quot;/loginservlet&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">loginservlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">loginservlet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        request.getSession().invalidate();<span class="comment">//清除session的所有信息</span></span><br><span class="line">        response.sendRedirect(request.getContextPath() + <span class="string">&quot;/index.jsp&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        request.setCharacterEncoding(<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">        String userid = request.getParameter(<span class="string">&quot;userid&quot;</span>);</span><br><span class="line">        String userpwd = request.getParameter(<span class="string">&quot;userpwd&quot;</span>);</span><br><span class="line"></span><br><span class="line">        UserDao uDao = <span class="keyword">new</span> UserDao();</span><br><span class="line">        <span class="keyword">if</span> (uDao.queryByUserNameAndPass(userid, userpwd))</span><br><span class="line">            response.sendRedirect(request.getContextPath() +<span class="string">&quot;sy444/index.jsp&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            response.sendRedirect(request.getContextPath() +<span class="string">&quot;sy444/login.jsp&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//UserDao.java</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">//根据用户名和密码查找，如果找到返回true,否则返回false</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">queryByUserNameAndPass</span><span class="params">(String u_name,String u_pass)</span> </span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">        PreparedStatement stmt = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            conn = JdbcUtils.getCon();</span><br><span class="line">            <span class="comment">// ②创建连接。</span></span><br><span class="line">            String sql =<span class="string">&quot;SELECT * from user where username=? and password=?&quot;</span>;</span><br><span class="line">            <span class="comment">// ③创建执行SQL语句的对象。</span></span><br><span class="line">            stmt = conn.prepareStatement(sql);</span><br><span class="line">            stmt.setString(<span class="number">1</span>,u_name);</span><br><span class="line">            stmt.setString(<span class="number">2</span>,u_pass);</span><br><span class="line">            <span class="comment">// ④执行查询数据。</span></span><br><span class="line">            rs = stmt.executeQuery();</span><br><span class="line">            <span class="comment">// ⑤处理查询结果。</span></span><br><span class="line">            <span class="keyword">if</span> (rs.next()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123; &#125;<span class="keyword">finally</span> &#123;JdbcUtils.release(stmt, rs, conn);&#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> shangping <span class="title">selsectOne</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;ResultSet rs = <span class="keyword">null</span>;PreparedStatement stmt = <span class="keyword">null</span>;</span><br><span class="line">        shangping goods = <span class="keyword">new</span> shangping();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            conn = JdbcUtils.getCon();</span><br><span class="line">            String sql =<span class="string">&quot;SELECT * from shangping WHERE id = ?&quot;</span>;</span><br><span class="line">            stmt = conn.prepareStatement(sql);</span><br><span class="line">            stmt.setInt(<span class="number">1</span>,id);</span><br><span class="line">            rs = stmt.executeQuery();</span><br><span class="line">            <span class="keyword">while</span>(rs.next()) &#123;</span><br><span class="line">                String name = rs.getString(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">                <span class="keyword">int</span> price = rs.getInt(<span class="string">&quot;price&quot;</span>);</span><br><span class="line">                <span class="keyword">int</span> number = rs.getInt(<span class="string">&quot;number&quot;</span>);</span><br><span class="line">                String picture = rs.getString(<span class="string">&quot;picture&quot;</span>);</span><br><span class="line"></span><br><span class="line">                goods = <span class="keyword">new</span> shangping(id,name,price,number,picture);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> goods;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123; &#125;<span class="keyword">finally</span> &#123;JdbcUtils.release(stmt, rs, conn);&#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">addIt</span><span class="params">(shangping goods, <span class="keyword">int</span> Num)</span></span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">        PreparedStatement stmt = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            conn = JdbcUtils.getCon();</span><br><span class="line">            String sql =<span class="string">&quot;insert into car values(? , ? )&quot;</span>;</span><br><span class="line">            stmt = conn.prepareStatement(sql);</span><br><span class="line">            stmt.setInt(<span class="number">1</span>,goods.getId());</span><br><span class="line">            stmt.setString(<span class="number">2</span>,goods.getName());</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> ans = stmt.executeUpdate();</span><br><span class="line">            <span class="keyword">if</span>(ans&gt;<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            </span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123; &#125;<span class="keyword">finally</span> &#123;JdbcUtils.release(stmt, rs, conn);&#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">updateit</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">        PreparedStatement stmt = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            conn = JdbcUtils.getCon();</span><br><span class="line">            String sql =<span class="string">&quot;update car set num=? where id=?&quot;</span>;</span><br><span class="line">            stmt = conn.prepareStatement(sql);</span><br><span class="line">            stmt.setInt(<span class="number">1</span>,num);</span><br><span class="line">            stmt.setInt(<span class="number">2</span>,id);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> ans = stmt.executeUpdate();</span><br><span class="line">            <span class="keyword">if</span>(ans&gt;<span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123; &#125;<span class="keyword">finally</span> &#123;JdbcUtils.release(stmt, rs, conn);&#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">delit</span><span class="params">(<span class="keyword">int</span> id)</span></span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;ResultSet rs = <span class="keyword">null</span>;PreparedStatement stmt = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            conn = JdbcUtils.getCon();</span><br><span class="line">            String sql =<span class="string">&quot;delete from car where id=?&quot;</span>;</span><br><span class="line">            stmt = conn.prepareStatement(sql);</span><br><span class="line">            stmt.setInt(<span class="number">1</span>,id);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> ans = stmt.executeUpdate();</span><br><span class="line">            <span class="keyword">if</span>(ans&gt;<span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123; &#125;<span class="keyword">finally</span> &#123;JdbcUtils.release(stmt, rs, conn);&#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JdbcUtils</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JdbcUtils</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 加载驱动</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 创建连接</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getCon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        String url = <span class="string">&quot;jdbc:mysql://localhost:3306/php?useUnicode=true&amp;characterEncoding=UTF-8&quot;</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            conn = DriverManager.getConnection(url, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;mysqll&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123; &#125;</span><br><span class="line">        <span class="keyword">return</span> conn;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 释放资源</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">(Statement st, ResultSet rs, Connection con)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (rs != <span class="keyword">null</span>)</span><br><span class="line">                rs.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123; &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (st != <span class="keyword">null</span>)</span><br><span class="line">                st.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123; &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (con != <span class="keyword">null</span>)</span><br><span class="line">                con.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123; &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="分值"><a href="#分值" class="headerlink" title="分值"></a>分值</h2><h4 id="填空-10-2"><a href="#填空-10-2" class="headerlink" title="填空 10*2"></a>填空 10*2</h4><h4 id="选择-10-2"><a href="#选择-10-2" class="headerlink" title="选择 10*2"></a>选择 10*2</h4><h4 id="判断-10-1"><a href="#判断-10-1" class="headerlink" title="判断 10*1"></a>判断 10*1</h4><h4 id="简答2-5"><a href="#简答2-5" class="headerlink" title="简答2*5"></a>简答2*5</h4><h4 id="程序-1-40"><a href="#程序-1-40" class="headerlink" title="程序 1*40"></a>程序 1*40</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/JSP%E6%80%BB%E7%BB%93/" data-id="ckreqntis000dr07kamet4ujo" data-title="JSP总结" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%BA%8C%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Nodejs爬虫实战（二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Java程序设计复习总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

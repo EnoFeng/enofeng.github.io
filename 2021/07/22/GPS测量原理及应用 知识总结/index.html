@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>GPS测量原理及应用 知识总结 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="GPS第一章1. 北斗的优势及应用 （至少三点） 优势  三频定位，卫星定位精度更高。 通过三个不同频率的信号可以有效消除定位的时候产生的误差，并且多个频率的信号可以在某一个频率信号出现问题的时候改用其他信号，提高定位系统的可靠性和抗干扰能力  短报互文功能  安全、方便    应用  气象应用： 北斗系统在卫星气象方面的应用，可以提升中国天气分析和数值天气预报、气候变化监测和预测的水平，也可以提">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GPS测量原理及应用 知识总结">
+<meta property="og:url" content="http://example.com/2021/07/22/GPS%E6%B5%8B%E9%87%8F%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="GPS第一章1. 北斗的优势及应用 （至少三点） 优势  三频定位，卫星定位精度更高。 通过三个不同频率的信号可以有效消除定位的时候产生的误差，并且多个频率的信号可以在某一个频率信号出现问题的时候改用其他信号，提高定位系统的可靠性和抗干扰能力  短报互文功能  安全、方便    应用  气象应用： 北斗系统在卫星气象方面的应用，可以提升中国天气分析和数值天气预报、气候变化监测和预测的水平，也可以提">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191220205809534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191220205725464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191220204424881.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415120749522.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191220210903616.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191220211242293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191220212217231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191220213027275.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221092334772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221093105390.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221093315922.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221093237113.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221093442857.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221093512925.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221093650927.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221093727451.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221093749964.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221093818530.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221093900308.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221094354676.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221094637739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221094829617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221094907806.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221095224670.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221111542834.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221112552661.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221113401548.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019122113562624.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221135651297.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221135705575.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221135722455.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221135804350.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221140043244.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221135651297.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019122114012482.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191221140215631.png">
+<meta property="article:published_time" content="2021-07-22T09:54:48.932Z">
+<meta property="article:modified_time" content="2020-04-12T13:46:53.147Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191220205809534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GPS测量原理及应用 知识总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/GPS%E6%B5%8B%E9%87%8F%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.932Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      GPS测量原理及应用 知识总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="GPS"><a href="#GPS" class="headerlink" title="GPS"></a>GPS</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h4 id="1-北斗的优势及应用-（至少三点）"><a href="#1-北斗的优势及应用-（至少三点）" class="headerlink" title="1. 北斗的优势及应用 （至少三点）"></a>1. 北斗的优势及应用 （至少三点）</h4><ul>
+<li><p>优势</p>
+<ol>
+<li><p>三频定位，卫星定位精度更高。</p>
+<p>通过三个不同频率的信号可以有效消除定位的时候产生的误差，并且多个频率的信号可以在某一个频率信号出现问题的时候改用其他信号，提高定位系统的可靠性和抗干扰能力</p>
+</li>
+<li><p>短报互文功能</p>
+</li>
+<li><p>安全、方便</p>
+</li>
+</ol>
+</li>
+<li><p>应用</p>
+<ol>
+<li><strong>气象应用</strong>： 北斗系统在卫星气象方面的应用，可以提升中国天气分析和数值天气预报、气候变化监测和预测的水平，也可以提高空间天气预警业务水平，提升中国气象防灾减灾能力。</li>
+<li><strong>铁路智能交通</strong>：北斗卫星导航系统将可提供高可靠、高精度的定位、测速、授时服务。</li>
+<li><strong>应急救援：</strong> 全海域出海渔船加装北斗系统装备，利用北斗特有的短报互文通信功能及时回传海上遇险搜救信息，成为海上渔民保障安全的重要工具。</li>
+<li><strong>居家智慧养老项目</strong>：利用“互联网+北斗定位+社区服务组织+医疗机构+居家养老智能服务终端”，构建智能化医、养、服务结合的居家养老实施体系，</li>
+<li><strong>北斗+纪检</strong> ：实时查询目标车辆的精确位置和历史轨迹，对公车实行动态监管。</li>
+</ol>
+</li>
+</ul>
+<h4 id="2-GPS系统的组成、地面监控、GPS接收机任务"><a href="#2-GPS系统的组成、地面监控、GPS接收机任务" class="headerlink" title="2. GPS系统的组成、地面监控、GPS接收机任务"></a>2. GPS系统的组成、地面监控、GPS接收机任务</h4><ol>
+<li><h5 id="系统组成"><a href="#系统组成" class="headerlink" title="系统组成"></a>系统组成</h5><ul>
+<li><p><strong>空间部分——GPS卫星星座</strong></p>
+<p>作用：</p>
+<p>​                1. 用两个无限载波向用户连续发送导航定位信号</p>
+<pre><code>   2. 接收导航电文及其他信息，适时的发送给广大用户
+   3. 接收地面主控站通过注入站发送到卫星的调度命令，实时的改正运行偏差或启用备用时钟等。
+</code></pre>
+</li>
+<li><p><strong>地面控制部分——地面监控系统</strong></p>
+<ul>
+<li><p>一个主控站。</p>
+<p>美国本土科罗拉多。收集、处理本站和监测站收到的全部资料 ，编算出每颗卫星的星历和GPS时间系统，将预测的卫星星历、钟差、状态数据以及大气传播改正编制成导航电文传送到注入站。</p>
+</li>
+<li><p>三个注入站</p>
+<p>将主控站发来的导航电文注入到相应卫星的存储器。</p>
+</li>
+<li><p>五个监测站</p>
+<p>为主控站提供卫星的观测数据</p>
+</li>
+</ul>
+</li>
+<li><p><strong>用户设备部分——GPS信号接收机</strong></p>
+<ul>
+<li><p>捕获按一定卫星高度截止角所选择的待测卫星的信号，并跟踪卫星运行</p>
+</li>
+<li><p>对所接收到的GPS信号进行变换、放大和处理</p>
+</li>
+<li><p>测量出信号传播的时间，解译出GPS卫星所发送的导航电文</p>
+</li>
+<li><p>实时计算出测站的三维信息，甚至三位速度和时间。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="系统特点"><a href="#系统特点" class="headerlink" title="系统特点"></a>系统特点</h5><ol>
+<li>定位精度高：50km以内可达10-6 </li>
+<li>观测时间短： 20km以内的相对静态定位，仅需15~20 分钟</li>
+<li>测站间无需通视：只需测站上空开阔。</li>
+<li>可提供三维坐标、时间、速度：经典大地测量将平面与高程分别施测，GPS可同时测定点的三维坐标。</li>
+<li>操作简便</li>
+<li>全天候作业：24小时行。</li>
+<li>功能多、应用广</li>
+</ol>
+</li>
+</ol>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><h4 id="1-天球坐标系和地球坐标系是用来干什么的？"><a href="#1-天球坐标系和地球坐标系是用来干什么的？" class="headerlink" title="1. 天球坐标系和地球坐标系是用来干什么的？"></a>1. 天球坐标系和地球坐标系是用来干什么的？</h4><ul>
+<li><p><strong>天球坐标系</strong>:描述卫星的运行位置和状态。该坐标系与地球自转无关。</p>
+<ul>
+<li>原点—地球质心M</li>
+<li>Z轴—指向天球北极Pn</li>
+<li>X轴—指向春分点</li>
+<li>Y轴—垂直于XMZ平面，与X轴Z轴构成右手坐标系统。</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/20191220205809534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+<li><p><strong>地球坐标系</strong>:描述地面观测站的位置，该坐标系随同地球自转。通常采用<strong>空间直角坐标系</strong>进行坐标转换。</p>
+<ul>
+<li>原点O：地球质心</li>
+<li>Z轴：指向地球北极Pn</li>
+<li>X轴：指格林尼治子午面与地球赤道的交点E</li>
+<li>Y轴：垂直于XOZ平面，与X轴和Y轴构成右手坐标系。</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/20191220205725464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+<li><p>为什么选用空间直角坐标系？</p>
+<pre><code>任一点的空间位置可由该点在三个坐标面的投影（X，Y，Z）唯一地确定，通过坐标平移、旋转和尺度转换，可以将一个点的位置方便的从一个坐标系转换至另一个坐标系。
+</code></pre>
+<p>  与某一空间直角坐标系所相应的大地坐标系（B，L，H），只是坐标表现形式不同，实质上是完全等价的，两者之间可相互转化。</p>
+</li>
+</ul>
+<h4 id="2-怎么定义坐标系？"><a href="#2-怎么定义坐标系？" class="headerlink" title="2. 怎么定义坐标系？"></a>2. 怎么定义坐标系？</h4><ol>
+<li>坐标原点的位置。</li>
+<li>三个坐标轴的指向。</li>
+<li>长度单位</li>
+</ol>
+<h4 id="3-坐标系统之间的转换"><a href="#3-坐标系统之间的转换" class="headerlink" title="3. 坐标系统之间的转换"></a>3. 坐标系统之间的转换</h4><p>七参数</p>
+<ul>
+<li><p>同一基准</p>
+<ol>
+<li>空间直角坐标系与空间大地坐标系间的转换。</li>
+<li>空间坐标系与平面直角坐标系间的转换。</li>
+</ol>
+</li>
+<li><p>不同基准</p>
+<ol>
+<li>不同坐标系之间的转换实质上就是不同基准间的转换，常用布尔萨七参数转换方法。</li>
+<li>布尔萨七参数：即3个平移参数，3个旋转参数，1个尺度参数。</li>
+</ol>
+</li>
+</ul>
+<p><strong>GPS坐标与我国北京54（西安80）坐标的转换流程图</strong>：</p>
+<img src="https://img-blog.csdnimg.cn/20191220204424881.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:50%;" />
+
+<h4 id="4-时间系统-判断"><a href="#4-时间系统-判断" class="headerlink" title="4. 时间系统   判断"></a>4. 时间系统   判断</h4><ol>
+<li><h5 id="时间："><a href="#时间：" class="headerlink" title="时间："></a>时间：</h5><ul>
+<li>时刻：发生某一现象的瞬间.</li>
+<li>时间段：发生某一现象所经历的过程，是这一过程始末的时刻之差。</li>
+</ul>
+</li>
+<li><h5 id="时间基准"><a href="#时间基准" class="headerlink" title="时间基准"></a>时间基准</h5><ul>
+<li><p>时间原点（时刻）</p>
+</li>
+<li><p>时间尺度（时间段）</p>
+</li>
+</ul>
+</li>
+<li><h5 id="GPS定位对时间系统的要求"><a href="#GPS定位对时间系统的要求" class="headerlink" title="GPS定位对时间系统的要求"></a>GPS定位对时间系统的要求</h5><p>全球统一的时间原点和高精度的时间尺度。</p>
+<p>原因：</p>
+<ol>
+<li>时间度量的精度就意味着空间位置的精度。</li>
+<li>GPS定位是通过测定电磁波信号的传播时间来测定站星距离的。</li>
+</ol>
+</li>
+</ol>
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><h4 id="1-卫星的无赦运动，确定开普勒轨道方程，要知道参数"><a href="#1-卫星的无赦运动，确定开普勒轨道方程，要知道参数" class="headerlink" title="1. 卫星的无赦运动，确定开普勒轨道方程，要知道参数"></a>1. 卫星的无赦运动，确定开普勒轨道方程，要知道参数</h4><ol>
+<li><h5 id="无赦运动：地球质心引力（中心引力）"><a href="#无赦运动：地球质心引力（中心引力）" class="headerlink" title="无赦运动：地球质心引力（中心引力）"></a>无赦运动：地球质心引力（中心引力）</h5><ol>
+<li> 第一定律：卫星运动的轨道是一个椭圆，而该椭圆的一个焦点与地球质心重合。</li>
+<li> 第二定律：卫星到地心的距离在相等的时间内所扫过的面积相等。</li>
+<li> 第三定律：卫星运行周期的平方，与轨道椭圆长半径的立方之比为一常量。</li>
+</ol>
+<ul>
+<li>理想轨道</li>
+<li>中心引力</li>
+<li>二体问题：将地球和卫星视为两个质点，仅考虑地球质心引力<pre><code>研究卫星运动规律
+</code></pre>
+</li>
+</ul>
+</li>
+<li><h5 id="受摄运动：地球非对称性引力"><a href="#受摄运动：地球非对称性引力" class="headerlink" title="受摄运动：地球非对称性引力"></a>受摄运动：地球非对称性引力</h5><ul>
+<li>日月引力；</li>
+<li>大气阻力；</li>
+<li>光辐射压力</li>
+</ul>
+</li>
+<li><p>摄动力</p>
+<ul>
+<li>地球非中心引力Fm；</li>
+<li>太阳引力Fs和月球引力Fn；</li>
+<li>太阳光的直接与间接辐射压力Fr；</li>
+<li>大气阻力Fa；</li>
+<li>地球潮汐作用力；</li>
+<li>磁力及其他作用力</li>
+</ul>
+</li>
+<li><p>开普勒运动</p>
+</li>
+<li><p>轨道六参数</p>
+<ul>
+<li><p>卫星轨道面与赤道面的相对位置</p>
+<ul>
+<li><p>升交点赤经Ω ：升交点和赤道面春分点的夹角</p>
+</li>
+<li><p>近地点角距 ：轨道平面近地点和升交点的夹角</p>
+</li>
+<li><p>轨道倾角 ：轨道面和赤道面的夹角</p>
+</li>
+<li><p>卫星过近地点时刻 </p>
+</li>
+</ul>
+</li>
+<li><p>卫星轨道的形状</p>
+<ul>
+<li><p>卫星轨道长半轴</p>
+</li>
+<li><p>卫星轨道扁率</p>
+<img src="https://img-blog.csdnimg.cn/20190415120749522.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:67%;" /></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-GPS卫星星历"><a href="#2-GPS卫星星历" class="headerlink" title="2. GPS卫星星历"></a>2. GPS卫星星历</h4><p>描述卫星某一时刻运动轨道的信息</p>
+<ol>
+<li><h5 id="预报星历（广播星历）"><a href="#预报星历（广播星历）" class="headerlink" title="预报星历（广播星历）"></a>预报星历（广播星历）</h5><ol>
+<li><p>定义：通过卫星发射到用户接收机的含有轨道信息的导航电文信号</p>
+</li>
+<li><p>内容：共计17个星历参数。</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li><p>每2个小时更新一次，</p>
+</li>
+<li><p>外推的时间间隔不超过1小时</p>
+</li>
+<li><p>预报星历的精度一般约为20-40m</p>
+</li>
+<li><p>注入站—-将卫星星历、卫星钟差等参数和各种控制命令发送到GPS卫星。</p>
+</li>
+</ul>
+</li>
+<li><p>预报星历的编制和传送过程：</p>
+<img src="https://img-blog.csdnimg.cn/20191220210903616.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:55%;" /></li>
+</ol>
+</li>
+<li><h5 id="后处理星历（精密星历）"><a href="#后处理星历（精密星历）" class="headerlink" title="后处理星历（精密星历）"></a>后处理星历（精密星历）</h5><ol>
+<li><p>定义：根据地面跟踪站的精密观测资料计算而得到的，不包含外推误差的实测星历。</p>
+</li>
+<li><p>优点： 轨道参数非常准确，也称精密星历。</p>
+</li>
+<li><p>缺点：不能做到实时。</p>
+</li>
+<li><p>后处理星历的编制和传送过程：</p>
+<img src="https://img-blog.csdnimg.cn/20191220211242293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:55%;" /></li>
+</ol>
+</li>
+</ol>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h4 id="1-GPS卫星的导航电文"><a href="#1-GPS卫星的导航电文" class="headerlink" title="1. GPS卫星的导航电文"></a>1. GPS卫星的导航电文</h4><p>​    用户用来定位和导航的数据基础。</p>
+<ol>
+<li>遥测码：位于各子帧的开头，表明卫星注入数据的状态。</li>
+<li>转换码：位于每个子帧的第二个字码，提供帮助用户从所捕获C/A码转换到捕获P码的时间计数（Z）。</li>
+<li>第一数据块：位于第一子帧的第3 ~10字码。<ul>
+<li> 卫星时钟改正——以地面主控站的原子钟为基准</li>
+<li> 电离层时延改正</li>
+<li> 星期序号WN—— GPS周期数</li>
+<li> 数据龄期AODC</li>
+<li> 卫星的健康状况</li>
+</ul>
+</li>
+<li>第二数据块：包含第2和第3子帧，其内容表示GPS 卫星的星历。</li>
+<li>第三数据块：包含第4和第5子帧，内容包括了所有GPS 卫星的历书数据。可帮助用户选择工作正常的定位卫星。</li>
+</ol>
+<h4 id="2-GPS信号图，信号怎么产生的，为什么要两个载波，消除有什么影响，C-A码，P码"><a href="#2-GPS信号图，信号怎么产生的，为什么要两个载波，消除有什么影响，C-A码，P码" class="headerlink" title="2. GPS信号图，信号怎么产生的，为什么要两个载波，消除有什么影响，C/A码，P码"></a>2. GPS信号图，信号怎么产生的，为什么要两个载波，消除有什么影响，C/A码，P码</h4><ol>
+<li><h5 id="GPS信号"><a href="#GPS信号" class="headerlink" title="GPS信号"></a>GPS信号</h5><ul>
+<li>运载工具（载波L1、L2）</li>
+<li>测距码（C/A码、P码） </li>
+<li>导航电文（数据码、D码） </li>
+</ul>
+</li>
+<li><h5 id="信号图"><a href="#信号图" class="headerlink" title="信号图"></a>信号图</h5><img src="https://img-blog.csdnimg.cn/20191220212217231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+<li><h5 id="两个载波"><a href="#两个载波" class="headerlink" title="两个载波"></a>两个载波</h5><p>测量出或消除掉由于电离层效应而引起的延迟误差 </p>
+</li>
+<li><h5 id="消除有什么影响？"><a href="#消除有什么影响？" class="headerlink" title="消除有什么影响？"></a>消除有什么影响？</h5></li>
+<li><h5 id="粗码C-A码"><a href="#粗码C-A码" class="headerlink" title="粗码C/A码"></a>粗码C/A码</h5><ul>
+<li>码长：1023位</li>
+<li>周期：1ms</li>
+<li>测距误差：3~30m</li>
+<li>特点：<ul>
+<li>由于C/A码的码长较短，易于捕获，而通过捕获C/A码所得到的信息，又可以方便的捕获到P码，称C/A码为捕获码。</li>
+<li>C/A码的码元宽度较大，测距误差可达 3~30m。由于其精度较低，所以，称C/A码为粗捕获码。</li>
+<li>由于C/A码单点定位精度较低，测量上采用非单点定位，即相对定位（差分定位）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="精码P码"><a href="#精码P码" class="headerlink" title="精码P码"></a>精码P码</h5><ul>
+<li>码长：6.19*1012 bit</li>
+<li>周期：七天</li>
+<li>测距误差：0.3~3m</li>
+<li>特点：<ul>
+<li>码元宽度较小，精度较高，专为军用。</li>
+<li>目前，只有极少数接收机才能接收P码，且价格昂贵。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="3-接收机的基本工作原理"><a href="#3-接收机的基本工作原理" class="headerlink" title="3. 接收机的基本工作原理"></a>3. 接收机的基本工作原理</h4><img src="https://img-blog.csdnimg.cn/20191220213027275.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" />
+
+<ol>
+<li><h5 id="接收天线："><a href="#接收天线：" class="headerlink" title="接收天线："></a>接收天线：</h5><p>将GPS信号的极危若的电磁波能转化为相应的电流</p>
+</li>
+<li><h5 id="前置放大器："><a href="#前置放大器：" class="headerlink" title="前置放大器："></a>前置放大器：</h5><p>将GPS信号电流予以放大。为便于接收机对信号进行跟踪、处理和两侧。</p>
+</li>
+<li><h5 id="接收机主机"><a href="#接收机主机" class="headerlink" title="接收机主机"></a>接收机主机</h5><ol>
+<li><p>变频器及中频放大器</p>
+<p>经过GPS前置放大器的信号仍然很微弱，为了使接收机通道得到稳定的高增益，并使L频段的射频信号变为低频信号。采用变频器</p>
+</li>
+<li><p>信号通道</p>
+<ol>
+<li>搜索卫星，牵引并跟踪卫星</li>
+<li>对广播电文数据信号实行解扩，解调出广播电文</li>
+<li>进行伪距测量、载波相位测量及多普勒频移测量</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
+<li>当GPS卫星在用户世界升起时，接收机能够捕获到按一定卫星高度截止角所选择的待测卫星，并能够跟踪这些卫星的运行；</li>
+<li>对所接收到的GPS信号，具有变换，放大和处理的功能，</li>
+<li>以便测量出GPS信号从卫星到接收天线的传播时间，</li>
+<li>解译出GPS卫星所发送的导航电文，</li>
+<li>实时的计算出测站的三维位置，甚至三维速度和时间。</li>
+<li>GPS信号接收机不仅需要功能较为强大的机内软件，而且需要一个多功能的GPS数据测后处理软件包。</li>
+<li>接收机加处理软件包，才是完整的GPS信号用户设备。</li>
+</ul>
+</li>
+</ol>
+<h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><h4 id="1-GPS卫星定位的基本原理，分类，四种"><a href="#1-GPS卫星定位的基本原理，分类，四种" class="headerlink" title="1. GPS卫星定位的基本原理，分类，四种"></a>1. GPS卫星定位的基本原理，分类，四种</h4><ol>
+<li><h5 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h5><ul>
+<li>运用空间距离前方交会的方法求出卫星的位置。</li>
+<li>运用空间距离后方交会的方法求测站点的位置。</li>
+<li>观测值：距离</li>
+<li>用距离交会的方法求解P点的三维坐标（X，Y，Z）的观测方程：<img src="https://img-blog.csdnimg.cn/20191221092334772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:67%;" /></li>
+</ul>
+</li>
+<li><h5 id="实质："><a href="#实质：" class="headerlink" title="实质："></a>实质：</h5><p>​        由GPS接收机在某一时刻，同时接收四颗以上的GPS卫星信号，测量出GPS接收机到GPS卫星的距离，根据空间距离后方交会的方法求测站点的位置。</p>
+</li>
+<li><h5 id="GPS定位方法及分类"><a href="#GPS定位方法及分类" class="headerlink" title="GPS定位方法及分类"></a>GPS定位方法及分类</h5><ul>
+<li><p>按采用观测值</p>
+<ul>
+<li><p>伪距定位</p>
+</li>
+<li><p>载波相位定位</p>
+</li>
+</ul>
+</li>
+<li><p>按获取结果的时间</p>
+<ul>
+<li>实时定位</li>
+<li>事后定位</li>
+</ul>
+</li>
+<li><p>按测站的运动状态</p>
+<ul>
+<li>静态定位</li>
+<li>动态定位</li>
+</ul>
+</li>
+<li><p>按接收机的数量</p>
+<ul>
+<li>绝对定位（单点定位）</li>
+<li>相对定位（差分定位）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-什么是伪距测量？原理是什么，方程（详细）方程各部分的意义"><a href="#2-什么是伪距测量？原理是什么，方程（详细）方程各部分的意义" class="headerlink" title="2. 什么是伪距测量？原理是什么，方程（详细）方程各部分的意义"></a>2. 什么是伪距测量？原理是什么，方程（详细）方程各部分的意义</h4><ol>
+<li><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><ul>
+<li>伪距法定位：由GPS接收机在某一时刻测出四颗以上的GPS卫星的伪距以及已知的卫星位置，采用空间距离后方交会的方法求定天线所在点的三维坐标。</li>
+<li>伪距：由卫星发射的测距码信号到达GPS接收机的传播时间乘以光速所得出的量测距离。而不是卫星与GPS接收机的几何距离。</li>
+</ul>
+</li>
+<li><h5 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h5><img src="https://img-blog.csdnimg.cn/20191221093105390.png" style="zoom:50%;" />
+
+<p>时间 <code>t</code> 的测定：</p>
+<ul>
+<li>卫星 — 测距码，经时间<img src="https://img-blog.csdnimg.cn/20191221093315922.png" style="zoom:50%;" />到达接收机。</li>
+<li>接收机 — 复制码</li>
+<li>时延器 — 延迟复制码，经延迟时间     使两码对齐，<img src="https://img-blog.csdnimg.cn/20191221093237113.png" style="zoom: 50%;" />。</li>
+</ul>
+<p>使<img src="https://img-blog.csdnimg.cn/20191221093442857.png" style="zoom: 60%;" />实际上是不可能的，只能使<img src="https://img-blog.csdnimg.cn/20191221093512925.png" style="zoom:60%;" />，两种码不可能完全对齐，导致时间有误差。</p>
+</li>
+<li><h5 id="伪距测量方程"><a href="#伪距测量方程" class="headerlink" title="伪距测量方程"></a>伪距测量方程</h5><img src="https://img-blog.csdnimg.cn/20191221093650927.png" style="zoom:50%;" />
+
+<ul>
+<li><img src="https://img-blog.csdnimg.cn/20191221093727451.png" style="zoom: 67%;" />为伪距测量值</li>
+<li><img src="https://img-blog.csdnimg.cn/20191221093749964.png" style="zoom: 67%;" />为卫星至接收机几何距离</li>
+<li><code>T </code>为测距码的周期</li>
+<li><img src="https://img-blog.csdnimg.cn/20191221093818530.png" style="zoom: 67%;" />为周长</li>
+<li><img src="https://img-blog.csdnimg.cn/20191221093900308.png" style="zoom:67%;" />为测距模糊度</li>
+</ul>
+<p>如果已知待测距离小于测距码的波长，则n=0</p>
+</li>
+<li><h5 id="伪距定位观测方程"><a href="#伪距定位观测方程" class="headerlink" title="伪距定位观测方程"></a>伪距定位观测方程</h5><img src="https://img-blog.csdnimg.cn/20191221094354676.png" style="zoom:50%;" />
+
+<ul>
+<li>优点：定位速度快，无多值性。</li>
+<li>缺点：定位精度低，P码的测距精度0.3m，C/A码  的测距精度3m左右 。</li>
+</ul>
+</li>
+</ol>
+<h4 id="3-载波相位测量的原理，方程"><a href="#3-载波相位测量的原理，方程" class="headerlink" title="3. 载波相位测量的原理，方程"></a>3. 载波相位测量的原理，方程</h4><ol>
+<li><h5 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h5></li>
+</ol>
+<img src="https://img-blog.csdnimg.cn/20191221094637739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" />
+
+
+
+<img src="https://img-blog.csdnimg.cn/20191221094829617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" />
+
+
+
+<img src="https://img-blog.csdnimg.cn/20191221094907806.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" />
+
+<ol start="2">
+<li><h5 id="方程"><a href="#方程" class="headerlink" title="方程"></a>方程</h5></li>
+</ol>
+<img src="https://img-blog.csdnimg.cn/20191221095224670.png" style="zoom:50%;" />
+
+<h4 id="4-整周跳变原因，修复方法"><a href="#4-整周跳变原因，修复方法" class="headerlink" title="4. 整周跳变原因，修复方法"></a>4. 整周跳变原因，修复方法</h4><ol>
+<li>定义<ul>
+<li>在载波相位测量中，若接收机保持对卫星信号的连续跟踪，则整周未知数保持不变，整周计数也保持连续.</li>
+<li>但当接收机无法保持对卫星信号连续跟踪时，在卫星信号重新被锁定后，整周未知数将发生变化，整周计数也将不再与前面的值保持连续而发生部分丢失现象.</li>
+<li>不足一周的的相位观测值仍是正确的</li>
+</ul>
+</li>
+<li>原因<ol>
+<li>信号被其它物体遮拦；</li>
+<li>大功率电磁场干扰；</li>
+<li>电源中断，或接收机故障（无法修复周跳，需重新观测）</li>
+</ol>
+</li>
+<li>修复方法<ol>
+<li>屏幕扫描法</li>
+<li>多项式拟合法</li>
+<li>在卫星间求差</li>
+<li>双频观测值修复周跳</li>
+<li>根据平差后的残差修复周跳</li>
+</ol>
+</li>
+</ol>
+<h4 id="5-绝对定位，相对定位"><a href="#5-绝对定位，相对定位" class="headerlink" title="5. 绝对定位，相对定位"></a>5. 绝对定位，相对定位</h4><ol>
+<li><p>绝对定位</p>
+<p>​    接收机天线处于静止状态下，确定观测站坐标的方法称为静态绝对定位。</p>
+<p>这时，可以连续地在不同历元同步观测不同的卫星，测定卫星至观测站的伪距，获得充分的多余观测量。测后通过数据处理求得观测站的绝对坐标。</p>
+</li>
+<li><p>相对定位</p>
+<p>至少用两台GPS接收机，同步观测相同的GPS卫星，确定两台接收机天线之间的相对位置（坐标差）。</p>
+<ul>
+<li>特点<ul>
+<li>优点：定位精度高</li>
+<li>缺点：<ul>
+<li>多台接收共同作业</li>
+<li>数据处理复杂</li>
+<li>不能直接获取绝对坐标</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>应用<ul>
+<li>高精度测量定位及导航</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="6-一次两次三次差分定位"><a href="#6-一次两次三次差分定位" class="headerlink" title="6. 一次两次三次差分定位"></a>6. 一次两次三次差分定位</h4><ol>
+<li><h5 id="单差观测（一次差）——在接收机间求差"><a href="#单差观测（一次差）——在接收机间求差" class="headerlink" title="单差观测（一次差）——在接收机间求差"></a>单差观测（一次差）——在接收机间求差</h5><blockquote>
+<p>为什么要进行单差观测？<br> 不同接收机观测同一颗卫星，在不同接收机间求一次差，可消除信号传播的误差（对流层、电离层等的误差），采用单差观测的目的就是要减少误差的影响提高定位结果的精度。<br>优点：①可消除卫星钟差的影响；</p>
+<pre><code>     ②削弱星历误差的影响；
+     ③可削弱电离层和对流层的影响。
+</code></pre>
+</blockquote>
+</li>
+<li><h5 id="双差观测（二次差）——在卫星间求差"><a href="#双差观测（二次差）——在卫星间求差" class="headerlink" title="双差观测（二次差）——在卫星间求差"></a>双差观测（二次差）——在卫星间求差</h5><p>可以消除接收机间钟差的影响。</p>
+</li>
+<li><h5 id="三次差—在星历间求差（两个历元的星历间求差）"><a href="#三次差—在星历间求差（两个历元的星历间求差）" class="headerlink" title="三次差—在星历间求差（两个历元的星历间求差）"></a>三次差—在星历间求差（两个历元的星历间求差）</h5><p>可消除的影响（过程中由于不准造成的影响）</p>
+</li>
+<li><h5 id="差分定位"><a href="#差分定位" class="headerlink" title="差分定位"></a>差分定位</h5><p>差分GPS定位技术是将一台GPS接收机安置在基准站上进行观测。根据基准站已知精密坐标，计算出基准站到卫星的距离改正数，并由基准站实时地将这一改正数发送出去。用户接收机在进行GPS观测的同时，也接收到基准站的改正数，并对其定位结果进行改正，从而提高定位精度。</p>
+<p>差分GPS可分为:</p>
+<ul>
+<li>单基准站差分<ul>
+<li>位置差分</li>
+<li>伪距差分</li>
+<li>载波相位差分</li>
+</ul>
+</li>
+<li>具有多个基准站的局部区域差分</li>
+<li>广域差分</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p> GPS定位中，存在着三部分误差：</p>
+<ol>
+<li><p>一是多台接收机公有的误差，如：卫星钟误差、星历误差；</p>
+</li>
+<li><p>二是传播延迟误差，如：电离层误差、对流层误差；</p>
+</li>
+<li><p>三是接收机固有的误差，如：内部噪声、通道延迟、多路径效应。</p>
+<p>采用差分定位，可完全消除第一部分误差，可大部分消除第二部分误差（视基准站至用户的距离）。</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><h4 id="1-GPS测量的误差来源及消除方法"><a href="#1-GPS测量的误差来源及消除方法" class="headerlink" title="1. GPS测量的误差来源及消除方法"></a>1. GPS测量的误差来源及消除方法</h4><ol>
+<li><h5 id="GPS卫星-对距离测量的影响：1-5-15m"><a href="#GPS卫星-对距离测量的影响：1-5-15m" class="headerlink" title="GPS卫星: 对距离测量的影响：1.5 ~ 15m"></a>GPS卫星: 对距离测量的影响：1.5 ~ 15m</h5><ol>
+<li><h6 id="星历误差：星历包含17个参数，参数本身存在误差。"><a href="#星历误差：星历包含17个参数，参数本身存在误差。" class="headerlink" title="星历误差：星历包含17个参数，参数本身存在误差。"></a>星历误差：星历包含17个参数，参数本身存在误差。</h6><p>​    消除:</p>
+<ul>
+<li>建立自己的卫星跟踪网；</li>
+<li>轨道松弛法——六个轨道参数的近似值作为已知值，将改正数作为参数进行平差处理。</li>
+<li>同步观测求差——利用两个或多个观测站，对同一卫星的同步观测值求差。</li>
+</ul>
+</li>
+<li><h6 id="钟误差：调制波以一定的频率形成信号，信号本身存在误差；利用调制码求时间，存在误差。"><a href="#钟误差：调制波以一定的频率形成信号，信号本身存在误差；利用调制码求时间，存在误差。" class="headerlink" title="钟误差：调制波以一定的频率形成信号，信号本身存在误差；利用调制码求时间，存在误差。"></a>钟误差：调制波以一定的频率形成信号，信号本身存在误差；利用调制码求时间，存在误差。</h6><p>​    消除:</p>
+<ul>
+<li>加钟差改正模型</li>
+<li>同步观测求差——在接收机间求一次差，可消除卫星钟差和改正后的残余误差。</li>
+</ul>
+</li>
+<li><h6 id="相对论效应：对震荡频率产生影响，会对时间、空间距离产生影响。"><a href="#相对论效应：对震荡频率产生影响，会对时间、空间距离产生影响。" class="headerlink" title="相对论效应：对震荡频率产生影响，会对时间、空间距离产生影响。"></a>相对论效应：对震荡频率产生影响，会对时间、空间距离产生影响。</h6><p>​    消除:</p>
+<ul>
+<li>在制造卫星钟时预先把频率降低为 <img src="https://img-blog.csdnimg.cn/20191221111542834.png" style="zoom:50%;" /></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><h5 id="卫星信号的传播过程-对距离测量的影响：1-5-15m"><a href="#卫星信号的传播过程-对距离测量的影响：1-5-15m" class="headerlink" title="卫星信号的传播过程: 对距离测量的影响：1.5 ~ 15m"></a>卫星信号的传播过程: 对距离测量的影响：1.5 ~ 15m</h5><ol>
+<li><h6 id="电离层：信号在传播时会发生折射。"><a href="#电离层：信号在传播时会发生折射。" class="headerlink" title="电离层：信号在传播时会发生折射。"></a>电离层：信号在传播时会发生折射。</h6><p>​    消除:</p>
+<ul>
+<li>利用电离层改正模型加以修正（模型法）</li>
+<li>利用双频观测</li>
+<li>同步观测求差。</li>
+</ul>
+</li>
+<li><h6 id="对流层：信号在传播时会发生折射。"><a href="#对流层：信号在传播时会发生折射。" class="headerlink" title="对流层：信号在传播时会发生折射。"></a>对流层：信号在传播时会发生折射。</h6><p>​    消除:</p>
+<ul>
+<li>采用对流层模型加以改正；</li>
+<li>引入待估参数；</li>
+<li>同步观测求差。</li>
+</ul>
+</li>
+<li><h6 id="多路径效应：测站周围的反射物所反射的信号进入接收机天-线，与直接来自卫星的信号产生干涉。"><a href="#多路径效应：测站周围的反射物所反射的信号进入接收机天-线，与直接来自卫星的信号产生干涉。" class="headerlink" title="多路径效应：测站周围的反射物所反射的信号进入接收机天 线，与直接来自卫星的信号产生干涉。"></a>多路径效应：测站周围的反射物所反射的信号进入接收机天 线，与直接来自卫星的信号产生干涉。</h6><p>​    消除:</p>
+<ul>
+<li>选择合适的站址；</li>
+<li>对接收机天线的要求；</li>
+<li>同步观测求差。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>不论是对流层或电离层与高度角都有很大的关系， 正上方影响最小，地平方向最大。高度角越大越好。</p>
+</blockquote>
+</li>
+<li><h5 id="地面接收设备-对距离测量的影响：1-5-5m"><a href="#地面接收设备-对距离测量的影响：1-5-5m" class="headerlink" title="地面接收设备: 对距离测量的影响：1.5 ~ 5m"></a>地面接收设备: 对距离测量的影响：1.5 ~ 5m</h5><ol>
+<li><h6 id="接收机钟差：接收机钟与卫星钟不同步。"><a href="#接收机钟差：接收机钟与卫星钟不同步。" class="headerlink" title="接收机钟差：接收机钟与卫星钟不同步。"></a>接收机钟差：接收机钟与卫星钟不同步。</h6><p>​    消除:</p>
+<ul>
+<li>作为未知数，一并求解；</li>
+<li>在卫星间求一次差；</li>
+<li>加时钟改正模型。</li>
+</ul>
+</li>
+<li><h6 id="位置误差：对中、整平、水准器校正不好等。"><a href="#位置误差：对中、整平、水准器校正不好等。" class="headerlink" title="位置误差：对中、整平、水准器校正不好等。"></a>位置误差：对中、整平、水准器校正不好等。</h6><p>​    消除:</p>
+<ul>
+<li>校正仪器、仔细安置仪器、强制归心。</li>
+</ul>
+</li>
+<li><h6 id="天线相位中心：天线的几何中心与电磁场相位中心不重合，类似经纬仪度盘的偏心差。"><a href="#天线相位中心：天线的几何中心与电磁场相位中心不重合，类似经纬仪度盘的偏心差。" class="headerlink" title="天线相位中心：天线的几何中心与电磁场相位中心不重合，类似经纬仪度盘的偏心差。"></a>天线相位中心：天线的几何中心与电磁场相位中心不重合，类似经纬仪度盘的偏心差。</h6><p>​    消除:</p>
+<ul>
+<li>同步观测求差。</li>
+<li>所有天线安置时方向要一致，指向标均指向北方向。 </li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>其他影响</p>
+<ol>
+<li>地球潮汐：海潮，固体潮</li>
+<li>负荷潮：与地球的内部质量分布不均匀有关，与地球的引力有关。对距离测量的影响：1.0m</li>
+</ol>
+</li>
+</ol>
+<h2 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h2><h4 id="1-GPS测量的设计依据，基准设计"><a href="#1-GPS测量的设计依据，基准设计" class="headerlink" title="1. GPS测量的设计依据，基准设计"></a>1. GPS测量的设计依据，基准设计</h4><ol>
+<li>设计依据<ol>
+<li>GPS测量规范：主要指国家、城市以及行业标准。</li>
+<li>测量任务书：布网的设计既要符合有关标准又要满足任务要求。</li>
+</ol>
+</li>
+<li>基准设计<ol>
+<li>位置基准：由给定的起算点确定</li>
+<li>方位基准：由给定边的起算方位角确定 </li>
+<li>尺度基准：测距仪测定的基线边、GPS基线边或<pre><code>两个起算点间的距离确定
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="2-GPS网构成的几个基本概念及网特征条件"><a href="#2-GPS网构成的几个基本概念及网特征条件" class="headerlink" title="2. GPS网构成的几个基本概念及网特征条件"></a>2. GPS网构成的几个基本概念及网特征条件</h4><ol>
+<li><h5 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h5><ol>
+<li>观测时段：测站上开始接收卫星信号到观测停止，连续工作的时间段。</li>
+<li>同步观测：两台或两台以上接收机同时对同一组卫星进行的观测。</li>
+<li>同步观测环：三台或三台以上接收机同步观测获得的基线向量所构成的闭合环。</li>
+<li>独立观测环：由独立观测所获得的基线向量所构成的闭合环。</li>
+<li>异步观测环：在构成多边形环路的所有基线向量中，只要有非同步观测基线向量，则该多边形环路叫异步观测环。</li>
+<li>独立基线：对于N台GPS接收机构成的同步观测环，有J条同步观测基线，其中独立基线数为  N-1。</li>
+<li>非独立基线：除独立基线外的其他基线，总基线数与独立基线数之差即为非独立基线数。</li>
+</ol>
+</li>
+<li><h5 id="GPS网特征条件的计算"><a href="#GPS网特征条件的计算" class="headerlink" title="GPS网特征条件的计算"></a>GPS网特征条件的计算</h5><ol>
+<li>全网观测时段数</li>
+<li>总基线数</li>
+<li>必要基线数</li>
+<li>独立基线数</li>
+<li>多余基线数</li>
+</ol>
+</li>
+</ol>
+<h4 id="3-GPS网特征条件的计算"><a href="#3-GPS网特征条件的计算" class="headerlink" title="3. GPS网特征条件的计算"></a>3. GPS网特征条件的计算</h4><img src="https://img-blog.csdnimg.cn/20191221112552661.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom: 40%;" />
+
+<h4 id="4-GPS外野实施，怎么选点，观测，不能做什么"><a href="#4-GPS外野实施，怎么选点，观测，不能做什么" class="headerlink" title="4. GPS外野实施，怎么选点，观测，不能做什么"></a>4. GPS外野实施，怎么选点，观测，不能做什么</h4><ol>
+<li><h5 id="选点"><a href="#选点" class="headerlink" title="选点"></a>选点</h5><ol>
+<li>点位应安置在视野开阔，易安装仪器的地方；</li>
+<li>点位目标明显，视场周围15°以上没有障碍物的地方；</li>
+<li>点位应远离大功率无线电用电器大于200m；远离高压电线，不小50m；</li>
+<li>点位附近无大面积水域，无强烈信号干扰，以免造成信号衰减； </li>
+<li>点位应选在交通便利、有利于其它观测手段扩展和联测；</li>
+<li>地面基础稳定易于点的保存；</li>
+<li>图形应有利于同步观测边、点联测；</li>
+<li>利用旧点时应对旧点的稳定性、完好性和站标的安全性进行检查； </li>
+</ol>
+</li>
+<li><h5 id="观测过程中不允许进行以下操作："><a href="#观测过程中不允许进行以下操作：" class="headerlink" title="观测过程中不允许进行以下操作："></a>观测过程中不允许进行以下操作：</h5><p>​      a)接收机关闭又重新启动；<br>​      b)进行自测试；<br>​      c)改变卫星仰角；<br>​      d)改变数据采样间隔；<br>​      e)改变天线位置；<br>​      f)按动关闭文件和删除文件等功能键。</p>
+</li>
+</ol>
+<h4 id="5-RTK的测量原理，基准站，移动站什么时候发送数据"><a href="#5-RTK的测量原理，基准站，移动站什么时候发送数据" class="headerlink" title="5. RTK的测量原理，基准站，移动站什么时候发送数据"></a>5. RTK的测量原理，基准站，移动站什么时候发送数据</h4><ol>
+<li><h5 id="测量原理"><a href="#测量原理" class="headerlink" title="测量原理"></a>测量原理</h5><ul>
+<li><p>在基准站上安置一台GPS接收机，对所有可见GPS卫星进行连续的观测，并将其观测数据，通过无线电传输设备，实时的发送给用户观测站。</p>
+</li>
+<li><p>在用户站上，GPS接收机在接收GPS卫星信号的同时，通过无线电接收设备，接收基准站传输的观测数据，然后根据相对定位的原理，实时的计算并显示用户站的三维坐标及其精度。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="第九章"><a href="#第九章" class="headerlink" title="第九章"></a>第九章</h2><h4 id="1-GPS测量数据处理过程，原理，方法"><a href="#1-GPS测量数据处理过程，原理，方法" class="headerlink" title="1. GPS测量数据处理过程，原理，方法"></a>1. GPS测量数据处理过程，原理，方法</h4><ol>
+<li><h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><img src="https://img-blog.csdnimg.cn/20191221113401548.png" style="zoom: 67%;" /></li>
+<li><p>数据采集： GPS接收机至卫星的伪距、载波相位和卫星星历等数据。</p>
+</li>
+<li><p>GPS数据处理：从原始的观测值出发得到最终的测量定位成果。</p>
+</li>
+<li><p>基线解算：</p>
+<ol>
+<li>原始观测数据的读入</li>
+<li>外业输入数据的检查与修改</li>
+<li>设置基线解算的控制参数</li>
+<li>基线解算</li>
+<li>基线解算质量的检核</li>
+<li>结束</li>
+</ol>
+</li>
+</ol>
+<h4 id="2-GPS高程：之间的差异"><a href="#2-GPS高程：之间的差异" class="headerlink" title="2. GPS高程：之间的差异"></a>2. GPS高程：之间的差异</h4><ol>
+<li>大地水准面和正高（正高系统）: 以大地水准面为基准面的高程系统。</li>
+<li>似大地水准面和正常高（正常高系统）: 以似大地水准面为基准面的高程系统。</li>
+<li>参考椭球面和大地高（大地高系统）: 以参考椭球面为基准面的高程系统</li>
+</ol>
+<h4 id="3-高程计算方法：3个"><a href="#3-高程计算方法：3个" class="headerlink" title="3. 高程计算方法：3个"></a>3. 高程计算方法：3个</h4><ol>
+<li><p>绘等直线图法—— 几何内插法</p>
+<ol>
+<li><p>测区内有m个点，大地高均已知；</p>
+</li>
+<li><p>选n个点进行水准测量，得其正常高；</p>
+</li>
+<li><p>计算n个点的高程异常：</p>
+</li>
+<li><p>依据各点的坐标按一定比例将点展绘在图纸上，并在n个点旁标注出其高程异常值。</p>
+</li>
+<li><p>选取高程异常等高距（1～5cm），绘等值线图。</p>
+</li>
+<li><p>利用内插法求出其余m-n个点的高程异常值。</p>
+<p>注：n个点选取时要覆盖整个测区。</p>
+</li>
+</ol>
+</li>
+<li><p>多项式曲线拟合法</p>
+<ol>
+<li>在测线上有m个点，经GPS测量得其大地高；</li>
+<li>在m个点中n个点，用水准测量方法测得其正常高。</li>
+<li>计算n个点的高程异常：<img src="https://img-blog.csdnimg.cn/2019122113562624.png" style="zoom: 67%;" /></li>
+<li>找出<img src="https://img-blog.csdnimg.cn/20191221135651297.png" style="zoom:67%;" />与x（或y）的函数关系：<br><img src="https://img-blog.csdnimg.cn/20191221135705575.png" style="zoom:67%;" />  或  <img src="https://img-blog.csdnimg.cn/20191221135722455.png" style="zoom:67%;" /><br>可用多项式表示：<img src="https://img-blog.csdnimg.cn/20191221135804350.png" style="zoom:67%;" /><pre><code>    当工程为带状时利用绘等直线法就不是很方便了，拟合的好坏与点的个数和点的位置有关。
+</code></pre>
+</li>
+</ol>
+</li>
+<li><p>多项式曲面拟合法</p>
+<ol>
+<li><p>在测区上有m个点，经GPS测量得其大地高；</p>
+</li>
+<li><p>在m个点中n个点，用水准测量方法测得其正常高。</p>
+</li>
+<li><p>计算n个点的高程异常：<img src="https://img-blog.csdnimg.cn/20191221140043244.png" style="zoom:67%;" /></p>
+</li>
+<li><p>找出<img src="https://img-blog.csdnimg.cn/20191221135651297.png" style="zoom:67%;" /> 与点的坐标（ x，y）的函数关系：<img src="https://img-blog.csdnimg.cn/2019122114012482.png" style="zoom:67%;" /></p>
+<p>可用多项式表示：<img src="https://img-blog.csdnimg.cn/20191221140215631.png" style="zoom:67%;" /></p>
+<pre><code>    拟合的点在测区内应分布均匀。
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><h4 id="2-GPS功能"><a href="#2-GPS功能" class="headerlink" title="2. GPS功能"></a>2. GPS功能</h4><p>定位，导航，授时</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/GPS%E6%B5%8B%E9%87%8F%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" data-id="ckreqntjz002ar07kez8b1fyp" data-title="GPS测量原理及应用 知识总结" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/GP%E6%9C%8D%E5%8A%A1--%E7%BC%93%E5%86%B2%E5%8C%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          GP--缓冲区
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/github_%E7%A0%81%E4%BA%91%E6%93%8D%E4%BD%9C---%E6%8F%90%E4%BA%A4%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">github_码云操作---提交中的常用命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

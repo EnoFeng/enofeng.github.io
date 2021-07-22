@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>加载---加载动态图层+注册文件夹 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="基础：加载动态图层方法： 添加一个button（添加动态图层），给button绑定on模块的点击事件  1on(dom.byId(&quot;btn&quot;),&quot;click&quot;,function(e)&amp;#123;&amp;#125;) 定义数据源，设置命名空间，设置命名空间下面的shp  123var dataSource &#x3D; new TableDataSource();dataSo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="加载---加载动态图层+注册文件夹">
+<meta property="og:url" content="http://example.com/2021/07/22/%E5%8A%A0%E8%BD%BD---%E5%8A%A0%E8%BD%BD%E5%8A%A8%E6%80%81%E5%9B%BE%E5%B1%82+%E6%B3%A8%E5%86%8C%E6%96%87%E4%BB%B6%E5%A4%B9/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="基础：加载动态图层方法： 添加一个button（添加动态图层），给button绑定on模块的点击事件  1on(dom.byId(&quot;btn&quot;),&quot;click&quot;,function(e)&amp;#123;&amp;#125;) 定义数据源，设置命名空间，设置命名空间下面的shp  123var dataSource &#x3D; new TableDataSource();dataSo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-22T09:54:49.035Z">
+<meta property="article:modified_time" content="2020-04-12T12:16:16.823Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-加载---加载动态图层+注册文件夹" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%8A%A0%E8%BD%BD---%E5%8A%A0%E8%BD%BD%E5%8A%A8%E6%80%81%E5%9B%BE%E5%B1%82+%E6%B3%A8%E5%86%8C%E6%96%87%E4%BB%B6%E5%A4%B9/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.035Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      加载---加载动态图层+注册文件夹
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="基础：加载动态图层"><a href="#基础：加载动态图层" class="headerlink" title="基础：加载动态图层"></a>基础：<a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/04/12/%E5%8A%A0%E8%BD%BD---%E5%8A%A8%E6%80%81%20_%20%E5%88%87%E7%89%87%E5%9C%B0%E5%9B%BE%E5%8A%A0%E8%BD%BD/">加载动态图层</a></h5><h5 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h5><ol>
+<li><p>添加一个button（添加动态图层），给button绑定on模块的点击事件</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">on(dom.byId(<span class="string">&quot;btn&quot;</span>),<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>定义数据源，设置命名空间，设置命名空间下面的shp</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dataSource = <span class="keyword">new</span> TableDataSource();</span><br><span class="line">dataSource.workspaceId = <span class="string">&quot;demo&quot;</span>;</span><br><span class="line">dataSource.dataSourceName = <span class="string">&quot;demoShp.shp&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>定义图层数据源，对其赋值</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> layerSource = <span class="keyword">new</span> LayerDataSource();</span><br><span class="line">layerSource.dataSource = dataSource;</span><br></pre></td></tr></table></figure></li>
+<li><p>定义要素图层（动态图层）</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> layer2 = <span class="keyword">new</span> FeatureLayer</span><br><span class="line">(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer/dynamicLayer&quot;</span>, &#123;</span><br><span class="line">	<span class="attr">mode</span>: FeatureLayer.MODE_ONDEMAND,</span><br><span class="line">	<span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>],</span><br><span class="line">	<span class="attr">source</span>: layerSource</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>定义线符号，渲染器</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lineSymbol = <span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> dojo.Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span><br><span class="line"><span class="keyword">var</span> renderer = <span class="keyword">new</span> esri.renderer.SimpleRenderer(lineSymbol);</span><br><span class="line">				</span><br></pre></td></tr></table></figure></li>
+<li><p>给要素图层设置渲染器</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">layer2.setRenderer(renderer);</span><br><span class="line">layer2.refresh();</span><br></pre></td></tr></table></figure></li>
+<li><p>把要素图层添加到map上</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.addLayer(layer2);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="贴代码"><a href="#贴代码" class="headerlink" title="贴代码"></a>贴代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/dijit/themes/tundra/tundra.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">type</span>=<span class="string">&quot;text/Javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/dom&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/on&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/FeatureLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/TableDataSource&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/LayerDataSource&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/renderers/SimpleRenderer&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;dojo/domReady!&quot;</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                <span class="built_in">Map</span>,dom,on, ArcGISDynamicMapServiceLayer, FeatureLayer, TableDataSource, LayerDataSource, SimpleRenderer,SimpleLineSymbol</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;mapDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> layer1 = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">            map.addLayer(layer1);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">			on(dom.byId(<span class="string">&quot;btn&quot;</span>),<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">// 定义数据源，设置命名空间，设置命名空间下面的shp</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> dataSource = <span class="keyword">new</span> TableDataSource();</span></span><br><span class="line"><span class="javascript">				dataSource.workspaceId = <span class="string">&quot;demo&quot;</span>;</span></span><br><span class="line"><span class="javascript">				dataSource.dataSourceName = <span class="string">&quot;demoShp.shp&quot;</span>;</span></span><br><span class="line"><span class="javascript">				<span class="comment">// 定义图层数据源，对其赋值</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> layerSource = <span class="keyword">new</span> LayerDataSource();</span></span><br><span class="line"><span class="javascript">				layerSource.dataSource = dataSource;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//定义一个要素图层:动态图层</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> layer2 = <span class="keyword">new</span> FeatureLayer(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/demo/Practice/MapServer/dynamicLayer&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">					<span class="attr">mode</span>: FeatureLayer.MODE_ONDEMAND,</span></span><br><span class="line"><span class="javascript">					<span class="attr">outFields</span>: [<span class="string">&quot;*&quot;</span>],</span></span><br><span class="line"><span class="javascript">					<span class="attr">source</span>: layerSource</span></span><br><span class="line"><span class="javascript">				&#125;);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//定义线符号，渲染器</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> lineSymbol = <span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> dojo.Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> renderer = <span class="keyword">new</span> esri.renderer.SimpleRenderer(lineSymbol);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//给要素图层设置渲染器</span></span></span><br><span class="line"><span class="javascript">				layer2.setRenderer(renderer);</span></span><br><span class="line"><span class="javascript">				layer2.refresh();</span></span><br><span class="line"><span class="javascript">				<span class="comment">//把要素图层添加到map上</span></span></span><br><span class="line"><span class="javascript">				map.addLayer(layer2);</span></span><br><span class="line"><span class="javascript">			&#125;)</span></span><br><span class="line"><span class="javascript">            </span></span><br><span class="line"><span class="javascript">        &#125;);</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mapDiv&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height:600px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>添加动态图层<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%8A%A0%E8%BD%BD---%E5%8A%A0%E8%BD%BD%E5%8A%A8%E6%80%81%E5%9B%BE%E5%B1%82+%E6%B3%A8%E5%86%8C%E6%96%87%E4%BB%B6%E5%A4%B9/" data-id="ckreqntje001br07kfhq1a5m2" data-title="加载---加载动态图层+注册文件夹" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/%E5%8A%A0%E8%BD%BD---%E9%97%AA%E7%83%81Layer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          加载---闪烁Layer
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/%E5%8A%A0%E8%BD%BD---%E5%8A%A8%E6%80%81%20_%20%E5%88%87%E7%89%87%E5%9C%B0%E5%9B%BE%E5%8A%A0%E8%BD%BD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">加载---动态 / 切片地图加载</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

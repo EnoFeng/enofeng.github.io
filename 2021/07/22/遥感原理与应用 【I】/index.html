@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>遥感原理与应用 【I】 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="态度决定一切。小时候常听，长大了才懂。 文章较长，建议从目录选取感兴趣内容，然后Ctry+F搜索、跳转 目录1、电磁波的是3个特性在遥感中的应用2、电磁波谱3、黑体辐射（三个特性）4、大气对辐射的影响5、大气窗口6、一般物体的发射辐射7、光谱反射率8、反射波谱曲线9、假彩色10、为什么天是蓝色的？11、遥感平台12、卫星轨道6参数13、传感器分类14、扫描成像传感器15、MSS多光谱扫描仪16、C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="遥感原理与应用 【I】">
+<meta property="og:url" content="http://example.com/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="态度决定一切。小时候常听，长大了才懂。 文章较长，建议从目录选取感兴趣内容，然后Ctry+F搜索、跳转 目录1、电磁波的是3个特性在遥感中的应用2、电磁波谱3、黑体辐射（三个特性）4、大气对辐射的影响5、大气窗口6、一般物体的发射辐射7、光谱反射率8、反射波谱曲线9、假彩色10、为什么天是蓝色的？11、遥感平台12、卫星轨道6参数13、传感器分类14、扫描成像传感器15、MSS多光谱扫描仪16、C">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415072828223.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415120749522.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415120538990.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415072933214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415072950830.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019041507300938.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073026586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073049281.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073116235.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073131115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073147364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019041513241930.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/201904150732269.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073245293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073302255.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073322662.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073337176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073357338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073414209.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073515464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073527323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073554560.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073624989.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073641676.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073654610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073711895.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073724556.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073742859.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190414210405692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073815262.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073829116.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073842559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073936545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190415073947736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-07-22T09:54:49.068Z">
+<meta property="article:modified_time" content="2020-04-12T13:48:05.903Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190415072828223.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-遥感原理与应用 【I】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.068Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      遥感原理与应用 【I】
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>态度决定一切。小时候常听，长大了才懂。</p>
+<p>文章较长，建议从目录选取感兴趣内容，然后Ctry+F搜索、跳转</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><strong>1、电磁波的是3个特性在遥感中的应用<br>2、电磁波谱<br>3、黑体辐射（三个特性）<br>4、大气对辐射的影响<br>5、大气窗口<br>6、一般物体的发射辐射<br>7、光谱反射率<br>8、反射波谱曲线<br>9、假彩色<br>10、为什么天是蓝色的？<br>11、遥感平台<br>12、卫星轨道6参数<br>13、传感器分类<br>14、扫描成像传感器<br>15、MSS多光谱扫描仪<br>16、CCD线阵列传感器<br>17、成像光谱仪<br>18、遥感传感器记录地物电磁波的图像形式<br>19、数字图像的存储<br>20、遥感图像的构像方程<br>21、几何变形<br>22、传感器外方位元素变化的影响<br>24、大气折射引起的图像变形<br>25、地球自转引起的图像变形<br>26、基于多项式的遥感图像纠正<br>27、图像亮度值的重采样<br>28、辐射误差<br>29、大气校正<br>30、遥感图像辐射增强<br>31、图像融合</strong></p>
+<p>———————————————正文———————————————————–</p>
+<h2 id="1、电磁波的是3个特性在遥感中的应用"><a href="#1、电磁波的是3个特性在遥感中的应用" class="headerlink" title="1、电磁波的是3个特性在遥感中的应用"></a>1、电磁波的是3个特性在遥感中的应用</h2><p><strong>三个特性：</strong></p>
+<ol>
+<li><p>波粒二重性（波动性、粒子性）</p>
+<ul>
+<li>波动性包括干涉、衍射、偏振等现象</li>
+<li>以离散形式存在。其离散单元成为光子或量子。</li>
+</ul>
+</li>
+<li><p>波长与光子能量成反比关系</p>
+</li>
+<li><p>波长越短光子能量越大，则穿透力越强</p>
+</li>
+</ol>
+<p><strong>应用</strong></p>
+<ol>
+<li><p>干涉：干涉雷达指采用干涉测量技术的合成孔径雷达</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190415072828223.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>相干条件：两列频率相同、震动方向相同、相位差恒定的波。</p>
+</blockquote>
+</li>
+<li><p>衍射：设计遥感仪器和提高遥感图像几何分辨率、数字影像的处理</p>
+<blockquote>
+<p>光通过有限大小的障碍物时偏离直线路径的现象</p>
+</blockquote>
+</li>
+<li><p>偏振（极化）：雷达遥感系统常用四种极化方式——HH、VV、HV、VH</p>
+<ul>
+<li>水平极化（H）：电场方向平行于电磁波投射的平面</li>
+<li>垂直极化（V）：垂直于水平极化的方向</li>
+<li>HH、VV：同向极化</li>
+<li>HV、VH：交叉极化</li>
+</ul>
+<blockquote>
+<p>自然光（非偏正光）<br>振动方向不变光<br>振动面是一个固定平面</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="2、电磁波谱"><a href="#2、电磁波谱" class="headerlink" title="2、电磁波谱"></a>2、电磁波谱</h2><p><strong>电磁波在真空中传播的波长或频率递增或递减顺序排序</strong></p>
+<p> 电磁波包括：γ射线、X射线、紫外线、可见光、红外线、微波</p>
+<p>遥感应用波段：</p>
+<ul>
+<li>紫外线：0.01~0.38μm，对油污染敏感</li>
+<li>可见光：0.38~0.76μm，</li>
+<li>红外线：0.76~1000μm，（近、中、远、超远）</li>
+<li>微波：1mm~1m，穿透性好，不受云雾影响</li>
+</ul>
+<p><strong>应用</strong></p>
+<blockquote>
+<p>遥感就是根据感兴趣的地物的波谱特性，选择相应的电磁波段通过传感器探测不同的电磁波谱的发射或反射能量而成像的。</p>
+</blockquote>
+<h2 id="3、黑体辐射（三个特性）"><a href="#3、黑体辐射（三个特性）" class="headerlink" title="3、黑体辐射（三个特性）"></a>3、黑体辐射（三个特性）</h2><ul>
+<li>一个物体对于任何波长的电磁辐射都全部吸收（能量由温度决定）</li>
+</ul>
+<p>特性：</p>
+<ol>
+<li><p>辐射通量密度随波长连续变化，每条曲线只有一个最大值。</p>
+</li>
+<li><p>温度越高，总的辐射通量密度越大，不同温度的曲线不同且不相交</p>
+</li>
+<li><p>随着温度的升高，辐射最大值所对应的波长向短波方向移动（维恩位移定律 ）</p>
+<blockquote>
+<p>热红外遥感探测和识别原理</p>
+<p>斯忒藩-玻尔兹曼公式：绝对黑体表面上，单位面积发出的总辐射能与绝对温度的四次方成正比。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="4、大气对辐射的影响"><a href="#4、大气对辐射的影响" class="headerlink" title="4、大气对辐射的影响"></a>4、大气对辐射的影响</h2><ol>
+<li><p>地球大气</p>
+<p> 对流层、平流层、电离层、大气外层</p>
+</li>
+<li><p>大气对太阳辐射的吸收、散射、反射</p>
+<p> （1）大气对遥感波段的影响（吸收）</p>
+<blockquote>
+<ul>
+<li><p>可见光波段：分子散射</p>
+</li>
+<li><p>紫外、红外、微波：大气吸收</p>
+</li>
+</ul>
+</blockquote>
+<p> （2）散射：电磁波与物质相互作用后，电磁波传播方向发生改变，并向各个方向散开。</p>
+<blockquote>
+<ul>
+<li>主要发生在可见光，只改变传播方向</li>
+<li>对遥感图像，降低了传感器接收数据的质量，造成图像模糊不清。</li>
+<li>米氏散射、均匀散射、瑞利散射</li>
+</ul>
+</blockquote>
+<pre><code> 思考：为什么微波遥感具有穿透能力？
+ 微波波长比粒子的直径大很多，属于瑞利散射，
+ 波长越长散射强度越小，所以微波才可能由最小散射，最大投射，
+ 而被称为具有穿云透雾的能力。
+ 晴好的天气可见光通过大气时发生瑞利散射，蓝光比红光散射多；
+ 当天空有云层或雨时，满足均匀反射条件，
+ 各波长散射强度相同，天空云呈现白色，此时散射最大，
+ 可见光难以通过云层，即阴天不利于用可见光进行遥感探测地物。
+</code></pre>
+<h2 id="５、大气窗口"><a href="#５、大气窗口" class="headerlink" title="５、大气窗口"></a>５、大气窗口</h2></li>
+</ol>
+<p>电磁波通过大气衰减较小，透过率较高的波段</p>
+<blockquote>
+<ul>
+<li>紫外、可见光、近红外：白天探测</li>
+<li>近红外：白天夜间，地质遥感</li>
+<li>中红外：探测高温目标，森林火灾</li>
+<li>远红外：探测地物的发射率及温度</li>
+</ul>
+</blockquote>
+<h2 id="6、一般物体的发射辐射"><a href="#6、一般物体的发射辐射" class="headerlink" title="6、一般物体的发射辐射"></a>6、一般物体的发射辐射</h2><p>依据光谱发射率随波长的变化形式，将地物分为：</p>
+<blockquote>
+<ul>
+<li>绝对黑体：发射率等于1</li>
+<li>灰体：发射率小于1，各波长处的发射率相等</li>
+<li>选择性辐射体，发射率小于1，各波长发射率不同</li>
+<li>绝对白体，发射率为0。</li>
+</ul>
+</blockquote>
+<pre><code>影响发射率的因素：地物的性质、表面状况、温度（比热，热惯量）。
+比热大、热惯量大以及具有保温作用的地物一般发射率大
+
+任何材料的吸收率等于发射率
+发射率 + 反射率 = 1
+</code></pre>
+<h2 id="７、光谱反射率"><a href="#７、光谱反射率" class="headerlink" title="７、光谱反射率"></a>７、光谱反射率</h2><p>物体在特定波长上的辐射通量与该波长的入射通量之比。</p>
+<h2 id="8、反射波谱曲线"><a href="#8、反射波谱曲线" class="headerlink" title="8、反射波谱曲线"></a>8、反射波谱曲线</h2><p>以波长为横坐标，反射率为纵坐标所得到的曲线</p>
+<ol>
+<li><p>植被</p>
+<ul>
+<li>在可见光波段：（叶绿素吸收）<ul>
+<li> 0.45μm蓝波段有一个吸收谷</li>
+<li> 0.55μm绿波段有一个反射峰</li>
+<li> 0.67μm红波段有一个吸收谷</li>
+</ul>
+</li>
+<li>在近红外波段：(近红外穿透叶绿素，被多孔薄壁组织反射)<ul>
+<li> 0.76μm反射率迅速增大，在1.1处达到峰值，形成植被的独有特征。</li>
+</ul>
+</li>
+</ul>
+<p> 影响植被波谱曲线的因素：</p>
+<blockquote>
+<p> 植被类型</p>
+</blockquote>
+<blockquote>
+<p> 生长季节</p>
+</blockquote>
+<blockquote>
+<p> 植被病虫害</p>
+</blockquote>
+<p> 根据植被波谱曲线特征的差异，区分植被的类型和生长状态。</p>
+</li>
+<li><p>水体</p>
+<ul>
+<li>反射特性:<ul>
+<li> 在蓝绿波段具有反射率</li>
+<li> 在近红外、中红外波段完全吸收</li>
+</ul>
+</li>
+</ul>
+<p> 影响水体波谱曲线的因素：</p>
+<blockquote>
+<p> 水中含有泥沙，在可见光波段反射率会增加，峰值出现在黄红区。</p>
+</blockquote>
+<blockquote>
+<p>水中还有绿色植被时，近红外波段反射率明显提高。</p>
+</blockquote>
+</li>
+<li><p>城市道路、建筑</p>
+<ul>
+<li>反射特性<ul>
+<li> 红外波段较可见光波段反射强。</li>
+<li> 石棉瓦较其他材料反射强。</li>
+<li> 沥青较其他材料反射弱。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>土壤</p>
+<ul>
+<li>反射特性<ul>
+<li> 自然状态下土壤的反射波谱曲线没有明显的峰值和谷值。                         </li>
+<li> 与土壤质地组成有关。</li>
+<li> 土壤含水量增加，反射率下降</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+</blockquote>
+<pre><code>- 影响地物光谱反射率变化的因素：
+- 时间效应：
+    地物的光谱特性一般随时间季节变化。
+- 空间效应：
+    处在不同地理位置和区域的同种地物具有不同的光谱特性。
+- 太阳高度，大气条件，环境状况
+- 地形（阴影、坡度），气候、植物的病变
+</code></pre>
+<h2 id="9、假彩色"><a href="#9、假彩色" class="headerlink" title="9、假彩色"></a>9、假彩色</h2><pre><code>（B）Band2 --&gt; 绿光波段
+（G）Band3 --&gt; 红光波段
+（R）Band4 --&gt; 近红外波段
+</code></pre>
+<ol>
+<li><p>植被</p>
+<p>绿色与红色相加为品红，但红多绿少，因此品红偏红，植被在影像中大致呈红色。</p>
+</li>
+<li><p>水体</p>
+<p> 水体的反射主要在蓝绿光波段，绿波段被赋蓝，因此水库呈蓝偏黑。</p>
+</li>
+</ol>
+<h2 id="10、为什么天蓝"><a href="#10、为什么天蓝" class="headerlink" title="10、为什么天蓝"></a>10、为什么天蓝</h2><p>阳光在穿过大气层时，波长较长的红光、橙光、黄光都能穿透大气层，直接射到地面，而波长较短的蓝、紫、靛等色光，很容易被悬浮在空气中的微粒阻挡，从而使光线散射向四方，使天空呈现出蔚蓝色。</p>
+<h2 id="11、遥感平台"><a href="#11、遥感平台" class="headerlink" title="11、遥感平台"></a>11、遥感平台</h2><p>地面平台、航空平台、航天平台。</p>
+<h2 id="12、卫星轨道6参数"><a href="#12、卫星轨道6参数" class="headerlink" title="12、卫星轨道6参数"></a>12、卫星轨道6参数</h2><p>卫星轨道面与赤道面的相对位置</p>
+<ul>
+<li>升交点赤经Ω ：升交点和赤道面春分点的夹角</li>
+<li>近地点角距 ：轨道平面近地点和升交点的夹角</li>
+<li>轨道倾角 ：轨道面和赤道面的夹角</li>
+<li>卫星过近地点时刻</li>
+</ul>
+<p>卫星轨道的形状</p>
+<ul>
+<li>卫星轨道长半轴</li>
+<li>卫星轨道扁率<br><img src="https://img-blog.csdnimg.cn/20190415120749522.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><h2 id="13、传感器分类"><a href="#13、传感器分类" class="headerlink" title="13、传感器分类"></a>13、传感器分类</h2></li>
+</ul>
+<p>按工作方式：</p>
+<ul>
+<li>主动遥感</li>
+<li>被动遥感</li>
+</ul>
+<p>按成像方式：</p>
+<ul>
+<li>摄影成像传感器        x</li>
+<li>扫描成像传感器</li>
+<li>雷达成像传感器    x</li>
+<li>非图像传感器</li>
+</ul>
+<h2 id="14、扫描成像传感器"><a href="#14、扫描成像传感器" class="headerlink" title="14、扫描成像传感器"></a>14、扫描成像传感器</h2><ul>
+<li><p>红外扫描仪-分辨率</p>
+<p>  瞬时视场：在扫描成像过程中一个光敏探测元件通过望远镜系统投射到地面上的直径或对应的视场角度。</p>
+<p>  注意：</p>
+<ol>
+<li>垂直观测时分辨率，即星下点空间分辨率</li>
+<li>对于一个使用着的传感器，β在设计时已确定，地面分辨率变化只与航高有关。航高越大，a指越大，地面分辨率差</li>
+<li>观测视线倾斜时，即非星下点时</li>
+</ol>
+<p>  <strong>扫描仪空间分辨率是变化的，产生全景畸变。</strong></p>
+</li>
+<li><p>红外扫描仪-扫描线的衔接<br><img src="https://img-blog.csdnimg.cn/20190415120538990.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>  假定旋转棱镜扫描一次的时间为t，探测器地面分辨率为a，若要使两条扫描带的重叠度为0，但又不能有空隙，必须 W = a/t</p>
+<blockquote>
+<p>Wt&gt;a 出现扫描漏洞</p>
+</blockquote>
+<blockquote>
+<p>Wt&lt;a 出现扫描重叠</p>
+</blockquote>
+</li>
+<li><p>红外扫描仪-影响特征</p>
+<p>  热红外像片上的色调变化与相应的地物的辐射强度变化呈函数关系。</p>
+<p>  地物发射电磁波的功率和地物的发射率成正比，与地物温度的四次方成正比。</p>
+</li>
+</ul>
+<h2 id="15、MSS多光谱扫描仪"><a href="#15、MSS多光谱扫描仪" class="headerlink" title="15、MSS多光谱扫描仪"></a>15、MSS多光谱扫描仪</h2><p><img src="https://img-blog.csdnimg.cn/20190415072933214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<p>Landsat含24+2个探测元，按波段排列成四列，每列由六个探测元，<br>每个探测元的地面观察面积为79m×79m。陆地卫星2、3上增加一个热红外通道，<br>分辨率为240m×240m，仅用两个探测元构成。每个波段由六个相同大小的探测元与飞行方向平行排列，这样在瞬间看到的地面大小474m×79m，又由于扫描总视场为11.56度，地面宽度为185km，因此扫描一次每个波段获取六条扫描图像，其地面范围为474m×185km。又因卫星速度6.5km/s，在扫描一次的时间里卫星正好往前移动474m，因此扫描现恰好衔接。 </p>
+<ul>
+<li>扫描行不垂直于飞行轨道</li>
+<li>从西向东扫描</li>
+</ul>
+<h2 id="16、CCD线阵列传感器"><a href="#16、CCD线阵列传感器" class="headerlink" title="16、CCD线阵列传感器"></a>16、CCD线阵列传感器</h2><p>HRV（高分辨率可见光扫描仪）是一种CCD线阵列传感器，又称为线阵列推扫式扫描仪。</p>
+<p>不需要扫描镜的摆动，像缝隙式摄影机那样，以“推扫”方式获取连续条带影像。</p>
+<p>将若干个CCD元器件排成一行，称为CCD线阵列传感器。 CCD上植入的微小光敏物质称作像素。一块CCD上包含的像素数越多，其提供的画面分辨率也就越高。</p>
+<p><strong>目前发射高分辨率卫星几乎均为线阵列</strong><br><img src="https://img-blog.csdnimg.cn/20190415072950830.png" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>CCD工作原理</p>
+<ul>
+<li>仪器中的平面反射镜将地面辐射来的电磁波反射到反射镜组</li>
+<li>电磁波聚焦在CCD线阵列元件上</li>
+<li>CCD输出端输出时间序列视频信号，以推扫的方式获取沿轨道方向的连续图像条带。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/2019041507300938.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>HRV-CCD优点</p>
+<ol>
+<li>CCD线阵上的每个点同时曝光，保证了每个点上都有最大限度的曝光时间。</li>
+<li>机械部件大大简化，运行稳定，几何精度比较高。</li>
+<li>灵敏度高，可以探测到地面0.5％的反射变化信息。</li>
+<li>突破了光/机扫描仪要求探测元件的响应速度足够快的要求。</li>
+</ol>
+</li>
+</ul>
+<h2 id="17、成像光谱仪"><a href="#17、成像光谱仪" class="headerlink" title="17、成像光谱仪"></a>17、成像光谱仪</h2><p>成像光谱仪其构造与像面扫描仪或物面扫描仪相近，但通道多。<br>光谱分辨率高，可以获得接近连续的光谱。</p>
+<p>特点：<br>波段更窄，波段数更多<br><img src="https://img-blog.csdnimg.cn/20190415073026586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>面</strong>阵探测器加推扫式扫描仪的成像光谱仪：</p>
+<p>   它利用线阵列探测器进行扫描，利用色散元件和面阵探测器完成光谱扫描，<br>利用线阵列探测器及其沿轨道方向的运动完成空间扫描。</p>
+<p><strong>线</strong>阵列探测器加光机扫描仪的成像光谱仪：</p>
+<p>   它利用点探测器收集光谱信息，经色散元件后分成不同的波段，分别在线阵列<br>探测器的不同元件上，通过点扫描镜在垂直于轨道方向的面内摆动以及沿轨道方向的运动完成空间扫描，而利用线探测器完成光谱扫描。</p>
+<h2 id="18、遥感传感器记录地物电磁波的图像形式"><a href="#18、遥感传感器记录地物电磁波的图像形式" class="headerlink" title="18、遥感传感器记录地物电磁波的图像形式"></a>18、遥感传感器记录地物电磁波的图像形式</h2><p><img src="https://img-blog.csdnimg.cn/20190415073049281.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="（1）光学图像"><a href="#（1）光学图像" class="headerlink" title="（1）光学图像"></a>（1）光学图像</h3><pre><code>- 一个二维的连续的光密度函数
+- 像片上的密度随坐标x,y变化而变化
+</code></pre>
+<p><strong>特点</strong>：光照位置和光照强度均为连续变化的。</p>
+<h3 id="（2）数字图像"><a href="#（2）数字图像" class="headerlink" title="（2）数字图像"></a>（2）数字图像</h3><pre><code>- 一个二维的离散的光密度（或亮度）函数
+- 以矩阵f（x，y） ( x=0,1,…,m-1;y=0,1, …,n-1)表示
+- 空间坐标（x,y）和密度上都已离散化
+</code></pre>
+<h3 id="（3）光学图像与数字图像的转换"><a href="#（3）光学图像与数字图像的转换" class="headerlink" title="（3）光学图像与数字图像的转换"></a>（3）光学图像与数字图像的转换</h3><p>1.光学图像转化为数字图像</p>
+<p><img src="https://img-blog.csdnimg.cn/20190415073116235.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>采样：数字化坐标值。
+
+- 采样间隔越大，所得图像像素数越少，空间分辨率低，质量差，严重时出现马赛克效应；
+- 采样间隔越小，所得图像像素数越多，空间分辨率高，图像质量好，但数据量大。
+
+dx和dy采样窗口，Δx和Δy为采样间隔
+
+量化：无穷多个离散值约简为有限个离散值（整数来表示）
+</code></pre>
+<h5 id="图像数字化："><a href="#图像数字化：" class="headerlink" title="图像数字化："></a>图像数字化：</h5><pre><code>- 连续图像
+- 扫描线AB亮度分布
+- 采样和量化
+- 数字扫描线
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20190415073131115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20190415073147364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<ol start="2">
+<li>数字图像转化为光学图像<ol>
+<li>通过显示终端设备显示出来，利用数模转换设备将数字信号以模拟方式表现出来</li>
+<li>通过照相或打印的方式输出，彩色打印机。</li>
+</ol>
+</li>
+</ol>
+<h2 id="19、数字图像的存储"><a href="#19、数字图像的存储" class="headerlink" title="19、数字图像的存储"></a>19、数字图像的存储</h2><p>BSQ：按波段顺序依次排列，保证了像素空间位置的连续性。<br>BIL：以行为单位分块，像素的空间位置在列的方向上是连续的。<br>BIP：以像素为核心，为图像数据波谱的存取提供最佳性能。</p>
+<ul>
+<li>BSQ：按波段顺序依次排列的数据格式，即先按照波段顺序分块排列，在每个波段块内，再按照行列顺序排列。通一波段的像素保存在一个快中，保证了像素空间位置的连续性。<br><img src="https://img-blog.csdnimg.cn/2019041513241930.png"></li>
+<li>BIL：以行为单位分块，在每个块内，按照波段顺序排列像素。同一行不同波段的数据保存在一个数据块中。像素的空间位置在列的方向上是连续的。<br><img src="https://img-blog.csdnimg.cn/201904150732269.png"></li>
+<li>BIP：以像素为核心，同一像素不同波段数据保存在一起。每个块内为当前像素不同波段的像素值。该格式为图像数据波谱的存取提供最佳性能。<br><img src="https://img-blog.csdnimg.cn/20190415073245293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<h2 id="20、遥感图像的构像方程"><a href="#20、遥感图像的构像方程" class="headerlink" title="20、遥感图像的构像方程"></a>20、遥感图像的构像方程</h2><pre><code>遥感图像几何处理的目的？
+&gt; 遥感任务是获取地物的空间信息和属性信息；
+&gt; 在利用遥感图像提取信息的过程中，要求将所有提取的信息
+  表达在某一个规定的图像投影参照系统内；
+&gt;遥感图像成图时，因为各种因素的影响，图像本身的
+  几何形状与其对应的地物形状不一致。
+&gt;遥感图像的几何处理：统一坐标系，解决遥感图像的几何变形问题，
+ 消除遥感图像的几何误差，获得所提取地物的几何位置。
+</code></pre>
+<h4 id="1、通用构像方程"><a href="#1、通用构像方程" class="headerlink" title="1、通用构像方程"></a>1、通用构像方程</h4><p>设地面点P在地面坐标系中的坐标为(X, Y ,Z)P，P在传感器坐标系中的坐标为(U V W)P，传感器投影中心S在地面坐标系中的坐标为(X Y Z)S，A为传感器坐标相对于地面坐标系统的旋转矩阵，则通用构像方程为：<br><img src="https://img-blog.csdnimg.cn/20190415073302255.png"><br><img src="https://img-blog.csdnimg.cn/20190415073322662.png"></p>
+<h4 id="2、中心投影构像方程"><a href="#2、中心投影构像方程" class="headerlink" title="2、中心投影构像方程"></a>2、中心投影构像方程</h4><p><strong>中心投影</strong>：等比例缩放<br><img src="https://img-blog.csdnimg.cn/20190415073337176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>中心投影构像方程</strong>：中心投影像片坐标与地面点大地坐标的关系</p>
+<p><img src="https://img-blog.csdnimg.cn/20190415073357338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><strong>共线方程</strong>：描述像点、对应地物点和传感器中心之间的关系</p>
+<p><strong>共线方程物理意义：</strong><br><img src="https://img-blog.csdnimg.cn/20190415073414209.png"><br>当地物点P、对应像点p和投影中心S位于同一条直线上时，上式公式成立。</p>
+<pre><code>为什么说中心投影构像方程是遥感构像方程的基础？
+
+答：框幅式影像属于纯中心投影构像，
+    全景影像属于多中心等焦距圆柱投影，
+    多光谱影像属于多中心扫描投影，
+    HRV影像属于多中心推扫扫描投影，
+    合成孔径侧视雷达属于多中心斜距投影。
+</code></pre>
+<h4 id="3、全景摄影机的构像方程"><a href="#3、全景摄影机的构像方程" class="headerlink" title="3、全景摄影机的构像方程"></a>3、全景摄影机的构像方程</h4><p>全景摄影机影像是由一条曝光缝隙沿旁向扫描而成，对于每条缝隙图像的形成，其几何关系等效于中心投影沿旁向倾斜一个扫描角θ<br><img src="https://img-blog.csdnimg.cn/20190415073515464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="4、推扫式传感器的构像方程"><a href="#4、推扫式传感器的构像方程" class="headerlink" title="4、推扫式传感器的构像方程"></a>4、推扫式传感器的构像方程</h4><p><img src="https://img-blog.csdnimg.cn/20190415073527323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20190415073554560.png"></p>
+<h4 id="5、扫描式传感器的构像方程"><a href="#5、扫描式传感器的构像方程" class="headerlink" title="5、扫描式传感器的构像方程"></a>5、扫描式传感器的构像方程</h4><p><img src="https://img-blog.csdnimg.cn/20190415073624989.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="21、几何变形"><a href="#21、几何变形" class="headerlink" title="21、几何变形"></a>21、几何变形</h2><ul>
+<li><p><strong>静态误差</strong>：传感器相对于地球表面呈静止状态时所具有的各种变形误差。</p>
+</li>
+<li><p><strong>动态误差</strong>：由于地球的旋转等因素所造成的图像变形误差。</p>
+</li>
+<li><p><strong>内部误差</strong>：由于传感器自身的性能技术指标偏移标准数值所造成的。</p>
+</li>
+<li><p><strong>外部变形误差</strong>：由传感器以外的各种因素所造成的误差，如传感器的外方位元素变化，传播介质不均匀，地球曲率，地形起伏以及地球旋转等因素引起的变形误差。</p>
+</li>
+</ul>
+<h2 id="22、传感器外方位元素变化的影响"><a href="#22、传感器外方位元素变化的影响" class="headerlink" title="22、传感器外方位元素变化的影响"></a>22、传感器外方位元素变化的影响</h2><p>传感器的外方位元素：传感器成像时的位置（Xs,Ys,Zs）和姿态角（φ,ω,κ）</p>
+<blockquote>
+<ul>
+<li>dXs、dYs、dZs 、dκ——线性变化</li>
+<li>dφ、dω——非线性变形 </li>
+</ul>
+</blockquote>
+<h2 id="23、地球曲率引起的图像变形"><a href="#23、地球曲率引起的图像变形" class="headerlink" title="23、地球曲率引起的图像变形"></a>23、地球曲率引起的图像变形</h2><p>地球曲率引起的像点位移与地形起伏引起的像点位移类似。只要把地球表面（把地球表面看成球面）上的点到地球切平面的正射投影距离看作是一种系统的地形起伏，就可以利用前面介绍的像点位移公式来估计地球曲率所引起的像点位移。</p>
+<h2 id="24、大气折射引起的图像变形"><a href="#24、大气折射引起的图像变形" class="headerlink" title="24、大气折射引起的图像变形"></a>24、大气折射引起的图像变形</h2><p>大气层不是一个均匀的介质，它的密度是随离地面高度的增加而递减，因此电磁波在大气层中传播时的折射率也随高度而变化，使得电磁波的传播路径不是一条直线而变成了曲线，从而引起像点的位移，这种像点位移就是大气层折射的影响。</p>
+<h2 id="25、地球自转引起的图像变形"><a href="#25、地球自转引起的图像变形" class="headerlink" title="25、地球自转引起的图像变形"></a>25、地球自转引起的图像变形</h2><p>在常规框幅摄影机成像的情况下，地球自转不会引起图像变形，因为其整幅图像是在瞬间一次曝光成像的。</p>
+<p>地球自转主要是对动态传感器的图像产生变形影响，特别是对卫星遥感图像。当卫星由北向南运行的同时，地球表面也在由西向东自转，由于卫星图像每条扫描线的成像时间不同，因而造成扫描线在地面上的投影依次向西平移，最终使得图像发生扭曲。</p>
+<h2 id="26、基于多项式的遥感图像纠正"><a href="#26、基于多项式的遥感图像纠正" class="headerlink" title="26、基于多项式的遥感图像纠正"></a>26、基于多项式的遥感图像纠正</h2><p>多项式纠正直接对图像变形的本身进行数字模拟。对各种类型传感器图像的纠正是适用的。</p>
+<p>利用地面控制点的图像坐标和其同名点的地面坐标通过平差原理计算多项式中的系数，然后用该多项式对图像进行纠正。</p>
+<p>常用的多项式有一般多项式、勒让德多项式以及双变量分区插值多项式等。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190415073641676.png"></p>
+<p>多项式系数求解：</p>
+<ul>
+<li>可预测的图像变形参数构成；</li>
+<li>利用已知控制点的坐标值按最小二乘法原理求解</li>
+</ul>
+<p>多项式的项数（即系数个数）N与其阶数n有着固定的关系：<br>N=(n+1)(n+2)/2</p>
+<ul>
+<li><p>一次项纠正：可以纠正图像因平移、旋转、比例尺变化和仿射变形等引起的线性变形。</p>
+</li>
+<li><p>二次项纠正时：在改正一次项各种变形的基础上，改正二次非线性变形。</p>
+</li>
+<li><p>三次项纠正：改正更高次的非线性变形。</p>
+</li>
+</ul>
+<p>例题：<br><img src="https://img-blog.csdnimg.cn/20190415073654610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="多项式纠正步骤："><a href="#多项式纠正步骤：" class="headerlink" title="多项式纠正步骤："></a>多项式纠正步骤：</h4><ol>
+<li><p>利用已知地面控制点求解多项式系数</p>
+<p> 地面控制点（GCP）：图像的配准以地面坐标在地图或遥感图像上相对应的点为匹配标准，这些对应的点称为地面控制点。</p>
+<ol>
+<li>地面控制点数目的确定</li>
+<li>地面控制点选取原则<ul>
+<li>图像上为明显的地物点，易于判读（道路交叉口、河流转弯处等）。</li>
+<li>图像上均匀分布（图像的边缘部分选取控制点，尽量满幅均匀选取）。</li>
+<li>数量要足够（特征变化大的地区，多选控制点）。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="27、图像亮度值的重采样"><a href="#27、图像亮度值的重采样" class="headerlink" title="27、图像亮度值的重采样"></a>27、图像亮度值的重采样</h2><h5 id="最邻近像元法"><a href="#最邻近像元法" class="headerlink" title="最邻近像元法"></a>最邻近像元法</h5><p><img src="https://img-blog.csdnimg.cn/20190415073711895.png"></p>
+<ul>
+<li>优点：简单容易，计算简单。</li>
+<li>缺点：图像的灰度具有不连续性。</li>
+</ul>
+<h5 id="双线性内插法"><a href="#双线性内插法" class="headerlink" title="双线性内插法"></a>双线性内插法</h5><p><img src="https://img-blog.csdnimg.cn/20190415073724556.png"></p>
+<ul>
+<li>优点：对灰度不连续现象或线状特征的块状化有明显的改善，对图像起到平滑作用</li>
+<li>缺点：使对比度明显的分界线变得模糊。</li>
+</ul>
+<h5 id="双三次卷积法"><a href="#双三次卷积法" class="headerlink" title="双三次卷积法"></a>双三次卷积法<img src="https://img-blog.csdnimg.cn/20190415073742859.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></h5><ul>
+<li>优点：精度高。</li>
+<li>缺点：计算量大。</li>
+</ul>
+<h2 id="28、辐射误差"><a href="#28、辐射误差" class="headerlink" title="28、辐射误差"></a>28、辐射误差</h2><p>内容：</p>
+<ol>
+<li>传感器本身的性能引起</li>
+<li>大气的散射和吸收引起</li>
+<li>地形影响和光照条件的辩护引起的辐射误差</li>
+</ol>
+<p>辐射处理：</p>
+<ol>
+<li>辐射定标：指传感器探测值的标定过程方法，用以确定传感器入口处的准确辐射值。</li>
+</ol>
+<pre><code>辐射定标分为绝对定标和相对定标。
+
+绝对定标要建立传感器测量的数字信号与对应的辐射能量之间的数量关系。
+
+绝对定标方法：
+传感器定标、星上定标、场地定标
+
+- 优点：实现了对遥感器运行状态下与获取地面图像完全同条件的绝对校正
+- 缺点：需要测量和计算空中遥感器过顶时的大气环境和地物反射率。
+</code></pre>
+<ol start="2">
+<li>辐射校正：指消除或改正遥感图像成像过程中附加在传感器输出的辐射能量中的各种噪声的过程。</li>
+</ol>
+<h2 id="29、大气校正"><a href="#29、大气校正" class="headerlink" title="29、大气校正"></a>29、大气校正</h2><p>大气的影响：大气对阳光和来自目标的辐射产生吸收和散射。</p>
+<h5 id="大气校正的方法"><a href="#大气校正的方法" class="headerlink" title="大气校正的方法"></a>大气校正的方法</h5><ol>
+<li>基于辐射传输方程的大气校正</li>
+<li>基于地面场地数据或辅助数据进行辐射校正</li>
+<li>利用某些不受大气影响或影响小的特性来校正其他波段的大气影响。</li>
+</ol>
+<h2 id="30、遥感图像辐射增强"><a href="#30、遥感图像辐射增强" class="headerlink" title="30、遥感图像辐射增强"></a>30、遥感图像辐射增强</h2><h5 id="一、图像灰度直方图"><a href="#一、图像灰度直方图" class="headerlink" title="一、图像灰度直方图"></a>一、图像灰度直方图</h5><ul>
+<li>反映了一幅图像中灰度级与其出现概率之间的关系。</li>
+<li>可以看成一个随机分布密度函数，其分布状态用灰度均值和标准差来衡量。</li>
+</ul>
+<h5 id="二、图像反差调整"><a href="#二、图像反差调整" class="headerlink" title="二、图像反差调整"></a>二、图像反差调整</h5><ol>
+<li><p>线性变换：按比例拉伸原始图像灰度等级范围。</p>
+<p> 目的：提高图像对比度。</p>
+<p> 特点：一对一关系，像元总数不变。</p>
+<pre><code> ![](https://img-blog.csdnimg.cn/201904150738009.png)
+</code></pre>
+</li>
+<li><p>直方图均衡化</p>
+<p> 将随机分布的图像直方图修改成均匀分布的直方图，其实质是对图像进行非线性拉伸，重新分配图像像元值，使一定灰度范围内的像元的数量大致相等。<img src="https://img-blog.csdnimg.cn/20190414210405692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<p> 特点：各级灰度值所占图像的面积近似相等</p>
+<pre><code> 原图像上频率小的灰度级被合并、频率高的灰度级被保留
+ 增强图像上大面积地物与周围地物的反差
+ 具体增强效果不能控制，只能全局均衡
+</code></pre>
+</li>
+<li><p>直方图正太化</p>
+<p> 将随机分布的原图像直方图修改成高斯分布的直方图<br><img src="https://img-blog.csdnimg.cn/20190415073815262.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</li>
+<li><p>直方图匹配</p>
+</li>
+<li><p>密度分割</p>
+<p> 密度分割与直方图均衡类似。原始图像的灰度值被分成等间隔的离散的灰度级，每一级有其灰度值。<br><img src="https://img-blog.csdnimg.cn/20190415073829116.png"></p>
+</li>
+<li><p>其他非线性变换</p>
+<p> 对数变换、指数变换、平方根变换、标准偏差变换、直方图周期性变换。<br> <img src="https://img-blog.csdnimg.cn/20190415073842559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>灰度反转<br> 结果：原来亮的地方变暗，原来暗的地方变亮。</p>
+</li>
+</ol>
+<h2 id="31、图像融合"><a href="#31、图像融合" class="headerlink" title="31、图像融合"></a>31、图像融合</h2><h5 id="目的："><a href="#目的：" class="headerlink" title="目的："></a>目的：</h5><ul>
+<li>空间分辨率的提高</li>
+<li>目标特征增强</li>
+<li>提高分类精度</li>
+<li>信息互补<br><img src="https://img-blog.csdnimg.cn/20190415073936545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></li>
+</ul>
+<h5 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h5><p><img src="https://img-blog.csdnimg.cn/20190415073947736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h5><ul>
+<li>融合图像应包括不同空间和光谱分辨率</li>
+<li>融合的图像应是同一区域</li>
+<li>图像应尽可能精确配准</li>
+<li>在不同时间获取的图像中，其内容没有大的变化</li>
+</ul>
+<h5 id="基于像素的图像融合的方法"><a href="#基于像素的图像融合的方法" class="headerlink" title="基于像素的图像融合的方法"></a>基于像素的图像融合的方法</h5><ul>
+<li>加权融合</li>
+<li>基于HIS变换的图像融合</li>
+<li>基于主分量变换的图像融合</li>
+<li>基于小波变换的图像融合</li>
+<li>比值变换融合</li>
+<li>乘积变换融合<h5 id="基于IHS变换的图像融合"><a href="#基于IHS变换的图像融合" class="headerlink" title="基于IHS变换的图像融合"></a>基于IHS变换的图像融合</h5></li>
+</ul>
+<p>IHS变换将图像处理常用的RGB彩色空间变换到IHS空间。</p>
+<ul>
+<li>I：亮度（Intensity）</li>
+<li>H：色调（Hue）</li>
+<li>S：饱和度(Saturation)</li>
+</ul>
+<p>IHS变换可以把图像的亮度、色调和饱和度分开，图像融合只在亮度通道上进行，图像的色调和饱和度保持不变。</p>
+<h5 id="效果评价"><a href="#效果评价" class="headerlink" title="效果评价"></a>效果评价</h5><ul>
+<li>IHS变换融合：分辨率提高，图像变得清晰，光谱信息明显降低，色彩严重失真 </li>
+<li>比值变换融合：亮度太低，反差不合适，目视效果不好 ，光谱信息丢失严重</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/" data-id="ckreqntk0002cr07k1gdcbrcn" data-title="遥感原理与应用 【I】" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          遥感原理与应用【Ⅱ】
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">渲染---唯一值渲染</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>GIS复习【II】 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="目录3、地理空间信息描述4、地理信息数字化描述方法5、空间数据的类型和关系 ————————————————————正文—————————————————————- 3、地理空间信息描述1、地球空间模型  地球的自然表面  地球是一个近似球体，自然表面是一个极其复杂的不规则曲面。  水准面  假设当海水处于完全静止的平衡状态时，从海平面延伸到所有大陆下部，而与地球重力方向处处正交的一个连续、闭合的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GIS复习【II】">
+<meta property="og:url" content="http://example.com/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90II%E3%80%91/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="目录3、地理空间信息描述4、地理信息数字化描述方法5、空间数据的类型和关系 ————————————————————正文—————————————————————- 3、地理空间信息描述1、地球空间模型  地球的自然表面  地球是一个近似球体，自然表面是一个极其复杂的不规则曲面。  水准面  假设当海水处于完全静止的平衡状态时，从海平面延伸到所有大陆下部，而与地球重力方向处处正交的一个连续、闭合的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420091831421.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420091844982.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420091859757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420091942647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420091958219.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420092011772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420092030953.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420092059946.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420092114807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420092747837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420092818179.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420092851352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190420092903892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-07-22T09:54:48.922Z">
+<meta property="article:modified_time" content="2020-04-12T13:29:59.821Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190420091831421.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GIS复习【II】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90II%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.922Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      GIS复习【II】
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><strong>3、地理空间信息描述<br>4、地理信息数字化描述方法<br>5、空间数据的类型和关系</strong></p>
+<p>————————————————————正文—————————————————————-</p>
+<h2 id="3、地理空间信息描述"><a href="#3、地理空间信息描述" class="headerlink" title="3、地理空间信息描述"></a>3、地理空间信息描述</h2><h4 id="1、地球空间模型"><a href="#1、地球空间模型" class="headerlink" title="1、地球空间模型"></a>1、地球空间模型</h4><p><img src="https://img-blog.csdnimg.cn/20190420091831421.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<ol>
+<li><p>地球的自然表面</p>
+<p> 地球是一个近似球体，自然表面是一个极其复杂的不规则曲面。</p>
+</li>
+<li><p>水准面</p>
+<p> 假设当海水处于完全静止的平衡状态时，从海平面延伸到所有大陆下部，而与地球重力方向处处正交的一个连续、闭合的曲面</p>
+<ul>
+<li>海水有潮汐，时高时低，所以水准面有无数个。</li>
+<li>水准面的特性是处处与铅垂线相垂直。</li>
+<li>不能用数学公式表达</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20190420091844982.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<ol start="3">
+<li><p>大地体</p>
+<p> 被大地水准面所包围的形体</p>
+</li>
+<li><p>大地水准面：通过平均海水面的一个水准面</p>
+</li>
+<li><p>地球椭球体</p>
+<p> 起伏是微小的，且形状接近一个扁率极小的椭圆绕短轴旋转所形成的规则椭球体</p>
+<p> <strong>说明：</strong></p>
+<ul>
+<li><p>视为球体：在制作小比例尺地图时（小于1:500万），因缩小程度很大，可以把地球视为球体，忽略地球扁率。计算更简单，半径约为6371千米。</p>
+</li>
+<li><p>视为椭球体：制作大比例尺地图时（大于1:100万），为保证精度，必须将地球视为椭球体。</p>
+<p>  <img src="https://img-blog.csdnimg.cn/20190420091859757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</li>
+</ul>
+</li>
+<li><p>参考椭球体</p>
+<p> 在<strong>某一局部</strong>，与大地水准面符合得最好的一个地球椭球体<br> <img src="https://img-blog.csdnimg.cn/20190420091942647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</li>
+<li><p>基准面</p>
+<ul>
+<li>地心基准面：使用地球的质心作为原点，使用最广泛的是 WGS 1984</li>
+<li>区域基准面：特定区域内与地球表面吻合，大地原点是参考椭球与大地水准面相切的点，例如Beijing54、Xian80</li>
+</ul>
+</li>
+<li><p>总结<br> <img src="https://img-blog.csdnimg.cn/20190420091958219.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</li>
+</ol>
+<blockquote>
+<p>练习题2.1<br>相对同一地理位置，不同的大地基准面，它们的经纬度坐标一样吗？<br>地球椭球体与大地基准面之间的关系是一对一还是一对多？</p>
+</blockquote>
+<blockquote>
+<p>答：相对同一地理位置，不同的大地基准面，它们的经纬度坐标是有差异的。<br>椭球体与大地基准面之间的关系是一对多的关系。<br>因为基准面是在椭球体的基础上建立的，但椭球体不能代表基准面，同样的椭球体能定义不同的基准面。</p>
+</blockquote>
+<h4 id="2、地理空间坐标系"><a href="#2、地理空间坐标系" class="headerlink" title="2、地理空间坐标系"></a>2、地理空间坐标系</h4><p><img src="https://img-blog.csdnimg.cn/20190420092011772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<ol>
+<li><p>球面坐标系统</p>
+<ul>
+<li>天文地理坐标系</li>
+<li>大地地理坐标系</li>
+</ul>
+<p> 意义：GIS中的空间数据是地球表层的数据，即使把地球表面看成是一个椭球面，球面坐标也难以计算距离、方向、面积等参数，需将球面坐标转换成平面坐标，形成平面直角坐标</p>
+</li>
+<li><p>大地地理坐标系<br> 大地测量中以参考椭球面为基准面建立起来的坐标系。</p>
+<ul>
+<li>地心大地坐标系</li>
+<li>参心大地坐标系</li>
+</ul>
+</li>
+<li><p>平面直角坐标系统</p>
+</li>
+</ol>
+<h4 id="3、地图投影"><a href="#3、地图投影" class="headerlink" title="3、地图投影"></a>3、地图投影</h4><p><img src="https://img-blog.csdnimg.cn/20190420092030953.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<ol>
+<li><p>定义（什么是）<br> 将地球椭球面上的点映射到平面上的方法</p>
+</li>
+<li><p>过程（怎么进行）<br> <img src="https://img-blog.csdnimg.cn/20190420092059946.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<p> <strong>投影的实质：</strong>经纬度坐标 —&gt; 笛卡儿平面直角坐标系</p>
+</li>
+<li><p>分类（有哪些）</p>
+<ul>
+<li>投影面形状<ul>
+<li>方位</li>
+<li>圆锥</li>
+<li>圆柱</li>
+</ul>
+</li>
+<li>投影面位置<ul>
+<li>正轴</li>
+<li>斜轴</li>
+<li>横轴<br><img src="https://img-blog.csdnimg.cn/20190420092114807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></li>
+</ul>
+</li>
+<li>投影变形<ul>
+<li>长度</li>
+<li>面积</li>
+<li>角度</li>
+<li>等距投影：沿某一特定方向上的距离不变。</li>
+<li>等角投影：投影前后角度不变。</li>
+<li>等积投影：投影前后面积不变。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>选择（哪个合适）</p>
+<ul>
+<li><strong>各国家的地理信息系统投影</strong>—-与该国基本地图系列所用的投影系统一致</li>
+<li><strong>各比例尺GIS投影</strong>—-与相应比例尺的主要信息源地图所用的投影一致</li>
+<li><strong>各地区GIS投影</strong>—-与所在区域适用的投影一致</li>
+<li>所用投影以<strong>等角投影</strong>为宜（形状不失真）</li>
+<li>各种地理信息系统一般以一种或两种（至多三种）投影系统为其投影坐标系统，以保证<strong>地理定位框架的统一</strong></li>
+</ul>
+</li>
+<li><p>常用投影</p>
+<ol>
+<li>高斯—克吕格投影（横轴等角切椭圆柱投影）：<br> 1：50万、 1：25万、1：10万、1：5万、1：2.5万、1：1万、1：5000</li>
+<li>兰勃特Lambert投影（正轴等角割圆锥投影）<br> 1：100万</li>
+</ol>
+</li>
+</ol>
+<h4 id="4、地图对地理空间的描述"><a href="#4、地图对地理空间的描述" class="headerlink" title="4、地图对地理空间的描述"></a>4、地图对地理空间的描述</h4><ol>
+<li><p>空间对象</p>
+<p>  点：有位置，无宽度和长度；抽象的点<br>线：有长度，但无宽度和高度；用来描述线状实体<br>   面：具有长和宽的目标；通常用来表示自然或人工的封闭多边形；一般分为连续面和不连续面<br>  连续面：等值线表示。可以根据等值线的疏密，判断制图对象的变化趋势和分布特征<br>  不连续面：用面状符号表示，符号的轮廓线表示其分布位置和范围，轮廓线内的颜色、网纹、或说明符号表示其质量特征。</p>
+</li>
+</ol>
+<p>2.地图的分类</p>
+<ul>
+<li><p>内容：普通、专题</p>
+</li>
+<li><p>比例尺</p>
+<ul>
+<li>大：&gt; 1:10万</li>
+<li>中：1:100万 &lt; &amp;&amp; &lt;1:10万</li>
+<li>小：&lt; 1:100万</li>
+</ul>
+</li>
+</ul>
+<h4 id="5、遥感影像对地理空间的描述"><a href="#5、遥感影像对地理空间的描述" class="headerlink" title="5、遥感影像对地理空间的描述"></a>5、遥感影像对地理空间的描述</h4><ul>
+<li><strong>卫星遥感可以覆盖全球的每一个角落</strong>，航空遥感可以快速获取小范围的详细资料。</li>
+<li>遥感影像对空间信息的描述主要是通过<strong>不同的颜色和灰度</strong>来表示的。</li>
+<li><strong>地物的结构、成分、分布等不同</strong>，其反射光谱特性和放射光谱特性也各不相同，传感器记录的个种地物在某一波段的电磁辐射发射能量也各不相同，<strong>在遥感影像上表现为不同的颜色和灰度信息。</strong> </li>
+</ul>
+<p>综上，通过遥感影像可以获取大量的空间地物的特征信息。</p>
+<h2 id="4、地理信息数字化描述方法"><a href="#4、地理信息数字化描述方法" class="headerlink" title="4、地理信息数字化描述方法"></a>4、地理信息数字化描述方法</h2><p>对地理信息进行数字化描述，就是要使计算机能够识别地理事物的形状。</p>
+<ul>
+<li><p>计算机<strong>显式描述</strong>空间实体（栅格数据结构）</p>
+<p>  河流：栅格中的一系列像元。<strong>这些像元都给予相同的编码值或者用相同的颜色、符号、数字、灰度值来表示。</strong></p>
+<p>  PS：每一个地理实体的形态都是由栅格中的一组像元来构成。</p>
+</li>
+<li><p>计算机<strong>隐式描述</strong>空间实体（矢量数据结构）</p>
+<p>  河流：定义了始点和终点的线及某种连接关系来描述</p>
+<p>  PS：地理实体的形状和位置由一组坐标对所确定。</p>
+</li>
+</ul>
+<h2 id="5、空间数据的类型和关系"><a href="#5、空间数据的类型和关系" class="headerlink" title="5、空间数据的类型和关系"></a>5、空间数据的类型和关系</h2><ol>
+<li><p>空间数据的分类</p>
+<ul>
+<li>空间数据按数据结构分类：<pre><code>矢量数据、栅格数据等
+</code></pre>
+</li>
+<li>按属性分为：<br>   空间定位数据、非空间属性数据</li>
+<li>按几何特征分为：<pre><code>点、线、面、体
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>空间数据的基本特征</p>
+<ul>
+<li>空间：空间对象的位置及与相邻对象的空间关系或拓扑关系</li>
+<li>属性：空间对象的专题属性</li>
+<li>时间：空间对象随着时间变化引起的空间、属性的变化</li>
+</ul>
+<p> <img src="https://img-blog.csdnimg.cn/20190420092747837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</li>
+<li><p>空间数据的拓扑关系</p>
+<ol>
+<li><p>拓扑性质：图形保持连续状态下变形，但图形关系不变<br> 拓扑变换：任意拉伸，压缩，但不能扭转或折叠</p>
+</li>
+<li><p>拓扑元素</p>
+<ul>
+<li>点：孤立点、线的端点、面的首尾点、链的连接点。</li>
+<li>线：两结点之间的有序弧段，包括链、弧段和线段。</li>
+<li>面：若干弧段组成的闭合多边形。</li>
+</ul>
+</li>
+<li><p>关系分类</p>
+<ul>
+<li>拓扑邻接：同类元素之间的拓扑关系</li>
+<li>拓扑关联：不同类元素之间的拓扑关系</li>
+<li>拓扑包含：空间中不同类或同类但不同级元素之间的拓扑关系（一般只谈面状要素的包含关系）</li>
+<li>拓扑连通：空间图形中弧段之间的拓扑关系。</li>
+</ul>
+</li>
+<li><p>拓扑关系表</p>
+<pre><code>                         ![](https://img-blog.csdnimg.cn/20190420092802745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)    
+</code></pre>
+<p> <img src="https://img-blog.csdnimg.cn/20190420092818179.png"><br> <img src="https://img-blog.csdnimg.cn/20190420092851352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<p> 点、线、面三种要素之间的拓扑关系</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190420092903892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</li>
+<li><p>拓扑关系的意义</p>
+<ul>
+<li>可以确定一种地理实体相对于另一种地理实体的空间位置关系，这种空间关系不随地图投影而变化；</li>
+<li>有利于空间要素的查询</li>
+<li>作为工具，重建地理实体。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>练习题2.1</p>
+<ol>
+<li>如何为地理实体建立可用于确定特定位置的坐标系？</li>
+</ol>
+<p>答：</p>
+<ol start="2">
+<li>如何建立地球表面的几何模型？基于地球表面模型，怎么逐步建立坐标系？为什么要进行地图投影？</li>
+</ol>
+<p>答：地球表面是曲面，地图是平面的，他们之间需要映射。这种映射就是投影</p>
+<ol start="3">
+<li>地理空间实体的三要素有什么？他们之间的拓扑关系是怎么样的？</li>
+</ol>
+<p>答：点、线、面。关系：邻接、关联、包含、连通</p>
+<ol start="4">
+<li>空间数据的基本特征？地理信息的数字化描述方法是什么？</li>
+</ol>
+<p>答：空间特征、属性特征、时间特性。显性描述（栅格）和隐性描述（矢量）</p>
+<ol start="5">
+<li>什么是拓扑性质；拓扑变形包括什么?</li>
+</ol>
+<p>答：性质：图形保持连续状态下变形，但图形关系不变。变形：任意拉伸，压缩，但不能扭转或折叠</p>
+<ol start="6">
+<li>拓扑邻接、拓扑关联；</li>
+</ol>
+<p>答：拓扑邻接：同类元素之间的拓扑关系。拓扑关联：不同类元素之间的拓扑关系</p>
+<ol start="7">
+<li>空间实体抽象三个层次。</li>
+</ol>
+<p>答：空间概念数据模型、空间逻辑数据模型、物理数据模型</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90II%E3%80%91/" data-id="ckreqntil0004r07k5mzn7ifc" data-title="GIS复习【II】" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90III%E3%80%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          GIS复习【III】
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90I%E3%80%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">GIS复习【I】</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

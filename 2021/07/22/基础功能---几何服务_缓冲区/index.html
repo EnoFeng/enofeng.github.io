@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>基础功能---几何服务_缓冲区 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1.效果图 2.启用几何服务和发布的地图一样，通过REST URL调用 3.引入模块12345&quot;esri&#x2F;toolbars&#x2F;draw&quot;,         &quot;esri&#x2F;graphic&quot;,         &quot;esri&#x2F;tasks&#x2F;GeometryService&quot;,         &quot;esri&#x2F;tasks&#x2F;BufferParamete">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础功能---几何服务_缓冲区">
+<meta property="og:url" content="http://example.com/2021/07/22/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD---%E5%87%A0%E4%BD%95%E6%9C%8D%E5%8A%A1_%E7%BC%93%E5%86%B2%E5%8C%BA/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="1.效果图 2.启用几何服务和发布的地图一样，通过REST URL调用 3.引入模块12345&quot;esri&#x2F;toolbars&#x2F;draw&quot;,         &quot;esri&#x2F;graphic&quot;,         &quot;esri&#x2F;tasks&#x2F;GeometryService&quot;,         &quot;esri&#x2F;tasks&#x2F;BufferParamete">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019081016560252.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190810170323347.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190810170430993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-07-22T09:54:49.020Z">
+<meta property="article:modified_time" content="2020-04-12T12:25:24.750Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019081016560252.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-基础功能---几何服务_缓冲区" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD---%E5%87%A0%E4%BD%95%E6%9C%8D%E5%8A%A1_%E7%BC%93%E5%86%B2%E5%8C%BA/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.020Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      基础功能---几何服务_缓冲区
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1.效果图"></a>1.效果图</h5><p><img src="https://img-blog.csdnimg.cn/2019081016560252.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="2-启用几何服务"><a href="#2-启用几何服务" class="headerlink" title="2.启用几何服务"></a>2.启用几何服务</h5><p><img src="https://img-blog.csdnimg.cn/20190810170323347.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br>和发布的地图一样，通过REST URL调用<br><img src="https://img-blog.csdnimg.cn/20190810170430993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="3-引入模块"><a href="#3-引入模块" class="headerlink" title="3.引入模块"></a>3.引入模块</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;esri/toolbars/draw&quot;,</span><br><span class="line">         &quot;esri/graphic&quot;,</span><br><span class="line">         &quot;esri/tasks/GeometryService&quot;,</span><br><span class="line">         &quot;esri/tasks/BufferParameters&quot;,</span><br><span class="line">         &quot;dojo/colors&quot;,</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-步骤"><a href="#4-步骤" class="headerlink" title="4.步骤"></a>4.步骤</h5><ol>
+<li><p>创建几何服务对象</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//这里是几何服务的REST URL</span><br><span class="line">var geometryServices = new GeometryService(&quot;http://localhost:6080/arcgis/rest/services/Utilities/Geometry/GeometryServer&quot;);</span><br></pre></td></tr></table></figure></li>
+<li><p>创建缓存参数对象</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var params = new BufferParameters();</span><br></pre></td></tr></table></figure></li>
+<li><p>使用toolbar上的绘图工具</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var toolBar = new Draw(map);</span><br></pre></td></tr></table></figure></li>
+<li><p>创建点，线，面</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var pointSymbol = new SimpleMarkerSymbol();</span><br><span class="line">   lineSymbol = new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new Color([255, 0, 0]), 2);</span><br><span class="line">   polygonSymbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol, new Color([255, 255, 0, 0.25]));</span><br></pre></td></tr></table></figure></li>
+<li><p>给画点按钮绑定事件</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">on(dom.byId(&quot;point&quot;), &quot;click&quot;, function () &#123;</span><br><span class="line">	//激活画点工具</span><br><span class="line">	toolBar.activate(Draw.POINT, &#123;</span><br><span class="line">    showTooltips: true</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>绘图结束绑定事件</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">on(toolBar, &quot;draw-end&quot;, function (result) &#123;</span><br><span class="line">                //获得点形状</span><br><span class="line">                var geometry = result.geometry;</span><br><span class="line">                //创建Graphic</span><br><span class="line">                var graphicpoint = new Graphic(geometry, pointSymbol);</span><br><span class="line">                map.graphics.add(graphicpoint);</span><br><span class="line">                //关闭绘图工具</span><br><span class="line">                toolBar.deactivate();</span><br><span class="line">                </span><br><span class="line">                // *** 构建缓冲区分析的形状属性</span><br><span class="line">                //注意这里可以放一个数组，此处为了方便我们只对一个形状进行缓冲区分析</span><br><span class="line">                params.geometries = [geometry];</span><br><span class="line">            &#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>给缓冲区分析按钮绑定事件</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">on(dom.byId(&quot;Btn&quot;), &quot;click&quot;, function () &#123;</span><br><span class="line">                var mi = $(&quot;#te&quot;).val();</span><br><span class="line">                //缓冲距离</span><br><span class="line">                params.distances = [mi];</span><br><span class="line">                //空间参考，缓冲区样式，透明度等</span><br><span class="line">                params.bufferSpatialReference = map.spatialReference;</span><br><span class="line">                params.outSpatialReference = map.spatialReference;</span><br><span class="line">                //执行分析处理结果</span><br><span class="line">                geometryServices.buffer(params, function (result) &#123;</span><br><span class="line">                    //处理缓冲区分析得到的结果</span><br><span class="line">                    for (var idx in result) &#123;</span><br><span class="line">                        //创建Graphic</span><br><span class="line">                        var graphic = new Graphic(result[idx], polygonSymbol)</span><br><span class="line">                        //结果放在map中</span><br><span class="line">                        map.graphics.add(graphic)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="5-贴代码"><a href="#5-贴代码" class="headerlink" title="5. 贴代码"></a>5. 贴代码</h5></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>缓冲区分析<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">src</span>=<span class="string">&quot;https://code.jquery.com/jquery-1.12.4.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.MapClass</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">900px</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;dojo/dom&quot;</span>, <span class="string">&quot;dojo/on&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/symbols/SimpleMarkerSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/symbols/SimpleFillSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/toolbars/draw&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/graphic&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/GeometryService&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/BufferParameters&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;dojo/colors&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;dojo/domReady!&quot;</span>],</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">Map</span>, dom, on,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                ArcGISDynamicMapServiceLayer,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                SimpleMarkerSymbol,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                SimpleLineSymbol,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                SimpleFillSymbol,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                Draw,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                Graphic,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                GeometryService,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">                BufferParameters, Color</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> map = <span class="keyword">new</span> esri.Map(<span class="string">&quot;mapDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> layer = <span class="keyword">new</span> esri.layers.ArcGISDynamicMapServiceLayer</span></span><br><span class="line"><span class="javascript">                    (<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">                map.addLayer(layer);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">                <span class="comment">//创建几何服务对象</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> geometryServices = <span class="keyword">new</span> GeometryService(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/Utilities/Geometry/GeometryServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">                <span class="comment">//创建缓存参数对象</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> params = <span class="keyword">new</span> BufferParameters();</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">                <span class="comment">//使用toolbar上的绘图工具</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> toolBar = <span class="keyword">new</span> Draw(map);</span></span><br><span class="line"><span class="javascript">                <span class="comment">//创建点符号</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> pointSymbol = <span class="keyword">new</span> SimpleMarkerSymbol();</span></span><br><span class="line"><span class="javascript">                pointSymbol.style = SimpleMarkerSymbol.STYLE_CIRCLE;</span></span><br><span class="line"><span class="javascript">                pointSymbol.setSize(<span class="number">10</span>);</span></span><br><span class="line"><span class="javascript">                pointSymbol.setColor(<span class="keyword">new</span> Color(<span class="string">&quot;#FFFFCC&quot;</span>));</span></span><br><span class="line"><span class="javascript">                <span class="comment">//线符号</span></span></span><br><span class="line"><span class="javascript">                lineSymbol = <span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">2</span>);</span></span><br><span class="line"><span class="javascript">                <span class="comment">//面符号</span></span></span><br><span class="line"><span class="javascript">                polygonSymbol = <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol, <span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.25</span>]));</span></span><br><span class="line"><span class="javascript">                <span class="comment">//给画点按钮绑定事件</span></span></span><br><span class="line"><span class="javascript">                on(dom.byId(<span class="string">&quot;point&quot;</span>), <span class="string">&quot;click&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//激活画点工具</span></span></span><br><span class="line"><span class="javascript">                    toolBar.activate(Draw.POINT, &#123;</span></span><br><span class="line"><span class="javascript">                        <span class="attr">showTooltips</span>: <span class="literal">true</span></span></span><br><span class="line"><span class="javascript">                    &#125;)</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">                &#125;)</span></span><br><span class="line"><span class="javascript">                <span class="comment">//绘图结束绑定事件</span></span></span><br><span class="line"><span class="javascript">                on(toolBar, <span class="string">&quot;draw-end&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//获得点形状</span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> geometry = result.geometry;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//创建Graphic</span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> graphicpoint = <span class="keyword">new</span> Graphic(geometry, pointSymbol);</span></span><br><span class="line"><span class="javascript">                    map.graphics.add(graphicpoint);</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//关闭绘图工具</span></span></span><br><span class="line"><span class="javascript">                    toolBar.deactivate();</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//很重要！！！在这里构建缓冲区分析的形状属性</span></span></span><br><span class="line"><span class="javascript">                    <span class="comment">//注意这里可以放一个数组，此处为了方便我们只对一个形状进行缓冲区分析</span></span></span><br><span class="line"><span class="javascript">                    params.geometries = [geometry];</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">                &#125;)</span></span><br><span class="line"><span class="javascript">                <span class="comment">//给缓冲区分析按钮绑定事件</span></span></span><br><span class="line"><span class="javascript">                on(dom.byId(<span class="string">&quot;Btn&quot;</span>), <span class="string">&quot;click&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">// var mi = document.getElementById(&quot;te&quot;).value;</span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> mi = $(<span class="string">&quot;#te&quot;</span>).val();</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//缓冲距离</span></span></span><br><span class="line"><span class="javascript">                    params.distances = [mi];</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//空间参考</span></span></span><br><span class="line"><span class="javascript">                    params.bufferSpatialReference = map.spatialReference;</span></span><br><span class="line"><span class="javascript">                    params.outSpatialReference = map.spatialReference;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//执行分析处理结果</span></span></span><br><span class="line"><span class="javascript">                    geometryServices.buffer(params, <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="comment">//处理缓冲区分析得到的结果</span></span></span><br><span class="line"><span class="javascript">                        <span class="keyword">for</span> (<span class="keyword">var</span> idx <span class="keyword">in</span> result) &#123;</span></span><br><span class="line"><span class="javascript">                            <span class="comment">//创建Graphic</span></span></span><br><span class="line"><span class="javascript">                            <span class="keyword">var</span> graphic = <span class="keyword">new</span> Graphic(result[idx], polygonSymbol)</span></span><br><span class="line"><span class="javascript">                            <span class="comment">//将每一个结果都放在map中</span></span></span><br><span class="line"><span class="javascript">                            map.graphics.add(graphic)</span></span><br><span class="line"><span class="javascript">                        &#125;</span></span><br><span class="line"><span class="javascript">                    &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">                &#125;)</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">            &#125;);</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;point&quot;</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;点&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;te&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&quot;缓冲距离&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;Btn&quot;</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;缓冲区分析&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="6-拓展"><a href="#6-拓展" class="headerlink" title="6. 拓展"></a>6. 拓展</h5><p>对连续点进行缓冲区操作，怎么消除上一个操作的缓冲区？<br>怎么连续选点，批量建立缓冲区？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD---%E5%87%A0%E4%BD%95%E6%9C%8D%E5%8A%A1_%E7%BC%93%E5%86%B2%E5%8C%BA/" data-id="ckreqntjn001mr07kfta0go6a" data-title="基础功能---几何服务_缓冲区" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD---%E4%BA%A4%E4%BA%92%E7%94%BB%E5%9B%BE1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          基础功能---交互画图1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD---%E5%9C%B0%E5%9B%BE%E6%89%93%E5%8D%B0%EF%BC%88%E8%B8%A9%E5%9D%91%E3%80%81%E8%A7%A3%E5%86%B3%20%E8%AF%A6%E8%A7%A3%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">基础功能---地图打印（踩坑、解决 详解）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

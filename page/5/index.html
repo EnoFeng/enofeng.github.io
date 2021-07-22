@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Learn and Life">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Programmer Home">
+<meta property="og:url" content="http://example.com/page/5/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="Learn and Life">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-查询---QueryTask属性查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E6%9F%A5%E8%AF%A2---QueryTask%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.990Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1. 效果图"></a>1. 效果图</h5><p>查询FID为2的区域<br><img src="https://img-blog.csdnimg.cn/20190810105835693.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="2-FindTask和QueryTask属性查询中的不同"><a href="#2-FindTask和QueryTask属性查询中的不同" class="headerlink" title="2. FindTask和QueryTask属性查询中的不同"></a>2. FindTask和QueryTask属性查询中的不同</h5><ol>
+<li>引入模块</li>
+</ol>
+<p><strong>FindTask：</strong><code>&quot;esri/tasks/FindTask&quot;,&quot;esri/tasks/FindParameters&quot;,</code><br><strong>QueryTask：</strong><code>&quot;esri/tasks/QueryTask&quot;,&quot;esri/tasks/query&quot;,</code></p>
+<ol start="2">
+<li>定义查询对象</li>
+</ol>
+<p><strong>FindTask：</strong><br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//动态图层</span><br><span class="line">var findTask = new FindTask(http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer);</span><br></pre></td></tr></table></figure></p>
+<pre><code>**QueryTask：**
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//要素图层</span><br><span class="line">var queryTask = new QueryTask(&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer/0&quot;);			</span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="3">
+<li>查询条件</li>
+</ol>
+<p><strong>FindTask：</strong><br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//查询字段 findParams.searchFields=findParams.searchText</span><br><span class="line">findParams.searchFields = [&quot;FID&quot;];</span><br><span class="line">findParams.searchText = &quot;2&quot;;</span><br></pre></td></tr></table></figure></p>
+<pre><code>**QueryTask：**
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//查询条件，类似于sql语句的where子句</span><br><span class="line">query.where = &quot;FID = 2&quot;;</span><br><span class="line">//返回的字段信息：*代表返回全部字段</span><br><span class="line">query.outFields = [&quot;*&quot;];</span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="4">
+<li>显示</li>
+</ol>
+<p><strong>FindTask</strong> 中的 <code>queryResult</code> == <strong>QueryTask</strong> 中的 <code>queryResult.features[i];</code></p>
+<h5 id="3-贴代码"><a href="#3-贴代码" class="headerlink" title="3. 贴代码"></a>3. 贴代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>QueryTask<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/dijit/themes/tundra/tundra.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">type</span>=<span class="string">&quot;text/Javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.MapClass</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>:<span class="number">800px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/dom&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/on&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/QueryTask&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/query&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;esri/symbols/SimpleFillSymbol&quot;</span>, </span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;esri/graphic&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;dojo/domReady!&quot;</span>],</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">Map</span>, ArcGISDynamicMapServiceLayer,dom, on,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">			QueryTask, Query,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">			SimpleLineSymbol,SimpleFillSymbol,Graphic</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//根据div的id属性创建地图</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;mapDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//定义一个动态地图服务</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer</span></span><br><span class="line"><span class="javascript">                (<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//将图层添加到地图</span></span></span><br><span class="line"><span class="javascript">                map.addLayer(layer)</span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">				<span class="comment">//给属性查询按钮添加click事件</span></span></span><br><span class="line"><span class="javascript">				on(dom.byId(<span class="string">&quot;Btn&quot;</span>),<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//定义查询对象，查询参数</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> queryTask = <span class="keyword">new</span> QueryTask</span></span><br><span class="line"><span class="javascript">					(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer/0&quot;</span>);</span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> query = <span class="keyword">new</span> Query();</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//是否返回几何形状</span></span></span><br><span class="line"><span class="javascript">                    query.returnGeometry = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//查询条件，类似于sql语句的where子句</span></span></span><br><span class="line"><span class="javascript">                    query.where = <span class="string">&quot;FID = 2&quot;</span>;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//返回的字段信息：*代表返回全部字段</span></span></span><br><span class="line"><span class="javascript">                    query.outFields = [<span class="string">&quot;*&quot;</span>];</span></span><br><span class="line"><span class="javascript">					<span class="comment">//执行属性查询</span></span></span><br><span class="line"><span class="javascript">                    queryTask.execute(query, showQueryResult);</span></span><br><span class="line"><span class="javascript">				&#125;)</span></span><br><span class="line"><span class="javascript">				<span class="comment">//属性查询完成之后，用showQueryResult来处理返回的结果</span></span></span><br><span class="line"><span class="javascript">                <span class="function"><span class="keyword">function</span> <span class="title">showQueryResult</span>(<span class="params">queryResult</span>)</span></span></span><br><span class="line"><span class="function"><span class="javascript">                </span>&#123;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//创建线符号</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> lineSymbol=<span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> dojo.Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span></span><br><span class="line"><span class="javascript">					<span class="comment">//创建面符号</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> fill=<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol);</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span> (queryResult.features.length == <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="javascript">                        dom.byId(<span class="string">&quot;divShowResult&quot;</span>).innerHTML = <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">return</span>;</span></span><br><span class="line"><span class="javascript">                    &#125;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> htmls = <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span> (queryResult.features.length &gt;= <span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="javascript">                        htmls = htmls + <span class="string">&quot;&lt;table style=\&quot;width: 100%\&quot;&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        htmls = htmls + <span class="string">&quot;&lt;tr&gt;&lt;td&gt;名称&lt;/td&gt;&lt;/tr&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; queryResult.features.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">							<span class="comment">//获得图形graphic</span></span></span><br><span class="line"><span class="javascript">                            <span class="keyword">var</span> graphic = queryResult.features[i];</span></span><br><span class="line"><span class="javascript">							<span class="comment">//赋予相应的符号</span></span></span><br><span class="line"><span class="javascript">							graphic.setSymbol(fill);</span></span><br><span class="line"><span class="javascript">							<span class="comment">//将graphic添加到地图中，从而实现高亮效果</span></span></span><br><span class="line"><span class="javascript">                            map.graphics.add(graphic);</span></span><br><span class="line"><span class="javascript">							<span class="comment">//获得neirong</span></span></span><br><span class="line"><span class="javascript">							<span class="keyword">var</span> ptName = graphic.attributes[<span class="string">&quot;NL_NAME_3&quot;</span>];</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)</span></span><br><span class="line"><span class="javascript">                                htmls = htmls + <span class="string">&quot;&lt;tr&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">else</span></span></span><br><span class="line"><span class="javascript">                                htmls = htmls + <span class="string">&quot;&lt;tr bgcolor=\&quot;#F0F0F0\&quot;&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                            htmls = htmls + <span class="string">&quot;&lt;td&gt;&lt;a href=\&quot;#\&quot; \&quot;&gt;&quot;</span> + ptName + <span class="string">&quot;&lt;/a&gt;&lt;/td&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                            htmls = htmls + <span class="string">&quot;&lt;/tr&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        &#125;</span></span><br><span class="line"><span class="javascript">                        htmls = htmls + <span class="string">&quot;&lt;/table&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">						<span class="comment">//将属性绑定在divShowResult上面</span></span></span><br><span class="line"><span class="javascript">                        dom.byId(<span class="string">&quot;divShowResult&quot;</span>).innerHTML = htmls;</span></span><br><span class="line"><span class="javascript">					&#125;</span></span><br><span class="line"><span class="javascript">				&#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">            &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;属性查询&quot;</span> <span class="attr">id</span>=<span class="string">&quot;Btn&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;divShowResult&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="4-拓展（JS基础）"><a href="#4-拓展（JS基础）" class="headerlink" title="4. 拓展（JS基础）"></a>4. 拓展（JS基础）</h5><p> 改为选择查询参数，输入查询关键字，点击查询</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E6%9F%A5%E8%AF%A2---QueryTask%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/" data-id="ckreqntjt001zr07k3o7a9pzf" data-title="" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-查询---QueryTask空间查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E6%9F%A5%E8%AF%A2---QueryTask%E7%A9%BA%E9%97%B4%E6%9F%A5%E8%AF%A2/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.988Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1. 效果图"></a>1. 效果图</h5><p><img src="https://img-blog.csdnimg.cn/20190810134647334.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="2-QueryTask属性查询和空间查询的不同"><a href="#2-QueryTask属性查询和空间查询的不同" class="headerlink" title="2. QueryTask属性查询和空间查询的不同"></a>2. QueryTask属性查询和空间查询的不同</h5><ol>
+<li><p>引入模块不同<br>空间查询多了<code>&quot;esri/toolbars/draw&quot;,</code>模块</p>
+</li>
+<li><p>条件格式</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//定义一个绘图工具</span><br><span class="line">var toolBar = new Draw(map);</span><br><span class="line">//给button绑定事件</span><br><span class="line">on(dom.byId(&quot;Btn&quot;),&quot;click&quot;,function()&#123;	</span><br><span class="line">	//激活绘图工具，我要绘制一个面图形</span><br><span class="line">	toolBar.activate(Draw.POLYGON);</span><br><span class="line">&#125;)</span><br><span class="line">on(toolBar, &quot;draw-complete&quot;, function (result) &#123;</span><br><span class="line">	//获得绘图得到的面</span><br><span class="line">	var geometry=result.geometry;</span><br><span class="line">	//关闭绘图工具</span><br><span class="line">	toolBar.deactivate();</span><br><span class="line">    queryGraphic(geometry);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>查询条件</p>
+</li>
+</ol>
+<p><strong>属性查询</strong><br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//查询条件，类似于sql语句的where子句</span><br><span class="line">query.where = &quot;FID = 2&quot;;</span><br></pre></td></tr></table></figure><br>    <strong>空间查询</strong><br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//空间查询的几何对象</span><br><span class="line">query.geometry = geometry;</span><br></pre></td></tr></table></figure></p>
+<h5 id="3-贴代码"><a href="#3-贴代码" class="headerlink" title="3. 贴代码"></a>3. 贴代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>QueryTask<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/dijit/themes/tundra/tundra.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">type</span>=<span class="string">&quot;text/Javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.MapClass</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>:<span class="number">800px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/dom&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/on&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/QueryTask&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/toolbars/draw&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/query&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;esri/symbols/SimpleFillSymbol&quot;</span>, </span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;esri/graphic&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;dojo/domReady!&quot;</span>],</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">Map</span>, ArcGISDynamicMapServiceLayer,dom, on,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">			QueryTask, Draw, Query,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">			SimpleLineSymbol,SimpleFillSymbol,Graphic</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;mapdiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer</span></span><br><span class="line"><span class="javascript">            (<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer&quot;</span>);</span></span><br><span class="line"><span class="javascript">            map.addLayer(layer)</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">            </span></span><br><span class="line"><span class="javascript">			<span class="comment">//定义一个绘图工具</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> toolBar = <span class="keyword">new</span> Draw(map);</span></span><br><span class="line"><span class="javascript">			<span class="comment">//给button绑定事件</span></span></span><br><span class="line"><span class="javascript">			on(dom.byId(<span class="string">&quot;Btn&quot;</span>),<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;	</span></span><br><span class="line"><span class="javascript">				<span class="comment">//激活绘图工具，我要绘制一个面图形</span></span></span><br><span class="line"><span class="javascript">                toolBar.activate(Draw.POLYGON);</span></span><br><span class="line"><span class="javascript">			&#125;)</span></span><br><span class="line"><span class="javascript">            on(toolBar, <span class="string">&quot;draw-complete&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//获得绘图得到的面</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> geometry=result.geometry;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//关闭绘图工具</span></span></span><br><span class="line"><span class="javascript">                toolBar.deactivate();</span></span><br><span class="line"><span class="javascript">                queryGraphic(geometry);</span></span><br><span class="line"><span class="javascript">            &#125;);</span></span><br><span class="line"><span class="javascript">            </span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> <span class="title">queryGraphic</span>(<span class="params">geometry</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//创建查询对象</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> queryTask = <span class="keyword">new</span> QueryTask( <span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer/0&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//创建查询参数对象</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> query = <span class="keyword">new</span> Query();</span></span><br><span class="line"><span class="javascript">				<span class="comment">//是否返回几何形状</span></span></span><br><span class="line"><span class="javascript">                query.returnGeometry = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//空间查询的几何对象</span></span></span><br><span class="line"><span class="javascript">                query.geometry = geometry;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//服务器给我们返回的字段信息，*代表返回所有字段</span></span></span><br><span class="line"><span class="javascript">                query.outFields = [<span class="string">&quot;*&quot;</span>];</span></span><br><span class="line"><span class="javascript">				<span class="comment">//空间参考信息</span></span></span><br><span class="line"><span class="javascript">                query.outSpatialReference = map.spatialReference;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//查询的标准，此处代表和geometry相交的图形都要返回</span></span></span><br><span class="line"><span class="javascript">                query.spatialRelationship = Query.SPATIAL_REL_INTERSECTS;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">				<span class="comment">//执行空间查询</span></span></span><br><span class="line"><span class="javascript">                queryTask.execute(query, showQueryResult);</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> <span class="title">showQueryResult</span>(<span class="params">queryResult</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//创建线符号</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> lineSymbol=<span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> dojo.Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span></span><br><span class="line"><span class="javascript">			    <span class="comment">//创建面符号</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> fill=<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol);</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (queryResult.features.length == <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="javascript">                    dom.byId(<span class="string">&quot;divShowResult&quot;</span>).innerHTML = <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">return</span>;</span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> htmls = <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (queryResult.features.length &gt;= <span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="javascript">                    htmls = htmls + <span class="string">&quot;&lt;table style=\&quot;width: 100%\&quot;&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                    htmls = htmls + <span class="string">&quot;&lt;tr&gt;&lt;td&gt;名称&lt;/td&gt;&lt;/tr&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; queryResult.features.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">						<span class="comment">//得到graphic</span></span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> graphic = queryResult.features[i];</span></span><br><span class="line"><span class="javascript">						<span class="comment">//给图形赋予符号</span></span></span><br><span class="line"><span class="javascript">                        graphic.setSymbol(fill);</span></span><br><span class="line"><span class="javascript">						<span class="comment">//添加到地图从而实现高亮效果</span></span></span><br><span class="line"><span class="javascript">                        map.graphics.add(graphic);</span></span><br><span class="line"><span class="javascript">						<span class="comment">////获得内容，对应属性表</span></span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> ptName = graphic.attributes[<span class="string">&quot;NL_NAME_3&quot;</span>];</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)</span></span><br><span class="line"><span class="javascript">                            htmls = htmls + <span class="string">&quot;&lt;tr&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">else</span></span></span><br><span class="line"><span class="javascript">                            htmls = htmls + <span class="string">&quot;&lt;tr bgcolor=\&quot;#F0F0F0\&quot;&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        htmls = htmls + <span class="string">&quot;&lt;td&gt;&lt;a href=\&quot;#\&quot;\&quot;&gt;&quot;</span> + ptName + <span class="string">&quot;&lt;/a&gt;&lt;/td&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        htmls = htmls + <span class="string">&quot;&lt;/tr&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                    &#125;</span></span><br><span class="line"><span class="javascript">                    htmls = htmls + <span class="string">&quot;&lt;/table&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//将教学楼的名称信息和divShowResult绑定</span></span></span><br><span class="line"><span class="javascript">                    dom.byId(<span class="string">&quot;divShowResult&quot;</span>).innerHTML = htmls;</span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mapdiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;空间查询&quot;</span> <span class="attr">id</span>=<span class="string">&quot;Btn&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;divShowResult&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E6%9F%A5%E8%AF%A2---QueryTask%E7%A9%BA%E9%97%B4%E6%9F%A5%E8%AF%A2/" data-id="ckreqntju0021r07kb83i060p" data-title="" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-查询---QueryTask空间+属性查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E6%9F%A5%E8%AF%A2---QueryTask%E7%A9%BA%E9%97%B4+%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.986Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1.效果图"></a>1.效果图</h5><p><img src="https://img-blog.csdnimg.cn/2019081015115272.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br>将上面两片结合起来就OK，代码容易，但是高亮过的图层怎么消除？（扩展）</p>
+<h5 id="2-贴代码"><a href="#2-贴代码" class="headerlink" title="2. 贴代码"></a>2. 贴代码</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>QueryTask<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/dijit/themes/tundra/tundra.css&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">type</span>=<span class="string">&quot;text/Javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span></span><br><span class="line"><span class="css"><span class="xml">        <span class="selector-class">.MapClass</span>&#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">            <span class="attribute">width</span>:<span class="number">100%</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">            <span class="attribute">height</span>:<span class="number">800px</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">            <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">			<span class="string">&quot;dojo/dom&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">			<span class="string">&quot;dojo/on&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="string">&quot;esri/tasks/QueryTask&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="string">&quot;esri/toolbars/draw&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="string">&quot;esri/tasks/query&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">			<span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">			<span class="string">&quot;esri/symbols/SimpleFillSymbol&quot;</span>, </span></span></span><br><span class="line"><span class="javascript"><span class="xml">			<span class="string">&quot;esri/graphic&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="string">&quot;dojo/domReady!&quot;</span>],</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">Map</span>, ArcGISDynamicMapServiceLayer,dom, on,</span></span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript"><span class="xml">			QueryTask, Draw, Query,</span></span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript"><span class="xml">			SimpleLineSymbol,SimpleFillSymbol,Graphic</span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;mapDiv&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                (<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">				<span class="comment">//将图层添加到地图</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">                map.addLayer(layer)</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">				<span class="comment">//给属性查询按钮添加click事件</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">				on(dom.byId(<span class="string">&quot;Btn_sx&quot;</span>),<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					<span class="keyword">var</span> queryTask = <span class="keyword">new</span> QueryTask</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					(<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer/0&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					<span class="keyword">var</span> query = <span class="keyword">new</span> Query();</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    query.where = <span class="string">&quot;FID = 2&quot;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    query.outFields = [<span class="string">&quot;*&quot;</span>];</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    query.returnGeometry = <span class="literal">true</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    queryTask.execute(query, showQueryResult);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                </span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">var</span> toolBar = <span class="keyword">new</span> Draw(map);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">			on(dom.byId(<span class="string">&quot;Btn_kj&quot;</span>),<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                toolBar.activate(Draw.POLYGON);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">			&#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            on(toolBar, <span class="string">&quot;draw-complete&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">				<span class="keyword">var</span> geometry=result.geometry;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                toolBar.deactivate();</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                queryGraphic(geometry);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            </span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="function"><span class="keyword">function</span> <span class="title">queryGraphic</span>(<span class="params">geometry</span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">				<span class="keyword">var</span> queryTask = <span class="keyword">new</span> QueryTask( <span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer/0&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">				<span class="keyword">var</span> query = <span class="keyword">new</span> Query();</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                query.geometry = geometry;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                query.outFields = [<span class="string">&quot;*&quot;</span>];</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                query.returnGeometry = <span class="literal">true</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                queryTask.execute(query, showQueryResult);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            </span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="function"><span class="keyword">function</span> <span class="title">showQueryResult</span>(<span class="params">queryResult</span>)</span></span></span></span><br><span class="line"><span class="function"><span class="javascript"><span class="xml">                </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					<span class="keyword">var</span> lineSymbol=<span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> dojo.Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					<span class="keyword">var</span> fill=<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="keyword">if</span> (queryResult.features.length == <span class="number">0</span>) &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        dom.byId(<span class="string">&quot;divShowResult&quot;</span>).innerHTML = <span class="string">&quot;&quot;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        <span class="keyword">return</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="keyword">var</span> htmls = <span class="string">&quot;&quot;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="keyword">if</span> (queryResult.features.length &gt;= <span class="number">1</span>) &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        htmls = htmls + <span class="string">&quot;&lt;table style=\&quot;width: 100%\&quot;&gt;&quot;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        htmls = htmls + <span class="string">&quot;&lt;tr&gt;&lt;td&gt;名称&lt;/td&gt;&lt;/tr&gt;&quot;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; queryResult.features.length; i++) &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                            <span class="keyword">var</span> graphic = queryResult.features[i];</span></span></span><br><span class="line"><span class="javascript"><span class="xml">							graphic.setSymbol(fill);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                            map.graphics.add(graphic);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">							<span class="keyword">var</span> ptName = graphic.attributes[<span class="string">&quot;NL_NAME_3&quot;</span>];</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                                htmls = htmls + <span class="string">&quot;&lt;tr&gt;&quot;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                            <span class="keyword">else</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">                                htmls = htmls + <span class="string">&quot;&lt;tr bgcolor=\&quot;#F0F0F0\&quot;&gt;&quot;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                            htmls = htmls + <span class="string">&quot;&lt;td&gt;&lt;a href=\&quot;#\&quot; \&quot;&gt;&quot;</span> + ptName + <span class="string">&quot;&lt;/a&gt;&lt;/td&gt;&quot;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                            htmls = htmls + <span class="string">&quot;&lt;/tr&gt;&quot;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        htmls = htmls + <span class="string">&quot;&lt;/table&gt;&quot;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        dom.byId(<span class="string">&quot;divShowResult&quot;</span>).innerHTML = htmls;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">				&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;属性查询&quot;</span> <span class="attr">id</span>=<span class="string">&quot;Btn_sx&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">    </span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;空间查询&quot;</span> <span class="attr">id</span>=<span class="string">&quot;Btn_kj&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;divShowResult&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml"></span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E6%9F%A5%E8%AF%A2---QueryTask%E7%A9%BA%E9%97%B4+%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/" data-id="ckreqntjt0020r07k28vdcec1" data-title="" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-查询---GraphicsLayer的属性查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E6%9F%A5%E8%AF%A2---GraphicsLayer%E7%9A%84%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.984Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>这个查询方法，学习过还没有在开发中真正的使用过。感觉没有上述的三种好用。<br>例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Graphic<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/dijit/themes/tundra/tundra.css&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">type</span>=<span class="string">&quot;text/Javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span></span><br><span class="line"><span class="css"><span class="xml">        <span class="selector-class">.MapClass</span>&#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">            <span class="attribute">width</span>:<span class="number">100%</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">            <span class="attribute">height</span>:<span class="number">800px</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">            <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,<span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="string">&quot;esri/layers/GraphicsLayer&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="string">&quot;dojo/on&quot;</span>,<span class="string">&quot;dojo/query&quot;</span>,<span class="string">&quot;dojo/colors&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="string">&quot;esri/graphic&quot;</span>,<span class="string">&quot;esri/symbols/SimpleMarkerSymbol&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="string">&quot;esri/geometry/Point&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;dojo/domReady!&quot;</span>],</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="function"><span class="keyword">function</span>(<span class="params"><span class="built_in">Map</span>,ArcGISDynamicMapServiceLayer,</span></span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript"><span class="xml">                         GraphicsLayer,on,query,Color,Graphic,</span></span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript"><span class="xml">                         SimpleMarkerSymbol,SimpleLineSymbol,Point</span>)</span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&quot;mapDiv&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            (<span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            map.addLayer(layer);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="comment">//创建客户端图层</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">var</span> graphicsLayer=<span class="keyword">new</span> GraphicsLayer();</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="comment">//将客户端图层添加到地图中</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            map.addLayer(graphicsLayer);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="comment">//添加点图形的函数</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="function"><span class="keyword">function</span> <span class="title">addGraphic</span>(<span class="params"></span>)</span></span></span></span><br><span class="line"><span class="function"><span class="javascript"><span class="xml">            </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="keyword">var</span> lineSymbol=<span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="keyword">var</span> pSymbol=<span class="keyword">new</span> SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE,<span class="number">10</span>, lineSymbol, <span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]));</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="keyword">var</span> geometry;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="keyword">var</span> graphic;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="comment">//添加第一个点</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">                geometry=<span class="keyword">new</span> Point(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;x&quot;</span>:<span class="number">510706</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;y&quot;</span>:<span class="number">3986100</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;spatialReference&quot;</span>:map.spatialReference,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="attr">attributes</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        <span class="string">&quot;h&quot;</span>:<span class="number">100</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                &#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                graphic=<span class="keyword">new</span> Graphic(geometry,pSymbol);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                graphicsLayer.add(graphic);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="comment">//添加第二个点图形</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">                geometry=<span class="keyword">new</span> Point(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;x&quot;</span>:<span class="number">510326</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;y&quot;</span>:<span class="number">3985702</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;spatialReference&quot;</span>:map.spatialReference,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="attr">attributes</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        <span class="string">&quot;h&quot;</span>:<span class="number">200</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                &#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                graphic=<span class="keyword">new</span> Graphic(geometry,pSymbol);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                graphicsLayer.add(graphic);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="comment">//添加第三个点</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">                geometry=<span class="keyword">new</span> Point(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;x&quot;</span>:<span class="number">510275</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;y&quot;</span>:<span class="number">3986100</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="string">&quot;spatialReference&quot;</span>:map.spatialReference,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    <span class="attr">attributes</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                        <span class="string">&quot;h&quot;</span>:<span class="number">300</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                    &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                &#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                graphic=<span class="keyword">new</span> Graphic(geometry,pSymbol);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                graphicsLayer.add(graphic);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            addGraphic();</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="comment">//绑定事件</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            on(graphicsLayer,<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="keyword">var</span> graphic=event.graphic;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                alert(graphic.attributes[<span class="string">&quot;h&quot;</span>]);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E6%9F%A5%E8%AF%A2---GraphicsLayer%E7%9A%84%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/" data-id="ckreqntjt001yr07ka4h4hlz5" data-title="" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-查询---FindTask属性查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E6%9F%A5%E8%AF%A2---FindTask%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.982Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1. 效果图"></a>1. 效果图</h5><p>查询FID为2的区域<br><img src="https://img-blog.csdnimg.cn/20190810093229838.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h5 id="2-引入模块"><a href="#2-引入模块" class="headerlink" title="2. 引入模块"></a>2. 引入模块</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//查询对象</span><br><span class="line">&quot;esri/tasks/FindTask&quot;,</span><br><span class="line">//查询参数</span><br><span class="line">   &quot;esri/tasks/FindParameters&quot;,</span><br><span class="line">   //线符号对象</span><br><span class="line">&quot;esri/symbols/SimpleLineSymbol&quot;,</span><br><span class="line">//面符号对象</span><br><span class="line">&quot;esri/symbols/SimpleFillSymbol&quot;,</span><br><span class="line">//图形对象 </span><br><span class="line">&quot;esri/graphic&quot;,</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-步骤"><a href="#3-步骤" class="headerlink" title="3. 步骤"></a>3. 步骤</h5><ul>
+<li>查询</li>
+<li>显示</li>
+</ul>
+<p><strong>查询</strong></p>
+<ol>
+<li><p>创建属性查询对象、查询参数</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var findTask = new FindTask(MapServer);</span><br><span class="line">var findParams = new FindParameters();</span><br></pre></td></tr></table></figure></li>
+<li><p>绑定触发事件</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">on(dom.byId(&quot;Btn&quot;),&quot;click&quot;,function()&#123;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>返回几何信息  决定高亮等结果显示</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findParams.returnGeometry = true;</span><br></pre></td></tr></table></figure></li>
+<li><p>查询图层</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findParams.layerIds = [1];</span><br></pre></td></tr></table></figure></li>
+<li><p>查询字段 findParams.searchFields=findParams.searchText</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">findParams.searchFields = [&quot;FID&quot;];</span><br><span class="line">findParams.searchText = &quot;2&quot;;</span><br></pre></td></tr></table></figure></li>
+<li><p>执行查询对象</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//ShowFindResult是显示方法</span><br><span class="line">findTask.execute(findParams, ShowFindResult);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>显示</strong></p>
+<ol>
+<li><p>创建线符号</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var lineSymbol=new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new dojo.Color([255, 0, 0]), 3);</span><br></pre></td></tr></table></figure></li>
+<li><p>创建面符号</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fill=new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol);</span><br></pre></td></tr></table></figure></li>
+<li><p>如果查询结果等于0，结束。</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (queryResult.length == 0) &#123;</span><br><span class="line">	dom.byId(&quot;divShowResult&quot;).innerHTML = &quot;&quot;;</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>查询结果大于等于1</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (queryResult.length &gt;= 1) &#123;&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>获得图形，设置符号，添加在地图中，高亮</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//获得图形</span><br><span class="line">var graphic = queryResult[i].feature;</span><br><span class="line">//设置符号</span><br><span class="line">graphic.setSymbol(fill);</span><br><span class="line">//将graphic添加到地图中</span><br><span class="line">//实现高亮</span><br><span class="line">map.graphics.add(graphic);</span><br></pre></td></tr></table></figure></li>
+<li><p>获取对应属性表的内容，并修改显示div的html为获取到的内容</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var ptName = graphic.attributes[&quot;FID&quot;];</span><br><span class="line">  if (i % 2 == 0)</span><br><span class="line">  		htmls = htmls + &quot;&lt;tr&gt;&quot;;</span><br><span class="line">  else</span><br><span class="line">  		htmls = htmls + &quot;&lt;tr bgcolor=\&quot;#F0F0F0\&quot;&gt;&quot;;</span><br><span class="line">  htmls = htmls + &quot;&lt;td&gt;&lt;a href=\&quot;#\&quot; \&quot;&gt;&quot; + ptName + &quot;&lt;/a&gt;&lt;/td&gt;&quot;;</span><br><span class="line">  htmls = htmls + &quot;&lt;/tr&gt;&quot;;</span><br><span class="line">  </span><br><span class="line">  dom.byId(&quot;divShowResult&quot;).innerHTML = htmls;</span><br></pre></td></tr></table></figure></li>
+<li><p>修改显示div的html</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dom.byId(&quot;divShowResult&quot;).innerHTML = htmls;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="4-完整代码"><a href="#4-完整代码" class="headerlink" title="4.完整代码"></a>4.完整代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>FindTask<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/esri/css/esri.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.arcgis.com/3.28/dijit/themes/tundra/tundra.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>  <span class="attr">type</span>=<span class="string">&quot;text/Javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.arcgis.com/3.28/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.MapClass</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>:<span class="number">800px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="built_in">require</span>([<span class="string">&quot;esri/map&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/on&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;dojo/dom&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/FindTask&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;esri/tasks/FindParameters&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;esri/symbols/SimpleLineSymbol&quot;</span>,</span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;esri/symbols/SimpleFillSymbol&quot;</span>, </span></span><br><span class="line"><span class="javascript">			<span class="string">&quot;esri/graphic&quot;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;dojo/domReady!&quot;</span>],</span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">Map</span>, ArcGISDynamicMapServiceLayer,on,dom,</span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">			FindTask, FindParameters, </span></span></span></span><br><span class="line"><span class="params"><span class="function"><span class="javascript">			SimpleLineSymbol,SimpleFillSymbol,Graphic</span>) </span>&#123;   </span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> map = <span class="keyword">new</span> esri.Map(<span class="string">&quot;mapDiv&quot;</span>);</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> MapServer = </span></span><br><span class="line"><span class="javascript">            <span class="string">&quot;http://localhost:6080/arcgis/rest/services/ecology/beijing_2012_3/MapServer&quot;</span>;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> layer = <span class="keyword">new</span> esri.layers.ArcGISDynamicMapServiceLayer(MapServer);</span></span><br><span class="line"><span class="javascript">                map.addLayer(layer)</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">				<span class="comment">//创建属性查询对象、查询参数</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> findTask = <span class="keyword">new</span> FindTask(MapServer);</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> findParams = <span class="keyword">new</span> FindParameters();</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">                <span class="comment">//绑定触发事件</span></span></span><br><span class="line"><span class="javascript">				on(dom.byId(<span class="string">&quot;Btn&quot;</span>),<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//是否返回几何信息  决定高亮等结果显示</span></span></span><br><span class="line"><span class="javascript">                    findParams.returnGeometry = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//查询图层</span></span></span><br><span class="line"><span class="javascript">                    findParams.layerIds = [<span class="number">1</span>];</span></span><br><span class="line"><span class="javascript">					<span class="comment">//查询字段 findParams.searchFields=findParams.searchText</span></span></span><br><span class="line"><span class="javascript">                    findParams.searchFields = [<span class="string">&quot;FID&quot;</span>];</span></span><br><span class="line"><span class="javascript">                    findParams.searchText = <span class="string">&quot;2&quot;</span>;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//执行查询对象</span></span></span><br><span class="line"><span class="javascript">                    findTask.execute(findParams, ShowFindResult);</span></span><br><span class="line"><span class="javascript">                &#125;)</span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">                <span class="function"><span class="keyword">function</span> <span class="title">ShowFindResult</span>(<span class="params">queryResult</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//创建线符号</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> lineSymbol=<span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> dojo.Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>);</span></span><br><span class="line"><span class="javascript">					<span class="comment">//创建面符号</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> fill=<span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol);</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span> (queryResult.length == <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="javascript">                        dom.byId(<span class="string">&quot;divShowResult&quot;</span>).innerHTML = <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">return</span>;</span></span><br><span class="line"><span class="javascript">                    &#125;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> htmls = <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span> (queryResult.length &gt;= <span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="javascript">                        htmls = htmls + <span class="string">&quot;&lt;table style=\&quot;width: 100%\&quot;&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        htmls = htmls + <span class="string">&quot;&lt;tr&gt;&lt;td&gt;名称&lt;/td&gt;&lt;/tr&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; queryResult.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">							<span class="comment">//获得图形</span></span></span><br><span class="line"><span class="javascript">                            <span class="keyword">var</span> graphic = queryResult[i].feature;</span></span><br><span class="line"><span class="javascript">							<span class="comment">//赋予相应的符号</span></span></span><br><span class="line"><span class="javascript">							graphic.setSymbol(fill);</span></span><br><span class="line"><span class="javascript">                            <span class="comment">//将graphic添加到地图中</span></span></span><br><span class="line"><span class="javascript">                            <span class="comment">//实现高亮</span></span></span><br><span class="line"><span class="javascript">                            map.graphics.add(graphic);</span></span><br><span class="line"><span class="javascript">							<span class="comment">//获得内容  注意对应属性表</span></span></span><br><span class="line"><span class="javascript">							<span class="keyword">var</span> ptName = graphic.attributes[<span class="string">&quot;FID&quot;</span>];</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)</span></span><br><span class="line"><span class="javascript">                                htmls = htmls + <span class="string">&quot;&lt;tr&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">else</span></span></span><br><span class="line"><span class="javascript">                                htmls = htmls + <span class="string">&quot;&lt;tr bgcolor=\&quot;#F0F0F0\&quot;&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                            htmls = htmls + <span class="string">&quot;&lt;td&gt;&lt;a href=\&quot;#\&quot; \&quot;&gt;&quot;</span> + ptName + <span class="string">&quot;&lt;/a&gt;&lt;/td&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                            htmls = htmls + <span class="string">&quot;&lt;/tr&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">                        &#125;</span></span><br><span class="line"><span class="javascript">                        htmls = htmls + <span class="string">&quot;&lt;/table&gt;&quot;</span>;</span></span><br><span class="line"><span class="javascript">						<span class="comment">//dom操作修改div的html</span></span></span><br><span class="line"><span class="javascript">                        dom.byId(<span class="string">&quot;divShowResult&quot;</span>).innerHTML = htmls;</span></span><br><span class="line"><span class="javascript">                    &#125;</span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">            </span></span><br><span class="line"><span class="javascript">        &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;属性查询&quot;</span> <span class="attr">id</span>=<span class="string">&quot;Btn&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;divShowResult&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h5 id="5-拓展（JS基础）"><a href="#5-拓展（JS基础）" class="headerlink" title="5. 拓展（JS基础）"></a>5. 拓展（JS基础）</h5><p> 改为选择查询参数，输入查询关键字，点击查询</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E6%9F%A5%E8%AF%A2---FindTask%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/" data-id="ckreqntjs001xr07k0r9yadpa" data-title="" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-WebGIS期中复习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/WebGIS%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.980Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/WebGIS%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">WebGIS期中复习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h4><ol>
+<li>施乐公司开发的一个基于Web的地图浏览器，标志着万维网地理信息系统的产生</li>
+<li>WebGIS是使用了Web技术的各种地理信息系统</li>
+<li>WebGIS需要通过Web技术来实现</li>
+<li>WebGIS是一种分布式的地理信息系统</li>
+<li>WebGIS至少需要一个Web应用服务器和一个客户端</li>
+<li>WebGIS开源解决方案：Leaflet、Geoserver服务器、Openlayers平台</li>
+<li>GIS功能：<ul>
+<li>地图可视化与制图</li>
+<li>发现地理事物的隐含关系</li>
+<li>探寻事物的空间分布规律演变趋势</li>
+<li>采集、存储及共享地理数据</li>
+</ul>
+</li>
+<li>WebGIS的优点有：<ul>
+<li>传播的广远性，应用广泛</li>
+<li>较好的跨平台</li>
+<li>费用低廉</li>
+<li>分布式服务体系</li>
+<li>基于Internet标准</li>
+</ul>
+</li>
+<li>WebGIS的功能：<ul>
+<li>空间数据发布</li>
+<li>空间查询检索和联机处理</li>
+<li>空间数据可视化</li>
+<li>空间模型分析服务</li>
+<li>Web资源共享</li>
+</ul>
+</li>
+<li>WebGIS开发平台：<ul>
+<li>商业平台</li>
+<li>开源平台</li>
+<li>高德</li>
+<li>百度地图平台</li>
+<li>基于WebGL或其他图形语言的底层开发</li>
+</ul>
+</li>
+</ol>
+<h3 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h3><ol>
+<li><p>TOMCAT默认端口号为8080</p>
+</li>
+<li><p>arcgis server默认端口号为6080</p>
+</li>
+<li><p>HTTP协议默认端口号是80</p>
+</li>
+<li><p>HTTPS默认端口号是443</p>
+</li>
+<li><p>五种状态码：</p>
+<ul>
+<li>1xx：信息提示，表示请求已被成功接收，继续处理</li>
+<li>2xx：请求被成功提交。</li>
+<li>3xx：客户端被重定向到其他资源。</li>
+<li>4xx：客户端错误状态码，格式错误或者不存在资源。</li>
+<li>5xx：描述服务器内部错误。</li>
+</ul>
+</li>
+<li><p>常见的状态码描述如下：</p>
+<ul>
+<li>200：客户端请求成功，是最常见的状态。</li>
+<li>302：重定向。</li>
+<li>404：请求资源不存在，是最常见的状态。</li>
+<li>400：客户端请求有语法错误，不能被服务器所理解。</li>
+<li>401：请求未经授权。</li>
+<li>403：服务器收到请求，但是拒绝提供服务。</li>
+<li>500：服务器内部错误，是最常见的状态。</li>
+</ul>
+</li>
+<li><p>Web服务器有：Apache、Tomcat、IIS</p>
+</li>
+<li><p>浏览器前端编程技术：Javascript、Flex、Siverlight</p>
+</li>
+<li><p>WebGIS的基本架构包括：</p>
+<ul>
+<li>客户端</li>
+<li>Web服务器</li>
+<li>GIS服务器</li>
+<li>空间数据库服务器</li>
+</ul>
+</li>
+<li><p>一个Web应用的工作流程是使用Web客户端在地址栏上输入<strong>URL</strong>地址，Web服务器收到请求后，搜索服务器上存储的<strong>文件</strong>或<strong>脚本</strong>，并将执行结果返回给<strong>Web客户端</strong>，收到相应结果，并把返回的结果渲染和显示出来。</p>
+</li>
+<li><p>HTTP(HyperText Transfer Protocol)协议是一种<strong>超文本传输协议</strong>，定义了一套进行<strong>超文本传输协议</strong>请求和应答时所遵循的协议规范，它允许将HTML（超文本标记语言）文档从Web服务器传送到Web浏览器。</p>
+</li>
+<li><p>以下HTTP请求消息，可以得到该请求是<strong>POST</strong>请求(方法)，请求的服务器文件是该域名根目录下的<strong>test.php</strong>文件，第三部分说明使用的是<strong>HTTP1.1</strong>协议版本，请求主机地址是<strong><a target="_blank" rel="noopener" href="http://www.test.com/">www.test.com</a></strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POST /test.php HTTP/1.1               //请求行</span><br><span class="line"></span><br><span class="line">HOST：www.test.com                    //请求头</span><br><span class="line"></span><br><span class="line">User-Agent：Mozilla/5.0 （windows NT 6.1；rv：15.0）Gecko/20100101 Firefox/15.0        //空白行，代表请求头结束</span><br><span class="line"></span><br><span class="line">Username=admin&amp;password=admin       //请求正文</span><br></pre></td></tr></table></figure></li>
+<li><p>XML转换json</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;COOKING&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Everyday Italian<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>Giada De Laurentiis<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">price</span>&gt;</span>30.00<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;CHILDREN&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;WEB&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Learning XML<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>Erik T. Ray<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">year</span>&gt;</span>2003<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">price</span>&gt;</span>39.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>答案：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;bookstore&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;book&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;-category&quot;</span>: <span class="string">&quot;COOKING&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Everyday Italian&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Giada De Laurentiis&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;year&quot;</span>: <span class="string">&quot;2005&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;price&quot;</span>: <span class="string">&quot;30.00&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;-category&quot;</span>: <span class="string">&quot;CHILDREN&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Harry Potter&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;J K. Rowling&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;year&quot;</span>: <span class="string">&quot;2005&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;price&quot;</span>: <span class="string">&quot;29.99&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;-category&quot;</span>: <span class="string">&quot;WEB&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;title&quot;</span>: <span class="string">&quot;Learning XML&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Erik T. Ray&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;year&quot;</span>: <span class="string">&quot;2003&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;price&quot;</span>: <span class="string">&quot;39.95&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h4><ol>
+<li>服务器端WebGIS实现方式的优点：<ul>
+<li>瘦客户端，不需要安装插件</li>
+<li>可以执行复杂的空间分析与数据处理</li>
+<li>CGI模式具有跨平台能力</li>
+</ul>
+</li>
+<li>服务器端WebGIS实现方式的缺点：服务器负担重</li>
+<li>客户端WebGIS实现方式的优点：<ul>
+<li>服务器端压力轻</li>
+<li>客户端地图操作响应速度快</li>
+<li>服务器和网络传输负担轻</li>
+</ul>
+</li>
+<li>在栅格切片中第（level i）中的一张切片到第（level i+1）级中变成<strong>4</strong>张</li>
+<li>ArcGIS的矢量瓦片格式是<strong>PBF</strong>，它是一种基于协议缓冲（protocol Buffer）技术的紧凑的二进制格式。</li>
+<li>WebGIS系统的组成：客户端、通信协议、服务器</li>
+<li>服务器端WebGIS实现方式：CGI、Server API</li>
+<li>客户端WebGIS实现方式：GIS plugin、Java Applet、ActiveX</li>
+<li>矢量瓦片和栅格瓦片比优势有：<ul>
+<li>矢量瓦片切片速度快，栅格瓦片切片速度慢</li>
+<li>矢量瓦片数据量小，栅格瓦片数据量大</li>
+<li>矢量瓦片在客户端绘制地图，渲染速度快；栅格瓦片在服务器端制作地图，前端渲染速度不及矢量切片</li>
+<li>矢量瓦片可以在前端修改地图样式，栅格瓦片的地图样式不能修改。</li>
+</ul>
+</li>
+<li>矢量切片与栅格切片原理一样，只是切割的数据内容不一样</li>
+<li>栅格切片的地图瓦片是预先在服务器端生成的。</li>
+<li>矢量切片主要的三种格式是GeoJson、TopoJson、Mapbox Vector Tile（MVT）</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/WebGIS%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/" data-id="ckreqntj3000vr07k3k2g1xgi" data-title="WebGIS期中复习" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Vue + ArcGIS api 自学笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/Vue%20+%20ArcGIS%20api%20%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.978Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/Vue%20+%20ArcGIS%20api%20%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/">Vue + ArcGIS api 自学笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Vue-与-ArcGIS-api-结合，基于Vue-cli-和-esri-loader-学习笔记"><a href="#Vue-与-ArcGIS-api-结合，基于Vue-cli-和-esri-loader-学习笔记" class="headerlink" title="Vue 与 ArcGIS api 结合，基于Vue-cli 和 esri loader 学习笔记"></a><code>Vue</code> 与 <code>ArcGIS api</code> 结合，基于<code>Vue-cli</code> 和 <code>esri loader</code> 学习笔记</h3><blockquote>
+<p>下方链接，关注可见</p>
+</blockquote>
+<p><strong>2020.3.19更</strong></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/04/12/esri%20loader%20+%20Arcgis%20api%203.x%E5%8A%A0%E8%BD%BD%20arcgis%20server%20%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/">3.x加载 arcgis server 地图服务</a></li>
+<li><a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/04/12/esri%20loader%20+%20Arcgis%20api%204.x%E5%8A%A0%E8%BD%BD%20arcgis%20server%20%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/">4.x加载 arcgis server 地图服务</a></li>
+</ol>
+<p><strong>2020.03.28更</strong></p>
+<ol start="3">
+<li><a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/04/12/Vue%20+%20ArcGIS%20api%20%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E8%8C%83%E5%9B%B4+%E5%9D%90%E6%A0%87/">实时同步范围+坐标</a></li>
+<li><a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/04/12/esri%20loader%20+%20arcgis%20api%20%E5%AE%9E%E7%8E%B0%E5%B0%8F%E9%83%A8%E4%BB%B6/">小部件</a></li>
+<li><a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/04/12/esri%20loader%20+%20arcgis%20api%20%E5%9B%BE%E5%B1%82%E6%8E%A7%E5%88%B6%20+%20%E7%AD%9B%E9%80%89/">图层控制 + 筛选</a></li>
+<li><a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/04/12/Vue%20+%20ArcGIS%20api%20%E8%AE%BE%E7%BD%AE%E8%8C%83%E5%9B%B4+%E5%9D%90%E6%A0%87/">设置范围+坐标</a></li>
+</ol>
+<p><strong>2020.04.11更</strong></p>
+<ol start="7">
+<li><a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/04/12/%E4%B9%A6%E7%AD%BE+%E5%9B%BE%E5%B1%82%E5%88%97%E8%A1%A8+%E6%B5%8B%E9%87%8F%E5%B7%A5%E5%85%B7+%E5%9B%BE%E4%BE%8B+%E9%B9%B0%E7%9C%BC+%E5%9C%B0%E5%9B%BE%E5%88%87%E6%8D%A2/">书签+图层列表+测量工具+图例+鹰眼+地图切换</a>. </li>
+<li><a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/04/12/%E5%87%A0%E4%BD%95%E5%A4%84%E7%90%86-%E7%BB%98%E5%9B%BE%EF%BC%88%E7%82%B9%EF%BC%8C%E5%A4%9A%E7%82%B9%EF%BC%8C%E7%BA%BF%EF%BC%8C%E7%AE%AD%E5%A4%B4%E7%BA%BF%EF%BC%8C%E9%9D%A2%EF%BC%8C%E5%BE%92%E6%89%8B%E7%BA%BF%EF%BC%8C%E5%BE%92%E6%89%8B%E9%9D%A2%EF%BC%8C%E5%9C%86%EF%BC%8C%E7%9F%A9%E5%BD%A2%EF%BC%89/">几何处理-绘图（点，多点，线，箭头线，面，徒手线，徒手面，圆，矩形）</a></li>
+</ol>
+<p><strong>2020.05.01更</strong></p>
+<ol start="9">
+<li><a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/05/02/%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93%E3%80%81%E7%AE%80%E5%8D%95%E6%B8%B2%E6%9F%93%E3%80%81%E5%88%86%E7%BA%A7%E6%B8%B2%E6%9F%93%E3%80%81%E7%83%AD%E5%8A%9B%E5%9B%BE%E6%B8%B2%E6%9F%93%EF%BC%88%E5%AE%8C%E6%95%B4%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%89/">唯一值渲染、简单渲染、分级渲染、热力图渲染</a></li>
+<li><a target="_blank" rel="noopener" href="https://enofeng.github.io/2020/05/02/echarts%E7%BB%98%E5%88%B6map%EF%BC%8C%E6%B7%BB%E5%8A%A0%E5%9B%BE%E8%A1%A8%EF%BC%8C%E7%AC%A6%E5%90%88ES6%E8%A7%84%E8%8C%83/">echarts绘制map，添加图表</a></li>
+</ol>
+<hr>
+<blockquote>
+<p>官方API是最好的学习文档</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/Vue%20+%20ArcGIS%20api%20%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" data-id="ckreqntj2000tr07k5c6g2n6v" data-title="Vue + ArcGIS api 自学笔记" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Vue + ArcGIS api 实时同步范围+坐标" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/Vue%20+%20ArcGIS%20api%20%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E8%8C%83%E5%9B%B4+%E5%9D%90%E6%A0%87/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.975Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/Vue%20+%20ArcGIS%20api%20%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E8%8C%83%E5%9B%B4+%E5%9D%90%E6%A0%87/">Vue + ArcGIS api 实时同步范围+坐标</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>修改中心坐标需要是地理坐标系</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>ID</th>
+<th>函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>同步范围</td>
+<td><code>#extent-change</code></td>
+<td><code>showExtent</code></td>
+</tr>
+<tr>
+<td>同步坐标</td>
+<td>‘#MouseMove’</td>
+<td>showCoordinates</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>extent_tag</code></td>
+<td>绑定范围的显示标签</td>
+</tr>
+<tr>
+<td><code>xyText</code></td>
+<td>绑定坐标的显示标签</td>
+</tr>
+<tr>
+<td><code>extent_zdy</code></td>
+<td>修改范围的值</td>
+</tr>
+<tr>
+<td><code>xy_zdy</code></td>
+<td>修改XY的值</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  esriLoader.setDefaultOptions(&#123; <span class="attr">version</span>: <span class="string">&#x27;3.28&#x27;</span> &#125;)</span><br><span class="line">  <span class="built_in">this</span>.createMap()</span><br><span class="line">&#125;,</span><br><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="attr">createMap</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    esriLoader.loadModules([<span class="string">&#x27;esri/map&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;esri/geometry/Extent&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;esri/layers/ArcGISDynamicMapServiceLayer&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;dojo/query&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;esri/toolbars/navigation&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;esri/geometry/Point&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;dojo/domReady!&#x27;</span>], &#123; <span class="attr">css</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">      .then(<span class="function">(<span class="params">[<span class="built_in">Map</span>, Extent, ArcGISDynamicMapServiceLayer, query, Navigation, Point]</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> tjUAVurl = <span class="string">&#x27;http://localhost:6080/arcgis/rest/services/Eco/BJ_td_gd_nyd/MapServer&#x27;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&#x27;map&#x27;</span>, &#123;</span><br><span class="line">          <span class="attr">extent</span>: <span class="keyword">new</span> Extent(&#123;</span><br><span class="line">            <span class="attr">xmin</span>: <span class="number">114.4134760856628</span>,</span><br><span class="line">            <span class="attr">ymin</span>: <span class="number">40.13100080490112</span>,</span><br><span class="line">            <span class="attr">xmax</span>: <span class="number">118.36547288894677</span>,</span><br><span class="line">            <span class="attr">ymax</span>: <span class="number">41.64383821487438</span>,</span><br><span class="line">            <span class="attr">spatialReference</span>: &#123;</span><br><span class="line">              <span class="attr">wkid</span>: <span class="number">4326</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;),</span><br><span class="line">          <span class="attr">logo</span>: <span class="literal">false</span></span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> tjUAVLayer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(tjUAVurl)</span><br><span class="line">        map.addLayer(tjUAVLayer)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// *************************************************************************************** //</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> that = <span class="built_in">this</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">showExtent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="comment">// console.log(that.extent_tag)</span></span><br><span class="line">          <span class="keyword">var</span> extent = map.extent</span><br><span class="line">          <span class="keyword">var</span> s = []</span><br><span class="line">          s[<span class="number">0</span>] = <span class="string">&#x27;XMin:&#x27;</span> + extent.xmin</span><br><span class="line">          s[<span class="number">1</span>] = <span class="string">&#x27;YMin:&#x27;</span> + extent.ymin</span><br><span class="line">          s[<span class="number">2</span>] = <span class="string">&#x27;XMax:&#x27;</span> + extent.xmax</span><br><span class="line">          s[<span class="number">3</span>] = <span class="string">&#x27;YMax:&#x27;</span> + extent.ymax</span><br><span class="line">          that.extent_tag = s</span><br><span class="line">          that.extent_zdy = map.extent</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">showCoordinates</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> mp = event.mapPoint</span><br><span class="line">          that.xy_zdy = mp</span><br><span class="line">          that.xyText = mp.x + <span class="string">&#x27;,&#x27;</span> + mp.y</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        showExtent()</span><br><span class="line"></span><br><span class="line">        map.on(<span class="string">&#x27;extent-change&#x27;</span>, showExtent)</span><br><span class="line">        map.on(<span class="string">&#x27;MouseMove&#x27;</span>, showCoordinates)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/Vue%20+%20ArcGIS%20api%20%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E8%8C%83%E5%9B%B4+%E5%9D%90%E6%A0%87/" data-id="ckreqntj1000sr07k051g4h9h" data-title="Vue + ArcGIS api 实时同步范围+坐标" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Vue + ArcGIS api 设置范围+坐标" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/Vue%20+%20ArcGIS%20api%20%E8%AE%BE%E7%BD%AE%E8%8C%83%E5%9B%B4+%E5%9D%90%E6%A0%87/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.973Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/Vue%20+%20ArcGIS%20api%20%E8%AE%BE%E7%BD%AE%E8%8C%83%E5%9B%B4+%E5%9D%90%E6%A0%87/">Vue + ArcGIS api 设置范围+坐标</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>修改中心坐标需要是地理坐标系</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>ID</th>
+<th>函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>控制修改中心坐标的<code>Dialog</code>的显示</td>
+<td><code>#setting-extent-xy</code></td>
+<td><code>dialogSetXYVisible</code></td>
+</tr>
+<tr>
+<td>实现修改中心坐标</td>
+<td>‘#XYDialogOK’</td>
+<td>btnSettingXY</td>
+</tr>
+<tr>
+<td>控制修改范围的<code>Dialog</code>的显示</td>
+<td><code>#setting-extent</code></td>
+<td><code>dialogSetExtentVisible</code></td>
+</tr>
+<tr>
+<td>实现修改范围</td>
+<td>‘#extentDialogOK’</td>
+<td>btnSettingExtent</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>extent_zdy</code></td>
+<td>修改范围的值</td>
+</tr>
+<tr>
+<td><code>xy_zdy</code></td>
+<td>修改XY的值</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  esriLoader.setDefaultOptions(&#123; <span class="attr">version</span>: <span class="string">&#x27;3.28&#x27;</span> &#125;)</span><br><span class="line">  <span class="built_in">this</span>.createMap()</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="attr">createMap</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    esriLoader.loadModules([<span class="string">&#x27;esri/map&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;esri/geometry/Extent&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;esri/layers/ArcGISDynamicMapServiceLayer&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;dojo/query&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;esri/toolbars/navigation&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;esri/geometry/Point&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;dojo/domReady!&#x27;</span>], &#123; <span class="attr">css</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">      .then(<span class="function">(<span class="params">[<span class="built_in">Map</span>, Extent, ArcGISDynamicMapServiceLayer, query, Navigation, Point]</span>) =&gt;</span> &#123;</span><br><span class="line">      </span><br><span class="line">        <span class="keyword">var</span> tjUAVurl = <span class="string">&#x27;http://localhost:6080/arcgis/rest/services/Eco/BJ_td_gd_nyd/MapServer&#x27;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&#x27;map&#x27;</span>, &#123;</span><br><span class="line">          <span class="attr">extent</span>: <span class="keyword">new</span> Extent(&#123;</span><br><span class="line">            <span class="attr">xmin</span>: <span class="number">114.4134760856628</span>,</span><br><span class="line">            <span class="attr">ymin</span>: <span class="number">40.13100080490112</span>,</span><br><span class="line">            <span class="attr">xmax</span>: <span class="number">118.36547288894677</span>,</span><br><span class="line">            <span class="attr">ymax</span>: <span class="number">41.64383821487438</span>,</span><br><span class="line">            <span class="attr">spatialReference</span>: &#123;</span><br><span class="line">              <span class="attr">wkid</span>: <span class="number">4326</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;),</span><br><span class="line">          <span class="attr">logo</span>: <span class="literal">false</span></span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> tjUAVLayer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(tjUAVurl)</span><br><span class="line">        map.addLayer(tjUAVLayer)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> that = <span class="built_in">this</span></span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">dialogSetXYVisible</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          that.centerDialogVisible = <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">btnSettingXY</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (map.extent.spatialReference.wkid === <span class="number">4326</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(map.extent.spatialReference.wkid)</span><br><span class="line">            <span class="keyword">var</span> point = <span class="keyword">new</span> Point(that.xy_zdy.x, that.xy_zdy.y)</span><br><span class="line">            map.centerAt(point)</span><br><span class="line">            that.opensuccess()</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            that.openWarning()</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">dialogSetExtentVisible</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          that.centerDialogVisible_extent = <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">btnSettingExtent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          map.setExtent(that.extent_zdy)</span><br><span class="line">          that.opensuccess()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// *************************************************************************************** //</span></span><br><span class="line">        </span><br><span class="line">        query(<span class="string">&#x27;#setting-extent-xy&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, dialogSetXYVisible)</span><br><span class="line">        query(<span class="string">&#x27;#XYDialogOK&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, btnSettingXY)</span><br><span class="line">        query(<span class="string">&#x27;#setting-extent&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, dialogSetExtentVisible)</span><br><span class="line">        query(<span class="string">&#x27;#extentDialogOK&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, btnSettingExtent)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">opensuccess</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.$message(&#123;</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&#x27;success&#x27;</span>,</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;success&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">openWarning</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.$message(&#123;</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&#x27;非地理坐标系&#x27;</span>,</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;warning&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/Vue%20+%20ArcGIS%20api%20%E8%AE%BE%E7%BD%AE%E8%8C%83%E5%9B%B4+%E5%9D%90%E6%A0%87/" data-id="ckreqntj3000ur07k09ddcqnn" data-title="Vue + ArcGIS api 设置范围+坐标" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Unbutu系统创建及初始配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/Unbutu%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.971Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/Unbutu%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/">Unbutu系统创建及初始配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><hr>
+<h4 id="1-创建"><a href="#1-创建" class="headerlink" title="1. 创建"></a>1. 创建<img src="https://img-blog.csdnimg.cn/20200313013649977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></h4><h4 id="2-next"><a href="#2-next" class="headerlink" title="2. next   "></a>2. next   <img src="https://img-blog.csdnimg.cn/20200313013735511.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></h4><h4 id="3-稍后"><a href="#3-稍后" class="headerlink" title="3. 稍后"></a>3. 稍后</h4><p>   <img src="https://img-blog.csdnimg.cn/2020031301382273.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="4-Ununtu-64位，不是Ubuntu"><a href="#4-Ununtu-64位，不是Ubuntu" class="headerlink" title="4. Ununtu 64位，不是Ubuntu"></a>4. Ununtu 64位，不是Ubuntu</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313013842942.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="5-更改位置，选择一个至少20G的磁盘"><a href="#5-更改位置，选择一个至少20G的磁盘" class="headerlink" title="5. 更改位置，选择一个至少20G的磁盘"></a>5. 更改位置，选择一个至少20G的磁盘</h4><p><img src="https://img-blog.csdnimg.cn/20200313021557617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="6-next直到完成。"><a href="#6-next直到完成。" class="headerlink" title="6. next直到完成。"></a>6. next直到完成。</h4><h1 id="系统初始化设置"><a href="#系统初始化设置" class="headerlink" title="系统初始化设置"></a>系统初始化设置</h1><hr>
+<h4 id="1-选择中文，安装Ubuntu"><a href="#1-选择中文，安装Ubuntu" class="headerlink" title="1. 选择中文，安装Ubuntu"></a>1. 选择中文，安装Ubuntu</h4><h4 id="2-选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除"><a href="#2-选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除" class="headerlink" title="2. 选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除"></a>2. 选择镜像，框中的根据电脑配置设置即可，左侧的打印机点击，然后移除</h4><p>   <img src="https://img-blog.csdnimg.cn/2020031301424793.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="3-然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。"><a href="#3-然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。" class="headerlink" title="3. 然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。"></a>3. 然后让他安装就行。联网状态下，会安装一些基本软件，不相等的话，可以选择前面的建议安装，软件自己部署即可。</h4><h4 id="4-安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了"><a href="#4-安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了" class="headerlink" title="4. 安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了"></a>4. 安装结束后，如果卡在进系统的时候，就在VM顶部选项卡里强制关机一下，然后重新启动就可以了</h4><h4 id="5-第一次进来的时候，分辨率是不会自适应的。需要安装open-vm-tools-desktop。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装"><a href="#5-第一次进来的时候，分辨率是不会自适应的。需要安装open-vm-tools-desktop。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装" class="headerlink" title="5. 第一次进来的时候，分辨率是不会自适应的。需要安装open-vm-tools-desktop。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装"></a>5. 第一次进来的时候，分辨率是不会自适应的。需要安装<code>open-vm-tools-desktop</code>。可以通过VM下面的提示点击安装也可以在虚拟机中的终端安装</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313014858282.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="6-更新apt，用来安装软件。"><a href="#6-更新apt，用来安装软件。" class="headerlink" title="6. 更新apt，用来安装软件。"></a>6. 更新apt，用来安装软件。</h4><p>   <code>sudo apt-get update</code></p>
+<p>   <img src="https://img-blog.csdnimg.cn/20200313015145739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<p>   出现这个说明正常安装，如果不能正常安装，<a target="_blank" rel="noopener" href="https://blog.csdn.net/DanBo_C/article/details/104832786">更改软件源</a>。然后重新更新即可，如果是无网络状态，<a target="_blank" rel="noopener" href="https://blog.csdn.net/DanBo_C/article/details/104832837">解决</a></p>
+<h4 id="7-安装编辑器Vimsudo-apt-get-install-vim，Ubuntu18-0-4自带了gedit。"><a href="#7-安装编辑器Vimsudo-apt-get-install-vim，Ubuntu18-0-4自带了gedit。" class="headerlink" title="7. 安装编辑器Vimsudo apt-get install vim，Ubuntu18.0.4自带了gedit。"></a>7. 安装编辑器Vim<code>sudo apt-get install vim</code>，Ubuntu18.0.4自带了gedit。</h4><p>   <img src="https://img-blog.csdnimg.cn/20200313020404451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="8-Ubuntu-已安装SSH-client，还需要安装-SSH-server"><a href="#8-Ubuntu-已安装SSH-client，还需要安装-SSH-server" class="headerlink" title="8. Ubuntu 已安装SSH client，还需要安装 SSH server"></a>8. Ubuntu 已安装SSH client，还需要安装 SSH server</h4><p>   <code>sudo apt-get install openssh-server</code></p>
+<p>   <img src="https://img-blog.csdnimg.cn/20200313020633763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="9-登录本机，首次登陆会有提示信息"><a href="#9-登录本机，首次登陆会有提示信息" class="headerlink" title="9. 登录本机，首次登陆会有提示信息"></a>9. 登录本机，首次登陆会有提示信息</h4><p>   <code>ssh localhost</code></p>
+<p>   <img src="https://img-blog.csdnimg.cn/20200313020704786.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="10-退出"><a href="#10-退出" class="headerlink" title="10. 退出"></a>10. 退出</h4><pre><code>`exit`
+</code></pre>
+<h4 id="11-创建-ssh目录"><a href="#11-创建-ssh目录" class="headerlink" title="11. 创建.ssh目录"></a>11. 创建<code>.ssh</code>目录</h4><pre><code>`cd ~/.ssh/`
+</code></pre>
+<h4 id="12-生成密钥"><a href="#12-生成密钥" class="headerlink" title="12. 生成密钥"></a>12. 生成密钥</h4><pre><code>`ssh-keygen -t rsa` 一路回车
+</code></pre>
+<p>  <img src="https://img-blog.csdnimg.cn/20200313020750189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="13-配置SSH无密码登录"><a href="#13-配置SSH无密码登录" class="headerlink" title="13. 配置SSH无密码登录"></a>13. 配置SSH无密码登录</h4><pre><code>`cat ./id_rsa.pub &gt;&gt; ./authorized_keys`加入授权，重新登录验证，不再需要输入密码
+</code></pre>
+<p>   <img src="https://img-blog.csdnimg.cn/20200313020828236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/Unbutu%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/" data-id="ckreqntj0000rr07k6sv3gnn4" data-title="Unbutu系统创建及初始配置" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

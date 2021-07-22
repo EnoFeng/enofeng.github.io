@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Arcgis api for js通过json添加点，显示弹框信息 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数据格式  12345&amp;#123;	&quot;china&quot;:[		&amp;#123;&quot;id&quot;:&quot;1&quot;,&quot;city&quot;:&quot;上海&quot;,&quot;x&quot;:&quot;121.4648&quot;,&quot;y&quot;:&quot;31.2891&quot;&amp;#125;	]&amp;#125; 完整数据下载模块&amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arcgis api for js通过json添加点，显示弹框信息">
+<meta property="og:url" content="http://example.com/2021/07/22/Arcgis%20api%20for%20js%E9%80%9A%E8%BF%87json%E6%B7%BB%E5%8A%A0%E7%82%B9%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%BC%B9%E6%A1%86%E4%BF%A1%E6%81%AF/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="数据格式  12345&amp;#123;	&quot;china&quot;:[		&amp;#123;&quot;id&quot;:&quot;1&quot;,&quot;city&quot;:&quot;上海&quot;,&quot;x&quot;:&quot;121.4648&quot;,&quot;y&quot;:&quot;31.2891&quot;&amp;#125;	]&amp;#125; 完整数据下载模块&amp;qu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-22T09:54:48.899Z">
+<meta property="article:modified_time" content="2020-04-12T12:33:31.520Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Arcgis api for js通过json添加点，显示弹框信息" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/Arcgis%20api%20for%20js%E9%80%9A%E8%BF%87json%E6%B7%BB%E5%8A%A0%E7%82%B9%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%BC%B9%E6%A1%86%E4%BF%A1%E6%81%AF/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:48.899Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Arcgis api for js通过json添加点，显示弹框信息
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><p>格式 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;china&quot;:[</span><br><span class="line">		&#123;&quot;id&quot;:&quot;1&quot;,&quot;city&quot;:&quot;上海&quot;,&quot;x&quot;:&quot;121.4648&quot;,&quot;y&quot;:&quot;31.2891&quot;&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="完整数据下载"><a href="#完整数据下载" class="headerlink" title="完整数据下载"></a><a target="_blank" rel="noopener" href="https://download.csdn.net/download/DanBo_C/12311418">完整数据下载</a></h5><h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><p><code>&quot;esri/InfoTemplate&quot;, &quot;dojo/store/JsonRest&quot;</code></p>
+<h4 id="调用，弹框代码"><a href="#调用，弹框代码" class="headerlink" title="调用，弹框代码"></a>调用，弹框代码</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">map.on(<span class="string">&quot;load&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">              <span class="keyword">var</span> store = <span class="keyword">new</span> JsonRest(&#123; <span class="attr">target</span>: <span class="string">&quot;china1.json&quot;</span> &#125;);</span><br><span class="line">              <span class="keyword">var</span> infoTemplate = <span class="keyword">new</span> InfoTemplate(<span class="string">&quot;$&#123;id&#125;&quot;</span>, <span class="string">&quot;城市:$&#123;city&#125;&lt;/br&gt;X坐标:$&#123;X&#125;&lt;/br&gt;Y坐标:$&#123;Y&#125;&quot;</span>);</span><br><span class="line">              store.query(&#123; <span class="string">&quot;id&quot;</span>: <span class="string">&quot;*&quot;</span> &#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">result, request</span>) </span>&#123;</span><br><span class="line">                  <span class="keyword">var</span> items = result.china;</span><br><span class="line">                  <span class="comment">// console.log(items);</span></span><br><span class="line">                  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; items.length; i++) &#123;</span><br><span class="line">                      <span class="keyword">var</span> attr = &#123;</span><br><span class="line">                          <span class="string">&quot;id&quot;</span>: i,</span><br><span class="line">                          <span class="string">&quot;name&quot;</span>: items[i].city,</span><br><span class="line">                          <span class="string">&quot;X&quot;</span>: items[i].x,</span><br><span class="line">                          <span class="string">&quot;Y&quot;</span>: items[i].y</span><br><span class="line">                      &#125;;</span><br><span class="line"></span><br><span class="line">                      <span class="keyword">var</span> locPoint = <span class="keyword">new</span> Point(items[i].x, items[i].y, <span class="keyword">new</span> SpatialReference(&#123; <span class="attr">wkid</span>: <span class="number">4326</span> &#125;));</span><br><span class="line">                      <span class="keyword">var</span> graphic = <span class="keyword">new</span> Graphic(locPoint, markerSym, attr, infoTemplate); <span class="comment">// markerSym为点符号样式</span></span><br><span class="line"></span><br><span class="line">                      <span class="comment">// 将图形添加到地图中</span></span><br><span class="line">                      map.graphics.add(graphic)</span><br><span class="line"></span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;)</span><br><span class="line"></span><br><span class="line">          &#125;)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/Arcgis%20api%20for%20js%E9%80%9A%E8%BF%87json%E6%B7%BB%E5%8A%A0%E7%82%B9%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%BC%B9%E6%A1%86%E4%BF%A1%E6%81%AF/" data-id="ckreqntii0001r07ke38sh721" data-title="Arcgis api for js通过json添加点，显示弹框信息" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/arcgis%20server%E5%8F%91%E5%B8%83%E5%88%87%E7%89%87%E5%9C%B0%E5%9B%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          arcgis server发布切片地图
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/ArcGIS%20API%20for%20JavaScript%20%E5%85%A5%E9%97%A8%E5%BF%85%E8%AF%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">ArcGIS API for JavaScript 入门必读</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

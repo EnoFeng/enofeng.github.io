@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>小操作 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="2019.9.21 更添加图层map.addLayer(Shp);移除图层map.removeLayer(Shp);隐藏图层shp.hide();显示图层shp.show();、 2020.3.20更定位地图中心 12345function setMapCenter() &amp;#123;    var point &#x3D; new Point(121.453, 31.709);    map.centerA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小操作">
+<meta property="og:url" content="http://example.com/2021/07/22/%E5%B0%8F%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="Programmer Home">
+<meta property="og:description" content="2019.9.21 更添加图层map.addLayer(Shp);移除图层map.removeLayer(Shp);隐藏图层shp.hide();显示图层shp.show();、 2020.3.20更定位地图中心 12345function setMapCenter() &amp;#123;    var point &#x3D; new Point(121.453, 31.709);    map.centerA">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-22T09:54:49.059Z">
+<meta property="article:modified_time" content="2020-04-12T12:32:48.808Z">
+<meta property="article:author" content="Eno·feng">
+<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-小操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%B0%8F%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T09:54:49.059Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      小操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="2019-9-21-更"><a href="#2019-9-21-更" class="headerlink" title="2019.9.21 更"></a>2019.9.21 更</h5><p>添加图层<code>map.addLayer(Shp);</code><br>移除图层<code>map.removeLayer(Shp);</code><br>隐藏图层<code>shp.hide();</code><br>显示图层<code>shp.show();</code>、</p>
+<h5 id="2020-3-20更"><a href="#2020-3-20更" class="headerlink" title="2020.3.20更"></a>2020.3.20更</h5><p>定位地图中心</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setMapCenter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> point = <span class="keyword">new</span> Point(<span class="number">121.453</span>, <span class="number">31.709</span>);</span><br><span class="line">    map.centerAt(point);</span><br><span class="line">&#125;</span><br><span class="line">dojo.connect(dojo.byId(<span class="string">&quot;btn5&quot;</span>), <span class="string">&quot;onclick&quot;</span>, setMapCenter);</span><br></pre></td></tr></table></figure>
+
+<p>开关图层</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载动态地图</span></span><br><span class="line">       <span class="keyword">var</span> dynamicUrl = <span class="string">&quot;http://localhost:6080/arcgis/rest/services/webgis/School/MapServer&quot;</span>;</span><br><span class="line">       <span class="keyword">var</span> dynamicLayer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(dynamicUrl);</span><br><span class="line">       map.addLayer(dynamicLayer);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 关闭所有显示</span></span><br><span class="line">       visible = [-<span class="number">1</span>];</span><br><span class="line">       dynamicLayer.setVisibleLayers(visible);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 打开所有显示</span></span><br><span class="line">       visible = [];</span><br><span class="line">       <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; dynamicLayer.layerInfos.length; i++) &#123;</span><br><span class="line">           visible.push(i);</span><br><span class="line">       &#125;</span><br><span class="line">       dynamicLayer.setVisibleLayers(visible);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%B0%8F%E6%93%8D%E4%BD%9C/" data-id="ckreqntjq001sr07kcpdwfxd8" data-title="小操作" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%88%86%E7%B1%BB%E6%B8%B2%E6%9F%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          渲染---分类渲染
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/%E5%B0%8F%E9%83%A8%E4%BB%B6---%E9%B9%B0%E7%9C%BC%E5%9B%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">鹰眼图</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Eno·feng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
