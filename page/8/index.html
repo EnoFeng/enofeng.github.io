@@ -6,21 +6,17 @@
   
   <title>Programmer Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Learn and Life">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Programmer Home">
-<meta property="og:url" content="http://example.com/page/8/index.html">
-<meta property="og:site_name" content="Programmer Home">
-<meta property="og:description" content="Learn and Life">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="Eno·feng">
-<meta property="article:tag" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
-<meta name="twitter:card" content="summary">
+  
+    <meta name="description" content="Learn and Life">
+  
+  
+    <meta name="keywords" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+  
   
     <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
   
   
-    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
   
   
     
@@ -35,13 +31,18 @@
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
   
+  
+    
+<link rel="stylesheet" href="/localshare/css/share.css">
+
+  
+  
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container">
     <div id="wrap">
       <header id="header">
-  <div id="banner"></div>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
@@ -55,21 +56,31 @@
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/">Home</a>
+          <a class="main-nav-link" href="/."><i class="fa fa-home"></i> 首页</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          <a class="main-nav-link" href="/archives/"><i class="fa fa-archive"></i> 归档</a>
+        
+          <a class="main-nav-link" href="/about/"><i class="fa fa-user"></i> 关于</a>
         
       </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+    </div>
+    <div id="search-form">
+      <div id="result-mask" class="hide"></div>
+      <label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label>
+      <div id="result-wrap" class="hide">
+        <div id="search-result"></div>
+      </div>
+      <div class="hide">
+        <template id="search-tpl">
+          <div class="item">
+            <a href="/{path}" title="{title}">
+              <div class="title">{title}</div>
+              <div class="time">{date}</div>
+              <div class="tags">{tags}</div>
+            </a>
+          </div>
+        </template>
       </div>
     </div>
   </div>
@@ -77,14 +88,7 @@
 
       <div class="outer">
         <section id="main">
-  
-    <article id="post-GIS复习【VI】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90VI%E3%80%91/" class="article-date">
-  <time class="dt-published" datetime="2021-07-22T09:54:48.928Z" itemprop="datePublished">2021-07-22</time>
-</a>
-    
-  </div>
+  <article id="post-Nodejs爬虫实战（四）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
     
@@ -92,243 +96,225 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90VI%E3%80%91/">GIS复习【VI】</a>
+      <a class="p-name article-title" href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%9B%9B%EF%BC%89/">Nodejs爬虫实战（四）</a>
     </h1>
   
 
+
       </header>
     
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.954Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%9B%9B%EF%BC%89/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>文章较长，建议从目录选取感兴趣内容，然后Ctry+F搜索、跳转</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><strong>13、数据库与空间数据库<br>14、数据库的数据模型<br>15、空间数据的组织方式<br>16、ArcGIS中的数据方式</strong></p>
-<p>——————————————————正文——————————————————-</p>
-<h2 id="13、数据库与空间数据库"><a href="#13、数据库与空间数据库" class="headerlink" title="13、数据库与空间数据库"></a>13、数据库与空间数据库</h2><ol>
-<li><p><strong>数据库概述</strong></p>
-<ol>
-<li><p>数据管理技术的发展过程</p>
-<p> 人工管理阶段–&gt;文件管理阶段–&gt;数据库管理阶段</p>
+        <h4 id="1-淘宝天猫页面重定向"><a href="#1-淘宝天猫页面重定向" class="headerlink" title="1. 淘宝天猫页面重定向"></a>1. 淘宝天猫页面重定向</h4><ol>
+<li><p>尝试抓取淘宝页面</p>
 </li>
-<li><p>建立数据库的目的</p>
-<ul>
-<li>保存数据</li>
-<li>管理和控制与这些数据相关联的事物。 </li>
-</ul>
+<li><p>打印<code>res.statusCode,res.headers.location</code></p>
 </li>
-<li><p>数据库定义：</p>
-<p> 为了一定的目的，在计算机系统中以特定的结构组织、存储、管理和应用的相关联的数据集合。</p>
-</li>
-<li><p>数据组织层次</p>
-<ul>
-<li>数据项(元素/基本项/字段)：定义数据的最小单位</li>
-<li>记录：由若干相关联的数据项组成</li>
-<li>文件：一给定类型的记录的全部具体值的集合</li>
-<li>数据库：若干文件的集合。</li>
-</ul>
+<li><p><code>res.statusCode</code>返回的状态码;</p>
+<p> <code>res.headers.location</code>返回的地址</p>
 </li>
 </ol>
-</li>
-</ol>
-<pre><code>5. 逻辑关系
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%9B%9B%EF%BC%89/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
 
-    - 1：1
-    - 1：N
-    - M：N
+
+  <article id="post-Nodejs爬虫实战（三）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%89%EF%BC%89/">Nodejs爬虫实战（三）</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.952Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%89%EF%BC%89/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="1-抽取函数处理"><a href="#1-抽取函数处理" class="headerlink" title="1. 抽取函数处理"></a>1. 抽取函数处理</h4><ol>
+<li>引入模块</li>
+<li>http协议和https协议两种，既有不同，那么模块引入创建的变量自然不同</li>
+</ol>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%89%EF%BC%89/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-Nodejs爬虫实战（七）数据可视化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">Nodejs爬虫实战（七）</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.950Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="完整项目代码"><a href="#完整项目代码" class="headerlink" title="完整项目代码"></a><a target="_blank" rel="noopener" href="https://download.csdn.net/download/danbo_c/11877690">完整项目代码</a></h2><h4 id="1-HTML部分"><a href="#1-HTML部分" class="headerlink" title="1. HTML部分"></a>1. HTML部分</h4><ol>
+<li>创建一个输入框，确定按钮</li>
+<li>数据可视化的盒子</li>
+<li>引入<code>echarts.min.js</code>和<code>ajax.js</code></li>
+</ol>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-Nodejs爬虫实战（六）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%85%AD%EF%BC%89/">Nodejs爬虫实战（六）</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.948Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%85%AD%EF%BC%89/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="1-处理数据"><a href="#1-处理数据" class="headerlink" title="1. 处理数据"></a>1. 处理数据</h4><ol>
+<li>上一步获取结果中含有<code>p</code>标签，用正则筛选，去掉标签，只留下文本。</li>
+</ol>
+<pre><code>    var myHtml = document.querySelector(&#39;.read-content&#39;).innerHTML.replace(/&lt;[^&gt;]+&gt;/g,&#39;&#39;)
 </code></pre>
 <ol start="2">
-<li><p><strong>空间数据的特征</strong></p>
-<ol>
-<li><p>空间分布特征</p>
-<p> 空间对象隐含了空间分布特征,需要按照位置进行空间对象的检索</p>
-</li>
-<li><p>非结构化特征</p>
-<p> 用一条记录表达一个空间对象，它的数据项可能是很长的，例如，1条弧段的坐标，它可能是2对坐标，也可能是10万对坐标。 <strong>非结构化是空间数据难以直接采用通用的关系型 数据库管理系统的主要原因。</strong></p>
-</li>
-<li><p>空间关系特征</p>
-<p> 空间数据库中记录的拓扑信息表达了多种空间关系</p>
-</li>
-<li><p>分类编码特征</p>
-<p> 基础地理信息要素分类与代码</p>
-</li>
-<li><p>海量数据特征</p>
-</li>
-<li><p>多尺度与多态性  X</p>
-</li>
+<li>统计词的个数首先需要文本分词</li>
 </ol>
-</li>
-<li><p><strong>空间数据库</strong></p>
-<ol>
-<li><p>定义</p>
-<ul>
-<li>应用于地理空间数据处理与信息分析领域的具有工程性质的数据库。</li>
-<li>是存取、管理空间信息的数据库。</li>
-</ul>
-<p> 特点：</p>
-<ul>
-<li>数据量特别大</li>
-<li>属性数据和空间数据联合管理</li>
-<li>数据应用范围广泛</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<pre><code>2. 数据库与空间数据库的比较
-
-    ![](https://img-blog.csdnimg.cn/20190420141933619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-
-3. 一般组成
-
-    ![](https://img-blog.csdnimg.cn/20190420141947749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)    
-    1. 栅格数据库
-    
-        - 遥感影像数据
-        - DEM数据
-
-    2. 矢量数据库
-        - 各种空间实体数据（图形和属性数据） 
-</code></pre>
-<h2 id="14、数据库的数据模型"><a href="#14、数据库的数据模型" class="headerlink" title="14、数据库的数据模型"></a>14、数据库的数据模型</h2><ol>
-<li><p>传统数据库的数据模型</p>
-<ol>
-<li><p>层次模型（1:n）</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190420142005598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<p> 结点代表数据记录，连线描述位于不同结点数据间的从属关系</p>
-</li>
-<li><p>网状模型（m:n）</p>
-<p> <img src="https://img-blog.csdnimg.cn/2019042014204620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<p> 没有明确的从属关系</p>
-</li>
-<li><p>关系模型<br> <img src="https://img-blog.csdnimg.cn/20190420142056423.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<ul>
-<li>实体本身的信息以及实体之间的联系均表现为二维表，这种表就称为关系</li>
-<li>一个实体由若干个关系组成，而关系表的集合就构成为关系模型。</li>
-<li>关系模型用关系代数和关系运算来操纵数据</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<ol start="2">
-<li><p>面向对象的数据模型</p>
-<ol>
-<li>定义 以对象作为最基本的元素</li>
-<li>面向对象的几何抽象类型 <img src="https://img-blog.csdnimg.cn/20190420142110425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></li>
-<li>面向对象的属性数据模型</li>
-<li>面向对象数据库系统的实现方式<br> 特点：有效地表达空间数据的拓扑关系。表达和处理属性数据时，具有独特的优越性。</li>
-</ol>
-</li>
-</ol>
-<blockquote>
-<p>练习 4.1</p>
-<ul>
-<li>数据管理技术发展的三个阶段？<br>答：人工管理阶段–&gt;文件管理阶段–&gt;数据库管理阶段</li>
-<li>空间数据的五大特征？<br>答：分布特征、非结构化特征、空间关系特征、分类编码特征、海量数据特征。</li>
-<li>空间数据库的定义与一般构成？<br>答：定义：应用于地理空间数据处理于信息分析领域的具有工程性质，存取、管理空间信息的数据库。<br>一般构成：矢量数据库（图形和属性）、栅格数据库（影响和高程模型）</li>
-<li>传统数据库的数据模型有哪三种？<br>答：层次模型（1：n）、网状模型（m：n）、关系模型</li>
-</ul>
-</blockquote>
-<h2 id="15、空间数据的组织方式"><a href="#15、空间数据的组织方式" class="headerlink" title="15、空间数据的组织方式"></a>15、空间数据的组织方式</h2><ol>
-<li><p>矢量数据组织</p>
-<p> <strong>位置数据和属性数据通常是分开组织</strong></p>
-<ol>
-<li>文件与关系数据库混合管理<ul>
-<li>两个子系统分别存储和检索空间数据和属性数据，使用一种标识符将两者联系起来。<br><img src="https://img-blog.csdnimg.cn/20190420142125478.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br>缺点：<ul>
-<li>查询运算，模型操作运算速度慢；</li>
-<li>数据分布和共享困难；</li>
-<li>数据的安全性、一致性、完整性、并发控制以及数据损坏后的恢复方面</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>全关系型空间数据库管理<ul>
-<li>图形数据与属性数据都采用关系型数据库存储。</li>
-</ul>
- <strong>本质</strong>：将图形数据的变长部分（坐标数据）当作一个二进制块，交由关系数据库管理系统进行存贮和管理。<br> <img src="https://img-blog.csdnimg.cn/20190420142150239.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br> <strong>特点：不必进行烦琐的连接</strong></li>
-<li>对象-关系数据库管理<ul>
-<li>对现有的关系数据库进行扩展，增加空间数据类型</li>
-<li>解决了空间数据的变长记录的管理</li>
-<li>它仍然没有解决对象的嵌套问题，空间数据结构也不能由用户任意定义<br><img src="https://img-blog.csdnimg.cn/20190420142213459.png"></li>
-</ul>
- 扩展方式：<ol>
-<li>加一个空间数据管理引擎</li>
-<li>由数据库管理系统的软件商在关系数据库管理系统中进行空间数据管理的专用模块扩展，定义操纵点、线、面、圆、长方形等空间对象的API（Application Programming Interface）函数。</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>栅格数据组织</p>
-<p> <strong>影像数据和数字高程模型</strong></p>
-<ol>
-<li><p>基于文件的影像数据库管理</p>
-<p> 目前大部分GIS软件和遥感图像处理软件都是采用文件方式来管理遥感影像数据。</p>
-</li>
-<li><p>文件结合数据库管理</p>
-<p> 影像数据仍按照文件方式组织管理；在关系数据库中，每个文件都有唯一的标识号（ID）对应影像信息，如文件名称、存储路径等 </p>
-</li>
-<li><p>关系数据库管理<br> 将影像数据存储在二进制变长字段中，影像数据的元数据信息也存放在关系数据库的表中，二者可以进行无缝管理。</p>
-<p> <strong>特点：</strong></p>
-<ul>
-<li>易于共享</li>
-<li>方便管理多数据源和多时态的数据</li>
-<li>数据的一致性和完整性控制</li>
-<li>影像数据和元数据集成到一起，能方便的进行交互式查询。</li>
-<li>不同操作系统平台下运行</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="16、ArcGIS中的数据方式"><a href="#16、ArcGIS中的数据方式" class="headerlink" title="16、ArcGIS中的数据方式"></a>16、ArcGIS中的数据方式</h2><ol>
-<li><p>Coverage ：与shapefile不同的是shapefile文件不存储拓扑信息，因此相对其它数据格式要较少地占用存储空间，在显示和访问效率上要快许多。</p>
-</li>
-<li><p>Shapefile ：基于文件的存储，不能存储拓扑关系。</p>
-</li>
-<li><p>Geodatabase ：基于数据库的存储，可以存储拓扑关系。</p>
-<ul>
-<li><p>个人地理数据库</p>
-<p>  Microsoft Access 数据文件 (.mdb)，2GB数据量限制，单用户数据库，仅适用于 Windows。</p>
-</li>
-<li><p>文件地理数据库</p>
-<p>  文件系统的文件夹中保存的ArcGIS所支持类型的 GIS 数据集的集合，单个数据集的大小限制为1TB，单用户数据库，跨平台。</p>
-</li>
-<li><p>ArcSDE地理数据库</p>
-<p>  在关系数据库中以表的形式保存的ArcGIS所支持类型的GIS 数据集的集合，可建立在服务器端的网络数据库连接。使用 ArcSDE 技术，数据库大小取决于所关联的DBMS。</p>
-<blockquote>
-<p>练习 4.2</p>
-<ul>
-<li>矢量数据的三种组织方式？</li>
-<li>栅格数据组织的三种方式</li>
-<li>ArcGIS中文件组织方式？Geodatabase的三种类型？</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</li>
-</ol>
-
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90VI%E3%80%91/" data-id="ckreqntin0006r07k071ja9my" data-title="GIS复习【VI】" class="article-share-link">分享</a>
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E5%85%AD%EF%BC%89/#more">Read More</a>
+        </p>
       
       
       
     </footer>
   </div>
-  
 </article>
 
 
-
-  
-    <article id="post-GIS复习【V】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90V%E3%80%91/" class="article-date">
-  <time class="dt-published" datetime="2021-07-22T09:54:48.926Z" itemprop="datePublished">2021-07-22</time>
-</a>
-    
-  </div>
+  <article id="post-Nodejs爬虫实战（二）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
     
@@ -336,161 +322,61 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90V%E3%80%91/">GIS复习【V】</a>
+      <a class="p-name article-title" href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%BA%8C%EF%BC%89/">Nodejs爬虫实战（二）</a>
     </h1>
   
 
+
       </header>
     
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.946Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%BA%8C%EF%BC%89/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>文章较长，建议从目录选取感兴趣内容，然后Ctry+F搜索、跳转</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><strong>17、空间数据源<br>18、空间数据采集<br>19、空间数据的编辑与处理<br>20、空间数据质量及其精度分析</strong><br>————————————————-正文———————————————————-</p>
-<h2 id="17、空间数据源"><a href="#17、空间数据源" class="headerlink" title="17、空间数据源"></a>17、空间数据源</h2><ol>
-<li><p><strong>数据源的分类</strong></p>
-<ul>
-<li><p>图形图像数据：</p>
-<p>  地图 、工程图、规划图<br>  遥感影像、包括卫星、航空、地面遥感影像等</p>
-</li>
-<li><p>文本资料数据：</p>
-<ul>
-<li>实测数据、野外调查的原始记录</li>
-<li>共享数据（可能包含图形图像数据）</li>
-<li>其他数据、如调查报告、立法文件等</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code>![](https://img-blog.csdnimg.cn/20190420151010764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-</code></pre>
-<ol start="2">
-<li><p><strong>数据源特征</strong></p>
+        <h4 id="1-尝试抓取数据"><a href="#1-尝试抓取数据" class="headerlink" title="1. 尝试抓取数据"></a>1. 尝试抓取数据</h4><ol>
+<li>引入模块<code>http</code>和<code>fs</code>，<code>fs</code>为文件操作模块</li>
+<li>let 声明的变量只在 let 命令所在的代码块内有效<blockquote>
 <ol>
-<li><p>地图数据 </p>
-<p> 具有共同参考坐标系统的点、线、面的二维平面形式的表示，分为普通地图和专题地图。</p>
-<p> 在应用地图数据时应注意以下几点：</p>
-<ul>
-<li>地图存储介质的缺陷</li>
-<li>地图现势性较差</li>
-<li>地图投影的转换</li>
-</ul>
+<li><p>在ES6之前没有块级概念，let在所在区域内有效，和c语言中的变量作用域相同。</p>
 </li>
-<li><p>遥感影像数据</p>
-<p> 特征：</p>
-<ul>
-<li>能够提供大范围的瞬间静态图像；</li>
-<li>能够进行大面积的重复性观测；</li>
-<li>大大加宽了人眼所能观察的光谱范围；</li>
-<li>空间详细程度高。</li>
-</ul>
-</li>
-<li><p>实测数据</p>
-<p> GPS点位数据、地籍测量数据、观测站点监测数据等通常具有较高的精度和较好的现势性</p>
-</li>
-<li><p>统计数据<br> 统计数据一般都是和一定范围内的统计单元或观测点联系在一起。 </p>
-</li>
-<li><p>共享数据</p>
-</li>
-<li><p>多媒体数据</p>
-</li>
-<li><p>文本资料数据</p>
+<li><p>var变量，函数内声明的变量作用域是局部的，外部就是全局的。</p>
 </li>
 </ol>
+</blockquote>
 </li>
 </ol>
-<ol start="3">
-<li><p><strong>空间数据采集与处理的基本流程</strong></p>
-<p> <img src="https://img-blog.csdnimg.cn/20190420151027151.png"></p>
-</li>
-</ol>
-<h2 id="18、空间数据采集"><a href="#18、空间数据采集" class="headerlink" title="18、空间数据采集"></a>18、空间数据采集</h2><ol>
-<li><p><strong>空间（图形）数据的采集</strong></p>
-<ul>
-<li><p>野外数据采集：平板测量、全野外数字测图、空间定位测量</p>
-</li>
-<li><p>地图数字化：手扶跟踪数字化、扫描矢量化<br><img src="https://img-blog.csdnimg.cn/20190420151042754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20190420151054684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-</li>
-<li><p>摄影测量方法：航空摄影测量、地面摄影测量</p>
-</li>
-<li><p>遥感图像处理</p>
-<p>  流程：</p>
-<ol>
-<li>观测数据的输入</li>
-<li>再生、矫正处理</li>
-<li>变化处理</li>
-<li>分类处理</li>
-<li>处理结果输出</li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code>**选择采集方法：**
-- 数字化设备：数字化仪、扫描仪、遥感与摄影测量设备
-- 特点：范围大，速度快
-- 使用范围：大面积GIS数据采集、资源普查等
-
-     ****
-- 野外测量：大平板、全站仪、GPS、移动测绘系统
-- 特点：精度高、效率较低
-- 适合范围：小范围GIS数据采集或局部数据更新
-</code></pre>
-<ol start="2">
-<li><p><strong>属性数据的采集</strong></p>
-<ol>
-<li><p>属性数据的来源与分类</p>
-<ul>
-<li>社会环境</li>
-<li>自然环境</li>
-<li>资源与能源</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<pre><code>2. 属性数据的编码
-
-    编码的直接产物就是代码，而分类分级则是编码的基础。
-
-    **编码原则：**
-    - 系统性和科学性
-    - 一致性
-    - 标准化和通用性  
-    - 编码的简捷性
-    - 编码的可扩展性
-
-3. 常用的编码分类方法
-
-    1. 层次分类编码法：按分类对象的从属和层次关系为排列顺序
-    2. 多源分类编码法：不同的分类依据分别编码，数字之间没隶属关系。
-</code></pre>
-<ol start="3">
-<li><strong>属性数据和图形数据的连接</strong><br><img src="https://img-blog.csdnimg.cn/20190422184208811.png"></li>
-</ol>
-<h2 id="19、空间数据的编辑与处理"><a href="#19、空间数据的编辑与处理" class="headerlink" title="19、空间数据的编辑与处理"></a>19、空间数据的编辑与处理</h2><h2 id="20、空间数据质量及其精度分析"><a href="#20、空间数据质量及其精度分析" class="headerlink" title="20、空间数据质量及其精度分析"></a>20、空间数据质量及其精度分析</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90V%E3%80%91/" data-id="ckreqntin0007r07k7tl3cpcu" data-title="GIS复习【V】" class="article-share-link">分享</a>
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/Nodejs%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%EF%BC%88%E4%BA%8C%EF%BC%89/#more">Read More</a>
+        </p>
       
       
       
     </footer>
   </div>
-  
 </article>
 
 
-
-  
-    <article id="post-GIS复习【III】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90III%E3%80%91/" class="article-date">
-  <time class="dt-published" datetime="2021-07-22T09:54:48.924Z" itemprop="datePublished">2021-07-22</time>
-</a>
-    
-  </div>
+  <article id="post-JSP总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
     
@@ -498,356 +384,50 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90III%E3%80%91/">GIS复习【III】</a>
+      <a class="p-name article-title" href="/2021/07/22/JSP%E6%80%BB%E7%BB%93/">JSP总结</a>
     </h1>
   
 
+
       </header>
     
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.944Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/JSP%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>文章较长，建议从目录选取感兴趣内容，然后Ctry+F搜索、跳转</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><strong>6、空间数据模型+<br>7、栅格数据结构++<br>8、矢量数据结构++<br>9、矢量与栅格的比较与选择++<br>10、矢栅一体化<br>11、镶嵌数据结构<br>12、三维数据结构+</strong></p>
-<p>——————————————————–正文—————————————————————-</p>
-<h2 id="6、空间数据模型"><a href="#6、空间数据模型" class="headerlink" title="6、空间数据模型*"></a>6、空间数据模型*</h2><p>数据模型是对现实世界进行认知、简化和抽象表达</p>
-<ol>
-<li>空间实体抽象的三个层次 <img src="https://img-blog.csdnimg.cn/20190420112623221.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></li>
-</ol>
-<ol start="2">
-<li><p>空间数据模型概念</p>
-<ul>
-<li>对象模型</li>
-<li>场模型</li>
-<li>网络模型</li>
-</ul>
-</li>
-</ol>
-<ol start="3">
-<li>空间逻辑数据模型<ul>
-<li>矢量数据模型</li>
-<li>栅格数据模型</li>
-<li>矢量-栅格一体化数据模型</li>
-<li>镶嵌数据模型</li>
-<li>面向对象数据模型</li>
-</ul>
-</li>
-</ol>
-<h2 id="7、栅格数据结构"><a href="#7、栅格数据结构" class="headerlink" title="7、栅格数据结构**"></a>7、栅格数据结构**</h2><ol>
-<li><p>概念</p>
-<p> <strong>定义</strong>：将地表划分成为紧密相邻的网格阵列。每个网格的位置由行列号定义，并包含一个代码，以表示该网格的属性。</p>
-<p> <strong>注意</strong>：栅格数据模型是将连续空间离散化，即用二维铺盖或划分覆盖整个连续空间。</p>
-</li>
-<li><p>特点</p>
-<ol>
-<li><strong>属性明显，定位隐含；</strong></li>
-<li>数据结构简单；</li>
-<li>面向位置的数据结构，难以建立空间对象之间的关系；</li>
-<li>比例尺大小为栅格(像元)的大小与地表相应单元的大小之比；存在几何和属性偏差。</li>
-</ol>
-<p> <img src="https://img-blog.csdnimg.cn/20190420112638670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-</li>
-<li><p>属性值的确定 x</p>
-<ol>
-<li>中心点法：取位于栅格中心的属性值为该栅格的属性值。</li>
-<li>面积占优法：栅格单元属性值为面积最大者。</li>
-<li>重要性法：取重要的属性值为栅格属性值。 </li>
-<li>长度占优法：每个栅格单元的值由该栅格中线段最长的实体的属性来确定。 </li>
-</ol>
-</li>
-<li><p>栅格结构数据获取的途径</p>
-<ul>
-<li>手工获取</li>
-<li>扫描仪扫描</li>
-<li>遥感影像数据</li>
-<li>由矢量数据转换而来</li>
-</ul>
-</li>
-<li><p>栅格数据编码方法**</p>
-<ol>
-<li><p>直接栅格编码</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190420112700111.png"></p>
-<p> 优点：简单、直观，无压缩</p>
-<p> 缺点：存在大量冗余，精度提高有限制。</p>
-<p> 完全栅格数据的组织：基于层（波段）、基于行、基于像元。</p>
-</li>
-<li><p>游程编码长度</p>
-<ul>
-<li>数据结构：（A，P），A表示属性值，P代表该游程相同代码重复的个数。</li>
-<li>属性变化越少，压缩比例越大，适合于类型区域面积较大的栅格。</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<pre><code>    - 优点：
-        1. 栅格加密时，数据量不会明显增加，压缩效率高，最大限度保留原始栅格结构，
-        2. 编码解码运算简单，且易于检索、叠加、合并等操作，得到广泛应用。
-    - 缺点：不适合于类型连续变化或类型区域分散的数据。
-
-
-3. 块状编码
-
-    ![](https://img-blog.csdnimg.cn/20190420112711673.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-    
-    对大而简单的多边形更为有效，在合并、插入、检查延伸性、计算面积等操作时有明显的优越性
-
-4. 四叉树编码
-
-    **莫顿码**
-
-    十进制莫顿码产生过程：十进制的行、列坐标表示为二进制，按位交错，得到二进制再转化为十进制。
-
-    1. 四叉树编码
-
-        ![](https://img-blog.csdnimg.cn/20190420112725786.png)
-        ![](https://img-blog.csdnimg.cn/20190420112759775.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-
-        - 图形必须为2n×2n的栅格阵列。
-        - n 为极限分割次数
-        - n＋1是四叉树最大层数或最大高度
-
-    
-    2. 线性四叉树编码
-
-        ![](https://img-blog.csdnimg.cn/2019042011281168.png)
-        ![](https://img-blog.csdnimg.cn/20190420112822376.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-
-    3. 二维行程编码
-
-        ![](https://img-blog.csdnimg.cn/20190420112836674.png)
-    4. 带指针的二维行程编码
-
-        ![](https://img-blog.csdnimg.cn/20190420112849656.png)
-        ![](https://img-blog.csdnimg.cn/20190420112900448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-
-    优点：有效地计算多边形的数量特征
-
-    缺点：
-    - 矢/栅正反变换还不理想
-    - 建立四叉树耗时
-    - 修改麻烦
-    - 不直接体现物体之间的拓扑关系
-    - 滑动变异
-    - 失去了内在的相关性
-
-5. 链式编码
-
-    ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190420112915384.png)
-    ![](https://img-blog.csdnimg.cn/20190420112924164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-    ![](https://img-blog.csdnimg.cn/20190420112940480.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-</code></pre>
-<h2 id="8、矢量数据结构"><a href="#8、矢量数据结构" class="headerlink" title="8、矢量数据结构**"></a>8、矢量数据结构**</h2><ol>
-<li><p>地理实体</p>
-<ul>
-<li><p><strong>点实体</strong>：具有特定的位置而没有长度的实体</p>
-</li>
-<li><p><strong>线实体</strong>：具有长度的实体</p>
-<p>  特征：</p>
-<ul>
-<li>长度：从起点到终点的总长；</li>
-<li>弯曲度：用于表示像道路拐弯时弯曲的程度。</li>
-<li>方向性：如水流方向,上下游; 公路,单双向之分。</li>
-</ul>
-</li>
-<li><p><strong>面状实体</strong>：又称为多边形、区域等，水对湖泊、岛屿、地块等一类现象的描述</p>
-</li>
-</ul>
-<p> <strong>地理实体需要描述的内容：</strong></p>
-<ul>
-<li>编码</li>
-<li>位置</li>
-<li>类型</li>
-<li>行为</li>
-<li>属性</li>
-<li>说明</li>
-<li>时间维描述</li>
-<li>关系</li>
-</ul>
-</li>
-<li><p>矢量数据结构定义</p>
-<p> 通过记录坐标的方式尽可能精确地理实体，坐标空间设为连续，允许任意位置、长度和面积的精确定义。<strong>特点：定位明显，属性隐含</strong></p>
-</li>
-<li><p>获取方式</p>
-<ul>
-<li>外业测量</li>
-<li>栅格数据转换</li>
-<li>跟踪数字化</li>
-</ul>
-</li>
-<li><p>组织方式<br> <img src="https://img-blog.csdnimg.cn/20190420112959701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-</li>
-<li><p>多边形矢量编码</p>
-<ol>
-<li><p>实体式数据结构<br> <img src="https://img-blog.csdnimg.cn/20190420113011116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p> 只记录空间对象的位置坐标和属性信息，不记录拓扑关系</p>
-<p> 优点：</p>
-<pre><code> 结构简单、直观、易实现
-</code></pre>
-<p> 缺点：</p>
-<ul>
-<li>相邻多边形的公共边界被数字化并存储两次</li>
-<li>缺少多边形的邻接信息</li>
-<li>处理岛或洞等嵌套问题较麻烦</li>
-</ul>
-<blockquote>
-<p>区别于矢量的简单数据结构,矢量的拓扑空间数据结构的特点是：</p>
-<p>点是相互独立的，点连成线，线构成面；</p>
-<p>每条线始于起始结点，止于终止结点，并与左右多边形相邻接。</p>
-<p>矢量的拓扑空间数据结构主要有：</p>
-<ul>
-<li>索引式</li>
-<li>双重独立编码结构</li>
-<li>链状双重独立编码结构等。 </li>
-</ul>
-</blockquote>
-</li>
-</ol>
-</li>
-</ol>
-<pre><code>2. 索引式数据结构    
-
-    将坐标对以顺序方式存储，由点索引与边界线号相联系，以线索引与各多边形相联系，形成树状索引结构
-    ![](https://img-blog.csdnimg.cn/20190420113037878.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-    ![](https://img-blog.csdnimg.cn/20190420113047593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-
-    - 优点：
-        1. 消除数据的冗余和不一致 
-        2. 邻接信息、岛信息可通过查找公共弧段号查询
-    - 缺点：
-        1. 表达拓扑关系繁琐
-        2. 以人工建立编码表，工作量大，易出错
-
-3. 双重独立式（DIME）
-    美国人口统计局研制用来进行人口普查分析和制图的，以城市街道为编码的主体
-    ![](https://img-blog.csdnimg.cn/20190420113058805.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-    - 结点与结点或面域与面域之间是邻接关系。
-    - 节点与线段或面域与线段之间为关联关系。
-
-4. 链式双重独立式
-    将若干直线段合为一个弧段(或链段)，每个弧段可以有许多中间点。 
-    ![](https://img-blog.csdnimg.cn/20190420113109643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)
-
-    特点：拓扑关系明确，也能表达岛信息，而且以弧段为记录单位，满足实际应用需要。 
-</code></pre>
-<h2 id="9、矢量与栅格的比较与选择"><a href="#9、矢量与栅格的比较与选择" class="headerlink" title="9、矢量与栅格的比较与选择**"></a>9、矢量与栅格的比较与选择**</h2><p><img src="https://img-blog.csdnimg.cn/20190420113119699.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20190420113133541.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<ol>
-<li><p>选择的原则：</p>
-<ul>
-<li>要素还是位置</li>
-<li>可获取的数据</li>
-<li>定位要素的必要精度</li>
-<li>需要什么类型的要素</li>
-<li>需要什么类型的拓扑关系</li>
-<li>所需空间分析类型</li>
-<li>生产地图类型</li>
-</ul>
-</li>
-<li><p>栅格结构：大范围小比例尺的自然资源、环境、农林业等区域问题的研究。</p>
-</li>
-<li><p>矢量结构：城市分区或详细规划、土地管理、公用事业管理等方面的应用。</p>
-</li>
-</ol>
-<h2 id="10、矢栅一体化"><a href="#10、矢栅一体化" class="headerlink" title="10、矢栅一体化"></a>10、矢栅一体化</h2><ol>
-<li><p>概念</p>
-<ul>
-<li>将矢量面向目标的方法和栅格象元充填的方法结合起来， 采用填满线状目标路径和充填面状目标空间的方法 作为一体化数据结构的基础</li>
-<li>点、线、面状地物均采用面向目标的描述方法，因此它保持了矢量的特性，而象元空间充填表达建立了位置与地物的联系，使之具有栅格的性质。</li>
-<li>以矢量的方式来组织栅格数据的数据结构。</li>
-</ul>
-</li>
-<li><p>三个约定</p>
-<ul>
-<li>点状地物仅有空间位置，没有形状和面积，在计算机内部仅有一个位置数据。</li>
-<li>线状地物有形状但没有面积，在计算机内部需要用一组象元填满整个路径。</li>
-<li>面状地物具有形状和面积，在平面上的投影是由边界包围的空间和一组填满路径的象元表达的边界组成。</li>
-</ul>
-</li>
-<li><p>细分网格法</p>
-<p> <strong>一体化数据结构是基于栅格的，表达目标的精度受栅格尺寸的限制，可利用细分格网法提高数据的表达精度。</strong></p>
-</li>
-<li><p>矢栅一体化数据结构设计 **</p>
-<ul>
-<li>线性四叉树(Morton)是基本数据格式</li>
-<li>三个约定作为设计点、线、面数据结构的基本依据</li>
-<li>细分格网法保证足够精度。</li>
-</ul>
-</li>
-</ol>
-<h2 id="11、镶嵌数据结构"><a href="#11、镶嵌数据结构" class="headerlink" title="11、镶嵌数据结构"></a>11、镶嵌数据结构</h2><p>**.采用规则或不规则的小面块集合来逼近自然界不规则的地理单元，适合于对连续变化场景的地理现象进行抽象。</p>
-<p>**.小面块之间不重叠且能完整铺满整个地理空间。</p>
-<p>**.分为规则镶嵌数据模型和不规则镶嵌数据模型。</p>
-<ol>
-<li><p>规则镶嵌数据模型*</p>
-<p> 用规则的小面块集合来逼近自然界不规则的地理单元。<br> 在实际应用中，普遍采用正方形或矩形进行地理空间的划分。此时的规则镶嵌数据模型就转化为栅格数据模型。</p>
-</li>
-<li><p>不规则镶嵌数据模型</p>
-<ul>
-<li>有限离散的观测样点来表示某地理现象的空间分布规律时，适合于采用不规则镶嵌数据模型。</li>
-<li>最典型的不规则镶嵌数据模型有Voronoi图（也称Thiessen多边形）和不规则三角网（Triangular IrregularNetwork，简称TIN）模型。</li>
-</ul>
-<ol>
-<li><p>Thiessen多边形构造**</p>
-<ol>
-<li><p>样本点之间最近样本点的连线。</p>
-<ul>
-<li>最邻近的点</li>
-<li>外接圆范围内不含有其它离散点</li>
-<li>凸四边形 </li>
-</ul>
-</li>
-<li><p>对每个三角形作中垂线。</p>
-</li>
-<li><p>相邻三角形外心（外接圆圆心）的连线或三角形边垂直平分线与图廓线构成泰森多边形。<strong>泰森多边形和Delaunay三角网互为偶图。</strong></p>
-</li>
-<li><p>特征<br><img src="https://img-blog.csdnimg.cn/20190420113147166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<ul>
-<li>每个泰森多边形内仅含有一个离散点；</li>
-<li>组成多边形的边总是与两相邻样点的连线垂直，泰森多边形内的点到相应离散点的距离最近；</li>
-<li>泰森多边形边上的点到其两边的离散点的距离相等。</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<pre><code>2. 不规则三角网
-
-    - 三角形大小随样点密度的变化自动变化，所有样点都称为三角形的顶点，当样点密集时生成的三角形小，而样点较稀时则三角形较大。
-    - 任何一个Delaunay三角形的外接圆不能包含其他任何点在该包围的内部。
-</code></pre>
-<h2 id="12、三维数据结构"><a href="#12、三维数据结构" class="headerlink" title="12、三维数据结构*"></a>12、三维数据结构*</h2><p>栅格：将地理实体的三维空间分成细小单元——体元。**普遍用八叉树 **<br>矢量：x，y，z，抽象为点、线、面、体，面构成体。 <strong>常用三维边界表示</strong></p>
-<ol>
-<li>八叉树结构<br> 依次递归运算，直到每个子区域均为单一值为止。<br> <img src="https://img-blog.csdnimg.cn/20190420113157359.png" alt="在这里插入图片描述"></li>
-<li>三维边界表示法  <img src="https://img-blog.csdnimg.cn/20190420113206548.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><ul>
-<li>顶点表： 用来表示多面体各顶点的坐标  <img src="https://img-blog.csdnimg.cn/20190420113218598.png"></li>
-<li>边表：指出构成多面体某边的两个顶点  <img src="https://img-blog.csdnimg.cn/20190420113227777.png"></li>
-</ul>
-</li>
-</ol>
-
+        <h1 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h1><h2 id="第三章-JSP语法"><a href="#第三章-JSP语法" class="headerlink" title="第三章 JSP语法"></a>第三章 JSP语法</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90III%E3%80%91/" data-id="ckreqntil0003r07kgsse03c9" data-title="GIS复习【III】" class="article-share-link">分享</a>
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/JSP%E6%80%BB%E7%BB%93/#more">Read More</a>
+        </p>
       
       
       
     </footer>
   </div>
-  
 </article>
 
 
-
-  
-    <article id="post-GIS复习【II】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90II%E3%80%91/" class="article-date">
-  <time class="dt-published" datetime="2021-07-22T09:54:48.922Z" itemprop="datePublished">2021-07-22</time>
-</a>
-    
-  </div>
+  <article id="post-Java程序设计复习总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
     
@@ -855,276 +435,50 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90II%E3%80%91/">GIS复习【II】</a>
+      <a class="p-name article-title" href="/2021/07/22/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/">Java程序设计复习总结</a>
     </h1>
   
 
+
       </header>
     
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.942Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><strong>3、地理空间信息描述<br>4、地理信息数字化描述方法<br>5、空间数据的类型和关系</strong></p>
-<p>————————————————————正文—————————————————————-</p>
-<h2 id="3、地理空间信息描述"><a href="#3、地理空间信息描述" class="headerlink" title="3、地理空间信息描述"></a>3、地理空间信息描述</h2><h4 id="1、地球空间模型"><a href="#1、地球空间模型" class="headerlink" title="1、地球空间模型"></a>1、地球空间模型</h4><p><img src="https://img-blog.csdnimg.cn/20190420091831421.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<ol>
-<li><p>地球的自然表面</p>
-<p> 地球是一个近似球体，自然表面是一个极其复杂的不规则曲面。</p>
-</li>
-<li><p>水准面</p>
-<p> 假设当海水处于完全静止的平衡状态时，从海平面延伸到所有大陆下部，而与地球重力方向处处正交的一个连续、闭合的曲面</p>
-<ul>
-<li>海水有潮汐，时高时低，所以水准面有无数个。</li>
-<li>水准面的特性是处处与铅垂线相垂直。</li>
-<li>不能用数学公式表达</li>
-</ul>
-</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20190420091844982.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<ol start="3">
-<li><p>大地体</p>
-<p> 被大地水准面所包围的形体</p>
-</li>
-<li><p>大地水准面：通过平均海水面的一个水准面</p>
-</li>
-<li><p>地球椭球体</p>
-<p> 起伏是微小的，且形状接近一个扁率极小的椭圆绕短轴旋转所形成的规则椭球体</p>
-<p> <strong>说明：</strong></p>
-<ul>
-<li><p>视为球体：在制作小比例尺地图时（小于1:500万），因缩小程度很大，可以把地球视为球体，忽略地球扁率。计算更简单，半径约为6371千米。</p>
-</li>
-<li><p>视为椭球体：制作大比例尺地图时（大于1:100万），为保证精度，必须将地球视为椭球体。</p>
-<p>  <img src="https://img-blog.csdnimg.cn/20190420091859757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-</li>
-</ul>
-</li>
-<li><p>参考椭球体</p>
-<p> 在<strong>某一局部</strong>，与大地水准面符合得最好的一个地球椭球体<br> <img src="https://img-blog.csdnimg.cn/20190420091942647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-</li>
-<li><p>基准面</p>
-<ul>
-<li>地心基准面：使用地球的质心作为原点，使用最广泛的是 WGS 1984</li>
-<li>区域基准面：特定区域内与地球表面吻合，大地原点是参考椭球与大地水准面相切的点，例如Beijing54、Xian80</li>
-</ul>
-</li>
-<li><p>总结<br> <img src="https://img-blog.csdnimg.cn/20190420091958219.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-</li>
-</ol>
-<blockquote>
-<p>练习题2.1<br>相对同一地理位置，不同的大地基准面，它们的经纬度坐标一样吗？<br>地球椭球体与大地基准面之间的关系是一对一还是一对多？</p>
-</blockquote>
-<blockquote>
-<p>答：相对同一地理位置，不同的大地基准面，它们的经纬度坐标是有差异的。<br>椭球体与大地基准面之间的关系是一对多的关系。<br>因为基准面是在椭球体的基础上建立的，但椭球体不能代表基准面，同样的椭球体能定义不同的基准面。</p>
-</blockquote>
-<h4 id="2、地理空间坐标系"><a href="#2、地理空间坐标系" class="headerlink" title="2、地理空间坐标系"></a>2、地理空间坐标系</h4><p><img src="https://img-blog.csdnimg.cn/20190420092011772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<ol>
-<li><p>球面坐标系统</p>
-<ul>
-<li>天文地理坐标系</li>
-<li>大地地理坐标系</li>
-</ul>
-<p> 意义：GIS中的空间数据是地球表层的数据，即使把地球表面看成是一个椭球面，球面坐标也难以计算距离、方向、面积等参数，需将球面坐标转换成平面坐标，形成平面直角坐标</p>
-</li>
-<li><p>大地地理坐标系<br> 大地测量中以参考椭球面为基准面建立起来的坐标系。</p>
-<ul>
-<li>地心大地坐标系</li>
-<li>参心大地坐标系</li>
-</ul>
-</li>
-<li><p>平面直角坐标系统</p>
-</li>
-</ol>
-<h4 id="3、地图投影"><a href="#3、地图投影" class="headerlink" title="3、地图投影"></a>3、地图投影</h4><p><img src="https://img-blog.csdnimg.cn/20190420092030953.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<ol>
-<li><p>定义（什么是）<br> 将地球椭球面上的点映射到平面上的方法</p>
-</li>
-<li><p>过程（怎么进行）<br> <img src="https://img-blog.csdnimg.cn/20190420092059946.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<p> <strong>投影的实质：</strong>经纬度坐标 —&gt; 笛卡儿平面直角坐标系</p>
-</li>
-<li><p>分类（有哪些）</p>
-<ul>
-<li>投影面形状<ul>
-<li>方位</li>
-<li>圆锥</li>
-<li>圆柱</li>
-</ul>
-</li>
-<li>投影面位置<ul>
-<li>正轴</li>
-<li>斜轴</li>
-<li>横轴<br><img src="https://img-blog.csdnimg.cn/20190420092114807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></li>
-</ul>
-</li>
-<li>投影变形<ul>
-<li>长度</li>
-<li>面积</li>
-<li>角度</li>
-<li>等距投影：沿某一特定方向上的距离不变。</li>
-<li>等角投影：投影前后角度不变。</li>
-<li>等积投影：投影前后面积不变。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>选择（哪个合适）</p>
-<ul>
-<li><strong>各国家的地理信息系统投影</strong>—-与该国基本地图系列所用的投影系统一致</li>
-<li><strong>各比例尺GIS投影</strong>—-与相应比例尺的主要信息源地图所用的投影一致</li>
-<li><strong>各地区GIS投影</strong>—-与所在区域适用的投影一致</li>
-<li>所用投影以<strong>等角投影</strong>为宜（形状不失真）</li>
-<li>各种地理信息系统一般以一种或两种（至多三种）投影系统为其投影坐标系统，以保证<strong>地理定位框架的统一</strong></li>
-</ul>
-</li>
-<li><p>常用投影</p>
-<ol>
-<li>高斯—克吕格投影（横轴等角切椭圆柱投影）：<br> 1：50万、 1：25万、1：10万、1：5万、1：2.5万、1：1万、1：5000</li>
-<li>兰勃特Lambert投影（正轴等角割圆锥投影）<br> 1：100万</li>
-</ol>
-</li>
-</ol>
-<h4 id="4、地图对地理空间的描述"><a href="#4、地图对地理空间的描述" class="headerlink" title="4、地图对地理空间的描述"></a>4、地图对地理空间的描述</h4><ol>
-<li><p>空间对象</p>
-<p>  点：有位置，无宽度和长度；抽象的点<br>线：有长度，但无宽度和高度；用来描述线状实体<br>   面：具有长和宽的目标；通常用来表示自然或人工的封闭多边形；一般分为连续面和不连续面<br>  连续面：等值线表示。可以根据等值线的疏密，判断制图对象的变化趋势和分布特征<br>  不连续面：用面状符号表示，符号的轮廓线表示其分布位置和范围，轮廓线内的颜色、网纹、或说明符号表示其质量特征。</p>
-</li>
-</ol>
-<p>2.地图的分类</p>
-<ul>
-<li><p>内容：普通、专题</p>
-</li>
-<li><p>比例尺</p>
-<ul>
-<li>大：&gt; 1:10万</li>
-<li>中：1:100万 &lt; &amp;&amp; &lt;1:10万</li>
-<li>小：&lt; 1:100万</li>
-</ul>
-</li>
-</ul>
-<h4 id="5、遥感影像对地理空间的描述"><a href="#5、遥感影像对地理空间的描述" class="headerlink" title="5、遥感影像对地理空间的描述"></a>5、遥感影像对地理空间的描述</h4><ul>
-<li><strong>卫星遥感可以覆盖全球的每一个角落</strong>，航空遥感可以快速获取小范围的详细资料。</li>
-<li>遥感影像对空间信息的描述主要是通过<strong>不同的颜色和灰度</strong>来表示的。</li>
-<li><strong>地物的结构、成分、分布等不同</strong>，其反射光谱特性和放射光谱特性也各不相同，传感器记录的个种地物在某一波段的电磁辐射发射能量也各不相同，<strong>在遥感影像上表现为不同的颜色和灰度信息。</strong> </li>
-</ul>
-<p>综上，通过遥感影像可以获取大量的空间地物的特征信息。</p>
-<h2 id="4、地理信息数字化描述方法"><a href="#4、地理信息数字化描述方法" class="headerlink" title="4、地理信息数字化描述方法"></a>4、地理信息数字化描述方法</h2><p>对地理信息进行数字化描述，就是要使计算机能够识别地理事物的形状。</p>
-<ul>
-<li><p>计算机<strong>显式描述</strong>空间实体（栅格数据结构）</p>
-<p>  河流：栅格中的一系列像元。<strong>这些像元都给予相同的编码值或者用相同的颜色、符号、数字、灰度值来表示。</strong></p>
-<p>  PS：每一个地理实体的形态都是由栅格中的一组像元来构成。</p>
-</li>
-<li><p>计算机<strong>隐式描述</strong>空间实体（矢量数据结构）</p>
-<p>  河流：定义了始点和终点的线及某种连接关系来描述</p>
-<p>  PS：地理实体的形状和位置由一组坐标对所确定。</p>
-</li>
-</ul>
-<h2 id="5、空间数据的类型和关系"><a href="#5、空间数据的类型和关系" class="headerlink" title="5、空间数据的类型和关系"></a>5、空间数据的类型和关系</h2><ol>
-<li><p>空间数据的分类</p>
-<ul>
-<li>空间数据按数据结构分类：<pre><code>矢量数据、栅格数据等
-</code></pre>
-</li>
-<li>按属性分为：<br>   空间定位数据、非空间属性数据</li>
-<li>按几何特征分为：<pre><code>点、线、面、体
-</code></pre>
-</li>
-</ul>
-</li>
-<li><p>空间数据的基本特征</p>
-<ul>
-<li>空间：空间对象的位置及与相邻对象的空间关系或拓扑关系</li>
-<li>属性：空间对象的专题属性</li>
-<li>时间：空间对象随着时间变化引起的空间、属性的变化</li>
-</ul>
-<p> <img src="https://img-blog.csdnimg.cn/20190420092747837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-</li>
-<li><p>空间数据的拓扑关系</p>
-<ol>
-<li><p>拓扑性质：图形保持连续状态下变形，但图形关系不变<br> 拓扑变换：任意拉伸，压缩，但不能扭转或折叠</p>
-</li>
-<li><p>拓扑元素</p>
-<ul>
-<li>点：孤立点、线的端点、面的首尾点、链的连接点。</li>
-<li>线：两结点之间的有序弧段，包括链、弧段和线段。</li>
-<li>面：若干弧段组成的闭合多边形。</li>
-</ul>
-</li>
-<li><p>关系分类</p>
-<ul>
-<li>拓扑邻接：同类元素之间的拓扑关系</li>
-<li>拓扑关联：不同类元素之间的拓扑关系</li>
-<li>拓扑包含：空间中不同类或同类但不同级元素之间的拓扑关系（一般只谈面状要素的包含关系）</li>
-<li>拓扑连通：空间图形中弧段之间的拓扑关系。</li>
-</ul>
-</li>
-<li><p>拓扑关系表</p>
-<pre><code>                         ![](https://img-blog.csdnimg.cn/20190420092802745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70)    
-</code></pre>
-<p> <img src="https://img-blog.csdnimg.cn/20190420092818179.png"><br> <img src="https://img-blog.csdnimg.cn/20190420092851352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<p> 点、线、面三种要素之间的拓扑关系</p>
-<p> <img src="https://img-blog.csdnimg.cn/20190420092903892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-</li>
-<li><p>拓扑关系的意义</p>
-<ul>
-<li>可以确定一种地理实体相对于另一种地理实体的空间位置关系，这种空间关系不随地图投影而变化；</li>
-<li>有利于空间要素的查询</li>
-<li>作为工具，重建地理实体。</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<blockquote>
-<p>练习题2.1</p>
-<ol>
-<li>如何为地理实体建立可用于确定特定位置的坐标系？</li>
-</ol>
-<p>答：</p>
-<ol start="2">
-<li>如何建立地球表面的几何模型？基于地球表面模型，怎么逐步建立坐标系？为什么要进行地图投影？</li>
-</ol>
-<p>答：地球表面是曲面，地图是平面的，他们之间需要映射。这种映射就是投影</p>
-<ol start="3">
-<li>地理空间实体的三要素有什么？他们之间的拓扑关系是怎么样的？</li>
-</ol>
-<p>答：点、线、面。关系：邻接、关联、包含、连通</p>
-<ol start="4">
-<li>空间数据的基本特征？地理信息的数字化描述方法是什么？</li>
-</ol>
-<p>答：空间特征、属性特征、时间特性。显性描述（栅格）和隐性描述（矢量）</p>
-<ol start="5">
-<li>什么是拓扑性质；拓扑变形包括什么?</li>
-</ol>
-<p>答：性质：图形保持连续状态下变形，但图形关系不变。变形：任意拉伸，压缩，但不能扭转或折叠</p>
-<ol start="6">
-<li>拓扑邻接、拓扑关联；</li>
-</ol>
-<p>答：拓扑邻接：同类元素之间的拓扑关系。拓扑关联：不同类元素之间的拓扑关系</p>
-<ol start="7">
-<li>空间实体抽象三个层次。</li>
-</ol>
-<p>答：空间概念数据模型、空间逻辑数据模型、物理数据模型</p>
-</blockquote>
-
+        <h2 id="Java程序设计期中复习总结"><a href="#Java程序设计期中复习总结" class="headerlink" title="Java程序设计期中复习总结"></a>Java程序设计期中复习总结</h2><h3 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h3><h6 id="1-应用程序的结构：package-import-class"><a href="#1-应用程序的结构：package-import-class" class="headerlink" title="1. 应用程序的结构：package import class"></a>1. 应用程序的结构：package import class</h6><h6 id="2-源文件的扩展名-java，字节文件的扩展名：-class"><a href="#2-源文件的扩展名-java，字节文件的扩展名：-class" class="headerlink" title="2. 源文件的扩展名.java，字节文件的扩展名：.class"></a>2. 源文件的扩展名.java，字节文件的扩展名：.class</h6><h6 id="3-Java语言的工作原理：先编译后解释"><a href="#3-Java语言的工作原理：先编译后解释" class="headerlink" title="3. Java语言的工作原理：先编译后解释"></a>3. Java语言的工作原理：先编译后解释</h6><h6 id="4-一个源文件中最多可以有一个public类，并且文件名与public类名相同。"><a href="#4-一个源文件中最多可以有一个public类，并且文件名与public类名相同。" class="headerlink" title="4. 一个源文件中最多可以有一个public类，并且文件名与public类名相同。"></a>4. 一个源文件中最多可以有一个public类，并且文件名与public类名相同。</h6><h6 id="5-常用命令javac编译，java运行。"><a href="#5-常用命令javac编译，java运行。" class="headerlink" title="5. 常用命令javac编译，java运行。"></a>5. 常用命令javac编译，java运行。</h6><h6 id="6-一个应用程序最少有一个main方法。"><a href="#6-一个应用程序最少有一个main方法。" class="headerlink" title="6. 一个应用程序最少有一个main方法。"></a>6. 一个应用程序最少有一个main方法。</h6>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90II%E3%80%91/" data-id="ckreqntil0004r07k5mzn7ifc" data-title="GIS复习【II】" class="article-share-link">分享</a>
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/#more">Read More</a>
+        </p>
       
       
       
     </footer>
   </div>
-  
 </article>
 
 
-
-  
-    <article id="post-GIS复习【I】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90I%E3%80%91/" class="article-date">
-  <time class="dt-published" datetime="2021-07-22T09:54:48.920Z" itemprop="datePublished">2021-07-22</time>
-</a>
-    
-  </div>
+  <article id="post-IdentifyTask查询（附样例源码）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
     
@@ -1132,142 +486,50 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90I%E3%80%91/">GIS复习【I】</a>
+      <a class="p-name article-title" href="/2021/07/22/IdentifyTask%E6%9F%A5%E8%AF%A2%EF%BC%88%E9%99%84%E6%A0%B7%E4%BE%8B%E6%BA%90%E7%A0%81%EF%BC%89/">IdentifyTask查询（附样例源码）</a>
     </h1>
   
 
+
       </header>
     
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.940Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/IdentifyTask%E6%9F%A5%E8%AF%A2%EF%BC%88%E9%99%84%E6%A0%B7%E4%BE%8B%E6%BA%90%E7%A0%81%EF%BC%89/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>文章较长，建议从目录选取感兴趣内容，然后Ctry+F搜索、跳转</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><strong>1、GIS概念<br>2、GIS构成<br>3、GIS的功能及应用</strong></p>
-<p>—————————————————-正文——————————————————</p>
-<h2 id="1、GIS概念"><a href="#1、GIS概念" class="headerlink" title="1、GIS概念"></a>1、GIS概念</h2><h4 id="一、数据与信息"><a href="#一、数据与信息" class="headerlink" title="一、数据与信息"></a>一、数据与信息</h4><ol>
-<li><p>数据</p>
-<p>  <strong>通过数字化或记录下来可以被鉴别的数字、文字、符号、声音、图象等符号。</strong></p>
-</li>
-<li><p>信息：</p>
-<p> <strong>用数字、文字、符号、语言等介质来表示事件、事物、现象等的内容、数量或特征</strong>，向人们提供现实世界新的事实和知识，是生产、建设、经营、管理、分析和决策的依据。</p>
-</li>
-<li><p>关系</p>
-<ul>
-<li>数据是信息的载体</li>
-<li>信息是数据的内涵与解释</li>
-<li>形与质的关系</li>
-<li>只有数据对实体行为产生影响才成为信息，数据只有经过解释才有意义，成为信息。</li>
-</ul>
-</li>
-</ol>
-<h4 id="二、地理信息和地理信息系统"><a href="#二、地理信息和地理信息系统" class="headerlink" title="二、地理信息和地理信息系统"></a>二、地理信息和地理信息系统</h4><ol>
-<li><p>地理信息</p>
-<p> 地理信息是有关地理实体的性质、特征和运动状态的表征和一切有用的知识，<strong>是对表达地理特征与地理现象之间关系的地理数据的解释。</strong> </p>
-<p> 特性：</p>
-<ul>
-<li>空间分布性</li>
-<li>数据量大</li>
-<li>信息载体的多样性</li>
-</ul>
-</li>
-<li><p>地理信息系统</p>
-<p> 在计算机硬件、软件系统支持下，对整个或部分地球表层（包括大气层）空间中的有关地理分布数据进行采集、存储、管理、运算、分析、显示和描述的技术系统。</p>
-</li>
-<li><p>GIS定义的理解</p>
-</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20190420091505752.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<ul>
-<li>物理外壳：计算机的技术系统 </li>
-<li>操作对象：空间数据和属性数据 </li>
-</ul>
-<p>技术优势：</p>
-<ul>
-<li>混合数据结构和有效的数据集成</li>
-<li>独特的地理空间分析能力</li>
-<li>快速的空间定位搜索和复杂的查询功能</li>
-<li>强大的图形创造和可视化表达手段</li>
-<li>地理过程的演化模拟和空间决策支持功能</li>
-</ul>
-<h2 id="2、GIS构成"><a href="#2、GIS构成" class="headerlink" title="2、GIS构成"></a>2、GIS构成</h2><h4 id="1、基本硬件构成（单机）"><a href="#1、基本硬件构成（单机）" class="headerlink" title="1、基本硬件构成（单机）"></a>1、基本硬件构成（单机）</h4><p><img src="https://img-blog.csdnimg.cn/20190420091535530.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h4 id="2、GIS硬件组成"><a href="#2、GIS硬件组成" class="headerlink" title="2、GIS硬件组成"></a>2、GIS硬件组成</h4><ul>
-<li>局域网</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20190420091552362.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<ul>
-<li>广域网</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20190420091605929.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h4 id="3、GIS软件组成"><a href="#3、GIS软件组成" class="headerlink" title="3、GIS软件组成"></a>3、GIS软件组成</h4><p><img src="https://img-blog.csdnimg.cn/20190420091620464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h4 id="4、GIS数据（空间数据、属性数据）"><a href="#4、GIS数据（空间数据、属性数据）" class="headerlink" title="4、GIS数据（空间数据、属性数据）"></a>4、GIS数据（空间数据、属性数据）</h4><ul>
-<li>系统分析与处理的对象、构成系统的应用基础</li>
-</ul>
-<h4 id="5、“3S”关系"><a href="#5、“3S”关系" class="headerlink" title="5、“3S”关系"></a>5、“3S”关系</h4><p><img src="https://img-blog.csdnimg.cn/20190420091637926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="3、GIS的功能及应用"><a href="#3、GIS的功能及应用" class="headerlink" title="3、GIS的功能及应用"></a>3、GIS的功能及应用</h2><h4 id="1、GIS基本功能"><a href="#1、GIS基本功能" class="headerlink" title="1、GIS基本功能"></a>1、GIS基本功能</h4><ul>
-<li>数据采集与编辑</li>
-<li>数据存储与管理</li>
-<li>数据处理和变换</li>
-<li>空间分析和统计</li>
-<li>产品制作与显示</li>
-<li>二次开发和编程</li>
-</ul>
-<p><strong>数据处理：</strong></p>
-<ul>
-<li><p>数据变换：</p>
-<p>  投影变换、几何纠正、比例尺缩放、误差改正和处理</p>
-</li>
-<li><p>数据重构：</p>
-<p>  数据拼接、裁剪、数据压缩、结构转换、格式转换</p>
-</li>
-<li><p>数据抽取：</p>
-<p>  类型选择、窗口提取、布尔提取、空间内插</p>
-</li>
-</ul>
-<p><strong>空间分析和统计：</strong></p>
-<ul>
-<li>路径分析</li>
-<li>生成数字高程模型</li>
-</ul>
-<h4 id="2、应用领域"><a href="#2、应用领域" class="headerlink" title="2、应用领域"></a>2、应用领域</h4><ul>
-<li>测绘制图</li>
-<li>资源管理</li>
-<li>城乡规划</li>
-<li>国土监测</li>
-<li>环境保护</li>
-<li>国防军事</li>
-</ul>
-<blockquote>
-<p>练习题1.1</p>
-<ol>
-<li>地理信息系统形成于20世纪（60年代）</li>
-<li>我国的GIS发展自20世纪（70年代初）起步</li>
-<li>世界上第一个地理信息系统起步于（加拿大）</li>
-<li>（MAPGIS）是中国的</li>
-<li>GIS脱胎于（地理学）</li>
-</ol>
-</blockquote>
-
+        <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://img-blog.csdnimg.cn/20200411095858922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/22/GIS%E5%A4%8D%E4%B9%A0%E3%80%90I%E3%80%91/" data-id="ckreqntim0005r07kat3qgqes" data-title="GIS复习【I】" class="article-share-link">分享</a>
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/IdentifyTask%E6%9F%A5%E8%AF%A2%EF%BC%88%E9%99%84%E6%A0%B7%E4%BE%8B%E6%BA%90%E7%A0%81%EF%BC%89/#more">Read More</a>
+        </p>
       
       
       
     </footer>
   </div>
-  
 </article>
 
 
-
-  
-    <article id="post-GIS程序设计 知识总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/22/GIS%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="article-date">
-  <time class="dt-published" datetime="2021-07-22T09:54:48.917Z" itemprop="datePublished">2021-07-22</time>
-</a>
-    
-  </div>
+  <article id="post-Hadoop入门——环境篇" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
     
@@ -1275,327 +537,55 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/GIS%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">GIS程序设计 知识总结</a>
+      <a class="p-name article-title" href="/2021/07/22/Hadoop%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E7%AF%87/">Hadoop入门——环境篇</a>
     </h1>
   
 
+
       </header>
     
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.938Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/Hadoop%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E7%AF%87/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="GIS程序设计"><a href="#GIS程序设计" class="headerlink" title="GIS程序设计"></a>GIS程序设计</h1><h2 id="简答"><a href="#简答" class="headerlink" title="简答"></a>简答</h2><h4 id="1-开发模式，开发软件的特点，概念"><a href="#1-开发模式，开发软件的特点，概念" class="headerlink" title="1. 开发模式，开发软件的特点，概念"></a>1. 开发模式，开发软件的特点，概念</h4><ol>
-<li>独立开发：<ul>
-<li>定义：不依赖于任何GIS工具软件，从空间数据的采集、编辑到数据的处理分析及结果输出，所有的算法都由开发者独立设计，然后选用某种程序设计语言，如VC++、VB、Delphi、C++ Builder等，在一定的操作系统平台上编程实现。</li>
-<li>特点：<ul>
-<li>无需依赖任何商业GIS工具软件，减少了开发成本</li>
-<li>综合程度和操作效率最高</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>单纯二次开发：<ul>
-<li>定义：在宏语言中调用DLL库，定义GIS系统工具不提供或不支持的功能，</li>
-<li>特点：<ul>
-<li>功能弱，程序不美观，开发收到限制</li>
-<li>增加学习负担</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>集成二次开发：<ul>
-<li>定义：利用专业GIS工具软件或其提供的组件来实现GIS的基本功能，采用可视化开发工具，进行集成开发。集成二次开发目前主要有OLE／DDE方式和组件式方式两种。</li>
-<li>特点：<ul>
-<li>GIS工具软件能够提供成熟的功能。例如：空间数据库存储、空间分析等</li>
-<li>高效，便捷，不需要从底层学习具体的实现原理，易上手。</li>
-</ul>
-</li>
-</ul>
-</li>
+        <h3 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h3><ol>
+<li>VMware15</li>
+<li>Ubuntu18.0.4</li>
+<li>Hadoop3.2.1</li>
+<li>jdk-8u162-linux-x64</li>
 </ol>
-<blockquote>
-<pre><code>  1. 基于arcengine或者arcobject 
-  2. 基于com（原理）
-</code></pre>
-</blockquote>
-<h4 id="2-接口及类：特，用，概，接口应用"><a href="#2-接口及类：特，用，概，接口应用" class="headerlink" title="2. 接口及类：特，用，概，接口应用"></a>2. 接口及类：特，用，概，接口应用</h4><p>   接口的特点：</p>
-<pre><code>  1. 接口的多态性：许多不同的类可以支持相同的接口
-  2. 接口的继承性：所有的子类都继承了父类的接口
-</code></pre>
-<p>   面向接口编程：</p>
-<ul>
-<li>接口定义了能做什么，类定义了该怎么做。类实现了接口中的方法。</li>
-<li>接口描述了一系列外部可见操作</li>
-<li>接口具有类内置的一组属性和方法</li>
-</ul>
-<p>   Com类代码：</p>
-<ul>
-<li>接口模块：定义方法和属性</li>
-<li>类模块：实现方法和属性</li>
-</ul>
-<blockquote>
-<p>COM 对象的接口是抽象的，接口与类不同。因为接口没有 任何的实现，所以不能通过自身实例化。因为接口没有任何的实现，所以不能通过自身实例化。接口由具体的类来实现由具体的类来实现，功能用接口抽象地模拟，并且用类去真正实现。</p>
-</blockquote>
-<h6 id="地图接口"><a href="#地图接口" class="headerlink" title="地图接口"></a>地图接口</h6><pre><code>  1. ILayer接口:所有图层类都可以实现该接口，定义了所有图层公共的方法和属性。
-     - Name属性:返回图层名称；
-     - MaximumScale属性:显示或设置图层可以出现的最大比例尺；
-     - MinmumScale属性:显示或设置图层可以出现的最小比例尺；
-     - ShowTips属性：指示当鼠标放在图层中某个要素上时，是否出现Tips;
-     - SpatialReference属性：设置图层的空间参考。
-  2. IFeatureLayer接口:主要用于设置要素图层的数据源（FeatureClass）
-     - DataSourceType属性：返回图层的数据源类型；
-     - Search方法：通过2个参数，过滤器（IQueryFilter类型的对象）和布尔值（用于返回要素游标是否循环，返回一个Icursor对象）
-</code></pre>
-<blockquote>
-<p>IFeatureLayer接口继承自Ilayer接口，IFeatureClass接口继承自Iclass接口。</p>
-<p>FeatureLayer可以创建自己的对象，FeatureClass不行</p>
-</blockquote>
-<h6 id="类"><a href="#类" class="headerlink" title="类"></a>类</h6><ol>
-<li><p>Version类库：ArcEngine 10.0新出的类库，包含里将独立应用程序绑定到特定的ArcGIS系列产品的函数和方法。</p>
-</li>
-<li><p>System：ystem库是ArcGIS框架中最底层的一个库，它包含了一些被其他库使用的一些基础组件。 </p>
-</li>
-<li><p>SystemUI：SystemUI库定义了一些在ArcGIS中被用户界面组件使用的类型。象ICommand和ITool这样的接口就在这里定义。</p>
-</li>
-<li><p>Geometry：几何库包含了核心的几何对象，比如点，面，线等。在几何库中还定义和实现了空间参考的对象，包括投影坐标系和几何坐标系。</p>
-</li>
-<li><p>Display：显示库包含了支持在输出设备上显示图形的组件，屏幕显示、符号、颜色、显示交互（Feedback)等都在这个库中定义。</p>
-</li>
-<li><p>Server：提供了连接、管理ArcGIS Server的核心类，如IServerObjectManager、IServerObject等，其他类库的对象可以通过ArcGIS Server的IServerContext进行远程创建。</p>
-</li>
-<li><p>Output：提供了将MapControl和PagelayoutControl中的地图输出到打印机以及其他设备文件中。</p>
-</li>
-</ol>
-<h4 id="3-对象模型图：类和关系，分别有什么特点"><a href="#3-对象模型图：类和关系，分别有什么特点" class="headerlink" title="3. 对象模型图：类和关系，分别有什么特点"></a>3. 对象模型图：类和关系，分别有什么特点</h4><ol>
-<li><p>类</p>
-<ul>
-<li>抽象类：不能用于创建对象，对子类例程进行了规定（通过类型继承）。</li>
-<li>普通类：不能直接创建对象，但可以作为另一个类的属性或者通过另一个类的实例化来创建对象。</li>
-<li>组件类：可以直接创建对象。</li>
-</ul>
-</li>
-<li><p>关系</p>
-<ul>
-<li><p>关联关系：表示类之间的关系。关联的两端都定义了多样性。</p>
-</li>
-<li><p>组成关系：是一种“整体类”对象控制着“部分类”对象的生命期关系。</p>
-</li>
-<li><p>类型继承关系：定义共享父类的属性和方法，同时又具有了自己独特的属性和方法的特定对象类。</p>
-</li>
-<li><p>实例化关系：表示某个类的对象具有创建另一个类的对象的方法。</p>
-</li>
-<li><p>N元关系：表示两个以上的类相互关联。在各个关联分支的交叉点上放置一个菱形。</p>
-</li>
-<li><p>多样性关系：是对能于另一个对象关联的对象数目的一种限制。关联和组成关系的两端都定义了多样性。</p>
-<img src="https://img-blog.csdnimg.cn/20191106115227332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:67%;" /></li>
-</ul>
-<h5 id="抽象类-AbstractClass-："><a href="#抽象类-AbstractClass-：" class="headerlink" title="抽象类(AbstractClass)："></a>抽象类(AbstractClass)：</h5><ol>
-<li><p>不能创建或实例化</p>
-<ol start="2">
-<li>抽象类永远不能有实例</li>
-</ol>
-</li>
-<li><p>为子类定义了泛化（general）</p>
-<ol start="4">
-<li>子类集成了抽象类的接口</li>
-</ol>
-<blockquote>
-<p>抽象类的OMD 符号: 2维灰色矩形</p>
-</blockquote>
-</li>
-</ol>
-<h5 id="普通类-可实例化类-Class"><a href="#普通类-可实例化类-Class" class="headerlink" title="普通类/可实例化类 (Class)"></a>普通类/可实例化类 (Class)</h5><ol>
-<li><p>不能创建或实例化</p>
-</li>
-<li><p>抽象类永远不能有实例</p>
-</li>
-<li><p>为子类定义了泛化（general）</p>
-</li>
-<li><p>子类集成了抽象类的接口</p>
-<p>IRow pNewRow；</p>
-<pre><code> ITable  pTable;
-</code></pre>
-<p>pNewRow  = pTable.CreateRow();</p>
-<pre><code> IRow row = table.CreateRow();
-</code></pre>
-<blockquote>
-<p>实例化类的OMD符号： 3维白色的矩形</p>
-</blockquote>
-</li>
-</ol>
-<h5 id="组件类-可创建的类-CoClass"><a href="#组件类-可创建的类-CoClass" class="headerlink" title="组件类/可创建的类(CoClass)"></a>组件类/可创建的类(CoClass)</h5><ol>
-<li><p>可以创建:使用 New关键字</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IMap pmap = new Map();</span><br></pre></td></tr></table></figure></li>
-<li><p>实例化: 从其它对象获得</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Imap pMap;</span><br><span class="line">pMap = m_MapDocument.get_Map(i);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>可创建类的OMD符号：3维灰色矩形         </p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li><h4 id="AE控件有哪些，分类特点"><a href="#AE控件有哪些，分类特点" class="headerlink" title="AE控件有哪些，分类特点"></a>AE控件有哪些，分类特点</h4><ol>
-<li>制图控件: MapControl 和PageLayoutControl</li>
-<li>框架控件: TOCControl（内容表控件） 和ToolbarControl(工具条控件)–（buddy控件捆绑）</li>
-<li>许可控件：LicenseControl（启动时执行License初始化）</li>
-<li>符号控件:SymbologyControl</li>
-<li>Reader Control: ReaderControl和ReaderControl</li>
-<li>三维控件：GlobeControl和SceneControl </li>
-</ol>
-</li>
-<li><h4 id="矢量数据集相关类的关系"><a href="#矢量数据集相关类的关系" class="headerlink" title="矢量数据集相关类的关系"></a>矢量数据集相关类的关系</h4><ol>
-<li>矢量数据数据的加载，分析，查询</li>
-</ol>
-<p>接口：</p>
-<pre><code>  1. **IWorkspaceFactory**：创建工作工厂
-
-  2. **IWorkspace**：工作化工作空间
-     3. **IFeatureWorkspace**：接口转换为要素工作空间
-     4. **IFeatureClass**：创建featureClass
-     5. **IFeatureLayer**：创建要素图层
-     6. **IMap**：接收AxMapControl中的地图对象
-</code></pre>
-<p>类：</p>
-<ol>
-<li><strong>ShapefileWorkspaceFactory</strong>：作为子类创建工作空间</li>
-<li><strong>FeatureLayer</strong>：创建要素图层用于接收打开的shpfile文件的featureClass，作为图层，只是表现形式，真正的数据在FeatureClass中。</li>
-<li><strong>FeatureClass</strong>是从Dataset继承过来的,FeatureClass是有空间数据字段的数据集。</li>
-</ol>
-</li>
-</ol>
-<h2 id="程序流程（简答）"><a href="#程序流程（简答）" class="headerlink" title="程序流程（简答）"></a>程序流程（简答）</h2><h5 id="1-数据访问，添加矢量"><a href="#1-数据访问，添加矢量" class="headerlink" title="1. 数据访问，添加矢量"></a>1. 数据访问，添加矢量</h5><p>矢量加载：</p>
-<ol>
-<li>获取文件路径和文件名称</li>
-<li>创建地理空间工厂WorkspaceFactory（怎么创建）</li>
-<li>实例化地理空间Workspace（怎么实例化）</li>
-<li>获取FeatureClass</li>
-<li>创建要素图层FeatureLayer</li>
-<li>为要素图层定义数据集FeatureClass</li>
-<li>添加至地图控件</li>
-<li>刷新地图视图</li>
-</ol>
-<h5 id="2-空间数据显示—图层渲染"><a href="#2-空间数据显示—图层渲染" class="headerlink" title="2. 空间数据显示—图层渲染"></a>2. 空间数据显示—图层渲染</h5><pre><code>  1. 抽象类：Symbol，MarkerSymbol，LineSymbol，FillSymbol
-  2. 组件类：
-         1. RgbColor：颜色
-         2. SimpleMarkerSymbol，SimplelineSymbol，SimplefillSymbol：简单点线面符号
-         3. SimpleRenderer：简单渲染
-</code></pre>
-<ol>
-<li>实例化<code>ISimpleMarkerSymbol</code>，提供简单点符号</li>
-<li>实例化<code>ISimpleRenderer</code>，提供简单渲染器</li>
-<li>获取渲染图层赋值给<code>IGeoFeatureLayer</code>，提供要素图层对成员控制地理特征渲染的入口,获取渲染图层</li>
-<li>调用<code>pGeoFeatureLayer.Renderer</code>属性赋值渲染器</li>
-<li>刷新地图视图</li>
-</ol>
-<h5 id="3-元素添加至地图"><a href="#3-元素添加至地图" class="headerlink" title="3. 元素添加至地图"></a>3. 元素添加至地图</h5><ol>
-<li>获取<code>pagelayerout</code>对象、活动视图<code>pActiveView </code>、图形容器<code>pGraphicsContainer</code>、地图窗口<code>MapFrame</code></li>
-<li>创建<code>UID</code>对象，设置<code>value</code></li>
-<li>通过<code>MapFrame</code>的<code>CreateSurroundFrame(uid,null)</code>方法创建<code>mapSurroundFrame</code></li>
-<li>实例化一个区域几何<code>envelope</code>（包裹元素的盒子）。通过<code>PutCoords(xmin, ymin, xmax, ymax)</code>方法设置地图上的位置</li>
-<li>通过<code>mapSurroundFrame</code>获取<code>Element</code>，设置框架的几何体属性<code>Geometry</code>为区域几何对象<code>envelope</code></li>
-<li>通过图形容器<code>pGraphicsContainer</code>的<code>AddElement(Element，ZOrder)</code>方法把地图要素添加地图布局。</li>
-<li>刷新视图。</li>
-</ol>
-<p>接口：</p>
-<ol>
-<li>IGraphicsContainer：管理map上的Element对象，获取图形容器</li>
-<li>IMapFrame：访问控制地图元素对象的成员</li>
-<li>IMapSurroundFrame：获取或更新存储在帧中的环绕对象（指北针、比例尺条或图例）</li>
-<li>IEnvelope：地物的外接矩形，用来放置元素。</li>
-<li>IElement：通过这一属性设置该元素的外接矩形在地图上的位置。所有图形元素和框架元素都实现的接口，可以确定元素的Geometry属性。</li>
-</ol>
-<p>类：</p>
-<ol>
-<li>UID用来设置元素类型的编码</li>
-<li>MapFrame： 用于显示地图的图形元素。</li>
-<li>MapSurroundFrame：用于显示地图包围的图形元素。</li>
-<li>Envelope：包络线，是每个几何形体的最小外接矩形。每个Geometry都拥有一个Envelope</li>
-<li>Element：抽象类</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public void add(string value,double xmin,double ymin, double xmax, double ymax)</span><br><span class="line">&#123;</span><br><span class="line">    //获取图形容器</span><br><span class="line">    IGraphicsContainer graphicsContainer = pageLayoutControl.PageLayout as IGraphicsContainer;</span><br><span class="line">    </span><br><span class="line">    //根据MapSurround的uid，创建相应的MapSurroundFrame和MapSurround</span><br><span class="line">    UID uid = new UID();</span><br><span class="line">    uid.Value = value;</span><br><span class="line">    IMapFrame mapFrame = pageLayoutControl.PageLayout as IMapFrame;</span><br><span class="line">    IMapSurroundFrame mapSurroundFrame = mapFrame.CreateSurroundFrame(uid, null);</span><br><span class="line">    </span><br><span class="line">    //为要素实例化一个区域几何。元素的外接矩形</span><br><span class="line">    envelope = new Envelope() as IEnvelope;</span><br><span class="line">    envelope.PutCoords(xmin, ymin, xmax, ymax);</span><br><span class="line">       </span><br><span class="line">    //获取Element，用来设置框架的几何体属性</span><br><span class="line">    IElement eement = mapSurroundFrame as IElement;</span><br><span class="line">    </span><br><span class="line">    //geometry属性控制区域几何在地图上的位置</span><br><span class="line">    element.Geometry = envelope;</span><br><span class="line">    </span><br><span class="line">    graphicsContainer.AddElement(element, 0);  </span><br><span class="line">    activeView.Refresh();</span><br><span class="line">    pagelayoutcontrol.Refresh();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-属性查询"><a href="#4-属性查询" class="headerlink" title="4. 属性查询"></a>4. 属性查询</h5><h6 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h6><ol>
-<li>获取数据源<code>FeatureClass</code></li>
-<li>循环给每一列写字段名</li>
-<li>获取查询返回的游标，<code>null</code>代表没有查询条件，返回整个表</li>
-<li>用<code>IFeature</code>接收指针指向的数据</li>
-<li>将指针指向第一个要素属性行</li>
-<li>如果<code>pFeature</code>不为空则循环7，8，9步</li>
-<li>获取表中的新行，并将引用赋值给<code>DataRow</code></li>
-<li>为每一个属性单元格赋值</li>
-<li>游标指向下一行要素并重新赋值给<code>pFeature</code></li>
-<li>将<code>DataTable</code>赋值给<code>dataGridView</code>的数据源</li>
-</ol>
-<h6 id="类："><a href="#类：" class="headerlink" title="类："></a>类：</h6><ol>
-<li>QueryFilter：过滤数据通过属性值或者属性之间的关系</li>
-<li>QueryDef：代表了数据库中基于一个或多个表、要素类的进行的属性查询，通过这个对象，用户可以在多个表间建立连接，并且保证在这个连接基础上的查询可以实现。</li>
-<li>FeatureCursor：普通类，通过<code>pFeatureClass.Search(filter, false);</code>实例化</li>
-</ol>
-<h6 id="接口："><a href="#接口：" class="headerlink" title="接口："></a>接口：</h6><ol>
-<li>IFeatureClass：数据源</li>
-<li>IQueryFilter：用于属性查询</li>
-<li>IFeatureCursor：查询返回的游标</li>
-<li>IFeature：要素，返回游标中要素集单位</li>
-</ol>
-<h5 id="5-空间查询"><a href="#5-空间查询" class="headerlink" title="5. 空间查询"></a>5. 空间查询</h5><h6 id="步骤：-1"><a href="#步骤：-1" class="headerlink" title="步骤："></a>步骤：</h6><ol>
-<li>获取<code>pFeatureLayer</code></li>
-<li>实例化过滤器<code>pSpatialFilter</code></li>
-<li>创建<code>geometry</code>，用来装载框选范围</li>
-<li>将框选几何<code>geometry</code>赋给<code>pSpatialFilter</code></li>
-<li>设置空间范围的查询条件（从空间查询窗体获得）</li>
-<li>实例化查询接口<code>pfeatureSelection</code></li>
-<li>调用查询方法<code>SelectFeatures(过滤器, esriSelectionResultEnum.esriSelectionResultNew, false);</code>实现高亮</li>
-<li>刷新图层</li>
-</ol>
-<h6 id="接口：-1"><a href="#接口：-1" class="headerlink" title="接口："></a>接口：</h6><ol>
-<li>IFeatureLayer：当前的要素图层，用于接口转换</li>
-<li>ISpatialFilter：过滤器，用来设置空间范围的查询条件</li>
-<li>IGeometry：几何类型，获取框选范围</li>
-<li>IFeatureSelection：查询接口，用于查询，没有返回值，实现高亮</li>
-</ol>
-<h6 id="类：-1"><a href="#类：-1" class="headerlink" title="类："></a>类：</h6><ol>
-<li>FeatureLayer：组件类，要素图层</li>
-<li>SpatialFilter：组件类，过滤器</li>
-<li>Geometry：普通类，通过<code>mapControl.TrackRectangle();</code>实例化，几何类型</li>
-</ol>
-<h2 id="程序设计题"><a href="#程序设计题" class="headerlink" title="程序设计题"></a>程序设计题</h2><h4 id="1-面向接口的编程及接口转换"><a href="#1-面向接口的编程及接口转换" class="headerlink" title="1. 面向接口的编程及接口转换"></a>1. 面向接口的编程及接口转换</h4><h4 id="2-接口的继承"><a href="#2-接口的继承" class="headerlink" title="2. 接口的继承"></a>2. 接口的继承</h4><h4 id="3-图层的显示及渲染"><a href="#3-图层的显示及渲染" class="headerlink" title="3. 图层的显示及渲染"></a>3. 图层的显示及渲染</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">///</span><br><span class="line">//Shp</span><br><span class="line">///</span><br><span class="line">OpenFileDialog pOpenfileDialog = new OpenFileDialog();</span><br><span class="line">if (pOpenfileDialog.ShowDialog() == DialogResult.OK)</span><br><span class="line">&#123;</span><br><span class="line">    string path = pOpenfileDialog.FileName;</span><br><span class="line">    bool shp = path.EndsWith(&quot;.shp&quot;);</span><br><span class="line">    if (shp)</span><br><span class="line">        openShpFile(path);</span><br><span class="line">&#125;</span><br><span class="line">private void openShpFile(string file)</span><br><span class="line">&#123;</span><br><span class="line">    int index = 0;</span><br><span class="line">    //获取最后一个“\\”时的索引位置</span><br><span class="line">    index = file.LastIndexOf(&quot;\\&quot;);</span><br><span class="line">    //获得shp文件的路径</span><br><span class="line">    string filePath = file.Substring(0, index);</span><br><span class="line">    //获得shp文件名</span><br><span class="line">    string fileName = file.Substring(index + 1, file.Length - (index + 1));</span><br><span class="line">    //由工作空间工厂创建shp工作空间工厂类</span><br><span class="line">    IWorkspaceFactory pWorkspaceFactory = new ShapefileWorkspaceFactory();</span><br><span class="line">    //打开工作空间</span><br><span class="line">    IWorkspace pWorkspace = pWorkspaceFactory.OpenFromFile(filePath, 0);</span><br><span class="line">    //转换工作空间为要素工作空间</span><br><span class="line">    IFeatureWorkspace pFeatureWorkspace = pWorkspace as IFeatureWorkspace;</span><br><span class="line">    //打开要素类</span><br><span class="line">    IFeatureClass pFC = pFeatureWorkspace.OpenFeatureClass(fileName);</span><br><span class="line">    //创建要素图层</span><br><span class="line">    IFeatureLayer pFLayer = new FeatureLayer();</span><br><span class="line">    //设置图层的featureclass为上面打开的文件</span><br><span class="line">    pFLayer.FeatureClass = pFC;</span><br><span class="line">    //设置图层的名称</span><br><span class="line">    pFLayer.Name = pFC.AliasName;</span><br><span class="line">    //转换featurelayer为layer</span><br><span class="line">    ILayer pLayer = pFLayer as ILayer;</span><br><span class="line">    IMap pMap = mapControl.Map;</span><br><span class="line">    //添加图层</span><br><span class="line">    pMap.AddLayer(pLayer);</span><br><span class="line">    //刷新</span><br><span class="line">    mapControl.ActiveView.Refresh();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">///</span><br><span class="line">//渲染</span><br><span class="line">///</span><br><span class="line"></span><br><span class="line">//简单渲染，点符号</span><br><span class="line">public static void easy_point(string filename, IRgbColor point_rgb, int width)</span><br><span class="line">&#123;</span><br><span class="line">     //实例化ISimpleFillSysmbol变量, 提供简单的填充符号类型</span><br><span class="line">	ISimpleMarkerSymbol pSimplemarkerSymbol = new SimpleMarkerSymbol();</span><br><span class="line">     pSimplemarkerSymbol.Color = point_rgb;</span><br><span class="line">     pSimplemarkerSymbol.OutlineSize = width;</span><br><span class="line">     //实例化简单渲染变量</span><br><span class="line">     ISimpleRenderer pSimpleRender = new SimpleRenderer();</span><br><span class="line">     //设置pSimpleRender的符号样式</span><br><span class="line">     pSimpleRender.Symbol = pSimplemarkerSymbol as ISymbol;</span><br><span class="line">	Render_tool(pSimpleRender, filename);</span><br><span class="line">&#125;</span><br><span class="line">private static void Render_tool(ISimpleRenderer pSimpleRenderer, string filename)</span><br><span class="line">&#123;</span><br><span class="line">      //提供要素图层对成员控制地理特征渲染的入口,获取渲染图层</span><br><span class="line">      IGeoFeatureLayer pGeoFeatureLayer = getGeoLayer(filename);</span><br><span class="line">      if (pGeoFeatureLayer != null)</span><br><span class="line">          //调用Renderer属性, 具体说明如何通过图层要素渲染器渲染图层</span><br><span class="line">          pGeoFeatureLayer.Renderer = pSimpleRenderer as IFeatureRenderer;</span><br><span class="line">      mapControl.ActiveView.Refresh();</span><br><span class="line">&#125;</span><br><span class="line">public static IGeoFeatureLayer getGeoLayer(string layerName)</span><br><span class="line">&#123;</span><br><span class="line">      ILayer pLayer; //定义图层</span><br><span class="line">      IGeoFeatureLayer pGeoFeatureLayer; //定义要素图层</span><br><span class="line">      for (int i = 0; i &lt; CSR_mapControl.LayerCount; i++)</span><br><span class="line">      &#123;</span><br><span class="line">           pLayer = CSR_mapControl.get_Layer(i);</span><br><span class="line">           //若当前图层不为空且与与layerName的值相同</span><br><span class="line">           if (pLayer != null &amp;&amp; pLayer.Name == layerName)</span><br><span class="line">           &#123;</span><br><span class="line">                pGeoFeatureLayer = pLayer as IGeoFeatureLayer;</span><br><span class="line">                return pGeoFeatureLayer;</span><br><span class="line">           &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">///</span><br><span class="line">//Tiff</span><br><span class="line">///</span><br><span class="line"></span><br><span class="line">//工作空间实例化</span><br><span class="line">IWorkspaceFactory pRasterWsF = new RasterWorkspaceFactory();</span><br><span class="line">IWorkspace pWs = pRasterWsF.OpenFromFile(RasterPath, 0);</span><br><span class="line">IRasterWorkspace pRasterWs = pWs as IRasterWorkspace;</span><br><span class="line">IRasterDataset pRasterDS = pRasterWs.OpenRasterDataset(RasterName);</span><br><span class="line">//影像金字塔的判断和创建</span><br><span class="line">IRasterPyramid pRasterPyramid = pRasterDS as IRasterPyramid;</span><br><span class="line">if ((pRasterPyramid != null) &amp;&amp; (!pRasterPyramid.Present))</span><br><span class="line">&#123;</span><br><span class="line">    pRasterPyramid.Create();</span><br><span class="line">&#125;</span><br><span class="line">//新建栅格图层</span><br><span class="line">IRasterLayer pRasterLayer = new RasterLayer();</span><br><span class="line">pRasterLayer.CreateFromRaster(pRasterDS.CreateDefaultRaster());</span><br><span class="line">IMap pmap = mapControl.Map;</span><br><span class="line">//加载显示</span><br><span class="line">pmap.AddLayer(pRasterLayer);</span><br><span class="line">mapControl.ActiveView.Refresh();</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="4-属性查询-1"><a href="#4-属性查询-1" class="headerlink" title="4. 属性查询"></a>4. 属性查询</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public static DataTable getFeatureLayerTable(IFeatureLayer pFeatureLayer)</span><br><span class="line">&#123;</span><br><span class="line">    //获取数据源FeatureClass</span><br><span class="line">    IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;</span><br><span class="line">    DataTable dt = new DataTable();</span><br><span class="line">    for (int i = 0; i &lt; pFeatureClass.Fields.FieldCount; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        //循环给每一列写字段名</span><br><span class="line">    	dt.Columns.Add(pFeatureClass.Fields.get_Field(i).Name);</span><br><span class="line">    &#125;</span><br><span class="line">    //获取查询返回的游标，null代表没有查询条件，返回整个表</span><br><span class="line">    IFeatureCursor pFeatureCursor = pFeatureClass.Search(null, false);</span><br><span class="line">    //将指针指向第一个要素属性行</span><br><span class="line">    IFeature pFeature = pFeatureCursor.NextFeature();</span><br><span class="line">    while (pFeature != null)</span><br><span class="line">    &#123;</span><br><span class="line">        //获取表中的新行，并将引用赋值给DataRow</span><br><span class="line">        DataRow dataR = dt.Rows.Add();</span><br><span class="line">        for (int j = 0; j &lt; pFeatureClass.Fields.FieldCount; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            //为每一个属性单元格赋值</span><br><span class="line">            if (pFeature.get_Value(j) == null)</span><br><span class="line">                dataR[j] = pFeatureClass.ShapeType.ToString();</span><br><span class="line">            else</span><br><span class="line">                dataR[j] = pFeature.get_Value(j);</span><br><span class="line">        &#125;</span><br><span class="line">        //游标指向下一行要素</span><br><span class="line">        pFeature = pFeatureCursor.NextFeature();</span><br><span class="line">    &#125;</span><br><span class="line">    return dt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-空间查询-1"><a href="#5-空间查询-1" class="headerlink" title="5. 空间查询"></a>5. 空间查询</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">IFeatureLayer pFeatureLayer = pLayer as IFeatureLayer;</span><br><span class="line"></span><br><span class="line">//实例化一个过滤器，用来设置空间范围的查询条件</span><br><span class="line">ISpatialFilter pSpatialFilter = new SpatialFilter();</span><br><span class="line">IGeometry geometry = mapControl.TrackRectangle();</span><br><span class="line">//将几何范围赋值给pSpatialFilter</span><br><span class="line">pSpatialFilter.Geometry = geometry;</span><br><span class="line">//设置空间范围的查询条件</span><br><span class="line">pSpatialFilter.SpatialRel = esriSpatialRelEnum.esriSpatialRelIntersects;</span><br><span class="line">//实例化查询接口</span><br><span class="line">IFeatureSelection pfeatureSelection = pFeatureLayer as IFeatureSelection;</span><br><span class="line">//实现高亮</span><br><span class="line">pfeatureSelection.SelectFeatures(pSpatialFilter, esriSelectionResultEnum.esriSelectionResultNew, false);</span><br><span class="line">mapControl.Refresh();//地图刷新</span><br></pre></td></tr></table></figure>
-
-<h2 id="分值"><a href="#分值" class="headerlink" title="分值"></a>分值</h2><ol>
-<li>填空：1*15</li>
-<li>选择：2*10</li>
-<li>简答：基本概念、总结及功能流程 4*5</li>
-<li>程序阅读：改错、对象模型图 5*3</li>
-<li>程序设计：2*15</li>
-</ol>
-
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/22/GIS%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" data-id="ckreqntjz0029r07kgvea6192" data-title="GIS程序设计 知识总结" class="article-share-link">分享</a>
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/Hadoop%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E7%AF%87/#more">Read More</a>
+        </p>
       
       
       
     </footer>
   </div>
-  
 </article>
 
 
-
-  
-    <article id="post-GIS-Experiment3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/22/GIS-Experiment3/" class="article-date">
-  <time class="dt-published" datetime="2021-07-22T09:54:48.916Z" itemprop="datePublished">2021-07-22</time>
-</a>
-    
-  </div>
+  <article id="post-Hadoop 3.2.1的安装、伪分布式部署及web无法访问踩坑" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
     
@@ -1603,309 +593,174 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/GIS-Experiment3/">GIS-Experiment3</a>
+      <a class="p-name article-title" href="/2021/07/22/Hadoop%203.2.1%E7%9A%84%E5%AE%89%E8%A3%85%E3%80%81%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%8F%8Aweb%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E8%B8%A9%E5%9D%91/">Hadoop 3.2.1的安装、伪分布式部署及web无法访问踩坑</a>
     </h1>
   
 
+
       </header>
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    <div class="article-meta">
       
-        <h2 id="ArcGIS-操作3"><a href="#ArcGIS-操作3" class="headerlink" title="ArcGIS 操作3"></a>ArcGIS 操作3</h2><h4 id="第1步-裁剪要素"><a href="#第1步-裁剪要素" class="headerlink" title="第1步 裁剪要素"></a>第1步 裁剪要素</h4><p>地理处理 —&gt; ArcToolbox —&gt; 分析工具 —&gt; 提取分析 —&gt; 裁剪</p>
-<h4 id="第2步-拼接图层"><a href="#第2步-拼接图层" class="headerlink" title="第2步 拼接图层"></a>第2步 拼接图层</h4><p>  地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 常规 —&gt; 追加</p>
-<h4 id="第3步-要素融合"><a href="#第3步-要素融合" class="headerlink" title="第3步 要素融合"></a>第3步 要素融合</h4><p> 地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 制图综合 —&gt; 融合</p>
-<h4 id="第4步-图层合并"><a href="#第4步-图层合并" class="headerlink" title="第4步 图层合并"></a>第4步 图层合并</h4><p>地理处理 —&gt; ArcToolbox —&gt; 分析工具 —&gt; 叠加分析 —&gt; 联合</p>
-<h4 id="第5步-图层相交"><a href="#第5步-图层相交" class="headerlink" title="第5步 图层相交"></a>第5步 图层相交</h4><p>地理处理 —&gt; ArcToolbox —&gt; 分析工具 —&gt; 叠加分析 —&gt; 相交</p>
-<h4 id="第6步-定义投影"><a href="#第6步-定义投影" class="headerlink" title="第6步 定义投影"></a>第6步 定义投影</h4><p>地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 投影和变换 —&gt; 定义投影</p>
-<h4 id="第7步-投影变换"><a href="#第7步-投影变换" class="headerlink" title="第7步 投影变换"></a>第7步 投影变换</h4><p>地理处理 —&gt; ArcToolbox —&gt; 数据管理工具 —&gt; 投影和变换 —&gt; 要素 —&gt; 投影</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/22/GIS-Experiment3/" data-id="ckreqntij0002r07kbmdwbsp2" data-title="GIS-Experiment3" class="article-share-link">分享</a>
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.936Z" itemprop="datePublished">2021年07月22日</time>
+</span>
       
       
       
-    </footer>
-  </div>
+<a href="/2021/07/22/Hadoop%203.2.1%E7%9A%84%E5%AE%89%E8%A3%85%E3%80%81%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%8F%8Aweb%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E8%B8%A9%E5%9D%91/#comments" class="article-comment-link">
   
-</article>
-
-
-
-  
-    <article id="post-GeoServer发布WMS服务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/22/GeoServer%E5%8F%91%E5%B8%83WMS%E6%9C%8D%E5%8A%A1/" class="article-date">
-  <time class="dt-published" datetime="2021-07-22T09:54:48.914Z" itemprop="datePublished">2021-07-22</time>
+  <i class="fa fa-commt"></i>
+  留言
 </a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/GeoServer%E5%8F%91%E5%B8%83WMS%E6%9C%8D%E5%8A%A1/">GeoServer发布WMS服务</a>
-    </h1>
-  
 
-      </header>
-    
+
+    </div>
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li>准备</li>
-<li>WMS</li>
-<li>WTMS </li>
-</ul>
-<h3 id="一、-准备"><a href="#一、-准备" class="headerlink" title="一、 准备"></a>一、 准备</h3><h5 id="1-首先我们需要一些配置，进入根目录下面"><a href="#1-首先我们需要一些配置，进入根目录下面" class="headerlink" title="1. 首先我们需要一些配置，进入根目录下面"></a>1. 首先我们需要一些配置，进入根目录下面</h5><p><img src="https://img-blog.csdnimg.cn/20200316232630759.png"></p>
-<h5 id="2-进入data"><a href="#2-进入data" class="headerlink" title="2.进入data"></a>2.进入data</h5><p><img src="https://img-blog.csdnimg.cn/20200316232746615.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h5 id="3-新建一个目录，名字随意"><a href="#3-新建一个目录，名字随意" class="headerlink" title="3. 新建一个目录，名字随意"></a>3. 新建一个目录，名字随意</h5><p><img src="https://img-blog.csdnimg.cn/20200316232812300.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h5 id="4-创建shp和tif文件夹，shp发布WMS，tif用来发布WTMS"><a href="#4-创建shp和tif文件夹，shp发布WMS，tif用来发布WTMS" class="headerlink" title="4. 创建shp和tif文件夹，shp发布WMS，tif用来发布WTMS"></a>4. 创建<code>shp</code>和<code>tif</code>文件夹，<code>shp</code>发布<code>WMS</code>，<code>tif</code>用来发布<code>WTMS</code></h5><p><img src="https://img-blog.csdnimg.cn/20200316233039298.png"></p>
-<h5 id="5-先放进去一个shp文件和tif文件"><a href="#5-先放进去一个shp文件和tif文件" class="headerlink" title="5. 先放进去一个shp文件和tif文件"></a>5. 先放进去一个<code>shp</code>文件和<code>tif</code>文件</h5><p><img src="https://img-blog.csdnimg.cn/20200316233056206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200316233152110.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h5 id="6-安装版，在服务中打开geoserver服务，解压版运行start-Geoserver"><a href="#6-安装版，在服务中打开geoserver服务，解压版运行start-Geoserver" class="headerlink" title="6.安装版，在服务中打开geoserver服务，解压版运行start Geoserver"></a>6.安装版，在服务中打开<code>geoserver</code>服务，解压版运行<code>start Geoserver</code></h5><p><img src="https://img-blog.csdnimg.cn/20200317002625100.png"><br><img src="https://img-blog.csdnimg.cn/20200317002642555.png"></p>
-<h5 id="6-打开GeoServer的网页端"><a href="#6-打开GeoServer的网页端" class="headerlink" title="6. 打开GeoServer的网页端"></a>6. 打开GeoServer的网页端</h5><p><img src="https://img-blog.csdnimg.cn/20200316233321774.png"></p>
-<h5 id="7-没有登录的在这里登陆一下"><a href="#7-没有登录的在这里登陆一下" class="headerlink" title="7. 没有登录的在这里登陆一下"></a>7. 没有登录的在这里登陆一下</h5><p><img src="https://img-blog.csdnimg.cn/20200316233354426.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<blockquote>
-<p>安装的时候设置的用户名和密码没有用，不知道为什么<br>默认：<br>账户：admin<br>密码：geoserver</p>
-</blockquote>
-<h5 id="8-先建一个工作区，设置为默认工作区，提交即可"><a href="#8-先建一个工作区，设置为默认工作区，提交即可" class="headerlink" title="8. 先建一个工作区，设置为默认工作区，提交即可"></a>8. 先建一个工作区，设置为默认工作区，提交即可</h5><p><img src="https://img-blog.csdnimg.cn/20200316234138865.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200317002506226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<blockquote>
-<p>开启这两个服务</p>
-</blockquote>
-<h3 id="二、-WMS"><a href="#二、-WMS" class="headerlink" title="二、 WMS"></a>二、 WMS</h3><h5 id="1-新建数据存储，选择数据源，保存"><a href="#1-新建数据存储，选择数据源，保存" class="headerlink" title="1. 新建数据存储，选择数据源，保存"></a>1. 新建数据存储，选择数据源，保存</h5><p><img src="https://img-blog.csdnimg.cn/20200316234206758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200316234249125.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200317002846749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/2020031623444683.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h5 id="2-发布"><a href="#2-发布" class="headerlink" title="2. 发布"></a>2. 发布</h5><p><img src="https://img-blog.csdnimg.cn/20200316234602722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<blockquote>
-<p>如果找不到这个页面，点击<code>图层 -》新建图层 </code>即可</p>
-</blockquote>
-<h5 id="3-修改参数，保存"><a href="#3-修改参数，保存" class="headerlink" title="3. 修改参数，保存"></a>3. 修改参数，保存</h5><p><img src="https://img-blog.csdnimg.cn/20200316235009800.png"></p>
-<blockquote>
-<p>这里得<code>定义SRS</code>要和图层得坐标一样，否则会出现，结果中看不到矢量或者只能看到一部分得现象<br><img src="https://img-blog.csdnimg.cn/20200316235154783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-</blockquote>
-<h5 id="4-发布结束，预览"><a href="#4-发布结束，预览" class="headerlink" title="4. 发布结束，预览"></a>4. 发布结束，预览</h5><p><img src="https://img-blog.csdnimg.cn/20200316235341791.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200316235419228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h5 id="5-由于本机SRS没有设置为3587，只能看到一部分"><a href="#5-由于本机SRS没有设置为3587，只能看到一部分" class="headerlink" title="5. 由于本机SRS没有设置为3587，只能看到一部分"></a>5. 由于本机SRS没有设置为<code>3587</code>，只能看到一部分</h5><p><img src="https://img-blog.csdnimg.cn/20200316235636210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h5 id="6-修改SRS"><a href="#6-修改SRS" class="headerlink" title="6. 修改SRS"></a>6. 修改SRS</h5><p><img src="https://img-blog.csdnimg.cn/20200316235832651.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200316235848715.png"></p>
-<h5 id="7-查看完整地图"><a href="#7-查看完整地图" class="headerlink" title="7. 查看完整地图"></a>7. 查看完整地图</h5><p><img src="https://img-blog.csdnimg.cn/20200316235605128.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h3 id="三、-WTMS"><a href="#三、-WTMS" class="headerlink" title="三、 WTMS"></a>三、 WTMS</h3><h5 id="1-在ArcMap中查看坐标代码"><a href="#1-在ArcMap中查看坐标代码" class="headerlink" title="1. 在ArcMap中查看坐标代码"></a>1. 在ArcMap中查看坐标代码</h5><p><img src="https://img-blog.csdnimg.cn/20200317000514436.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h5 id="2-制定新的Gridsets"><a href="#2-制定新的Gridsets" class="headerlink" title="2. 制定新的Gridsets"></a>2. 制定新的Gridsets</h5><p><img src="https://img-blog.csdnimg.cn/20200317000245796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200317000415249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200317000758427.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h5 id="3-将自定义的Gridsets添加到常用，提交"><a href="#3-将自定义的Gridsets添加到常用，提交" class="headerlink" title="3. 将自定义的Gridsets添加到常用，提交"></a>3. 将自定义的Gridsets添加到常用，提交</h5><p><img src="https://img-blog.csdnimg.cn/20200317000825411.png"><br><img src="https://img-blog.csdnimg.cn/20200317000906213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h5 id="4-新建数据存储，选择geoTiff，保存"><a href="#4-新建数据存储，选择geoTiff，保存" class="headerlink" title="4. 新建数据存储，选择geoTiff，保存"></a>4. 新建数据存储，选择geoTiff，保存</h5><p><img src="https://img-blog.csdnimg.cn/20200317001003665.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200317001108435.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h5 id="5-发布，删掉别的切片规则"><a href="#5-发布，删掉别的切片规则" class="headerlink" title="5. 发布，删掉别的切片规则"></a>5. 发布，删掉别的切片规则</h5><p><img src="https://img-blog.csdnimg.cn/20200317001132318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200317001237175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200317001321916.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h5 id="6-切片"><a href="#6-切片" class="headerlink" title="6. 切片"></a>6. 切片</h5><p><img src="https://img-blog.csdnimg.cn/20200317001407447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200317001613431.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200317001733805.png"></p>
-<blockquote>
-<p>为<code>none</code>就是切完了</p>
-</blockquote>
-<h5 id="7-查看切片结果"><a href="#7-查看切片结果" class="headerlink" title="7. 查看切片结果"></a>7. 查看切片结果</h5><p><img src="https://img-blog.csdnimg.cn/20200317001957507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20200317002008885.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-
+        <h1 id="安装-Hadoop-3-2-1"><a href="#安装-Hadoop-3-2-1" class="headerlink" title="安装 Hadoop 3.2.1"></a>安装 Hadoop 3.2.1</h1><h4 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. <a target="_blank" rel="noopener" href="http://mirror.bit.edu.cn/apache/hadoop/common/">下载</a></h4><p>   <img src="https://img-blog.csdnimg.cn/20200313023246851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"><br>   <img src="https://img-blog.csdnimg.cn/20200313023302377.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/22/GeoServer%E5%8F%91%E5%B8%83WMS%E6%9C%8D%E5%8A%A1/" data-id="ckreqntip0009r07kgetc4668" data-title="GeoServer发布WMS服务" class="article-share-link">分享</a>
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/Hadoop%203.2.1%E7%9A%84%E5%AE%89%E8%A3%85%E3%80%81%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%8F%8Aweb%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E8%B8%A9%E5%9D%91/#more">Read More</a>
+        </p>
       
       
       
     </footer>
   </div>
-  
 </article>
 
 
 
-  
-    <article id="post-esri loader + arcgis api 图层控制 + 筛选" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/22/esri%20loader%20+%20arcgis%20api%20%E5%9B%BE%E5%B1%82%E6%8E%A7%E5%88%B6%20+%20%E7%AD%9B%E9%80%89/" class="article-date">
-  <time class="dt-published" datetime="2021-07-22T09:54:48.912Z" itemprop="datePublished">2021-07-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/esri%20loader%20+%20arcgis%20api%20%E5%9B%BE%E5%B1%82%E6%8E%A7%E5%88%B6%20+%20%E7%AD%9B%E9%80%89/">esri loader + arcgis api 图层控制 + 筛选</a>
-    </h1>
-  
+    <nav id="page-nav">
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <table>
-<thead>
-<tr>
-<th>功能</th>
-<th>ID</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>筛选</td>
-<td>#option-choose</td>
-</tr>
-<tr>
-<td>清除筛选</td>
-<td>#option-clean</td>
-</tr>
-<tr>
-<td>显示隐藏控制</td>
-<td>#option-visible</td>
-</tr>
-</tbody></table>
-<p>筛选函数中的<code>layerDefinitoin</code>控制筛选条件</p>
-<h3 id="js部分"><a href="#js部分" class="headerlink" title="js部分"></a><code>js</code>部分</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 我们需要在该组件装载之后做的事情都放在该方法里</span></span><br><span class="line">  <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    esriLoader.setDefaultOptions(&#123; <span class="attr">version</span>: <span class="string">&#x27;3.28&#x27;</span> &#125;)</span><br><span class="line">    <span class="built_in">this</span>.createMap()</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 我们需要执行的方法都定义在该属性里</span></span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="attr">createMap</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      esriLoader.loadModules([<span class="string">&#x27;esri/map&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;esri/geometry/Extent&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;esri/layers/ArcGISDynamicMapServiceLayer&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;dojo/query&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;esri/toolbars/navigation&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;esri/geometry/Point&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;dojo/domReady!&#x27;</span>], &#123; <span class="attr">css</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">        .then(<span class="function">(<span class="params">[<span class="built_in">Map</span>, Extent, ArcGISDynamicMapServiceLayer, query, Navigation, Point]</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">var</span> tjUAVurl = <span class="string">&#x27;http://localhost:6080/arcgis/rest/services/Eco/BJ_td_gd_nyd/MapServer&#x27;</span></span><br><span class="line"></span><br><span class="line">          <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&#x27;map&#x27;</span>, &#123;</span><br><span class="line">            <span class="attr">extent</span>: <span class="keyword">new</span> Extent(&#123;</span><br><span class="line">              <span class="attr">xmin</span>: <span class="number">114.4134760856628</span>,</span><br><span class="line">              <span class="attr">ymin</span>: <span class="number">40.13100080490112</span>,</span><br><span class="line">              <span class="attr">xmax</span>: <span class="number">118.36547288894677</span>,</span><br><span class="line">              <span class="attr">ymax</span>: <span class="number">41.64383821487438</span>,</span><br><span class="line">              <span class="attr">spatialReference</span>: &#123;</span><br><span class="line">                <span class="attr">wkid</span>: <span class="number">4326</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;),</span><br><span class="line">            <span class="attr">logo</span>: <span class="literal">false</span></span><br><span class="line">          &#125;)</span><br><span class="line"></span><br><span class="line">          <span class="keyword">var</span> tjUAVLayer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(tjUAVurl)</span><br><span class="line">          <span class="keyword">var</span> tjUAVLayerLD = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(tjUAVurl)<span class="comment">// 筛选</span></span><br><span class="line">          map.addLayer(tjUAVLayer)</span><br><span class="line">          <span class="comment">// *************************************************************************************** //</span></span><br><span class="line"></span><br><span class="line">          <span class="keyword">var</span> that = <span class="built_in">this</span></span><br><span class="line">          </span><br><span class="line">          <span class="comment">// 筛选</span></span><br><span class="line">          <span class="function"><span class="keyword">function</span> <span class="title">btnLayerDefinitions</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            map.removeLayer(tjUAVLayer)</span><br><span class="line">            <span class="keyword">var</span> layerDefinitoin = []</span><br><span class="line">            layerDefinitoin[<span class="number">0</span>] = <span class="string">&#x27;payMon_suz &gt; 20&#x27;</span></span><br><span class="line">            tjUAVLayerLD.setLayerDefinitions(layerDefinitoin)</span><br><span class="line">            map.addLayer(tjUAVLayerLD)</span><br><span class="line">            that.opensuccess()</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="comment">// 清除筛选</span></span><br><span class="line">          <span class="function"><span class="keyword">function</span> <span class="title">optinClean</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            map.removeLayer(tjUAVLayerLD)</span><br><span class="line">            map.addLayer(tjUAVLayer)</span><br><span class="line">            that.opensuccess()</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="function"><span class="keyword">function</span> <span class="title">btnVisible</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (that.options_power[<span class="number">2</span>].label === <span class="string">&#x27;隐藏&#x27;</span>) &#123;</span><br><span class="line">              <span class="comment">// 打开所有显示</span></span><br><span class="line">              <span class="keyword">var</span> visible = []</span><br><span class="line">              <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; tjUAVLayer.layerInfos.length; i++) &#123;</span><br><span class="line">                visible.push(i)</span><br><span class="line">              &#125;</span><br><span class="line">              tjUAVLayer.setVisibleLayers(visible)</span><br><span class="line">              that.options_power[<span class="number">2</span>].label = <span class="string">&#x27;显示&#x27;</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="comment">// 关闭所有显示</span></span><br><span class="line">              visible = [-<span class="number">1</span>]</span><br><span class="line">              tjUAVLayer.setVisibleLayers(visible)</span><br><span class="line">              that.options_power[<span class="number">2</span>].label = <span class="string">&#x27;隐藏&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">            that.opensuccess()</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="comment">// *************************************************************************************** //</span></span><br><span class="line"></span><br><span class="line">          query(<span class="string">&#x27;#option-choose&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, btnLayerDefinitions)</span><br><span class="line">          query(<span class="string">&#x27;#option-clean&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, optinClean)</span><br><span class="line">          query(<span class="string">&#x27;#option-visible&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, btnVisible)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<a class="extend prev" rel="prev" href="/page/7/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/">下一页</a>
+</nav>
 
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/22/esri%20loader%20+%20arcgis%20api%20%E5%9B%BE%E5%B1%82%E6%8E%A7%E5%88%B6%20+%20%E7%AD%9B%E9%80%89/" data-id="ckreqntj80010r07khvm0g1il" data-title="esri loader + arcgis api 图层控制 + 筛选" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-esri loader + arcgis api 实现小部件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/22/esri%20loader%20+%20arcgis%20api%20%E5%AE%9E%E7%8E%B0%E5%B0%8F%E9%83%A8%E4%BB%B6/" class="article-date">
-  <time class="dt-published" datetime="2021-07-22T09:54:48.910Z" itemprop="datePublished">2021-07-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/esri%20loader%20+%20arcgis%20api%20%E5%AE%9E%E7%8E%B0%E5%B0%8F%E9%83%A8%E4%BB%B6/">esri loader + arcgis api 实现小部件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="template部分"><a href="#template部分" class="headerlink" title="template部分"></a><code>template</code>部分</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">      &lt;el-row style=&quot;box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px 0px;&quot;&gt;</span><br><span class="line">        &lt;el-button type=&quot;&quot; icon=&quot;el-icon-plus&quot; circle class=&quot;zoomin&quot;&gt;&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button type=&quot;&quot; icon=&quot;el-icon-minus&quot; circle class=&quot;zoomout&quot;&gt;&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button type=&quot;info&quot; icon=&quot;el-icon-thumb&quot; circle class=&quot;pan&quot;&gt;&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button type=&quot;info&quot; icon=&quot;el-icon-full-screen&quot; circle class=&quot;fullmap&quot;&gt;&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button type=&quot;&quot; icon=&quot;el-icon-arrow-left&quot; circle class=&quot;beforePic&quot;&gt;&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button type=&quot;&quot; icon=&quot;el-icon-arrow-right&quot; circle class=&quot;afterPic&quot;&gt;&lt;/el-button&gt;</span><br><span class="line">      &lt;/el-row&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="js部分"><a href="#js部分" class="headerlink" title="js部分"></a><code>js</code>部分</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> esriLoader <span class="keyword">from</span> <span class="string">&#x27;esri-loader&#x27;</span></span><br><span class="line"><span class="comment">// import $ from &#x27;jquery&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">xyText</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">      <span class="attr">extent_tag</span>: [ ],</span><br><span class="line">      <span class="attr">value</span>: <span class="string">&#x27;&#x27;</span>, <span class="comment">// 选择的ID</span></span><br><span class="line">      <span class="attr">options_power</span>: [&#123;</span><br><span class="line">        <span class="attr">value</span>: <span class="string">&#x27;option-choose&#x27;</span>,</span><br><span class="line">        <span class="attr">label</span>: <span class="string">&#x27;筛选&#x27;</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        <span class="attr">value</span>: <span class="string">&#x27;option-clean&#x27;</span>,</span><br><span class="line">        <span class="attr">label</span>: <span class="string">&#x27;清除&#x27;</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        <span class="attr">value</span>: <span class="string">&#x27;option-visible&#x27;</span>,</span><br><span class="line">        <span class="attr">label</span>: <span class="string">&#x27;显示&#x27;</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        <span class="attr">value</span>: <span class="string">&#x27;setting-extent-xy&#x27;</span>,</span><br><span class="line">        <span class="attr">label</span>: <span class="string">&#x27;设置坐标&#x27;</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        <span class="attr">value</span>: <span class="string">&#x27;setting-extent&#x27;</span>,</span><br><span class="line">        <span class="attr">label</span>: <span class="string">&#x27;设置范围&#x27;</span></span><br><span class="line">      &#125;],</span><br><span class="line">      <span class="attr">xy_zdy</span>: &#123;&#125;,</span><br><span class="line">      <span class="attr">extent_zdy</span>: &#123;&#125;,</span><br><span class="line">      <span class="attr">centerDialogVisible</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">centerDialogVisible_extent</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">checked</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 我们需要在该组件装载之后做的事情都放在该方法里</span></span><br><span class="line">  <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    esriLoader.setDefaultOptions(&#123; <span class="attr">version</span>: <span class="string">&#x27;3.28&#x27;</span> &#125;)</span><br><span class="line">    <span class="built_in">this</span>.createMap()</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 我们需要执行的方法都定义在该属性里</span></span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="attr">createMap</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      esriLoader.loadModules([<span class="string">&#x27;esri/map&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;esri/geometry/Extent&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;esri/layers/ArcGISDynamicMapServiceLayer&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;dojo/query&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;esri/toolbars/navigation&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;esri/geometry/Point&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;dojo/domReady!&#x27;</span>], &#123; <span class="attr">css</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">        .then(<span class="function">(<span class="params">[<span class="built_in">Map</span>, Extent, ArcGISDynamicMapServiceLayer, query, Navigation, Point]</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">var</span> tjUAVurl = <span class="string">&#x27;http://localhost:6080/arcgis/rest/services/Eco/BJ_td_gd_nyd/MapServer&#x27;</span></span><br><span class="line"></span><br><span class="line">          <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&#x27;map&#x27;</span>, &#123;</span><br><span class="line">            <span class="attr">extent</span>: <span class="keyword">new</span> Extent(&#123;</span><br><span class="line">              <span class="attr">xmin</span>: <span class="number">114.4134760856628</span>,</span><br><span class="line">              <span class="attr">ymin</span>: <span class="number">40.13100080490112</span>,</span><br><span class="line">              <span class="attr">xmax</span>: <span class="number">118.36547288894677</span>,</span><br><span class="line">              <span class="attr">ymax</span>: <span class="number">41.64383821487438</span>,</span><br><span class="line">              <span class="attr">spatialReference</span>: &#123;</span><br><span class="line">                <span class="attr">wkid</span>: <span class="number">4326</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;),</span><br><span class="line">            <span class="attr">logo</span>: <span class="literal">false</span></span><br><span class="line">          &#125;)</span><br><span class="line"></span><br><span class="line">          <span class="keyword">var</span> tjUAVLayer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(tjUAVurl)</span><br><span class="line">          map.addLayer(tjUAVLayer)</span><br><span class="line"></span><br><span class="line">          <span class="comment">// *************************************************************************************** //</span></span><br><span class="line"></span><br><span class="line">          <span class="keyword">var</span> navToolbar = <span class="keyword">new</span> Navigation(map)</span><br><span class="line">          query(<span class="string">&#x27;.zoomin&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            navToolbar.activate(Navigation.ZOOM_IN)</span><br><span class="line">          &#125;)</span><br><span class="line">          query(<span class="string">&#x27;.zoomout&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            navToolbar.activate(Navigation.ZOOM_OUT)</span><br><span class="line">          &#125;)</span><br><span class="line">          query(<span class="string">&#x27;.pan&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            navToolbar.activate(Navigation.PAN)</span><br><span class="line">          &#125;)</span><br><span class="line">          query(<span class="string">&#x27;.fullmap&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            navToolbar.zoomToFullExtent()</span><br><span class="line">          &#125;)</span><br><span class="line">          query(<span class="string">&#x27;.beforePic&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            navToolbar.zoomToPrevExtent()</span><br><span class="line">          &#125;)</span><br><span class="line">          query(<span class="string">&#x27;.afterPic&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            navToolbar.zoomToNextExtent()</span><br><span class="line">          &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://img-blog.csdnimg.cn/20200328045333970.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/22/esri%20loader%20+%20arcgis%20api%20%E5%AE%9E%E7%8E%B0%E5%B0%8F%E9%83%A8%E4%BB%B6/" data-id="ckreqntj90011r07k8x1dgf65" data-title="esri loader + arcgis api 实现小部件" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">下一页 &raquo;</a>
-  </nav>
 
 </section>
         
           <aside id="sidebar">
   
     
-
-  
-    
-
-  
-    
-  
-    
   <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
+    <h3 class="widget-title"><i class="fa fa-posts"></i> 最新文章</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/">最大流问题------Ford-Fulkerson算法（增广路径）</a>
+            <a href="/2021/07/22/android+baidu%20sdk%20%E6%98%BE%E7%A4%BA%E5%9C%B0%E5%9B%BE+%E5%88%87%E6%8D%A2%E5%9C%B0%E5%9B%BE/">android+baidu sdk 显示地图+切换地图</a>
           </li>
         
           <li>
-            <a href="/2021/07/22/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/">在Ubuntu上安装java环境</a>
+            <a href="/2021/07/22/%E3%80%90%E7%A0%94%E3%80%91%E9%81%A5%E6%84%9F%E8%80%83%E7%82%B9%E6%B1%87%E6%80%BB/">【研】遥感考点汇总</a>
           </li>
         
           <li>
-            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%90%E2%85%A1%E3%80%91/">遥感原理与应用【Ⅱ】</a>
+            <a href="/2021/07/22/%5BVue%20bug%E8%AE%B0%E5%BD%95%5D%20%E5%85%B3%E4%BA%8EVue%20ui%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E9%81%87%E5%88%B0GUI%E5%8D%A1%E4%BD%8F%E6%B2%A1%E6%9C%89%E8%87%AA%E5%8A%A8%E5%BC%B9%E5%87%BA%E7%AE%A1%E7%90%86%E5%99%A8/">（Vue bug记录）关于Vue ui打开控制面板的时候，遇到GUI卡住没有自动弹出管理器</a>
           </li>
         
           <li>
-            <a href="/2021/07/22/%E9%81%A5%E6%84%9F%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%20%E3%80%90I%E3%80%91/">遥感原理与应用 【I】</a>
+            <a href="/2021/07/22/%EF%BC%88%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%EF%BC%81%EF%BC%89%E5%85%B3%E4%BA%8EVue+Leaflet%E6%B7%BB%E5%8A%A0market%E6%97%B6%EF%BC%8C%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/">（完美解决！）关于Vue+Leaflet添加market时，图片不显示的问题</a>
           </li>
         
           <li>
-            <a href="/2021/07/22/%E6%B8%B2%E6%9F%93---%E5%94%AF%E4%B8%80%E5%80%BC%E6%B8%B2%E6%9F%93/">渲染---唯一值渲染</a>
+            <a href="/2021/07/22/%E9%80%BB%E8%BE%91%E5%85%B3%E7%B3%BB%E8%AF%8D/">逻辑关系词</a>
           </li>
         
       </ul>
     </div>
   </div>
 
+
+  
+    
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-archive"></i> 归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年07月</a><span class="archive-list-count">99</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-link"></i> 友情链接</h3>
+    <div class="widget">
+      <ul>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://blog.csdn.net/DanBo_C">CSDN</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://github.com/EnoFeng/enofeng.github.io">GitHub</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://danbo3110.github.io/">Old Blog</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+
   
 </aside>
         
       </div>
+      <a id="totop" href="#top"></a>
       <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">
+      <p>
+        <a href="/sitemap.xml">网站地图</a>
+        <span> | </span><a href="/atom.xml">订阅本站</a>
+        <span> | </span><a href="/about/">联系博主</a>
+      </p>
       
-      &copy; 2021 Eno·feng<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+        <p>
+          <i class="fa fa-visitors"></i>
+          <i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>
+          ，
+          <i class="fa fa-views"></i>
+          <i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>
+        </p>
+      
+      <p>
+        <span>Copyright &copy; 2021 Eno·feng.</span>
+        <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
+        
+            <span>Count by <a href="http://busuanzi.ibruce.info/" target="_blank">busuanzi.</a></span>
+        
+        <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
+      </p>
     </div>
   </div>
 </footer>
 
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
-
-
 <script src="/js/jquery-3.4.1.min.js"></script>
 
+
+<script src="/js/search.json.js"></script>
 
 
   
@@ -1915,6 +770,37 @@
 
 
 <script src="/js/script.js"></script>
+
+
+
+
+
+
+  
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+  
+<script src="/localshare/js/social-share.js"></script>
+
+  
+<script src="/localshare/js/qrcode.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

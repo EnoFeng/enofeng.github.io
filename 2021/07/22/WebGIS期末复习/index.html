@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>WebGIS期末复习 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="description" content="Learn and Life">
+  
+  
+    <meta name="keywords" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/localshare/css/share.css">
+
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/."><i class="fa fa-home"></i> 首页</a>
+        
+          <a class="main-nav-link" href="/archives/"><i class="fa fa-archive"></i> 归档</a>
+        
+          <a class="main-nav-link" href="/about/"><i class="fa fa-user"></i> 关于</a>
+        
+      </nav>
+    </div>
+    <div id="search-form">
+      <div id="result-mask" class="hide"></div>
+      <label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label>
+      <div id="result-wrap" class="hide">
+        <div id="search-result"></div>
+      </div>
+      <div class="hide">
+        <template id="search-tpl">
+          <div class="item">
+            <a href="/{path}" title="{title}">
+              <div class="title">{title}</div>
+              <div class="time">{date}</div>
+              <div class="tags">{tags}</div>
+            </a>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-WebGIS期末复习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      WebGIS期末复习
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T10:53:31.372Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/2021/07/22/WebGIS%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/#comments" class="article-comment-link">
+  
+    
+    
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h2><ol>
+<li>WebGIS起源与发展</li>
+</ol>
+<span id="more"></span>
+
+
+<ul>
+<li>起源：<ol>
+<li>1993年，施乐公司帕洛阿尔托研究中心开发了一个基于Web的地图浏览器。</li>
+<li>1994年，加拿大发布了加拿大第一个在线国家地图集。</li>
+<li>1995年，加利福尼亚大学开发了亚历山大数字图书馆、美国研发了全国地理数据仓库，可查询地图。</li>
+<li>1995年，美国人口普查局发布了它的TIGER制图服务，把海量全国人口信息做成在线地图。</li>
+<li>1995年，加州大学伯克利分校的博士研发了GRASSLinks，在桌面地理信息系统GRASS和Web服务器之间编写接口实现。</li>
+<li>MapQuest发布面向大众的在线地图，寻找宾馆、饭店，是现在在线地图的早期代表。</li>
+</ol>
+</li>
+<li>发展：<ol>
+<li>1996年，进入互联网时代。主要的地理信息系统软件商都相继推出Web服务站和服务点，并介绍自己的因特网发展计划，如ESRI、Intergraph、MapInfo、Betley。</li>
+<li>1997年，分布式地理信息（DGI）和基于Web的地理信息系统（Web GIS）出现。一些基于Web浏览器的GIS软件如：GeoMedia、MapGuide、IMS等商业Web GIS软件相继问世并不断发展。</li>
+<li>1999年，组件式因特网地理信息系统开始研究:用EJB方法开发可重用的Web GIS服务器，用JavaBeans技术开发Web GIS客户机的应用界面，及用与GIS的图形操作功能相结合的方法开发Web GIS组件。</li>
+<li>2005年，谷歌地图和谷歌地球推出，后来百度和微软也推出互联网地图服务，使大众真正体验到互联网地图服务的益处。</li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li><p>WebGIS概念和优点</p>
+<ul>
+<li>概念：是Internet和www技术应用于GIS开发的产物，是利用Web技术来扩展和完善GIS的一项新技术。<br>其核心是将GIS功能嵌入到满足HTTP和TCP/IP标准的Internet应用体系中，实现Internet环境下地理信息的有效管理与处理。</li>
+<li>优点：<ol>
+<li>基于Internet/Intranet标准</li>
+<li>分布式服务体系结构</li>
+<li>发布速度快，范围广，维护方便</li>
+<li>数据来源丰富、分布存储</li>
+<li>平台无关</li>
+<li>用户界面友好</li>
+<li>系统建设投资少</li>
+<li>系统安全性</li>
+<li>系统协同性</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>WebGIS功能</p>
+<ol>
+<li>空间数据发布</li>
+<li>空间查询检索和联机处理</li>
+<li>空间数据可视化</li>
+<li>空间模型分析服务</li>
+<li>Web资源共享</li>
+</ol>
+</li>
+<li><p>WebGIS发展前沿，与新技术结合</p>
+<ol>
+<li><p>地理标记语言-网络环境下开放的空间数据交换格式</p>
+<p>超文本链接标示语言（HTML）是目前Web上通用的标记语言。但是标准HTML语言在可扩展性、结构和有效性等方面存在严重不足。HTML语言对复杂的空间数据的描述也仅仅局限于文本，对于图形数据就无能为力了。</p>
+<p>地理标记语言（Geography Markup Language）GML是由Open GIS联盟制定的基于XML的对地理信息（包括地理特征的几何和属性）的传输和存储的编码规范，GML是一个简单的基于文本的地理特征编码标准。</p>
+<p>正如XML语言将Web页面的内容及其表现分离一样， GML也将在地理信息世界中将内容及其表现形式分离开来，GML所关注的是地理数据内容的表现。它用地理特征(Features)来描述世界。本质上讲特征只是一系列的属性和几何体。属性有其名称、类型、属性值的描述。几何体是由基本的几何建模体如：点、线、曲线、面、多边形等所组成。GML已经可以对很复杂的地理实体进行编码]。</p>
+</li>
+<li><p>开放式地理信息系统</p>
+<p>开放的WebGIS的首先应该包括数据的开放，即分布在异构数据库中的信息能共享</p>
+<ul>
+<li>“互操作性：不同地理信息系统软件之间连接、信息交换没有障碍。</li>
+<li>“可扩展性：硬件方面，可在不同软件、不同档次的计算机上运行，其性能和硬件平台的性能成正比；软件方面增加新的地学空间数据和地学数据处理功能。</li>
+<li>“技术公开性：开放的思想主要是对用户公开，公开源代码及规范说明是重要的途径之一。</li>
+<li>“可移植性：独立于软件、硬件及网络环境，不需修改便可在不同的计算机上运行。</li>
+<li>兼容性、可实现性、协同性等</li>
+</ul>
+</li>
+<li><p>一体化的空间数据管理与分析</p>
+<p>在关系型数据库中引入面向对象技术，建立对象关系型数据库(ORDB)或纯对象数据库(OODB)，对象与底层表示分离，空间属性与非空间属性定位平等，实现了属性数据和空间数据一体化管理。既实现了一体化管理，同时以面向对象技术处理地理空间数据，提高了地理空间数据运算效率，是目前WebGIS的较为理想的数据库管理平台</p>
+</li>
+<li><p>基于分布式计算的WebGIS</p>
+<p>地球信息的特征是分布的，并具有基础性、共享性和综合性。目前出现的分布式计算技术可使地理信息的计算应用于社会各领域，成为信息基础设施的重要内容。一个数据库的内容能被存储和维护在不同的地点，而远程用户则能够方便地并可应用网上特殊的处理方法对这个数据库进行操作。</p>
+<p>由于地理信息本质上是分布的，而用户又需要对分布的地理信息完成浏览、查询、分析等操作，这就要求WebGIS需要解决如何实现地理信息客观上分布与实际操作、应用中集中的问题。具体地说，在WebGIS的服务器端，不同地域、不同行业的数据生产部门对应专门的数据服务器。通过对每一个数据服务器数据的及时更新，实现整个WebGIS数据的更新与共享。从这方面说，地理信息必须是分布式存储的。</p>
+<p>在用户端，通过图形界面完成对远程分布式地理数据的获取、显示、分析操作。WebGIS的数据共享、分析与处理不仅仅是用户端对单个图幅或单一数据源的操作，而是来自分布式数据源的地理信息在用户端几何、拓扑与属性的统一。从这方面说，分布式地理信息的处理又是集中统一的。</p>
+</li>
+<li><p>网络虚拟地理环境</p>
+<p>在地理信息系统中，结合三维可视化技术与虚拟现实技术(Virtual Reality)，完全再现地理环境的真实情况，把所有管理对象都置于一个真实的三维世界里，真正做到了管理意义上的”所见即所得”。虚拟现实技术的应用将使工程人员能通过全球网或局域网按协作方式进行三维模型的设计、交流和发布，从而进一步提高生产效率并削减成本。</p>
+<p>地理虚拟建模语言（GeoVRML）是用虚拟建模语言（VRML）为基础来描述地理空间数据。其目的是让用户通过一个在Web浏览器安装的标准的VRML插件来浏览地理参考数据、地图、和三维地形模型。它的出现将为在网络环境下实现虚拟地理环境提供一个良好的数据规范平台，将大大促进网络虚拟地理环境的应用。</p>
+</li>
+<li><p>移动通信技术扩展GIS应用</p>
+<p>当前用于地理信息交互的语言还不足以完成真正的”设备无关接口”的互操作。各种移动设备对于从GI（地理信息）服务器所获得的信息的表现方式是各不相同的，对于用户输入方式也不相同（例如，电话拨号，键盘输入，手写输入，语音输入）因此，对于不同的移动设备需要一种统一的标记语言。WML，由于某些局限并不是最好的答案。通用的XML或者由其派生的一种语言将成为各种GI移动设备的统一语言。</p>
+</li>
+<li><p>虚拟现实技术与地理信息系统的结合，其控制端基于webgis建立。Buy+阿里巴巴于2016年4月推出的全新购物方式，使用VR技术，利用计算机图形系统和辅助传感器，生成可交互的三维购物环境。其中有一种是模拟逛街得三维交互场景，可以通过vr去你想去的任何地方任何商场；虚拟旅游利用虚拟现实技术，通过模拟或超现实景，构建一个虚拟的三维立体旅游环境，网友足不出户，就能在三维立体的虚拟环境中遍览遥在万里之外的风光美景，形象逼真，细致生动。应用计算机技术实现场景的三维模拟，借助一定的技术手段使操作者感受目的地场景。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="第二章-WebGIS-基础技术"><a href="#第二章-WebGIS-基础技术" class="headerlink" title="第二章 WebGIS 基础技术"></a>第二章 WebGIS 基础技术</h2><ol>
+<li><p>WebGIS相关技术</p>
+<ul>
+<li>超文本传输协议(Hypertext Transfer Protocol，HTTP)</li>
+<li>超文本标记语言 (Hypertext Markup Language，HTML)</li>
+<li>统一资源定位器(Uniform Resource Locator，URL)</li>
+<li>JavaScript</li>
+<li>ASP.NET、JSP、PHP</li>
+<li>Ajax</li>
+<li>JSON、XML</li>
+<li>SVG（Scalable Vector Graphics）</li>
+<li>WebGL（Web Graphics Library）</li>
+<li>WebSocket</li>
+</ul>
+</li>
+<li><p>WebGIS基本架构</p>
+<p>Web应用系统：</p>
+<ul>
+<li>数据层<ul>
+<li>地理数据库：是某区域内关于一定地理要素特征的数据集，是WebGIS应用的基础支撑， WebGIS应用的价值往往取决于其数据的质量</li>
+</ul>
+</li>
+<li>逻辑层<ul>
+<li>WebGIS服务器：WebGIS架构中最重要的部分。一个WebGIS应用的能力和质量在很 大程度上取决于其所使用的WebGIS服务器 ,其功能、可定制的程度、可扩展性及性能 是关系到WebGIS应用能否成功的重要因素</li>
+</ul>
+</li>
+<li>表现层<ul>
+<li>客户端在WebGIS应用中扮演着两个角色：一方面，它代表整个系统的最终用户界面,负责与用户交互,如收集用户输人、向服务器发送请求、把结果显示给用户。另一方面，客户端特别是胖客户端，还可以运行 一些分析等处理任务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>空间数据格式json、geojson、Xml、GML的解读，json与xml之间的转换，可以练习期中考试题目。</p>
+</li>
+</ol>
+<h2 id="第三章-WebGIS-基本原理"><a href="#第三章-WebGIS-基本原理" class="headerlink" title="第三章 WebGIS 基本原理"></a>第三章 WebGIS 基本原理</h2><ol>
+<li><p>基于服务器模式的WebGIS实现方式，各自优缺点</p>
+<ol>
+<li><p>CGI</p>
+<p>优点：</p>
+<ul>
+<li>“瘦”客户端，即不需要在客户端安装任何软件，在客户端使用的是支持标准HTML的Web浏览器，操作结果以静态的GIF或JPEG图像的形式表现，客户端与平台无关。</li>
+<li>跨平台能力，CGI方式被多种操作系统的Web服务器支持，因此，CGI模式在服务器端具有跨平台的能力。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>增加了网络传输的负担。用户的每一步操作，都需要将请求通过网络传送给GIS服务器；GIS服务器<br>将操作结果形成图像，通过网络返回给用户。因而网络的传输量大大增加了。</li>
+<li>服务器的负担重。所有的操作都必须由GIS服务器解释执行，因而服务器的负担加重。</li>
+<li>同步请求问题多。由于CGI脚本处理所有来自Web浏览器的输入和解释GIS服务器的所有输出。当多用户同时发出请求时，系统的功能将受到影响。</li>
+<li>静态图像，在浏览器上显示的静态图像，用户既不能直接在客户端进行放大、缩小操作，又不能通过几何图形如点、线、面来选择显示其关心的地物。</li>
+</ul>
+</li>
+<li><p>Server API</p>
+<p>优点：克服CGI方式的低效率问题而研制的</p>
+</li>
+<li><p>Java Servlet：Java开发的面向Web服务器的小应用程序</p>
+<p>优点：以线程的方式执行，效率比CGI方式高，开发方式更灵活、可以跨平台使用</p>
+<blockquote>
+<p>PS：CGI或者Server API，虽然增强了客户端的交互性，但是用户得到的信息依然是静态的。用户不能操作单个地理实体以及快速缩放地图，因为在客户端，整个地图是一个实体，任何GIS操作，如放大、缩小、漫游等操作都需要服务器完成并将结果返回。当网络流量较高时，系统反应变慢。<span style="color:red">解决该问题<br>的一个办法是利用插件技术</span>,对于WebGIS而言，插件处理和传输的是矢量格式空间数据，其数据量较小，这样就加快了用户操作的反应速度，减少了网络流量和服务器负载。插件的不足之处<br>在于，象传统应用软件一样，它需要先安装，然后才能使用，给使用造成了不方便。</p>
+</blockquote>
+</li>
+</ol>
+<h6 id="瘦客户端：负责向服务器发送请求"><a href="#瘦客户端：负责向服务器发送请求" class="headerlink" title="瘦客户端：负责向服务器发送请求"></a>瘦客户端：负责向服务器发送请求</h6><p>优点：</p>
+<ul>
+<li>除Web浏览器外，用户不需要安装任何GIS软件和插件；</li>
+<li>绝大部分的地理操作由GIS服务器解释执行,客户端不需配置功能强大的计算机,在低端计算机上也可以正常运行。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>服务器负担重，绝大部分地理操作依赖GIS服务器完成；</li>
+<li>交互性弱，用户界面往往使用普通HTML和部分简单的JavaScript构建,表现力欠佳。</li>
+</ul>
+</li>
+<li><p>基于客户端的WebGIS实现方式，各自优缺点</p>
+<ol>
+<li><p>GIS Plug-in</p>
+<p>优点：</p>
+<ol>
+<li>无缝支持与GIS数据的连接。</li>
+<li>GIS操作速度快。</li>
+<li>服务器和网络传输的负担轻。。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>GIS Plug-in与平台相关。</li>
+<li>GIS Plug-in与GIS数据类型相关。</li>
+<li>需要事先安装。</li>
+<li>更新困难。</li>
+<li>Plug-in方式使用已有的GIS操作分析资源的能力弱，处理大型的GIS分析能力有限</li>
+</ol>
+</li>
+<li><p>ActiveX</p>
+<p>优点：任何符合ActiveX标准的控件都可以嵌入到网页中，在浏览器中显示。Plug-in只能在某一具体的浏<br>览器中使用。</p>
+</li>
+<li><p>Java Applet：Applet每次随网页一起被加载到客户端，浏览器调用Java虚拟机执行Applet程序。</p>
+<p>优点：</p>
+<ul>
+<li>被加载到客户端的内存中，用户退出Applet页面，Applet就被收回，不占用客户端磁盘空间。</li>
+<li>Applet不能访问本地文件系统，保证了系统安全。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>“胖客户”端</li>
+<li>Applet不能访问本地文件系统，限制了一些功能</li>
+</ul>
+</li>
+<li><p>Serverlight</p>
+</li>
+</ol>
+<h6 id="胖客户端：通过在客户端计算机上安装相应的Web浏览器插件-如Flash和Silverlight等），或通过采用客户端本地（或嵌入式）应用程序来实现。"><a href="#胖客户端：通过在客户端计算机上安装相应的Web浏览器插件-如Flash和Silverlight等），或通过采用客户端本地（或嵌入式）应用程序来实现。" class="headerlink" title="胖客户端：通过在客户端计算机上安装相应的Web浏览器插件(如Flash和Silverlight等），或通过采用客户端本地（或嵌入式）应用程序来实现。"></a>胖客户端：通过在客户端计算机上安装相应的Web浏览器插件(如Flash和Silverlight等），或通过采用客户端本地（或嵌入式）应用程序来实现。</h6><p>优点：</p>
+<ul>
+<li>用户交互速度快，很多数据和程序都是在客户端，不需要把所有请求都送到服务器来完成；</li>
+<li>服务器负担轻。</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>需要事先完成相应安装。用户需要下载安装GIS插件或本地应用程序，在一些政府、军队等安全要求较髙的单位,安装插件和本地程序通常需要经过事先批准，使用这种架构是受限制的。</li>
+<li>面临网络带宽和客户机计算能力的限制。通常情况下，在互联网上传输上百兆、千兆的数据，或在客户端执行高强度的地理分析计算，往往是不可行的。</li>
+</ul>
+</li>
+</ol>
+<h2 id="第四章-地理Web服务"><a href="#第四章-地理Web服务" class="headerlink" title="第四章 地理Web服务"></a>第四章 地理Web服务</h2><ol>
+<li><p><font color="#4169E1">ArcGIS地理服务类型及功能</font></p>
+<table>
+<thead>
+<tr>
+<th><strong>服务</strong></th>
+<th align="left"><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>地图服务</td>
+<td align="left">要素访问。用于访问地图中的适量要素</td>
+</tr>
+<tr>
+<td></td>
+<td align="left">地理数据访问。最终用户可在在ArcMap中执行复制和数据提取。</td>
+</tr>
+<tr>
+<td></td>
+<td align="left">地理处理。用于从工具箱或工具图层中访问地理处理模型。</td>
+</tr>
+<tr>
+<td></td>
+<td align="left">使用地图文档创建XML要素</td>
+</tr>
+<tr>
+<td></td>
+<td align="left">制图，用于访问地图文档的内容</td>
+</tr>
+<tr>
+<td></td>
+<td align="left">移动数据访问、网络分析</td>
+</tr>
+<tr>
+<td></td>
+<td align="left">创建符合OGC WCS、WFS、WMS规范的服务</td>
+</tr>
+<tr>
+<td>地理编码服务</td>
+<td align="left">地理编码，用于访问地址定位器</td>
+</tr>
+<tr>
+<td>地理数据服务</td>
+<td align="left">用于访问地理数据库的内容以进行数据查询、提取和复制</td>
+</tr>
+<tr>
+<td></td>
+<td align="left">创建符合OGC WCS规范的服务</td>
+</tr>
+<tr>
+<td>几何服务</td>
+<td align="left">在应用程序中提供了一种工具。用于执行几何计算（如投影计算和密度计算）</td>
+</tr>
+<tr>
+<td>地理处理服务</td>
+<td align="left">地理处理。用于从工具箱或工具图层中访问地理处理模型。</td>
+</tr>
+<tr>
+<td>Globle服务</td>
+<td align="left">Globle。用于访问Globle文档内容</td>
+</tr>
+<tr>
+<td>影像服务</td>
+<td align="left">成像。用于访问栅格数据集或镶嵌数据集的内容，包括像素值、属性、元数据和波段。</td>
+</tr>
+<tr>
+<td></td>
+<td align="left">JPIP。在使用JPEG2000文件并通过ITTVIS配置了JPIP服务器时提供了数据流功能。</td>
+</tr>
+<tr>
+<td></td>
+<td align="left">创建符合OGC WCS规范的服务</td>
+</tr>
+<tr>
+<td></td>
+<td align="left">创建符合OGC WMS规范的服务</td>
+</tr>
+<tr>
+<td>搜索服务</td>
+<td align="left">搜索。用于搜索企业范围内共享的文件夹和地理数据库</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><font color="#4169E1">OGC规范服务类型及功能</font></p>
+<ul>
+<li>WMS：Web地图服务，是将具有地理空间信息的数据制作成地图提供给用户<ol>
+<li>GetCapabilies：对服务信息内容和可接受参数的描述</li>
+<li>GetMap：返回一个地图影像</li>
+<li>GetFeatureInfo：返回显示在地图的某些特定要素的信息，客户端能查询地图上某些要素的信息</li>
+</ol>
+</li>
+<li>WMTS：Web地图切片服务，返回给客户端是固定大小的瓦片，客户端根据索引号来获取每一张瓦片，而后拼接成地图进行展示，由于瓦片的规则是固定的，服务端可以预先缓存对应的瓦片，客户端需要时直接返回即可，因而WMTS是可缓存的。<ol>
+<li>GetCapabilities：获取服务的元信息</li>
+<li>GetTile：获取切片</li>
+<li>GetFeatureInfo：获取点选的要素信息</li>
+</ol>
+</li>
+<li>WFS：Web要素服务，除了能返回一张地图图像之外，也可以返回绘制该地图图像所使用的真实地理数据<ol>
+<li>GetCapabilities：请求服务的元数据</li>
+<li>DescribeFeatureType：返回图层描述信息</li>
+<li>GetFeature：用于获取要素数据</li>
+</ol>
+</li>
+<li>WCS：Web覆盖服务，面向空间影像数据，它将包含地理位置值的地理空间数据作为“覆盖”在网上相互交换<ol>
+<li>GetCapabilities：返回描述服务和数据集的XML文档</li>
+<li>GetCoverage：使用通用的覆盖格式返回地理位置的值或属性</li>
+<li>DescribeCoverageType：允许客户端请求由具体的WCS服务器提供的任一覆盖层的完全描述</li>
+</ol>
+</li>
+<li>WPS：Web处理服务，暴露基于URL接口来实现客户端通过WebService对此类方法的调用、并返回数据</li>
+</ul>
+</li>
+<li><h5 id="ArcGIS和OGC规范地理服务对应"><a href="#ArcGIS和OGC规范地理服务对应" class="headerlink" title="ArcGIS和OGC规范地理服务对应"></a>ArcGIS和OGC规范地理服务对应</h5></li>
+<li><p>Web Service概念、原理及组成部分</p>
+<ul>
+<li>概念：Web Service可看作是一些模块化的应用程序，这些应用程序能在Web上描述、发布、定位和调用。</li>
+<li>原理：</li>
+<li>组成部分：</li>
+</ul>
+</li>
+<li><p>地图切片概念、原理，与动态地图服务相比有何优势？</p>
+<ul>
+<li><p>概念：地图切片是采用预先生成的方法存放在服务器端，然后根据用户提交<br>的不同请求，把相应的地图瓦片发送给客户端的过程，是一种多分辨率 层次模型，从瓦片金字塔的底层到顶层，分辨率越来越低，但表示的地理范围不变</p>
+</li>
+<li><p>原理</p>
+<ul>
+<li><p>在进行切片之前首先要确定切图的起点（Tiling scheme origin point）、图片宽度和高度，设置起点（WGS84下默认是（-400,400））的目的在于保证同一坐标系下的切片地图可以完美的叠加在一起。</p>
+</li>
+<li><p>在默认的Tiling scheme origin下和图片大小的情况下进行地图切片，可以根据用户设置的比例尺来计算地图数据在整个网格中的行列号，计算公式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">col=(int)Math.floor((point.x1-this.x1)/256/plottingResolution);</span><br><span class="line">row=(int)Math.floor((Math.abs(point.y1-this.y1))/256/plottingResolution);</span><br></pre></td></tr></table></figure></li>
+<li><p>其中point是当前坐标，this是origin点坐标，plottingResolution指当前Level的地图的地图分辨率。</p>
+</li>
+<li><p>如果要计算plottingResolution，可以根据用户输入的levelScale得到当前条件下的地图分辨率：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Scale=1：(96*2*Math.PI*6378137*resolution/360/0.0254);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>优点：</p>
+<ul>
+<li>速度快，预先配色，显示效果佳，满足高并发访问，适合做底图。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>瓦片地图缓存非常高效，如果你曾经查看过某一区域的瓦片，当你再次查看该区域的瓦片时，浏览器可能使用之前缓存的相同的瓦片，而不用重新下载一次。<ul>
+<li>瓦片地图可以渐进加载。中心区域的瓦片可能优先于边缘区域的瓦片加载，你可以移动或定位某一点，即使当前地图边缘区域还未加载。</li>
+<li>简单易用。所以很容易在服务器、网络、桌面或移动设备上实现技术集成。</li>
+<li>需要额外占用磁盘空间，需要预先生成切片，无法自定义地图。</li>
+<li>减轻服务器、网络负担，增加用户体验。</li>
+</ul>
+</li>
+</ul>
+<h2 id="第五章-WebGIS技术应用方法"><a href="#第五章-WebGIS技术应用方法" class="headerlink" title="第五章 WebGIS技术应用方法"></a>第五章 WebGIS技术应用方法</h2><ol>
+<li><p>SVG格式数据的解读</p>
+<ol>
+<li><pre><code>&lt;svg xml:space=&quot;preserve&quot; width=&quot;5.5in&quot; height=&quot;5in&quot;&gt;
+   &lt;rect style=&quot;fill:#ff13e2;&quot; width=&quot;250&quot; height=&quot;100&quot;/&gt; 
+   &lt;text style=&quot;fill:blue;&quot; y=&quot;15&quot;&gt;Hello World!&lt;/text&gt; 
+   &lt;a xlink:href=&quot;http://www.hfut.edu.cn/&quot;&gt;
+          &lt;path d=&quot;M250 150 L150 350 L350 350 Z&quot;/&gt;
+   &lt;/a &gt;
+&lt;/svg&gt;
+例中的SVG首先画了一个矩形，然后写了一段文字，接着利用路径元素画了一个三角形。
+M = moveto    Z = closepath   L = lineto
+矩形&lt;rect&gt;、圆&lt;circle&gt;、椭圆&lt;ellipse&gt;、直线&lt;line&gt;,折线&lt;polyline&gt;和多边形&lt;polygon&gt;、Bezier曲线元素标记为&lt;path&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li><p>SVG在WebGIS中的作用</p>
+<ul>
+<li>在这个体系结构下，有一种简单的应用模式，即事先利用一些工具把GIS数据转换成SVG文档，供客户调用和显示。目前，ArcGIS9.0已提供了将地图数据直接转换成SVG文档的功能。</li>
+<li>另一种较复杂的模式，是根据客户的请求，通过SVG文档转换，在GIS 数据库中提取数据并动态地转换成SVG文档，通过Web服务器传给客户端。</li>
+<li>由于目前主流浏览器如IE等还不能直接支持SVG，需要SVG插件，如(Adobe的SVG插件)，尽管SVG插件具有很强的图形表现能力，能够满足一般图像操作的需要，但对于地图的显示和操作，功能就显得很不够。</li>
+</ul>
+</li>
+<li><p>当前流行的Web可视化技术有哪些，在WebGIS如何发挥作用</p>
+<p>Canvas，Webgl。</p>
+<ul>
+<li>HTML5 Canvas为WebGIS基本地理要素的表现提供了良好的支持,通过Canvas API提供的函数库可以在Canvas中绘制出WebGIS表现所需要的多种样式的点、线、面、影像以及文字，通过对绘制顺序和绘制时属性设置的不同展现不同的叠加效果，并且根据使用者的需求选择不同样式的图例，提高了灵活性与互操作性。可见，HTML5 Canvas可以作为客户端快速展现复杂的地理数据，并且在展现地理数据的灵活性与互操作性方面优于传统的切片技术。同时，在绘制大数据量、多图层的情况下使用HTML5 Canvas绘制矢量图形相比传统地图切片技术在网页加载速度上也有明显优势。 </li>
+<li>webGL是一种3D绘图协议，这种绘图技术标准允许把JavaScript和OpenGL ES 2.0结合在一起，WebGL可以为HTML5 Canvas提供硬件3D加速渲染，GIS开发人员就可以借助系统显卡来在浏览器里更流畅地展示三维地图。</li>
+<li>与虚拟地理环境（VR）技术的结合，其核心技术是VR，主要通过虚拟建模语言（VRML）把GIS数据转换到VR中，为人们提供一个逼真的模拟环境。GIS用户在计算机上就能处理真三维的客观世界，在客观世界的虚拟环境中将能更加有效地管理和分析空间实体数据。VRGIS的关键技术是3D和4D的建模技术、数据模型的研究、海量数据的存贮和管理、三维显示技术与可视化技术的集成、面向对象的空间数据库研究及其与三维实时显示技术的集成等。VRGIS目前的研究主要集中于虚拟城市。</li>
+<li>GeoVRML就是以VRML为基础，为了解决VRML在支持地学方面不足的缺感而建立得。GeoVRML是- -种符合地理学要求的有效的3D文件交换格式，是可以内置于浏览器中的插入式软件，利用GeoVRML,应用服务器可以按照客户端的请求，抽取数据库服务器中的地理信息空间数据，并将空间数据转换成GeoVRML格式的文本交换文件，传回客户端，供用户浏览使用。每当用户下载完毕场景文件后,对场景的各种显示以及简单的操作(例如放大、缩小、移动)都可以在客户端浏览器中由GeoVRMEL插件独立执行，而不需要在和服务器进行数据传输，因此可以大大地减少网络负荷。同时，由于显示的功能是由客户端独立计算，因此可以保证图像的显示质量，能满足用户的基本需要。</li>
+</ul>
+</li>
+</ol>
+<h2 id="系统开发"><a href="#系统开发" class="headerlink" title="系统开发"></a>系统开发</h2><ol>
+<li>掌握map类库的使用方法，加载地图的方法；</li>
+<li>掌握常用类型layers的用法；</li>
+<li>掌握Graphic图形的使用用法；</li>
+<li>掌握Query查询；</li>
+</ol>
+
+        
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> 文章目录</h3>
+    <div class="widget">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-text">第一章 绪论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-WebGIS-%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF"><span class="toc-text">第二章 WebGIS 基础技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-WebGIS-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">第三章 WebGIS 基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%98%A6%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%9A%E8%B4%9F%E8%B4%A3%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82"><span class="toc-text">瘦客户端：负责向服务器发送请求</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%83%96%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%9A%E9%80%9A%E8%BF%87%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8A%E5%AE%89%E8%A3%85%E7%9B%B8%E5%BA%94%E7%9A%84Web%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6-%E5%A6%82Flash%E5%92%8CSilverlight%E7%AD%89%EF%BC%89%EF%BC%8C%E6%88%96%E9%80%9A%E8%BF%87%E9%87%87%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%AC%E5%9C%B0%EF%BC%88%E6%88%96%E5%B5%8C%E5%85%A5%E5%BC%8F%EF%BC%89%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%9D%A5%E5%AE%9E%E7%8E%B0%E3%80%82"><span class="toc-text">胖客户端：通过在客户端计算机上安装相应的Web浏览器插件(如Flash和Silverlight等），或通过采用客户端本地（或嵌入式）应用程序来实现。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%9C%B0%E7%90%86Web%E6%9C%8D%E5%8A%A1"><span class="toc-text">第四章 地理Web服务</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ArcGIS%E5%92%8COGC%E8%A7%84%E8%8C%83%E5%9C%B0%E7%90%86%E6%9C%8D%E5%8A%A1%E5%AF%B9%E5%BA%94"><span class="toc-text">ArcGIS和OGC规范地理服务对应</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-WebGIS%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">第五章 WebGIS技术应用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91"><span class="toc-text">系统开发</span></a></li></ol>
+    </div>
+  </div>
+
+
+            </div>
+        
+        
+          <blockquote id="copyright">
+              <p>原文链接: <a href="http://enofeng.github.io/2021/07/22/WebGIS期末复习/">http://enofeng.github.io/2021/07/22/WebGIS期末复习/</a></p>
+              <p>版权声明: 转载请注明出处.</p>
+          </blockquote>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+    <div class="social-share">
+      <span>分享到:</span>
+    </div>
+
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/%E5%9F%BA%E4%BA%8EVue%E7%9A%84GIS%E7%BB%84%E4%BB%B6GISView%E7%9A%84API%E6%96%87%E6%A1%A3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">newer</strong>
+      <div class="article-nav-title">
+        
+          基于Vue的GIS组件GISView的API文档
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/Vue%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%B0%8F%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">Vue开发过程中的小问题</div>
+    </a>
+  
+</nav>
+
+      
+      
+        
+
+
+
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-posts"></i> 最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/android+baidu%20sdk%20%E6%98%BE%E7%A4%BA%E5%9C%B0%E5%9B%BE+%E5%88%87%E6%8D%A2%E5%9C%B0%E5%9B%BE/">android+baidu sdk 显示地图+切换地图</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E3%80%90%E7%A0%94%E3%80%91%E9%81%A5%E6%84%9F%E8%80%83%E7%82%B9%E6%B1%87%E6%80%BB/">【研】遥感考点汇总</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%5BVue%20bug%E8%AE%B0%E5%BD%95%5D%20%E5%85%B3%E4%BA%8EVue%20ui%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E9%81%87%E5%88%B0GUI%E5%8D%A1%E4%BD%8F%E6%B2%A1%E6%9C%89%E8%87%AA%E5%8A%A8%E5%BC%B9%E5%87%BA%E7%AE%A1%E7%90%86%E5%99%A8/">（Vue bug记录）关于Vue ui打开控制面板的时候，遇到GUI卡住没有自动弹出管理器</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%EF%BC%88%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%EF%BC%81%EF%BC%89%E5%85%B3%E4%BA%8EVue+Leaflet%E6%B7%BB%E5%8A%A0market%E6%97%B6%EF%BC%8C%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/">（完美解决！）关于Vue+Leaflet添加market时，图片不显示的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%80%BB%E8%BE%91%E5%85%B3%E7%B3%BB%E8%AF%8D/">逻辑关系词</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-archive"></i> 归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年07月</a><span class="archive-list-count">99</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-link"></i> 友情链接</h3>
+    <div class="widget">
+      <ul>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://blog.csdn.net/DanBo_C">CSDN</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://github.com/EnoFeng/enofeng.github.io">GitHub</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://danbo3110.github.io/">Old Blog</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <a id="totop" href="#top"></a>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>
+        <a href="/sitemap.xml">网站地图</a>
+        <span> | </span><a href="/atom.xml">订阅本站</a>
+        <span> | </span><a href="/about/">联系博主</a>
+      </p>
+      
+        <p>
+          <i class="fa fa-visitors"></i>
+          <i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>
+          ，
+          <i class="fa fa-views"></i>
+          <i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>
+        </p>
+      
+      <p>
+        <span>Copyright &copy; 2021 Eno·feng.</span>
+        <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
+        
+            <span>Count by <a href="http://busuanzi.ibruce.info/" target="_blank">busuanzi.</a></span>
+        
+        <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/search.json.js"></script>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+  
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+  
+<script src="/localshare/js/social-share.js"></script>
+
+  
+<script src="/localshare/js/qrcode.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>

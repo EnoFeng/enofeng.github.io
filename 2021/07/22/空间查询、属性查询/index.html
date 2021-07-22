@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>空间查询、属性查询 | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="description" content="Learn and Life">
+  
+  
+    <meta name="keywords" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/localshare/css/share.css">
+
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/."><i class="fa fa-home"></i> 首页</a>
+        
+          <a class="main-nav-link" href="/archives/"><i class="fa fa-archive"></i> 归档</a>
+        
+          <a class="main-nav-link" href="/about/"><i class="fa fa-user"></i> 关于</a>
+        
+      </nav>
+    </div>
+    <div id="search-form">
+      <div id="result-mask" class="hide"></div>
+      <label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label>
+      <div id="result-wrap" class="hide">
+        <div id="search-result"></div>
+      </div>
+      <div class="hide">
+        <template id="search-tpl">
+          <div class="item">
+            <a href="/{path}" title="{title}">
+              <div class="title">{title}</div>
+              <div class="time">{date}</div>
+              <div class="tags">{tags}</div>
+            </a>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-空间查询、属性查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      空间查询、属性查询
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T10:53:31.454Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/2021/07/22/%E7%A9%BA%E9%97%B4%E6%9F%A5%E8%AF%A2%E3%80%81%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/#comments" class="article-comment-link">
+  
+    
+    
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><h6 id="空间查询：框选"><a href="#空间查询：框选" class="headerlink" title="空间查询：框选"></a>空间查询：框选<img src="https://img-blog.csdnimg.cn/20210511210132594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></h6><h6 id="查询结果："><a href="#查询结果：" class="headerlink" title="查询结果："></a>查询结果：</h6><p><img src="https://img-blog.csdnimg.cn/20210511210250426.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h6 id="属性查询："><a href="#属性查询：" class="headerlink" title="属性查询："></a>属性查询：<img src="https://img-blog.csdnimg.cn/2021051121033874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></h6><span id="more"></span>
+
+<h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;home&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!--面包屑导航区域--&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">el-breadcrumb</span> <span class="attr">separator-class</span>=<span class="string">&quot;el-icon-arrow-right&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">el-breadcrumb-item</span> <span class="attr">:to</span>=<span class="string">&quot;&#123; path: &#x27;/home&#x27; &#125;&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">el-breadcrumb-item</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">el-breadcrumb-item</span>&gt;</span>Query<span class="tag">&lt;/<span class="name">el-breadcrumb-item</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">el-breadcrumb-item</span>&gt;</span>QueryTask<span class="tag">&lt;/<span class="name">el-breadcrumb-item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">el-breadcrumb</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">el-row</span> <span class="attr">:gutter</span>=<span class="string">&quot;20&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">&quot;15&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-content bg-purple&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mapDiv&quot;</span> <span class="attr">class</span>=<span class="string">&quot;MapClass&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">&quot;9&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-content bg-purple&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">el-row</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">icon</span>=<span class="string">&quot;el-icon-add-location&quot;</span> <span class="attr">circle</span> <span class="attr">plain</span> <span class="attr">id</span>=<span class="string">&quot;draw-point&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">icon</span>=<span class="string">&quot;el-icon-edit&quot;</span> <span class="attr">circle</span> <span class="attr">plain</span> <span class="attr">id</span>=<span class="string">&quot;draw-line&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">icon</span>=<span class="string">&quot;el-icon-edit-outline&quot;</span> <span class="attr">circle</span> <span class="attr">plain</span> <span class="attr">id</span>=<span class="string">&quot;draw-polygon&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;warning&quot;</span> <span class="attr">icon</span>=<span class="string">&quot;el-icon-close&quot;</span> <span class="attr">circle</span> <span class="attr">plain</span> <span class="attr">id</span>=<span class="string">&quot;draw-dischoose&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;demo-input-suffix&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">el-input</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">              <span class="attr">placeholder</span>=<span class="string">&quot;属性查询&quot;</span> <span class="attr">prefix-icon</span>=<span class="string">&quot;el-icon-search&quot;</span> <span class="attr">clearable</span> <span class="attr">v-model</span>=<span class="string">&quot;selecttext&quot;</span> <span class="attr">id</span>=<span class="string">&quot;select&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">el-table</span> <span class="attr">:data</span>=<span class="string">&quot;tableData&quot;</span> <span class="attr">stripe</span> <span class="attr">style</span>=<span class="string">&quot;width: 100%&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">&quot;(item, index) in columnData&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">              <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">:label</span>=<span class="string">&quot;item.label&quot;</span> <span class="attr">:prop</span>=<span class="string">&quot;item.prop&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;index&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;/<span class="name">el-table</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">import</span> * <span class="keyword">as</span> esriLoader <span class="keyword">from</span> <span class="string">&#x27;esri-loader&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">&#x27;jquery&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="keyword">return</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="attr">lendgeVisible</span>: <span class="literal">true</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="attr">selecttext</span>: <span class="string">&#x27;&quot;地址&quot; LIKE \&#x27;%大学\&#x27;&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="attr">columnData</span>: [],</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="attr">tableData</span>: []</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    esriLoader.setDefaultOptions(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="attr">version</span>: <span class="string">&#x27;3.28&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="keyword">const</span> that = <span class="built_in">this</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="built_in">this</span>.createMap(that)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="attr">methods</span>: &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="attr">createMap</span>: <span class="function"><span class="keyword">function</span> (<span class="params">that</span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      esriLoader.loadModules([<span class="string">&#x27;esri/map&#x27;</span>, <span class="string">&#x27;esri/layers/ArcGISDynamicMapServiceLayer&#x27;</span>, <span class="string">&#x27;dojo/dom&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;dojo/on&#x27;</span>, <span class="string">&#x27;esri/tasks/QueryTask&#x27;</span>, <span class="string">&#x27;esri/tasks/query&#x27;</span>, <span class="string">&#x27;dojo/query&#x27;</span>, <span class="string">&#x27;esri/Color&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/toolbars/draw&#x27;</span>, <span class="string">&#x27;esri/symbols/SimpleMarkerSymbol&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/symbols/SimpleLineSymbol&#x27;</span>, <span class="string">&#x27;esri/symbols/SimpleFillSymbol&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="string">&#x27;esri/graphic&#x27;</span>, <span class="string">&#x27;dojo/domReady!&#x27;</span>], &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">css</span>: <span class="literal">true</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">      &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        .then(<span class="function">(<span class="params">[<span class="built_in">Map</span>, ArcGISDynamicMapServiceLayer, dom, on, QueryTask, Query, query, Color, Draw, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, Graphic]</span>) =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">const</span> filts = [<span class="string">&#x27;城市名&#x27;</span>, <span class="string">&#x27;监测点&#x27;</span>, <span class="string">&#x27;地址&#x27;</span>, <span class="string">&#x27;纬度&#x27;</span>, <span class="string">&#x27;经度&#x27;</span>, <span class="string">&#x27;AQI&#x27;</span>]</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> queryTask = <span class="keyword">new</span> QueryTask(<span class="string">&#x27;http://localhost:6080/arcgis/rest/services/Basic/China_POI/MapServer/0&#x27;</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">const</span> lineSymbol = <span class="keyword">new</span> SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, <span class="keyword">new</span> Color([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]), <span class="number">3</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">const</span> markerSymbol = <span class="keyword">new</span> SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, <span class="number">10</span>, lineSymbol, <span class="keyword">new</span> Color([<span class="number">215</span>, <span class="number">224</span>, <span class="number">203</span>]))</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">const</span> fillSymbol = <span class="keyword">new</span> SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, lineSymbol)</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="string">&#x27;mapDiv&#x27;</span>, &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">center</span>: [<span class="number">108.934518</span>, <span class="number">34.35333</span>],</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">zoom</span>: <span class="number">5</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">logo</span>: <span class="literal">false</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">basemap</span>: <span class="string">&#x27;oceans&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(<span class="string">&#x27;http://localhost:6080/arcgis/rest/services/Basic/China_POI/MapServer&#x27;</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          map.addLayer(layer)</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          on(dom.byId(<span class="string">&#x27;select&#x27;</span>), <span class="string">&#x27;keypress&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            map.graphics.clear()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">var</span> query = <span class="keyword">new</span> Query()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            query.where = $(<span class="string">&#x27;#select&#x27;</span>).val()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            queryTask.execute(setQuery(query), showQueryResult)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 空间查询</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="keyword">var</span> toolbar = <span class="keyword">new</span> Draw(map)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          $(<span class="string">&#x27;#draw-point&#x27;</span>).click(<span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            map.graphics.clear()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            toolbar.activate(Draw.POINT, &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              <span class="attr">showTooltips</span>: <span class="literal">true</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          $(<span class="string">&#x27;#draw-line&#x27;</span>).click(<span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            map.graphics.clear()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            toolbar.activate(Draw.POLYLINE, &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              <span class="attr">showTooltips</span>: <span class="literal">true</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          $(<span class="string">&#x27;#draw-polygon&#x27;</span>).click(<span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            map.graphics.clear()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            toolbar.activate(Draw.POLYGON, &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              <span class="attr">showTooltips</span>: <span class="literal">true</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          $(<span class="string">&#x27;#draw-dischoose&#x27;</span>).click(<span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            toolbar.deactivate()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            map.graphics.clear()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            that.columnData = <span class="string">&#x27;&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 绘图事件</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          on(toolbar, <span class="string">&#x27;draw-complete&#x27;</span>, <span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            toolbar.deactivate()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">var</span> query = <span class="keyword">new</span> Query()</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            query.geometry = result.geometry</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            queryTask.execute(setQuery(query), showQueryResult)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 设置筛选公共参数</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="function"><span class="keyword">function</span> <span class="title">setQuery</span>(<span class="params">query</span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            query.returnGeometry = <span class="literal">true</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            query.outFields = filts</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">return</span> query</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 显示</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="function"><span class="keyword">function</span> <span class="title">showQueryResult</span>(<span class="params">queryResult</span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="comment">// console.log(queryResult)</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            setgraphic(queryResult)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            setTable(queryResult)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="function"><span class="keyword">function</span> <span class="title">setSym</span>(<span class="params">type</span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">switch</span> (type) &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              <span class="keyword">case</span> <span class="string">&#x27;esriGeometryPoint&#x27;</span>:</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="keyword">return</span> markerSymbol</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              <span class="keyword">case</span> <span class="string">&#x27;esriGeometryLine&#x27;</span>:</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="keyword">return</span> lineSymbol</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              <span class="keyword">case</span> <span class="string">&#x27;esriGeometryPolygon&#x27;</span>:</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="keyword">return</span> fillSymbol</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="function"><span class="keyword">function</span> <span class="title">setgraphic</span>(<span class="params">queryResult</span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; queryResult.features.length; i++) &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              <span class="keyword">var</span> graphic = queryResult.features[i]</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              graphic.setSymbol(setSym(queryResult.geometryType))</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              map.graphics.add(graphic)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="function"><span class="keyword">function</span> <span class="title">setTable</span>(<span class="params">queryResult</span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">var</span> coldata = []</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">var</span> filed = queryResult.fieldAliases</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">for</span> (<span class="keyword">var</span> item <span class="keyword">in</span> filed) &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              <span class="keyword">var</span> col = &#123; <span class="attr">prop</span>: <span class="string">&#x27;&#x27;</span>, <span class="attr">label</span>: <span class="string">&#x27;&#x27;</span> &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              col.prop = item</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              col.label = filed[item]</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              coldata.push(col)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            that.columnData = coldata</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">var</span> data = []</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; queryResult.features.length; i++) &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">              data[i] = queryResult.features[i].attributes</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            that.tableData = data</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span> <span class="attr">lang</span>=<span class="string">&quot;less&quot;</span>&gt;</span><span class="css"></span></span></span><br><span class="line"><span class="css"><span class="xml">  <span class="selector-class">.MapClass</span> &#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">width</span>: <span class="number">100%</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">height</span>: <span class="number">830px</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml"></span></span></span><br><span class="line"><span class="css"><span class="xml">  <span class="selector-class">.el-row</span> &#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml"></span></span></span><br><span class="line"><span class="css"><span class="xml">    &amp;<span class="selector-pseudo">:last-child</span> &#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">      <span class="attribute">margin-bottom</span>: <span class="number">0</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">    &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml"></span></span></span><br><span class="line"><span class="css"><span class="xml">  <span class="selector-class">.el-col</span> &#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml"></span></span></span><br><span class="line"><span class="css"><span class="xml">  <span class="selector-class">.bg-purple-dark</span> &#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">background</span>: <span class="number">#99a9bf</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml"></span></span></span><br><span class="line"><span class="css"><span class="xml">  <span class="selector-class">.bg-purple</span> &#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">background</span>: <span class="number">#d3dce6</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml"></span></span></span><br><span class="line"><span class="css"><span class="xml">  <span class="selector-class">.bg-purple-light</span> &#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">background</span>: <span class="number">#e5e9f2</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml"></span></span></span><br><span class="line"><span class="css"><span class="xml">  <span class="selector-class">.grid-content</span> &#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">min-height</span>: <span class="number">36px</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml"></span></span></span><br><span class="line"><span class="css"><span class="xml">  <span class="selector-class">.row-bg</span> &#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">0</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">background-color</span>: <span class="number">#f9fafc</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+        
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> 文章目录</h3>
+    <div class="widget">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="toc-text">效果图</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E6%9F%A5%E8%AF%A2%EF%BC%9A%E6%A1%86%E9%80%89"><span class="toc-text">空间查询：框选</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%EF%BC%9A"><span class="toc-text">查询结果：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2%EF%BC%9A"><span class="toc-text">属性查询：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E7%A0%81"><span class="toc-text">源码</span></a></li></ol>
+    </div>
+  </div>
+
+
+            </div>
+        
+        
+          <blockquote id="copyright">
+              <p>原文链接: <a href="http://enofeng.github.io/2021/07/22/空间查询、属性查询/">http://enofeng.github.io/2021/07/22/空间查询、属性查询/</a></p>
+              <p>版权声明: 转载请注明出处.</p>
+          </blockquote>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+    <div class="social-share">
+      <span>分享到:</span>
+    </div>
+
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
+  
+    <a href="/2021/07/22/%E9%80%BB%E8%BE%91%E5%85%B3%E7%B3%BB%E8%AF%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">newer</strong>
+      <div class="article-nav-title">
+        
+          逻辑关系词
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/22/%E5%9F%BA%E4%BA%8EVue%E7%9A%84GIS%E7%BB%84%E4%BB%B6GISView%E7%9A%84API%E6%96%87%E6%A1%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">基于Vue的GIS组件GISView的API文档</div>
+    </a>
+  
+</nav>
+
+      
+      
+        
+
+
+
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-posts"></i> 最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/android+baidu%20sdk%20%E6%98%BE%E7%A4%BA%E5%9C%B0%E5%9B%BE+%E5%88%87%E6%8D%A2%E5%9C%B0%E5%9B%BE/">android+baidu sdk 显示地图+切换地图</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E3%80%90%E7%A0%94%E3%80%91%E9%81%A5%E6%84%9F%E8%80%83%E7%82%B9%E6%B1%87%E6%80%BB/">【研】遥感考点汇总</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%5BVue%20bug%E8%AE%B0%E5%BD%95%5D%20%E5%85%B3%E4%BA%8EVue%20ui%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E9%81%87%E5%88%B0GUI%E5%8D%A1%E4%BD%8F%E6%B2%A1%E6%9C%89%E8%87%AA%E5%8A%A8%E5%BC%B9%E5%87%BA%E7%AE%A1%E7%90%86%E5%99%A8/">（Vue bug记录）关于Vue ui打开控制面板的时候，遇到GUI卡住没有自动弹出管理器</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%EF%BC%88%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%EF%BC%81%EF%BC%89%E5%85%B3%E4%BA%8EVue+Leaflet%E6%B7%BB%E5%8A%A0market%E6%97%B6%EF%BC%8C%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/">（完美解决！）关于Vue+Leaflet添加market时，图片不显示的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E9%80%BB%E8%BE%91%E5%85%B3%E7%B3%BB%E8%AF%8D/">逻辑关系词</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-archive"></i> 归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年07月</a><span class="archive-list-count">99</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-link"></i> 友情链接</h3>
+    <div class="widget">
+      <ul>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://blog.csdn.net/DanBo_C">CSDN</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://github.com/EnoFeng/enofeng.github.io">GitHub</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://danbo3110.github.io/">Old Blog</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <a id="totop" href="#top"></a>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>
+        <a href="/sitemap.xml">网站地图</a>
+        <span> | </span><a href="/atom.xml">订阅本站</a>
+        <span> | </span><a href="/about/">联系博主</a>
+      </p>
+      
+        <p>
+          <i class="fa fa-visitors"></i>
+          <i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>
+          ，
+          <i class="fa fa-views"></i>
+          <i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>
+        </p>
+      
+      <p>
+        <span>Copyright &copy; 2021 Eno·feng.</span>
+        <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
+        
+            <span>Count by <a href="http://busuanzi.ibruce.info/" target="_blank">busuanzi.</a></span>
+        
+        <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/search.json.js"></script>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+  
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+  
+<script src="/localshare/js/social-share.js"></script>
+
+  
+<script src="/localshare/js/qrcode.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>
