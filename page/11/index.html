@@ -88,6 +88,257 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-esri loader + Arcgis api 4.x加载 arcgis server 地图服务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/esri%20loader%20+%20Arcgis%20api%204.x%E5%8A%A0%E8%BD%BD%20arcgis%20server%20%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/">esri loader + Arcgis api 4.x加载 arcgis server 地图服务</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.908Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/esri%20loader%20+%20Arcgis%20api%204.x%E5%8A%A0%E8%BD%BD%20arcgis%20server%20%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="默认是加载4-x的api在线连接。"><a href="#默认是加载4-x的api在线连接。" class="headerlink" title="默认是加载4.x的api在线连接。"></a>默认是加载4.x的api在线连接。</h4><h5 id="1-template部分"><a href="#1-template部分" class="headerlink" title="1. template部分"></a>1. <code>template</code>部分</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-导包部分-js和css自动导入最新版，所以不用再导入loadScript和loadCss"><a href="#2-导包部分-js和css自动导入最新版，所以不用再导入loadScript和loadCss" class="headerlink" title="2. 导包部分 js和css自动导入最新版，所以不用再导入loadScript和loadCss"></a>2. 导包部分 js和css自动导入最新版，所以不用再导入<code>loadScript</code>和<code>loadCss</code></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; loadModules &#125; <span class="keyword">from</span> <span class="string">&#x27;esri-loader&#x27;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/esri%20loader%20+%20Arcgis%20api%204.x%E5%8A%A0%E8%BD%BD%20arcgis%20server%20%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-esri loader + Arcgis api 3.x加载 arcgis server 地图服务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/esri%20loader%20+%20Arcgis%20api%203.x%E5%8A%A0%E8%BD%BD%20arcgis%20server%20%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/">esri loader + Arcgis api 3.x加载 arcgis server 地图服务</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.906Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/esri%20loader%20+%20Arcgis%20api%203.x%E5%8A%A0%E8%BD%BD%20arcgis%20server%20%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="默认是加载4-x的api在线连接。使用3-x的api需要手动调用链接。"><a href="#默认是加载4-x的api在线连接。使用3-x的api需要手动调用链接。" class="headerlink" title="默认是加载4.x的api在线连接。使用3.x的api需要手动调用链接。"></a>默认是加载4.x的api在线连接。使用3.x的api需要手动调用链接。</h4><h5 id="1-template部分，需要绑定id，和纯js的相同"><a href="#1-template部分，需要绑定id，和纯js的相同" class="headerlink" title="1. template部分，需要绑定id，和纯js的相同"></a>1. <code>template</code>部分，需要绑定id，和纯js的相同</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-导包部分"><a href="#2-导包部分" class="headerlink" title="2. 导包部分"></a>2. 导包部分</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; loadScript, loadCss, loadModules &#125; <span class="keyword">from</span> <span class="string">&#x27;esri-loader&#x27;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/esri%20loader%20+%20Arcgis%20api%203.x%E5%8A%A0%E8%BD%BD%20arcgis%20server%20%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-echarts绘制map，添加图表，符合ES6规范" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.903Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/echarts%E7%BB%98%E5%88%B6map%EF%BC%8C%E6%B7%BB%E5%8A%A0%E5%9B%BE%E8%A1%A8%EF%BC%8C%E7%AC%A6%E5%90%88ES6%E8%A7%84%E8%8C%83/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://img-blog.csdnimg.cn/2020050219314443.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="1-template结构"><a href="#1-template结构" class="headerlink" title="1. template结构"></a>1. <code>template</code>结构</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrap&quot;</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 100%; height: 835px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/echarts%E7%BB%98%E5%88%B6map%EF%BC%8C%E6%B7%BB%E5%8A%A0%E5%9B%BE%E8%A1%A8%EF%BC%8C%E7%AC%A6%E5%90%88ES6%E8%A7%84%E8%8C%83/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-arcgis server发布切片地图" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/arcgis%20server%E5%8F%91%E5%B8%83%E5%88%87%E7%89%87%E5%9C%B0%E5%9B%BE/">arcgis server发布切片地图</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.901Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/arcgis%20server%E5%8F%91%E5%B8%83%E5%88%87%E7%89%87%E5%9C%B0%E5%9B%BE/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="和动态地图相比"><a href="#和动态地图相比" class="headerlink" title="和动态地图相比"></a>和动态地图相比</h4><h6 id="点击缓存-》-使用缓存中的切片-》-建议-》-分析-》-发布-》"><a href="#点击缓存-》-使用缓存中的切片-》-建议-》-分析-》-发布-》" class="headerlink" title="点击缓存 -》 使用缓存中的切片 -》 建议 -》 分析 -》 发布-》"></a>点击缓存 -》 使用缓存中的切片 -》 建议 -》 分析 -》 发布-》</h6><p><img src="https://img-blog.csdnimg.cn/20200316230943888.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/arcgis%20server%E5%8F%91%E5%B8%83%E5%88%87%E7%89%87%E5%9C%B0%E5%9B%BE/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-Arcgis api for js通过json添加点，显示弹框信息" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/Arcgis%20api%20for%20js%E9%80%9A%E8%BF%87json%E6%B7%BB%E5%8A%A0%E7%82%B9%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%BC%B9%E6%A1%86%E4%BF%A1%E6%81%AF/">Arcgis api for js通过json添加点，显示弹框信息</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-22T09:54:48.899Z" itemprop="datePublished">2021年07月22日</time>
+</span>
+      
+      
+      
+<a href="/2021/07/22/Arcgis%20api%20for%20js%E9%80%9A%E8%BF%87json%E6%B7%BB%E5%8A%A0%E7%82%B9%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%BC%B9%E6%A1%86%E4%BF%A1%E6%81%AF/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><p>格式 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;china&quot;:[</span><br><span class="line">		&#123;&quot;id&quot;:&quot;1&quot;,&quot;city&quot;:&quot;上海&quot;,&quot;x&quot;:&quot;121.4648&quot;,&quot;y&quot;:&quot;31.2891&quot;&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="完整数据下载"><a href="#完整数据下载" class="headerlink" title="完整数据下载"></a><a target="_blank" rel="noopener" href="https://download.csdn.net/download/DanBo_C/12311418">完整数据下载</a></h5>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/07/22/Arcgis%20api%20for%20js%E9%80%9A%E8%BF%87json%E6%B7%BB%E5%8A%A0%E7%82%B9%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%BC%B9%E6%A1%86%E4%BF%A1%E6%81%AF/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -185,23 +436,23 @@
       <ul>
         
           <li>
-            <a href="/2021/07/27/%E6%B2%B3%E5%8D%97%E5%BC%BA%E9%99%8D%E9%9B%A8%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90%EF%BC%88%E6%9B%B4%E6%96%B0ing%EF%BC%89/">河南强降雨相关分析（更新ing）</a>
+            <a href="/2021/08/19/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%85%83%20%E7%AE%80%E5%8D%95%E7%9F%A2%E9%87%8F/">基础图元 简单矢量</a>
           </li>
         
           <li>
-            <a href="/2021/07/22/%E6%B2%B3%E5%8D%97%E6%9A%B4%E9%9B%A8%E6%95%B0%E6%8D%AE%E5%8F%8A%E7%81%BE%E5%AE%B3%E6%B6%88%E6%81%AF%E7%BB%9F%E8%AE%A1%EF%BC%88%E6%88%AA%E8%87%B37.22%EF%BC%89/">河南暴雨数据及灾害消息统计（截至7.22）</a>
+            <a href="/2021/08/19/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%85%83%20Box/">基础图元 Box</a>
           </li>
         
           <li>
-            <a href="/2021/07/22/android+baidu%20sdk%20%E6%98%BE%E7%A4%BA%E5%9C%B0%E5%9B%BE+%E5%88%87%E6%8D%A2%E5%9C%B0%E5%9B%BE/">android+baidu sdk 显示地图+切换地图</a>
+            <a href="/2021/08/19/OSG%E7%9A%84HelloWorld/">OSG的HelloWorld</a>
           </li>
         
           <li>
-            <a href="/2021/07/22/%E3%80%90%E7%A0%94%E3%80%91%E9%81%A5%E6%84%9F%E8%80%83%E7%82%B9%E6%B1%87%E6%80%BB/">【研】遥感考点汇总</a>
+            <a href="/2021/08/19/OSG%E7%9A%84VS%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">OSG的VS环境配置</a>
           </li>
         
           <li>
-            <a href="/2021/07/22/%5BVue%20bug%E8%AE%B0%E5%BD%95%5D%20%E5%85%B3%E4%BA%8EVue%20ui%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E9%81%87%E5%88%B0GUI%E5%8D%A1%E4%BD%8F%E6%B2%A1%E6%9C%89%E8%87%AA%E5%8A%A8%E5%BC%B9%E5%87%BA%E7%AE%A1%E7%90%86%E5%99%A8/">（Vue bug记录）关于Vue ui打开控制面板的时候，遇到GUI卡住没有自动弹出管理器</a>
+            <a href="/2021/08/19/OSG%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80/">OSG一些基础</a>
           </li>
         
       </ul>
@@ -219,7 +470,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> 归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年07月</a><span class="archive-list-count">101</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年08月</a><span class="archive-list-count">106</span></li></ul>
     </div>
   </div>
 
