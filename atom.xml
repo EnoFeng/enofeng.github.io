@@ -6,7 +6,7 @@
   <link href="http://enofeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://enofeng.github.io/"/>
-  <updated>2021-08-19T12:27:14.697Z</updated>
+  <updated>2021-08-20T15:44:25.180Z</updated>
   <id>http://enofeng.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OSG学习中的一些小问题</title>
+    <link href="http://enofeng.github.io/2021/08/20/OSG%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/"/>
+    <id>http://enofeng.github.io/2021/08/20/OSG%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/</id>
+    <published>2021-08-20T15:42:31.028Z</published>
+    <updated>2021-08-20T15:44:25.180Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="今天尝试叠加几何体，却出现了重叠，缝隙的问题。"><a href="#今天尝试叠加几何体，却出现了重叠，缝隙的问题。" class="headerlink" title="今天尝试叠加几何体，却出现了重叠，缝隙的问题。"></a>今天尝试叠加几何体，却出现了重叠，缝隙的问题。</h4><p><img src="https://img-blog.csdnimg.cn/0add8b8576e5403d82e0f81c98641223.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p><h4 id="思考一番后发现忽略了一些问题，圆柱体的中心点在xyz的半值。不在底部或者顶部。"><a href="#思考一番后发现忽略了一些问题，圆柱体的中心点在xyz的半值。不在底部或者顶部。" class="headerlink" title="思考一番后发现忽略了一些问题，圆柱体的中心点在xyz的半值。不在底部或者顶部。"></a>思考一番后发现忽略了一些问题，圆柱体的中心点在<code>xyz</code>的半值。不在底部或者顶部。</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;今天尝试叠加几何体，却出现了重叠，缝隙的问题。&quot;&gt;&lt;a href=&quot;#今天尝试叠加几何体，却出现了重叠，缝隙的问题。&quot; class=&quot;headerlink&quot; title=&quot;今天尝试叠加几何体，却出现了重叠，缝隙的问题。&quot;&gt;&lt;/a&gt;今天尝试叠加几何体，却出现了重叠，</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>基础图元 简单矢量</title>
@@ -394,26 +414,6 @@
     
     
     <summary type="html">&lt;h2 id=&quot;v-model语法糖在vue组件开发中的传值问题&quot;&gt;&lt;a href=&quot;#v-model语法糖在vue组件开发中的传值问题&quot; class=&quot;headerlink&quot; title=&quot;v-model语法糖在vue组件开发中的传值问题&quot;&gt;&lt;/a&gt;v-model语法糖在vue组件开发中的传值问题&lt;/h2&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>最大流问题------Ford-Fulkerson算法（增广路径）</title>
-    <link href="http://enofeng.github.io/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/"/>
-    <id>http://enofeng.github.io/2021/07/22/%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98------Ford-Fulkerson%E7%AE%97%E6%B3%95%EF%BC%88%E5%A2%9E%E5%B9%BF%E8%B7%AF%E5%BE%84%EF%BC%89/</id>
-    <published>2021-07-22T09:54:49.075Z</published>
-    <updated>2021-07-22T13:16:21.786Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Ford-Fulkerson算法（增广路算法）"><a href="#Ford-Fulkerson算法（增广路算法）" class="headerlink" title="Ford-Fulkerson算法（增广路算法）"></a>Ford-Fulkerson算法（增广路算法）</h2><p>增广路定理：设容量网络 G(V, E) 的一个可行流为 f, f 为最大流的充要条件是在容量网络中不存在增广路。</p><blockquote><p>从任何的一个可行流开始，寻找增广路对网络进行增广，直到网络中不存在增广路径。</p></blockquote><span id="more"></span><h5 id="怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？"><a href="#怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？" class="headerlink" title="怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？"></a>怎么证明当无法再寻找到增广路径时，就证明当前网络是最大流网络呢？</h5><hr><p>最大流最小割定理：网络的最大流等于最小割。</p><p>证明：</p><ol><li><p><strong>任意一个流 &lt;= 任意一个割</strong></p><blockquote><p>自来水厂通水，水流从自来水厂到家，形成一个流。</p><p>当小偷偷走其中的几个管道，相当于形成一个割。</p><p>这时，几个管道的缺失部分都会有水流出来，流出的水的和 == 原来的流。</p><p>几个管道的容量加起来就是割</p><p>那么流必定小于割<br><img src="https://img-blog.csdnimg.cn/2019051905380363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p></blockquote></li><li><p><strong>当一个流 == 一个割 ，就构造出和最大流的割</strong></p><blockquote><p>达到最大流时，必定没有增广路，即残留网络中源汇点之间没有通路。</p><p>（ 源点能到的点 ） -&gt; （ 源点到不了的点 ） 的边必定会满流，否则就能增广。</p><p>这些中间的满流边之和就是最大流</p><p>把这些满流边作为割。</p></blockquote></li><li><p><strong>最大流等于最小割</strong></p><blockquote><p>假设残留网络Gf不存在增广路，所以在残留网络中不存在从源点到汇点的路。</p><p>S集合 = 残留网络中源点能够到达的点。</p><p>T集合 = 残留网络中源点不能够到达的点</p><p>(S,T)构成割(S,T)</p><p>f(u,v)=c(u,v)。即满流边。</p><p>f(u,v)&lt;c(u,v)时，源汇点之间有连通路，与v属于T矛盾。</p></blockquote></li></ol><p><strong>所以当找不到增广路时，此时f一定是最大流。</strong></p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Ford-Fulkerson算法（增广路算法）&quot;&gt;&lt;a href=&quot;#Ford-Fulkerson算法（增广路算法）&quot; class=&quot;headerlink&quot; title=&quot;Ford-Fulkerson算法（增广路算法）&quot;&gt;&lt;/a&gt;Ford-Fulkerson算法（增广路算法）&lt;/h2&gt;&lt;p&gt;增广路定理：设容量网络 G(V, E) 的一个可行流为 f, f 为最大流的充要条件是在容量网络中不存在增广路。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;从任何的一个可行流开始，寻找增广路对网络进行增广，直到网络中不存在增广路径。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
     
     
     
