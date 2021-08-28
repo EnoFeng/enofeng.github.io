@@ -88,6 +88,125 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-OSG的HelloWorld" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/19/OSG%E7%9A%84HelloWorld/">OSG的HelloWorld</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-08-19T10:43:44.583Z" itemprop="datePublished">2021年08月19日</time>
+</span>
+      
+      
+      
+<a href="/2021/08/19/OSG%E7%9A%84HelloWorld/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="加载一个飞机模型"><a href="#加载一个飞机模型" class="headerlink" title="加载一个飞机模型"></a>加载一个飞机模型</h2><ol>
+<li><p>直接上代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;osgViewer/Viewer&gt;</span><br><span class="line">#include &lt;osgDB/ReadFile&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	osg::ref_ptr&lt;osgViewer::Viewer&gt; viewer = new osgViewer::Viewer;</span><br><span class="line">	viewer-&gt;setSceneData(osgDB::readNodeFile(&quot;glider.osg&quot;));</span><br><span class="line">	return viewer-&gt;run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>看看结果</p>
+<img src="https://img-blog.csdnimg.cn/b1cf175eef8648458b735e86ca376216.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
+<li><p>代码很好理解，首先引入了类库，在main函数中，初始化了一个viewer，在这里使用的是osg中的超级指针（还不是很懂），随后给这个viewer设置了sceneData，设置的数据是打开了一个飞机的osg文件，最后就是渲染整个场景了。</p>
+</li>
+<li><p>与之前接触的Cesium的一些定义是类似的，比如Viewer和Scene。</p>
+</li>
+</ol>
+<h2 id="添加一些帮助事件"><a href="#添加一些帮助事件" class="headerlink" title="添加一些帮助事件"></a>添加一些帮助事件</h2><ol>
+<li><p>cmd中使用<code>osgviewer glider.osg</code>跑的程序，自带了一些基础功能，例如缩放、帮助、全屏、显示帧速等等。</p>
+</li>
+<li><p>我们写的程序则是没有键盘事件的，但是保留了缩放、旋转的功能。</p>
+</li>
+<li><p>先添加一些键盘的监听事件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osgViewer/ViewerEventHandlers&gt;</span></span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//添加帮助事件</span></span><br><span class="line">	viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> osgViewer::HelpHandler);</span><br><span class="line">	viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> osgViewer::StatsHandler);</span><br><span class="line">	viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> osgViewer::WindowSizeHandler);</span><br><span class="line">	viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> osgViewer::ScreenCaptureHandler);</span><br><span class="line">	viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> osgViewer::RecordCameraPathHandler);</span><br></pre></td></tr></table></figure></li>
+<li><p>现在运行，就会发现<code>s</code>、<code>f</code>、<code>h</code>都已经有了相应的功能。如果没有反应，检查键盘是不是选择的英语（美国）,正确显示如下图。</p>
+<blockquote>
+<p>win10似乎是需要自己添加的。</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/a9d6f5add07944faa8eda8a6bc9ff5c0.png"></p>
+</li>
+</ol>
+<h2 id="自定义一个帮助事件"><a href="#自定义一个帮助事件" class="headerlink" title="自定义一个帮助事件"></a>自定义一个帮助事件</h2><ol>
+<li><p>这里参考源码中定义帮助页中的行规则</p>
+</li>
+<li><p>模拟一个事件类，注意定义的命名空间应尽可能的不与osg官方定义冲突。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrintName</span> :</span> <span class="keyword">public</span> osgGA::GUIEventHandler &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">getUsage</span><span class="params">(osg::ApplicationUsage&amp; usage)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">		<span class="comment">//eno为快捷键名称，emm...为对应的快捷键说明</span></span><br><span class="line">		usage.<span class="built_in">addKeyboardMouseBinding</span>(<span class="string">&quot;eno&quot;</span>, <span class="string">&quot;emm.......&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>给<code>viewer</code>添加帮助事件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> PrintName);</span><br></pre></td></tr></table></figure></li>
+<li><p>OK，来看看结果，自定义的<code>eno</code>已经添加进去了。似乎还挺有趣</p>
+<p><img src="https://img-blog.csdnimg.cn/0b37076a03684845b6b951ecd4cb0c3a.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</li>
+</ol>
+<h2 id="添加一个定时器，计算一下读取模型的时间"><a href="#添加一个定时器，计算一下读取模型的时间" class="headerlink" title="添加一个定时器，计算一下读取模型的时间"></a>添加一个定时器，计算一下读取模型的时间</h2><ol>
+<li><p>我们加载模型的方式需要改变一下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// old</span></span><br><span class="line">viewer-&gt;<span class="built_in">setSceneData</span>(osgDB::<span class="built_in">readNodeFile</span>(<span class="string">&quot;glider.osg&quot;</span>));</span><br><span class="line"><span class="comment">// new</span></span><br><span class="line">osg::ref_ptr&lt;osg::Node&gt; node = <span class="keyword">new</span> osg::Node;</span><br><span class="line">node = osgDB::<span class="built_in">readNodeFile</span>(<span class="string">&quot;glider.osg&quot;</span>);</span><br><span class="line">viewer-&gt;<span class="built_in">setSceneData</span>(node.<span class="built_in">get</span>());</span><br></pre></td></tr></table></figure></li>
+<li><p>申请一个定时器类，两个时间类。这里的<code>Timer_t</code>相当于<code>long long</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">osg::Timer* timer = <span class="keyword">new</span> osg::Timer;</span><br><span class="line">osg::Timer_t start_time = <span class="number">0</span>;</span><br><span class="line">osg::Timer_t end_time = <span class="number">0</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>计算时间</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">start_time = timer-&gt;<span class="built_in">tick</span>();</span><br><span class="line">node = osgDB::<span class="built_in">readNodeFile</span>(<span class="string">&quot;glider.osg&quot;</span>);</span><br><span class="line">end_time = timer-&gt;<span class="built_in">tick</span>();</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;01.模型读取时间为：&quot;</span> &lt;&lt; timer-&gt;<span class="built_in">delta_s</span>(start_time, end_time) &lt;&lt; endl;</span><br></pre></td></tr></table></figure></li>
+<li><p>结果</p>
+<p><img src="https://img-blog.csdnimg.cn/3ec57b7057884889b0ea533439b0777d.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</li>
+<li><p>看看另一种方法，定义两个单精度时间变量</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> start_time_f = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">float</span> end_time_f = <span class="number">0</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>计算时间</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">start_time_f = viewer-&gt;<span class="built_in">elapsedTime</span>();</span><br><span class="line">node = osgDB::<span class="built_in">readNodeFile</span>(<span class="string">&quot;glider.osg&quot;</span>);</span><br><span class="line">end_time_f = viewer-&gt;<span class="built_in">elapsedTime</span>();</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;02.模型读取时间为：&quot;</span> &lt;&lt; end_time_f - start_time_f &lt;&lt; endl;</span><br></pre></td></tr></table></figure></li>
+<li><p>看看结果</p>
+<p><img src="https://img-blog.csdnimg.cn/b3fd60ceb71e459b8ae8b5cfaff107ec.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+</li>
+</ol>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osgViewer/Viewer&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osgDB/ReadFile&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osgViewer/ViewerEventHandlers&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrintName</span> :</span> <span class="keyword">public</span> osgGA::GUIEventHandler &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">getUsage</span><span class="params">(osg::ApplicationUsage&amp; usage)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">		usage.<span class="built_in">addKeyboardMouseBinding</span>(<span class="string">&quot;eno&quot;</span>, <span class="string">&quot;emm.......&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	osg::ref_ptr&lt;osgViewer::Viewer&gt; viewer = <span class="keyword">new</span> osgViewer::Viewer;</span><br><span class="line">	osg::ref_ptr&lt;osg::Node&gt; node = <span class="keyword">new</span> osg::Node;</span><br><span class="line">	osg::Timer* timer = <span class="keyword">new</span> osg::Timer;</span><br><span class="line"></span><br><span class="line">	osg::Timer_t start_time = <span class="number">0</span>;</span><br><span class="line">	osg::Timer_t end_time = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">float</span> start_time_f = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">float</span> end_time_f = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	start_time = timer-&gt;<span class="built_in">tick</span>();</span><br><span class="line">	start_time_f = viewer-&gt;<span class="built_in">elapsedTime</span>();</span><br><span class="line"></span><br><span class="line">	node = osgDB::<span class="built_in">readNodeFile</span>(<span class="string">&quot;glider.osg&quot;</span>);</span><br><span class="line"></span><br><span class="line">	end_time_f = viewer-&gt;<span class="built_in">elapsedTime</span>();</span><br><span class="line">	end_time = timer-&gt;<span class="built_in">tick</span>();</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;01.模型读取时间为：&quot;</span> &lt;&lt; timer-&gt;<span class="built_in">delta_s</span>(start_time, end_time) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;02.模型读取时间为：&quot;</span> &lt;&lt; end_time_f - start_time_f &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> PrintName);</span><br><span class="line">	viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> osgViewer::HelpHandler);</span><br><span class="line">	viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> osgViewer::StatsHandler);</span><br><span class="line">	viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> osgViewer::WindowSizeHandler);</span><br><span class="line">	viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> osgViewer::ScreenCaptureHandler);</span><br><span class="line">	viewer-&gt;<span class="built_in">addEventHandler</span>(<span class="keyword">new</span> osgViewer::RecordCameraPathHandler);</span><br><span class="line"></span><br><span class="line">	viewer-&gt;<span class="built_in">setSceneData</span>(node.<span class="built_in">get</span>());</span><br><span class="line">	<span class="keyword">return</span> viewer-&gt;<span class="built_in">run</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+        
+          <blockquote id="copyright">
+              <p>原文链接: <a href="http://enofeng.github.io/page/2/index.html">http://enofeng.github.io/page/2/index.html</a></p>
+              <p>版权声明: 转载请注明出处.</p>
+          </blockquote>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+    <div class="social-share">
+      <span>分享到:</span>
+    </div>
+
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-OSG的VS环境配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -726,58 +845,6 @@
 </article>
 
 
-  <article id="post-空间查询、属性查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/%E7%A9%BA%E9%97%B4%E6%9F%A5%E8%AF%A2%E3%80%81%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/">空间查询、属性查询</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-07-22T10:53:31.454Z" itemprop="datePublished">2021年07月22日</time>
-</span>
-      
-      
-      
-<a href="/2021/07/22/%E7%A9%BA%E9%97%B4%E6%9F%A5%E8%AF%A2%E3%80%81%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  留言
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><h6 id="空间查询：框选"><a href="#空间查询：框选" class="headerlink" title="空间查询：框选"></a>空间查询：框选<img src="https://img-blog.csdnimg.cn/20210511210132594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></h6><h6 id="查询结果："><a href="#查询结果：" class="headerlink" title="查询结果："></a>查询结果：</h6><p><img src="https://img-blog.csdnimg.cn/20210511210250426.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h6 id="属性查询："><a href="#属性查询：" class="headerlink" title="属性查询："></a>属性查询：<img src="https://img-blog.csdnimg.cn/2021051121033874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></h6>
-      
-    </div>
-    <footer class="article-footer">
-      
-        
-        <p class="article-more-link">
-          <a href="/2021/07/22/%E7%A9%BA%E9%97%B4%E6%9F%A5%E8%AF%A2%E3%80%81%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2/#more">Read More</a>
-        </p>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -796,6 +863,10 @@
       <ul>
         
           <li>
+            <a href="/2021/08/28/%E7%9F%A9%E9%98%B5%20%E5%B9%B3%E7%A7%BB%E6%97%8B%E8%BD%AC/">矩阵 平移旋转</a>
+          </li>
+        
+          <li>
             <a href="/2021/08/20/OSG%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/">OSG学习中的一些小问题</a>
           </li>
         
@@ -809,10 +880,6 @@
         
           <li>
             <a href="/2021/08/19/OSG%E7%9A%84HelloWorld/">OSG的HelloWorld</a>
-          </li>
-        
-          <li>
-            <a href="/2021/08/19/OSG%E7%9A%84VS%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">OSG的VS环境配置</a>
           </li>
         
       </ul>
@@ -830,7 +897,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> 归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年08月</a><span class="archive-list-count">107</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年08月</a><span class="archive-list-count">108</span></li></ul>
     </div>
   </div>
 
