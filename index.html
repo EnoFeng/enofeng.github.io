@@ -437,6 +437,77 @@
 </article>
 
 
+  <article id="post-Node派生类的遍历等" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/14/Node%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E9%81%8D%E5%8E%86%E7%AD%89/">Node派生类的遍历等</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-09-14T11:03:17.002Z" itemprop="datePublished">2021年09月14日</time>
+</span>
+      
+      
+      
+<a href="/2021/09/14/Node%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E9%81%8D%E5%8E%86%E7%AD%89/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>需求是这样的，需要用一个几何体，在一个体元素中提取一部分的插值结果。自然是没有现成的算法。实现的过程中，就需要对<code>Geode、Geometry</code>进行遍历。<br>由于我之前编译帮助文档失败了，虽然OSG版本是3.6.5的，但是帮助文档的版本却是2.9.11的。一些方法还是有出入的。所以记录一下</p>
+<h2 id="遍历Geode内的Geometry"><a href="#遍历Geode内的Geometry" class="headerlink" title="遍历Geode内的Geometry"></a>遍历<code>Geode</code>内的<code>Geometry</code></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;Geode2的数量&quot;</span> &lt;&lt; <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getNumChildren</span>() &lt;&lt; endl;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getNumDrawables</span>(); i++) &#123;</span><br><span class="line">	osg::ref_ptr&lt;osg::Geometry&gt; pgeo = <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getDrawable</span>(i)-&gt;<span class="built_in">asGeometry</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>getNumChildren()</code>和<code>getNumDrawables()</code>的值是一样的。不知道是不是巧合</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+        
+        
+          <blockquote id="copyright">
+              <p>原文链接: <a href="http://enofeng.github.io/index.html">http://enofeng.github.io/index.html</a></p>
+              <p>版权声明: 转载请注明出处.</p>
+          </blockquote>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+    <div class="social-share">
+      <span>分享到:</span>
+    </div>
+
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-矩阵 平移旋转" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -709,91 +780,6 @@
 </article>
 
 
-  <article id="post-基础图元 Box" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/08/19/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%85%83%20Box/">基础图元 Box</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-08-19T11:57:15.424Z" itemprop="datePublished">2021年08月19日</time>
-</span>
-      
-      
-      
-<a href="/2021/08/19/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%85%83%20Box/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  留言
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="创建一个长方体（Box）"><a href="#创建一个长方体（Box）" class="headerlink" title="创建一个长方体（Box）"></a>创建一个长方体（Box）</h2><h3 id="效果图："><a href="#效果图：" class="headerlink" title="效果图："></a>效果图：</h3><p><img src="https://img-blog.csdnimg.cn/8317b8c7791b4d09bde2b8df4b428bb4.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><ol>
-<li><p>申请一个精度</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::TessellationHints&gt; hints = <span class="keyword">new</span> osg::TessellationHints;</span><br><span class="line"></span><br><span class="line">hints-&gt;setDetailRatio(<span class="number">0.5</span>);</span><br></pre></td></tr></table></figure></li>
-<li><p>申请一个<code>Shape</code>（需要赋值精细度）</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::ShapeDrawable&gt; shape = <span class="keyword">new</span> osg::ShapeDrawable(<span class="keyword">new</span> osg::Box(osg::Vec3(<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>), <span class="number">1.0</span>, <span class="number">10.0</span>, <span class="number">10.0</span>), hints.get());</span><br><span class="line"></span><br><span class="line"><span class="comment">//赋值为灰色，半透明</span></span><br><span class="line">shape-&gt;setColor(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>));</span><br></pre></td></tr></table></figure></li>
-<li><p>申请一个材质</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Material&gt; material = <span class="keyword">new</span> osg::Material;</span><br><span class="line"></span><br><span class="line">material-&gt;setAmbient(osg::Material::FRONT_AND_BACK, osg::Vec4f(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">0.5</span>));</span><br><span class="line">material-&gt;setDiffuse(osg::Material::FRONT_AND_BACK, osg::Vec4f(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">0.5</span>));</span><br><span class="line">material-&gt;setSpecular(osg::Material::FRONT_AND_BACK, osg::Vec4f(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">0.5</span>));</span><br><span class="line">material-&gt;setShininess(osg::Material::FRONT_AND_BACK, <span class="number">6.0</span>);</span><br></pre></td></tr></table></figure></li>
-<li><p>申请一个纹理和<code>Image</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Texture2D&gt; texture2D = <span class="keyword">new</span> osg::Texture2D;</span><br><span class="line">osg::ref_ptr&lt;osg::Image&gt; image = <span class="keyword">new</span> osg::Image;</span><br><span class="line"></span><br><span class="line">image = osgDB::readImageFile(<span class="string">&quot;Images/whitemetal_diffuse.jpg&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (image.valid()) &#123;</span><br><span class="line">	texture2D-&gt;setImage(image.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>申请一个<code>Geode</code>作为函数返回值</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Geode&gt; geode = <span class="keyword">new</span> osg::Geode;</span><br><span class="line"></span><br><span class="line">geode-&gt;getOrCreateStateSet()-&gt;setAssociatedModes(material.get(), osg::StateAttribute::ON);</span><br><span class="line">geode-&gt;getOrCreateStateSet()-&gt;setMode(GL_BLEND, osg::StateAttribute::ON);</span><br><span class="line">geode-&gt;getOrCreateStateSet()-&gt;setMode(GL_DEPTH_TEST, osg::StateAttribute::ON);</span><br><span class="line">geode-&gt;getOrCreateStateSet()-&gt;setTextureAttributeAndModes(<span class="number">0</span>, texture2D.get(), osg::StateAttribute::ON);</span><br></pre></td></tr></table></figure></li>
-<li><p>在<code>geode</code>中绘制<code>shape</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geode-&gt;addDrawable(shape.get());</span><br></pre></td></tr></table></figure></li>
-<li><p>将返回的<code>Geode</code>添加到<code>group</code>中</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">group-&gt;addChild(CreateBox());</span><br></pre></td></tr></table></figure></li>
-<li><p>完整代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osgViewer/Viewer&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osgDB/ReadFile&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osgGA/GUIEventAdapter&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osgViewer/ViewerEventHandlers&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osg/Geode&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osg/ShapeDrawable&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osg/Material&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osg/StateSet&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osg/Image&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osg/Texture2D&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">osg::ref_ptr&lt;osg::Geode&gt; <span class="title">CreateBox</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	osg::ref_ptr&lt;osg::Geode&gt; geode = <span class="keyword">new</span> osg::Geode;</span><br><span class="line">	osg::ref_ptr&lt;osg::TessellationHints&gt; hints = <span class="keyword">new</span> osg::TessellationHints;</span><br><span class="line">	osg::ref_ptr&lt;osg::ShapeDrawable&gt; shape = <span class="keyword">new</span> osg::ShapeDrawable(<span class="keyword">new</span> osg::Box(osg::Vec3(<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>), <span class="number">1.0</span>, <span class="number">10.0</span>, <span class="number">10.0</span>), hints.get());</span><br><span class="line">	osg::ref_ptr&lt;osg::Material&gt; material = <span class="keyword">new</span> osg::Material;</span><br><span class="line">	osg::ref_ptr&lt;osg::Texture2D&gt; texture2D = <span class="keyword">new</span> osg::Texture2D;</span><br><span class="line">	osg::ref_ptr&lt;osg::Image&gt; image = <span class="keyword">new</span> osg::Image;</span><br><span class="line"></span><br><span class="line">	hints-&gt;setDetailRatio(<span class="number">0.5</span>);</span><br><span class="line"></span><br><span class="line">	shape-&gt;setColor(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>));</span><br><span class="line"></span><br><span class="line">	material-&gt;setAmbient(osg::Material::FRONT_AND_BACK, osg::Vec4f(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">0.5</span>));</span><br><span class="line">	material-&gt;setDiffuse(osg::Material::FRONT_AND_BACK, osg::Vec4f(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">0.5</span>));</span><br><span class="line">	material-&gt;setSpecular(osg::Material::FRONT_AND_BACK, osg::Vec4f(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">0.5</span>));</span><br><span class="line">	material-&gt;setShininess(osg::Material::FRONT_AND_BACK, <span class="number">6.0</span>);</span><br><span class="line"></span><br><span class="line">	image = osgDB::readImageFile(<span class="string">&quot;Images/whitemetal_diffuse.jpg&quot;</span>);</span><br><span class="line">	<span class="keyword">if</span> (image.valid()) &#123;</span><br><span class="line">		texture2D-&gt;setImage(image.get());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//set state</span></span><br><span class="line">	geode-&gt;getOrCreateStateSet()-&gt;setAssociatedModes(material.get(), osg::StateAttribute::ON);</span><br><span class="line">	geode-&gt;getOrCreateStateSet()-&gt;setMode(GL_BLEND, osg::StateAttribute::ON);</span><br><span class="line">	geode-&gt;getOrCreateStateSet()-&gt;setMode(GL_DEPTH_TEST, osg::StateAttribute::ON);</span><br><span class="line">	geode-&gt;getOrCreateStateSet()-&gt;setTextureAttributeAndModes(<span class="number">0</span>, texture2D.get(), osg::StateAttribute::ON);</span><br><span class="line">	geode-&gt;addDrawable(shape.get());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> geode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	osg::ref_ptr&lt;osgViewer::Viewer&gt; viewer = <span class="keyword">new</span> osgViewer::Viewer;</span><br><span class="line">	osg::ref_ptr&lt;osg::Group&gt; group = <span class="keyword">new</span> osg::Group;</span><br><span class="line">	</span><br><span class="line">	group-&gt;addChild(CreateBox());</span><br><span class="line">	viewer-&gt;setSceneData(group.get());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> viewer-&gt;run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-        
-        
-          <blockquote id="copyright">
-              <p>原文链接: <a href="http://enofeng.github.io/index.html">http://enofeng.github.io/index.html</a></p>
-              <p>版权声明: 转载请注明出处.</p>
-          </blockquote>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-    <div class="social-share">
-      <span>分享到:</span>
-    </div>
-
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -812,6 +798,10 @@
       <ul>
         
           <li>
+            <a href="/2021/09/14/Node%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E9%81%8D%E5%8E%86%E7%AD%89/">Node派生类的遍历等</a>
+          </li>
+        
+          <li>
             <a href="/2021/08/28/%E7%9F%A9%E9%98%B5%20%E5%B9%B3%E7%A7%BB%E6%97%8B%E8%BD%AC/">矩阵 平移旋转</a>
           </li>
         
@@ -825,10 +815,6 @@
         
           <li>
             <a href="/2021/08/19/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%85%83%20Box/">基础图元 Box</a>
-          </li>
-        
-          <li>
-            <a href="/2021/08/19/OSG%E7%9A%84HelloWorld/">OSG的HelloWorld</a>
           </li>
         
       </ul>
@@ -846,7 +832,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> 归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年08月</a><span class="archive-list-count">108</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年09月</a><span class="archive-list-count">109</span></li></ul>
     </div>
   </div>
 

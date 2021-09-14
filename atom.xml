@@ -6,7 +6,7 @@
   <link href="http://enofeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://enofeng.github.io/"/>
-  <updated>2021-08-28T10:43:14.003Z</updated>
+  <updated>2021-09-14T11:04:02.832Z</updated>
   <id>http://enofeng.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Node派生类的遍历等</title>
+    <link href="http://enofeng.github.io/2021/09/14/Node%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E9%81%8D%E5%8E%86%E7%AD%89/"/>
+    <id>http://enofeng.github.io/2021/09/14/Node%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E9%81%8D%E5%8E%86%E7%AD%89/</id>
+    <published>2021-09-14T11:03:17.002Z</published>
+    <updated>2021-09-14T11:04:02.832Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>需求是这样的，需要用一个几何体，在一个体元素中提取一部分的插值结果。自然是没有现成的算法。实现的过程中，就需要对<code>Geode、Geometry</code>进行遍历。<br>由于我之前编译帮助文档失败了，虽然OSG版本是3.6.5的，但是帮助文档的版本却是2.9.11的。一些方法还是有出入的。所以记录一下</p><h2 id="遍历Geode内的Geometry"><a href="#遍历Geode内的Geometry" class="headerlink" title="遍历Geode内的Geometry"></a>遍历<code>Geode</code>内的<code>Geometry</code></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;Geode2的数量&quot;</span> &lt;&lt; <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getNumChildren</span>() &lt;&lt; endl;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getNumDrawables</span>(); i++) &#123;</span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; pgeo = <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getDrawable</span>(i)-&gt;<span class="built_in">asGeometry</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p><code>getNumChildren()</code>和<code>getNumDrawables()</code>的值是一样的。不知道是不是巧合</p></blockquote><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;需求背景&quot;&gt;&lt;a href=&quot;#需求背景&quot; class=&quot;headerlink&quot; title=&quot;需求背景&quot;&gt;&lt;/a&gt;需求背景&lt;/h2&gt;&lt;p&gt;需求是这样的，需要用一个几何体，在一个体元素中提取一部分的插值结果。自然是没有现成的算法。实现的过程中，就需要对&lt;code&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>矩阵 平移旋转</title>
@@ -400,23 +420,6 @@
 &lt;p&gt;好吧，转战VsCode。&lt;/p&gt;
 &lt;p&gt;不是说VsCode不香，因为平时工作的环境用的vscode，vue的项目格式化的配置又不同于工作中的要求，加上vue的学习习惯，博主果断选择双环境，最后还是没能抗住贫穷。&lt;/p&gt;
 &lt;p&gt;改用Vscode，少不了配置一波。幸好vue初始化项目的配置文件很完整，只需要做一些改动就可以。&lt;/p&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>vue + @supermap_iclient-leaflet 加载切片出现未定义错误</title>
-    <link href="http://enofeng.github.io/2021/07/22/vue%20+%20@supermap_iclient-leaflet%20%E5%8A%A0%E8%BD%BD%E5%88%87%E7%89%87%E5%87%BA%E7%8E%B0%E6%9C%AA%E5%AE%9A%E4%B9%89%E9%94%99%E8%AF%AF/"/>
-    <id>http://enofeng.github.io/2021/07/22/vue%20+%20@supermap_iclient-leaflet%20%E5%8A%A0%E8%BD%BD%E5%88%87%E7%89%87%E5%87%BA%E7%8E%B0%E6%9C%AA%E5%AE%9A%E4%B9%89%E9%94%99%E8%AF%AF/</id>
-    <published>2021-07-22T10:53:31.356Z</published>
-    <updated>2021-07-22T13:19:34.662Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="问题如图："><a href="#问题如图：" class="headerlink" title="问题如图："></a>问题如图：</h3><p><img src="https://img-blog.csdnimg.cn/20210417122355285.png"></p><span id="more"></span><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>参考超图技术社区的帖子，重新安装了好几遍，还是没有解决。<br>分析之后，调试一番，我想是因为调用自己的组件的时候还没有引用超图的组件。<br>修改了调用顺序之后完美解决</p><blockquote><p>关于小伙伴们重新安装若干次后成功，我觉得应该是打包，异步加载的原因</p></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;问题如图：&quot;&gt;&lt;a href=&quot;#问题如图：&quot; class=&quot;headerlink&quot; title=&quot;问题如图：&quot;&gt;&lt;/a&gt;问题如图：&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210417122355285.png&quot;&gt;&lt;/p&gt;</summary>
     
     
     

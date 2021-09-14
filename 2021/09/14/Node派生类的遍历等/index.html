@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   
-  <title>归档: 2021/7 | Programmer Home</title>
+  <title>Node派生类的遍历等 | Programmer Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
     <meta name="description" content="Learn and Life">
@@ -87,149 +87,122 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-
+        <section id="main"><article id="post-Node派生类的遍历等" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
+    <h1 class="p-name article-title" itemprop="headline name">
+      Node派生类的遍历等
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-09-14T11:03:17.002Z" itemprop="datePublished">2021年09月14日</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/2021/09/14/Node%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E9%81%8D%E5%8E%86%E7%AD%89/#comments" class="article-comment-link">
   
     
     
-    <section class="archives-wrap">
-      <div class="archive-title">
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>需求是这样的，需要用一个几何体，在一个体元素中提取一部分的插值结果。自然是没有现成的算法。实现的过程中，就需要对<code>Geode、Geometry</code>进行遍历。<br>由于我之前编译帮助文档失败了，虽然OSG版本是3.6.5的，但是帮助文档的版本却是2.9.11的。一些方法还是有出入的。所以记录一下</p>
+<h2 id="遍历Geode内的Geometry"><a href="#遍历Geode内的Geometry" class="headerlink" title="遍历Geode内的Geometry"></a>遍历<code>Geode</code>内的<code>Geometry</code></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;Geode2的数量&quot;</span> &lt;&lt; <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getNumChildren</span>() &lt;&lt; endl;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getNumDrawables</span>(); i++) &#123;</span><br><span class="line">	osg::ref_ptr&lt;osg::Geometry&gt; pgeo = <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getDrawable</span>(i)-&gt;<span class="built_in">asGeometry</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>getNumChildren()</code>和<code>getNumDrawables()</code>的值是一样的。不知道是不是巧合</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
         
-          <i class="fa fa-date"></i>
-          2021年07月
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> 文章目录</h3>
+    <div class="widget">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E8%83%8C%E6%99%AF"><span class="toc-text">需求背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8D%E5%8E%86Geode%E5%86%85%E7%9A%84Geometry"><span class="toc-text">遍历Geode内的Geometry</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a></li></ol>
+    </div>
+  </div>
+
+
+            </div>
         
-      </div>
-      <div class="archives">
+        
+          <blockquote id="copyright">
+              <p>原文链接: <a href="http://enofeng.github.io/2021/09/14/Node派生类的遍历等/">http://enofeng.github.io/2021/09/14/Node派生类的遍历等/</a></p>
+              <p>版权声明: 转载请注明出处.</p>
+          </blockquote>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+    <div class="social-share">
+      <span>分享到:</span>
+    </div>
+
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
   
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/2021/07/22/GIS-Experiment3/">
-      <time class="dt-published" datetime="2021-07-22T09:54:48.916Z" itemprop="datePublished">2021年07月22日</time>
-      | <span class="archive-article-title">GIS-Experiment3</span>
+  
+    <a href="/2021/08/28/%E7%9F%A9%E9%98%B5%20%E5%B9%B3%E7%A7%BB%E6%97%8B%E8%BD%AC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">矩阵 平移旋转</div>
     </a>
-  </li>
-</ul>
-
-
   
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/2021/07/22/GeoServer%E5%8F%91%E5%B8%83WMS%E6%9C%8D%E5%8A%A1/">
-      <time class="dt-published" datetime="2021-07-22T09:54:48.914Z" itemprop="datePublished">2021年07月22日</time>
-      | <span class="archive-article-title">GeoServer发布WMS服务</span>
-    </a>
-  </li>
-</ul>
-
-
-  
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/2021/07/22/esri%20loader%20+%20arcgis%20api%20%E5%9B%BE%E5%B1%82%E6%8E%A7%E5%88%B6%20+%20%E7%AD%9B%E9%80%89/">
-      <time class="dt-published" datetime="2021-07-22T09:54:48.912Z" itemprop="datePublished">2021年07月22日</time>
-      | <span class="archive-article-title">esri loader + arcgis api 图层控制 + 筛选</span>
-    </a>
-  </li>
-</ul>
-
-
-  
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/2021/07/22/esri%20loader%20+%20arcgis%20api%20%E5%AE%9E%E7%8E%B0%E5%B0%8F%E9%83%A8%E4%BB%B6/">
-      <time class="dt-published" datetime="2021-07-22T09:54:48.910Z" itemprop="datePublished">2021年07月22日</time>
-      | <span class="archive-article-title">esri loader + arcgis api 实现小部件</span>
-    </a>
-  </li>
-</ul>
-
-
-  
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/2021/07/22/esri%20loader%20+%20Arcgis%20api%204.x%E5%8A%A0%E8%BD%BD%20arcgis%20server%20%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/">
-      <time class="dt-published" datetime="2021-07-22T09:54:48.908Z" itemprop="datePublished">2021年07月22日</time>
-      | <span class="archive-article-title">esri loader + Arcgis api 4.x加载 arcgis server 地图服务</span>
-    </a>
-  </li>
-</ul>
-
-
-  
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/2021/07/22/esri%20loader%20+%20Arcgis%20api%203.x%E5%8A%A0%E8%BD%BD%20arcgis%20server%20%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/">
-      <time class="dt-published" datetime="2021-07-22T09:54:48.906Z" itemprop="datePublished">2021年07月22日</time>
-      | <span class="archive-article-title">esri loader + Arcgis api 3.x加载 arcgis server 地图服务</span>
-    </a>
-  </li>
-</ul>
-
-
-  
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/2021/07/22/echarts%E7%BB%98%E5%88%B6map%EF%BC%8C%E6%B7%BB%E5%8A%A0%E5%9B%BE%E8%A1%A8%EF%BC%8C%E7%AC%A6%E5%90%88ES6%E8%A7%84%E8%8C%83/">
-      <time class="dt-published" datetime="2021-07-22T09:54:48.903Z" itemprop="datePublished">2021年07月22日</time>
-      | <span class="archive-article-title"></span>
-    </a>
-  </li>
-</ul>
-
-
-  
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/2021/07/22/arcgis%20server%E5%8F%91%E5%B8%83%E5%88%87%E7%89%87%E5%9C%B0%E5%9B%BE/">
-      <time class="dt-published" datetime="2021-07-22T09:54:48.901Z" itemprop="datePublished">2021年07月22日</time>
-      | <span class="archive-article-title">arcgis server发布切片地图</span>
-    </a>
-  </li>
-</ul>
-
-
-  
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/2021/07/22/Arcgis%20api%20for%20js%E9%80%9A%E8%BF%87json%E6%B7%BB%E5%8A%A0%E7%82%B9%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%BC%B9%E6%A1%86%E4%BF%A1%E6%81%AF/">
-      <time class="dt-published" datetime="2021-07-22T09:54:48.899Z" itemprop="datePublished">2021年07月22日</time>
-      | <span class="archive-article-title">Arcgis api for js通过json添加点，显示弹框信息</span>
-    </a>
-  </li>
-</ul>
-
-
-  
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/2021/07/22/ArcGIS%20API%20for%20JavaScript%20%E5%85%A5%E9%97%A8%E5%BF%85%E8%AF%BB/">
-      <time class="dt-published" datetime="2021-07-22T09:54:48.897Z" itemprop="datePublished">2021年07月22日</time>
-      | <span class="archive-article-title">ArcGIS API for JavaScript 入门必读</span>
-    </a>
-  </li>
-</ul>
-
-
-
-  </div></section>
-
-
-    <nav id="page-nav">
-
-<a class="extend prev" rel="prev" href="/archives/2021/07/page/9/">上一页</a><a class="page-number" href="/archives/2021/07/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2021/07/page/8/">8</a><a class="page-number" href="/archives/2021/07/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/archives/2021/07/page/11/">11</a><a class="extend next" rel="next" href="/archives/2021/07/page/11/">下一页</a>
 </nav>
 
+      
+      
+        
 
+
+
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
 </section>
         
           <aside id="sidebar">
