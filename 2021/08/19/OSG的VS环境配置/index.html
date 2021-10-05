@@ -142,6 +142,10 @@
 <li><p>项目右键，打开属性，选择VC++目录，给可执行文件目录添加路径为osg下面的bin，包含目录添加路径为osg下面的include，库目录添加为osg下面的lib目录。</p>
 <p><img src="https://img-blog.csdnimg.cn/69becf45b7cb457c84432aba4e6a3d38.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
 </li>
+</ol>
+<span id="more"></span>
+
+<ol start="2">
 <li><p>在链接器—》输入—》附加依赖性中添加以下类库</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">osgd.lib</span><br><span class="line">osgUtild.lib</span><br><span class="line">osgGAd.lib</span><br><span class="line">osgViewerd.lib</span><br><span class="line">OpenThreadsd.lib</span><br><span class="line">osgAnimationd.lib</span><br><span class="line">osgDBd.lib</span><br><span class="line">osgEarthd.lib</span><br><span class="line">osgParticled.lib</span><br></pre></td></tr></table></figure></li>
 <li><p>在链接器—》高级—-》目标计算机中选择一下。</p>

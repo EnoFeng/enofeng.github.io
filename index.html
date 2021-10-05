@@ -475,46 +475,14 @@
 <p>以下是笔者的碎碎念，正文向下滑…..</p>
 </blockquote>
 <p>emm…….背景是这样子的，前两天老师查看需求实现情况的时候，表示我没有界面操作。。。。啊这。。。我遂即恶补了Qt的知识，熬完了传智的视频和练习，老师表示不要原生要Office风格的系统。。。（似乎老师们对Office的风格都有一种执念…..）好吧，继续研究ing，找到了开源项目SARibbon，刚上手超级生涩（笔者以前是做前端的，最近开始C++的桌面端），过程中遇到了很多的Bug….作为一名多年码农，有Bug和吃饭一样见怪不怪了，But……就有那么一两个Bug，能让你一杯茶，一首歌，一行代码改一天….果断记录下来……（头秃的过程中我开始了碎碎念….）</p>
-<h2 id="正文！！！"><a href="#正文！！！" class="headerlink" title="正文！！！"></a>正文！！！</h2><h4 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h4><ol>
-<li>编译<code>SARibbon</code>的<code>pro</code>文件是<code>\src\SARibbonBar\SARibbonBar.pro</code>，不是根目录下面的<code>SARibbon.pro</code>，虽然编译出来的东西似乎都一样，但是官方文档中这么写，就标注一下，严谨能避免很多莫名其妙的Bug</li>
-<li>把编译完的整个项目放到项目里，（应该最后只需要留下<code>include</code>、<code>lib</code>、和<code>dll</code>，目前只测试到这里）</li>
-<li>项目的<code>pro</code>文件中需要添加的，位置如下，一个在头，一个在尾。 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">include($$PWD/..SARibbon-master/common.pri)</span><br><span class="line">DESTDIR = $$&#123;SARIBBON_BIN_DIR&#125;</span><br><span class="line"></span><br><span class="line">SOURCES += \</span><br><span class="line">    main.cpp \</span><br><span class="line">    mainwindow.cpp</span><br><span class="line"></span><br><span class="line">HEADERS += \</span><br><span class="line">    mainwindow.h</span><br><span class="line"></span><br><span class="line">FORMS += \</span><br><span class="line">    mainwindow.ui</span><br><span class="line"></span><br><span class="line">include($$PWD/../SARibbon-master/SARibbonBar.pri)</span><br></pre></td></tr></table></figure></li>
-<li>使用的时候继承<code>SARibbonMainWindow(parent)</code>类即可</li>
-</ol>
-<h4 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h4><p>在Qt中正常运行的项目，在Vs中打开，运行的时候会报错，表示找不到<code>SARibbonBard.lib</code>，查看一下链接器的输入，地址是<code>SARibbon</code>项目编译输出目录下，但是里面并没有这个文件，只有一个<code>.dll</code>和一个<code>.o</code>的文件。</p>
-<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p><code>.o</code>文件时WinGW环境下编译的静态库文件也就是VS中生成的<code>.lib</code>文件，所以在VS中运行，只需要把<code>SARibbon</code>项目在VS中编译，把静态库连接到项目中就可以了。</p>
-<h4 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h4><p>这个时候，在Qt Creator中在运行，又会报<code>error: undefined reference to __imp__ZN16SARibbonCategory9addPannelERK7QStr</code>之类的错误</p>
-<h4 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h4><p>这也是没有引用静态库造成的，但是我们明明换成了<code>lib</code>的静态库，怎么又不行了。</p>
-<p>不难想到，在WinGW环境下需要引用它支持的<code>.o</code>静态库，在MSVC中需要引用<code>.ib</code>的静态库。</p>
-<p>观察一下<code>WinGW</code>编译生成的<code>build......</code>文件中，只有<code>.cpp</code>文件和<code>.o</code>的文件</p>
-<hr>
-<blockquote>
-<p>结尾碎碎念….emm…..写完之后有感觉，只是一个很简单的<code>bug</code>，怎么就改了一下午。。。</p>
-</blockquote>
-
-        
-        
-          <blockquote id="copyright">
-              <p>原文链接: <a href="http://enofeng.github.io/index.html">http://enofeng.github.io/index.html</a></p>
-              <p>版权声明: 转载请注明出处.</p>
-          </blockquote>
-        
       
     </div>
     <footer class="article-footer">
       
-        <div class="article-tag-wrap">
-          
-
-          
-          
-    <div class="social-share">
-      <span>分享到:</span>
-    </div>
-
-
-
-        </div>
+        
+        <p class="article-more-link">
+          <a href="/2021/10/05/Qt%20+%20MSVC%E4%BD%BF%E7%94%A8SARibbon%E6%8E%A7%E4%BB%B6%EF%BC%8C%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/#more">Read More</a>
+        </p>
       
       
       
@@ -563,29 +531,14 @@
 <p><code>getNumChildren()</code>和<code>getNumDrawables()</code>的值是一样的。不知道是不是巧合</p>
 </blockquote>
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2>
-        
-        
-          <blockquote id="copyright">
-              <p>原文链接: <a href="http://enofeng.github.io/index.html">http://enofeng.github.io/index.html</a></p>
-              <p>版权声明: 转载请注明出处.</p>
-          </blockquote>
-        
       
     </div>
     <footer class="article-footer">
       
-        <div class="article-tag-wrap">
-          
-
-          
-          
-    <div class="social-share">
-      <span>分享到:</span>
-    </div>
-
-
-
-        </div>
+        
+        <p class="article-more-link">
+          <a href="/2021/09/14/Node%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E9%81%8D%E5%8E%86%E7%AD%89/#more">Read More</a>
+        </p>
       
       
       
@@ -640,52 +593,14 @@
 <blockquote>
 <p>理想状态下，应该是有一个小飞机在<code>(5.0, 0.0, 0.0)</code>这个位置上原地旋转：</p>
 </blockquote>
-</li>
-<li><p>结果  =》明显是失败了</p>
-<p><img src="https://img-blog.csdnimg.cn/78671e6beb6d4437978eea9fdc509ca4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBARW5vwrdG,size_18,color_FFFFFF,t_70,g_se,x_16"></p>
-</li>
-<li><p>分析一下原因</p>
-<p>这里有一个知识点，<code>Callback</code>的方法会覆盖掉前面的矩阵平移的操作。</p>
-</li>
-<li><p>有人要说了，那给旋转操作和矩阵操作换一下位置，后执行平移操作。结果当然是不行的，这里的<code>setXXX</code>相当于设置的属性，而不是操作函数。影响是整个属性的对象。换言之，只有他们不是一个对象就不会覆盖掉了</p>
-</li>
-<li><p>重新创建一个<code>max2</code>对象，给它一个平移操作；给<code>max</code>对象一个旋转操作；再将<code>max2</code>对象添加给<code>max</code>对象。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Node&gt; node = osgDB::readNodeFile(<span class="string">&quot;glider.osg&quot;</span>);</span><br><span class="line">osg::ref_ptr&lt;osg::MatrixTransform&gt; max2 = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line"></span><br><span class="line">max2-&gt;addChild(node.get());</span><br><span class="line">max2-&gt;setMatrix(osg::Matrix::translate(<span class="number">5.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>));</span><br><span class="line">max-&gt;setUpdateCallback(<span class="keyword">new</span> osg::AnimationPathCallback(osg::Vec3(<span class="number">5.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>), osg::Z_AXIS, <span class="number">1.0</span>));</span><br><span class="line">max-&gt;addChild(max2.get());</span><br></pre></td></tr></table></figure></li>
-<li><p>看一下结果</p>
-<p><img src="https://img-blog.csdnimg.cn/e3e3170786a847328787514e79261130.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBARW5vwrdG,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
-</li>
-<li><p>完整代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::MatrixTransform&gt; max3 = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line">osg::ref_ptr&lt;osg::MatrixTransform&gt; max4 = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line"></span><br><span class="line">max4-&gt;addChild(node.get());</span><br><span class="line">max4-&gt;setMatrix(osg::Matrix::translate(<span class="number">-5.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>));</span><br><span class="line">max3-&gt;setUpdateCallback(<span class="keyword">new</span> osg::AnimationPathCallback(osg::Vec3(<span class="number">-5.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>), osg::Z_AXIS, <span class="number">1.0</span>));</span><br><span class="line">max3-&gt;addChild(max4.get());</span><br><span class="line"></span><br><span class="line">group-&gt;addChild(max3.get());</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osgDB/ReadFile&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osgGA/GUIEventAdapter&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osgViewer/ViewerEventHandlers&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;osg/MatrixTransform&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">osg::ref_ptr&lt;osg::Node&gt; <span class="title">MatrixOperation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	osg::ref_ptr&lt;osg::Group&gt; group = <span class="keyword">new</span> osg::Group;</span><br><span class="line">	osg::ref_ptr&lt;osg::MatrixTransform&gt; max = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line">	osg::ref_ptr&lt;osg::Node&gt; node = osgDB::readNodeFile(<span class="string">&quot;glider.osg&quot;</span>);</span><br><span class="line">	osg::ref_ptr&lt;osg::MatrixTransform&gt; max2 = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line">	osg::ref_ptr&lt;osg::MatrixTransform&gt; max3 = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line">	osg::ref_ptr&lt;osg::MatrixTransform&gt; max4 = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line"></span><br><span class="line">	max2-&gt;addChild(node.get());</span><br><span class="line">	max2-&gt;setMatrix(osg::Matrix::translate(<span class="number">5.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>));</span><br><span class="line">	max-&gt;setUpdateCallback(<span class="keyword">new</span> osg::AnimationPathCallback(osg::Vec3(<span class="number">5.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>), osg::Z_AXIS, <span class="number">1.0</span>));</span><br><span class="line">	max-&gt;addChild(max2.get());</span><br><span class="line"></span><br><span class="line">	max4-&gt;addChild(node.get());</span><br><span class="line">	max4-&gt;setMatrix(osg::Matrix::translate(<span class="number">-5.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>));</span><br><span class="line">	max3-&gt;setUpdateCallback(<span class="keyword">new</span> osg::AnimationPathCallback(osg::Vec3(<span class="number">-5.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>), osg::Z_AXIS, <span class="number">1.0</span>));</span><br><span class="line">	max3-&gt;addChild(max4.get());</span><br><span class="line"></span><br><span class="line">	group-&gt;addChild(node.get());</span><br><span class="line">	group-&gt;addChild(max.get());</span><br><span class="line">	group-&gt;addChild(max3.get());</span><br><span class="line">	<span class="keyword">return</span> group;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	osg::ref_ptr&lt;osgViewer::Viewer&gt; viewer = <span class="keyword">new</span> osgViewer::Viewer;</span><br><span class="line"></span><br><span class="line">	viewer-&gt;setSceneData(MatrixOperation().get());</span><br><span class="line">	viewer-&gt;run();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>​    </p>
-
-        
-        
-          <blockquote id="copyright">
-              <p>原文链接: <a href="http://enofeng.github.io/index.html">http://enofeng.github.io/index.html</a></p>
-              <p>版权声明: 转载请注明出处.</p>
-          </blockquote>
-        
       
     </div>
     <footer class="article-footer">
       
-        <div class="article-tag-wrap">
-          
-
-          
-          
-    <div class="social-share">
-      <span>分享到:</span>
-    </div>
-
-
-
-        </div>
+        
+        <p class="article-more-link">
+          <a href="/2021/08/28/%E7%9F%A9%E9%98%B5%20%E5%B9%B3%E7%A7%BB%E6%97%8B%E8%BD%AC/#more">Read More</a>
+        </p>
       
       
       
@@ -730,29 +645,14 @@
       
         <h4 id="今天尝试叠加几何体，却出现了重叠，缝隙的问题。"><a href="#今天尝试叠加几何体，却出现了重叠，缝隙的问题。" class="headerlink" title="今天尝试叠加几何体，却出现了重叠，缝隙的问题。"></a>今天尝试叠加几何体，却出现了重叠，缝隙的问题。</h4><p><img src="https://img-blog.csdnimg.cn/0add8b8576e5403d82e0f81c98641223.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
 <h4 id="思考一番后发现忽略了一些问题，圆柱体的中心点在xyz的半值。不在底部或者顶部。"><a href="#思考一番后发现忽略了一些问题，圆柱体的中心点在xyz的半值。不在底部或者顶部。" class="headerlink" title="思考一番后发现忽略了一些问题，圆柱体的中心点在xyz的半值。不在底部或者顶部。"></a>思考一番后发现忽略了一些问题，圆柱体的中心点在<code>xyz</code>的半值。不在底部或者顶部。</h4>
-        
-        
-          <blockquote id="copyright">
-              <p>原文链接: <a href="http://enofeng.github.io/index.html">http://enofeng.github.io/index.html</a></p>
-              <p>版权声明: 转载请注明出处.</p>
-          </blockquote>
-        
       
     </div>
     <footer class="article-footer">
       
-        <div class="article-tag-wrap">
-          
-
-          
-          
-    <div class="social-share">
-      <span>分享到:</span>
-    </div>
-
-
-
-        </div>
+        
+        <p class="article-more-link">
+          <a href="/2021/08/20/OSG%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/#more">Read More</a>
+        </p>
       
       
       
