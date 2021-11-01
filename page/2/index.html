@@ -88,6 +88,388 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-VS2019工程开发中的问题总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/01/VS2019%E5%B7%A5%E7%A8%8B%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">VS2019工程开发中的问题总结</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-11-01T15:53:10.817Z" itemprop="datePublished">2021年11月01日</time>
+</span>
+      
+      
+      
+<a href="/2021/11/01/VS2019%E5%B7%A5%E7%A8%8B%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>在<code>C++</code>常规中设置附加包含目录中的文件，<code>#pragma region </code>后面不能跟中文，会报由于编码引起的错误，猜测是由于工程开发中由于不同文件编码不同引起的。</li>
+<li>不同编码文件之间传值会乱码，（场景是文件路径），改为窗口选择文件，自动存入<code>vector</code>中然后传值，乱码解决。</li>
+</ol>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/11/01/VS2019%E5%B7%A5%E7%A8%8B%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-Qt开发中的问题总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/01/Qt%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">Qt开发中的问题总结</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-11-01T15:53:04.364Z" itemprop="datePublished">2021年11月01日</time>
+</span>
+      
+      
+      
+<a href="/2021/11/01/Qt%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>一开始用Qt开发的界面等，最后改为MSVC项目之后，文件的编码由UTF-8改为GB2312之后，界面中的部分显示成了乱码。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 乱码</span></span><br><span class="line">QString::<span class="built_in">fromLocal8Bit</span>(<span class="string">&quot;打开文件&quot;</span>);</span><br><span class="line"><span class="comment">// 正常</span></span><br><span class="line"><span class="built_in">QStringLiteral</span>(<span class="string">&quot;打开文件&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/11/01/Qt%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-c++读取json文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/01/c++%E8%AF%BB%E5%8F%96json%E6%96%87%E4%BB%B6/">c++读取json文件</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-11-01T15:51:10.110Z" itemprop="datePublished">2021年11月01日</time>
+</span>
+      
+      
+      
+<a href="/2021/11/01/c++%E8%AF%BB%E5%8F%96json%E6%96%87%E4%BB%B6/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;PTLoction&gt; <span class="title">getJson</span><span class="params">(<span class="keyword">const</span> string&amp; path)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string info = <span class="string">&quot;&quot;</span>, temp_s;</span><br><span class="line">	vector&lt;PTLoction&gt; ptls;</span><br><span class="line">	JSONCPP_STRING errs;</span><br><span class="line">	Json::Value root, geo, geo_item, mail;</span><br><span class="line">	Json::CharReaderBuilder readerBuilder;</span><br><span class="line">	<span class="function">ifstream <span class="title">fin</span><span class="params">(path)</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (fin &gt;&gt; temp_s) info += temp_s;</span><br><span class="line">	fin.<span class="built_in">close</span>();</span><br><span class="line">	<span class="keyword">if</span> (info.<span class="built_in">empty</span>()) <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">	<span class="function">std::unique_ptr&lt;Json::CharReader&gt; <span class="keyword">const</span> <span class="title">jsonReader</span><span class="params">(readerBuilder.newCharReader())</span></span>;</span><br><span class="line">	<span class="keyword">if</span> (!jsonReader-&gt;<span class="built_in">parse</span>(info.<span class="built_in">c_str</span>(), info.<span class="built_in">c_str</span>() + info.<span class="built_in">length</span>(), &amp;root, &amp;errs) || !errs.<span class="built_in">empty</span>()) <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">	geo = root[<span class="string">&quot;lie&quot;</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; geo.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">		FILETOOL::PTLoction temp_ptl = &#123; root[<span class="string">&quot;name&quot;</span>].<span class="built_in">asString</span>(),geo[i][<span class="number">0</span>].<span class="built_in">asFloat</span>(),geo[i][<span class="number">1</span>].<span class="built_in">asFloat</span>(),geo[i][<span class="number">2</span>].<span class="built_in">asFloat</span>() &#125;;</span><br><span class="line">		ptls.<span class="built_in">push_back</span>(temp_ptl);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ptls;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/11/01/c++%E8%AF%BB%E5%8F%96json%E6%96%87%E4%BB%B6/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-Qt + MSVC使用SARibbon控件，踩坑记录" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/10/05/Qt%20+%20MSVC%E4%BD%BF%E7%94%A8SARibbon%E6%8E%A7%E4%BB%B6%EF%BC%8C%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">Qt + MSVC使用SARibbon控件，踩坑记录</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-10-05T13:55:14.332Z" itemprop="datePublished">2021年10月05日</time>
+</span>
+      
+      
+      
+<a href="/2021/10/05/Qt%20+%20MSVC%E4%BD%BF%E7%94%A8SARibbon%E6%8E%A7%E4%BB%B6%EF%BC%8C%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>以下是笔者的碎碎念，正文向下滑…..</p>
+</blockquote>
+<p>emm…….背景是这样子的，前两天老师查看需求实现情况的时候，表示我没有界面操作。。。。啊这。。。我遂即恶补了Qt的知识，熬完了传智的视频和练习，老师表示不要原生要Office风格的系统。。。（似乎老师们对Office的风格都有一种执念…..）好吧，继续研究ing，找到了开源项目SARibbon，刚上手超级生涩（笔者以前是做前端的，最近开始C++的桌面端），过程中遇到了很多的Bug….作为一名多年码农，有Bug和吃饭一样见怪不怪了，But……就有那么一两个Bug，能让你一杯茶，一首歌，一行代码改一天….果断记录下来……（头秃的过程中我开始了碎碎念….）</p>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/10/05/Qt%20+%20MSVC%E4%BD%BF%E7%94%A8SARibbon%E6%8E%A7%E4%BB%B6%EF%BC%8C%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-Node派生类的遍历等" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/14/Node%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E9%81%8D%E5%8E%86%E7%AD%89/">Node派生类的遍历等</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-09-14T11:03:17.002Z" itemprop="datePublished">2021年09月14日</time>
+</span>
+      
+      
+      
+<a href="/2021/09/14/Node%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E9%81%8D%E5%8E%86%E7%AD%89/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>需求是这样的，需要用一个几何体，在一个体元素中提取一部分的插值结果。自然是没有现成的算法。实现的过程中，就需要对<code>Geode、Geometry</code>进行遍历。<br>由于我之前编译帮助文档失败了，虽然OSG版本是3.6.5的，但是帮助文档的版本却是2.9.11的。一些方法还是有出入的。所以记录一下</p>
+<h2 id="遍历Geode内的Geometry"><a href="#遍历Geode内的Geometry" class="headerlink" title="遍历Geode内的Geometry"></a>遍历<code>Geode</code>内的<code>Geometry</code></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;Geode2的数量&quot;</span> &lt;&lt; <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getNumChildren</span>() &lt;&lt; endl;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getNumDrawables</span>(); i++) &#123;</span><br><span class="line">	osg::ref_ptr&lt;osg::Geometry&gt; pgeo = <span class="keyword">this</span>-&gt;temp_gde-&gt;<span class="built_in">getDrawable</span>(i)-&gt;<span class="built_in">asGeometry</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>getNumChildren()</code>和<code>getNumDrawables()</code>的值是一样的。不知道是不是巧合</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/09/14/Node%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E9%81%8D%E5%8E%86%E7%AD%89/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-矩阵 平移旋转" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/28/%E7%9F%A9%E9%98%B5%20%E5%B9%B3%E7%A7%BB%E6%97%8B%E8%BD%AC/">矩阵 平移旋转</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-08-28T09:55:03.768Z" itemprop="datePublished">2021年08月28日</time>
+</span>
+      
+      
+      
+<a href="/2021/08/28/%E7%9F%A9%E9%98%B5%20%E5%B9%B3%E7%A7%BB%E6%97%8B%E8%BD%AC/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作"></a>简单操作</h2><h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><ol>
+<li> 先实例化一个<code>node</code>，平移到<code>x</code>正轴的5</li>
+</ol>
+   <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Group&gt; group = <span class="keyword">new</span> osg::Group;</span><br><span class="line">osg::ref_ptr&lt;osg::MatrixTransform&gt; max = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line">osg::ref_ptr&lt;osg::Node&gt; node = osgDB::readNodeFile(<span class="string">&quot;glider.osg&quot;</span>);</span><br><span class="line"></span><br><span class="line">max-&gt;addChild(node.get());</span><br><span class="line">max-&gt;setMatrix(osg::Matrix::translate(<span class="number">5.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>));</span><br><span class="line">group-&gt;addChild(osgDB::readNodeFile(<span class="string">&quot;glider.osg&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>给<code>max</code>一个旋转状态，让小飞机绕着Z轴在<code>(0.0, 0.0, 0.0)</code>点旋转，角速度为1。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max-&gt;setUpdateCallback(<span class="keyword">new</span> osg::AnimationPathCallback(osg::Vec3(<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>), osg::Z_AXIS, <span class="number">1.0</span>));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>理想状态下，应该是有一个小飞机在<code>(5.0, 0.0, 0.0)</code>这个位置上原地旋转：</p>
+</blockquote>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/08/28/%E7%9F%A9%E9%98%B5%20%E5%B9%B3%E7%A7%BB%E6%97%8B%E8%BD%AC/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-OSG学习中的一些小问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/20/OSG%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/">OSG学习中的一些小问题</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-08-20T15:42:31.028Z" itemprop="datePublished">2021年08月20日</time>
+</span>
+      
+      
+      
+<a href="/2021/08/20/OSG%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="今天尝试叠加几何体，却出现了重叠，缝隙的问题。"><a href="#今天尝试叠加几何体，却出现了重叠，缝隙的问题。" class="headerlink" title="今天尝试叠加几何体，却出现了重叠，缝隙的问题。"></a>今天尝试叠加几何体，却出现了重叠，缝隙的问题。</h4><p><img src="https://img-blog.csdnimg.cn/0add8b8576e5403d82e0f81c98641223.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
+<h4 id="思考一番后发现忽略了一些问题，圆柱体的中心点在xyz的半值。不在底部或者顶部。"><a href="#思考一番后发现忽略了一些问题，圆柱体的中心点在xyz的半值。不在底部或者顶部。" class="headerlink" title="思考一番后发现忽略了一些问题，圆柱体的中心点在xyz的半值。不在底部或者顶部。"></a>思考一番后发现忽略了一些问题，圆柱体的中心点在<code>xyz</code>的半值。不在底部或者顶部。</h4>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/08/20/OSG%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-基础图元 简单矢量" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -251,438 +633,10 @@
 </article>
 
 
-  <article id="post-OSG的VS环境配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/08/19/OSG%E7%9A%84VS%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">OSG的VS环境配置</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-08-19T09:56:06.490Z" itemprop="datePublished">2021年08月19日</time>
-</span>
-      
-      
-      
-<a href="/2021/08/19/OSG%E7%9A%84VS%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  留言
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="配置VS环境"><a href="#配置VS环境" class="headerlink" title="配置VS环境"></a>配置VS环境</h2><blockquote>
-<p>笔者使用的是vs2019+osg3.6.4的环境</p>
-</blockquote>
-<ol>
-<li><p>项目右键，打开属性，选择VC++目录，给可执行文件目录添加路径为osg下面的bin，包含目录添加路径为osg下面的include，库目录添加为osg下面的lib目录。</p>
-<p><img src="https://img-blog.csdnimg.cn/69becf45b7cb457c84432aba4e6a3d38.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-</li>
-</ol>
-      
-    </div>
-    <footer class="article-footer">
-      
-        
-        <p class="article-more-link">
-          <a href="/2021/08/19/OSG%E7%9A%84VS%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#more">Read More</a>
-        </p>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
-  <article id="post-OSG一些基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/08/19/OSG%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80/">OSG一些基础</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-08-19T09:29:15.878Z" itemprop="datePublished">2021年08月19日</time>
-</span>
-      
-      
-      
-<a href="/2021/08/19/OSG%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  留言
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="场景节点树"><a href="#场景节点树" class="headerlink" title="场景节点树"></a>场景节点树</h2><p><img src="https://img-blog.csdnimg.cn/7ced6e858bfc40bab308a3a1cb4fc81b.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70#pic_center"></p>
-      
-    </div>
-    <footer class="article-footer">
-      
-        
-        <p class="article-more-link">
-          <a href="/2021/08/19/OSG%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80/#more">Read More</a>
-        </p>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
-  <article id="post-河南强降雨相关分析（更新ing）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/27/%E6%B2%B3%E5%8D%97%E5%BC%BA%E9%99%8D%E9%9B%A8%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90%EF%BC%88%E6%9B%B4%E6%96%B0ing%EF%BC%89/">河南强降雨相关分析（更新ing）</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-07-27T13:17:17.927Z" itemprop="datePublished">2021年07月27日</time>
-</span>
-      
-      
-      
-<a href="/2021/07/27/%E6%B2%B3%E5%8D%97%E5%BC%BA%E9%99%8D%E9%9B%A8%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90%EF%BC%88%E6%9B%B4%E6%96%B0ing%EF%BC%89/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  留言
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="强降雨中心形成原因"><a href="#强降雨中心形成原因" class="headerlink" title="强降雨中心形成原因"></a>强降雨中心形成原因</h2><ol>
-<li><p>台风“烟花”</p>
-<p>我国当前为季风气候，偏东风盛行（正东左右45度角以内吹来的风），即使“烟花”距离还有近一千公里，但水汽已经在负热带高气压带下沉气流共同作用下，被偏东风送进了河南地区，大量水汽集结，使河南具备了强降雨的条件之一</p>
-</li>
-<li><p>地区原因</p>
-<p>西太平洋副热带高压近期在日本海，大陆高压近期在中国西北地区，加上台风烟花形成三足鼎立的局面，阻挡了上游系统游动，也就导致了“烟花“的水汽不能去东西两个北上的方向，西风带低值系统在华北、黄淮地区长时间维持，”烟花“的水汽只能沿着华中华北地区北上，河南是必经之路</p>
-</li>
-<li><p>水汽聚集</p>
-<p>受到东风急流及稳定的低涡切变影响，加上北有太行山，西有伏牛山的特殊地形对偏东气流的强辐合抬升效应，形成地形雨。</p>
-<p><img src="https://img-blog.csdnimg.cn/8716075669df477d84a2eef88860a04a.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-<p>即使水汽运输了小一千公里，水汽的量远不如”烟花“近处的水汽量，但受地势影像，气流向低压区汇聚而上升，水汽都聚在了一起，四周水汽一起形成降雨，而将与中心就是位于太行山和伏牛山交界点的河南中西部，便有了强降雨中心</p>
-</li>
-<li><p>持续之久</p>
-<p>西太平洋副热带高压、大陆高压和”烟花“形成的三角局面，使得整体的大气环流形势变得异常稳定。三处高压区域将水汽锁在了河南地区。”烟花“靠近我国后，干扰先有的大气环流方向，这样一来，就会破坏掉之前稳定的大气环流，影响河南水汽的来源，河南的强降雨才能停止或者转移北上到其他地区</p>
-<p>由于降水持续时间比较长，且强降水发生的区域比较集中，造成西部、西北部山区山洪、地质灾害风险明显增高，黄河流域、海河流域中小河流、水库水位迅速上涨，另外还造成了大范围城市内涝、农田积涝。</p>
-</li>
-</ol>
-<h2 id="降雨特点"><a href="#降雨特点" class="headerlink" title="降雨特点"></a>降雨特点</h2><ol>
-<li><p>持续时间长。</p>
-<p>7月17日开始河南省，河南省西部、中西部地区连续四天出现大范围强降水天气，并且强降水仍将持续。</p>
-</li>
-<li><p>累积雨量大。</p>
-<p>全省平均降雨量113.5毫米,郑州、焦作、新乡平均降水量分别为：357毫米、210.6毫米、194.5毫米。最大降水量出现在荥阳市环翠峪728.0毫米。</p>
-</li>
-<li><p>强降水范围广。</p>
-<p>全省共有4098个雨量站降水量超过50毫米，大于100毫米的有1923个，大于250毫米的有606个。</p>
-</li>
-<li><p>强降水时段集中。</p>
-<p>强降水时段主要从18日夜间开始，北部、中部、西部地区普降暴雨、大暴雨，局地特大暴雨。</p>
-</li>
-<li><p>具有极端性。</p>
-<p>嵩山、偃师、新密、伊川、登封等5个站点突破建站以来日降水量历史极值。嵩山、巩义、新密、偃师、登封等5个站点突破建站以来 3 日累计降水量历史极值</p>
-</li>
-</ol>
-
-        
-        
-          <blockquote id="copyright">
-              <p>原文链接: <a href="http://enofeng.github.io/page/2/index.html">http://enofeng.github.io/page/2/index.html</a></p>
-              <p>版权声明: 转载请注明出处.</p>
-          </blockquote>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-    <div class="social-share">
-      <span>分享到:</span>
-    </div>
-
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
-  <article id="post-河南暴雨数据及灾害消息统计（截至7.22）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/%E6%B2%B3%E5%8D%97%E6%9A%B4%E9%9B%A8%E6%95%B0%E6%8D%AE%E5%8F%8A%E7%81%BE%E5%AE%B3%E6%B6%88%E6%81%AF%E7%BB%9F%E8%AE%A1%EF%BC%88%E6%88%AA%E8%87%B37.22%EF%BC%89/">河南暴雨数据及灾害消息统计（截至7.22）</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-07-22T13:49:53.513Z" itemprop="datePublished">2021年07月22日</time>
-</span>
-      
-      
-      
-<a href="/2021/07/22/%E6%B2%B3%E5%8D%97%E6%9A%B4%E9%9B%A8%E6%95%B0%E6%8D%AE%E5%8F%8A%E7%81%BE%E5%AE%B3%E6%B6%88%E6%81%AF%E7%BB%9F%E8%AE%A1%EF%BC%88%E6%88%AA%E8%87%B37.22%EF%BC%89/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  留言
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>数据来自网络</p>
-</blockquote>
-<h1 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h1><h2 id="7月19日08时-20日08时-全国降水实况图"><a href="#7月19日08时-20日08时-全国降水实况图" class="headerlink" title="7月19日08时-20日08时 全国降水实况图"></a>7月19日08时-20日08时 全国降水实况图</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/b0bfca8ced7d6ca144949da5384eb4b9.png" alt="7月19日08时-20日08时"></p>
-      
-    </div>
-    <footer class="article-footer">
-      
-        
-        <p class="article-more-link">
-          <a href="/2021/07/22/%E6%B2%B3%E5%8D%97%E6%9A%B4%E9%9B%A8%E6%95%B0%E6%8D%AE%E5%8F%8A%E7%81%BE%E5%AE%B3%E6%B6%88%E6%81%AF%E7%BB%9F%E8%AE%A1%EF%BC%88%E6%88%AA%E8%87%B37.22%EF%BC%89/#more">Read More</a>
-        </p>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
-  <article id="post-android+baidu sdk 显示地图+切换地图" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/android+baidu%20sdk%20%E6%98%BE%E7%A4%BA%E5%9C%B0%E5%9B%BE+%E5%88%87%E6%8D%A2%E5%9C%B0%E5%9B%BE/">android+baidu sdk 显示地图+切换地图</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-07-22T10:53:31.510Z" itemprop="datePublished">2021年07月22日</time>
-</span>
-      
-      
-      
-<a href="/2021/07/22/android+baidu%20sdk%20%E6%98%BE%E7%A4%BA%E5%9C%B0%E5%9B%BE+%E5%88%87%E6%8D%A2%E5%9C%B0%E5%9B%BE/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  留言
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="获取开发密钥-AK"><a href="#获取开发密钥-AK" class="headerlink" title="获取开发密钥(AK)"></a>获取开发密钥(AK)</h2><ol>
-<li><p>登录百度账号</p>
-</li>
-<li><p>进入API控制台</p>
-</li>
-<li><p>点击“创建应用”开始申请开发密钥</p>
-</li>
-<li><p>填写应用名称，注意应用类型选择“Android SDK”、正确填写SHA1 和 程序包名   <img src="https://img-blog.csdnimg.cn/20200531164416691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-</ol>
-      
-    </div>
-    <footer class="article-footer">
-      
-        
-        <p class="article-more-link">
-          <a href="/2021/07/22/android+baidu%20sdk%20%E6%98%BE%E7%A4%BA%E5%9C%B0%E5%9B%BE+%E5%88%87%E6%8D%A2%E5%9C%B0%E5%9B%BE/#more">Read More</a>
-        </p>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
-  <article id="post-【研】遥感考点汇总" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/%E3%80%90%E7%A0%94%E3%80%91%E9%81%A5%E6%84%9F%E8%80%83%E7%82%B9%E6%B1%87%E6%80%BB/">【研】遥感考点汇总</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-07-22T10:53:31.508Z" itemprop="datePublished">2021年07月22日</time>
-</span>
-      
-      
-      
-<a href="/2021/07/22/%E3%80%90%E7%A0%94%E3%80%91%E9%81%A5%E6%84%9F%E8%80%83%E7%82%B9%E6%B1%87%E6%80%BB/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  留言
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="考点一：遥感的基本概念"><a href="#考点一：遥感的基本概念" class="headerlink" title="考点一：遥感的基本概念"></a>考点一：遥感的基本概念</h2><ul>
-<li>广义：指各种非接触的、远距离的探测技术，即不直接接触物体本身,在远处通过传感器探测和接收来自目标物体的电磁信息，经过信息的传输及其处理分析，识别物体的属性及分布等特征的技术。</li>
-<li>狭义：指从远处，高空，乃至外层空间的平台上，利用可见光、红外，微波等，通过摄影、扫描等各种方式，获取来自地球表层各类地物的电磁波信息，对这些信息进行加工处理，从而识别地面物质的性质和运动状态的综合技术。</li>
-</ul>
-      
-    </div>
-    <footer class="article-footer">
-      
-        
-        <p class="article-more-link">
-          <a href="/2021/07/22/%E3%80%90%E7%A0%94%E3%80%91%E9%81%A5%E6%84%9F%E8%80%83%E7%82%B9%E6%B1%87%E6%80%BB/#more">Read More</a>
-        </p>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
-  <article id="post-[Vue bug记录] 关于Vue ui打开控制面板的时候，遇到GUI卡住没有自动弹出管理器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/22/%5BVue%20bug%E8%AE%B0%E5%BD%95%5D%20%E5%85%B3%E4%BA%8EVue%20ui%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E9%81%87%E5%88%B0GUI%E5%8D%A1%E4%BD%8F%E6%B2%A1%E6%9C%89%E8%87%AA%E5%8A%A8%E5%BC%B9%E5%87%BA%E7%AE%A1%E7%90%86%E5%99%A8/">（Vue bug记录）关于Vue ui打开控制面板的时候，遇到GUI卡住没有自动弹出管理器</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-07-22T10:53:31.505Z" itemprop="datePublished">2021年07月22日</time>
-</span>
-      
-      
-      
-<a href="/2021/07/22/%5BVue%20bug%E8%AE%B0%E5%BD%95%5D%20%E5%85%B3%E4%BA%8EVue%20ui%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E9%81%87%E5%88%B0GUI%E5%8D%A1%E4%BD%8F%E6%B2%A1%E6%9C%89%E8%87%AA%E5%8A%A8%E5%BC%B9%E5%87%BA%E7%AE%A1%E7%90%86%E5%99%A8/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  留言
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="问题：Vue-ui打开控制面板的时候，卡在这个界面"><a href="#问题：Vue-ui打开控制面板的时候，卡在这个界面" class="headerlink" title="问题：Vue ui打开控制面板的时候，卡在这个界面"></a>问题：Vue ui打开控制面板的时候，卡在这个界面</h4><p><img src="https://img-blog.csdnimg.cn/20210224170806965.png"></p>
-      
-    </div>
-    <footer class="article-footer">
-      
-        
-        <p class="article-more-link">
-          <a href="/2021/07/22/%5BVue%20bug%E8%AE%B0%E5%BD%95%5D%20%E5%85%B3%E4%BA%8EVue%20ui%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E9%81%87%E5%88%B0GUI%E5%8D%A1%E4%BD%8F%E6%B2%A1%E6%9C%89%E8%87%AA%E5%8A%A8%E5%BC%B9%E5%87%BA%E7%AE%A1%E7%90%86%E5%99%A8/#more">Read More</a>
-        </p>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
-<a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+<a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
 </nav>
 
 
@@ -697,23 +651,23 @@
       <ul>
         
           <li>
-            <a href="/2021/10/05/Qt%20+%20MSVC%E4%BD%BF%E7%94%A8SARibbon%E6%8E%A7%E4%BB%B6%EF%BC%8C%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">Qt + MSVC使用SARibbon控件，踩坑记录</a>
+            <a href="/2021/11/01/Qt+MSVC%E5%BC%80%E5%8F%91%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E5%8F%8A%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">Qt+MSVC开发中字符串转换及中文乱码问题</a>
           </li>
         
           <li>
-            <a href="/2021/09/14/Node%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E9%81%8D%E5%8E%86%E7%AD%89/">Node派生类的遍历等</a>
+            <a href="/2021/11/01/%E6%8A%A5%E9%94%99%EF%BC%9AQOpenGLContext__swapBuffers()%20called%20with%20non-exposed%20window,%20behavior%20is%20undefine/">报错：QOpenGLContext::swapBuffers() called with non-exposed window, behavior is undefine</a>
           </li>
         
           <li>
-            <a href="/2021/08/28/%E7%9F%A9%E9%98%B5%20%E5%B9%B3%E7%A7%BB%E6%97%8B%E8%BD%AC/">矩阵 平移旋转</a>
+            <a href="/2021/11/01/OsgQt%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">OsgQt环境搭建注意事项</a>
           </li>
         
           <li>
-            <a href="/2021/08/20/OSG%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/">OSG学习中的一些小问题</a>
+            <a href="/2021/11/01/1.%20%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7%20%E2%80%9C__declspec(dllimport)%20const%20XXX__vftable%E2%80%9C%20%60%202.%20%60%E6%97%A0%E6%B3%95%E5%AE%9A%E4%B9%89%20dllimport%20%E5%AE%9E%E4%BD%93%60/">1. 无法解析的外部符号 “__declspec(dllimport) const XXX::vftable“ 2. 无法定义 dllimport 实体`</a>
           </li>
         
           <li>
-            <a href="/2021/08/19/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%85%83%20%E7%AE%80%E5%8D%95%E7%9F%A2%E9%87%8F/">基础图元 简单矢量</a>
+            <a href="/2021/11/01/VS2019%E5%B7%A5%E7%A8%8B%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">VS2019工程开发中的问题总结</a>
           </li>
         
       </ul>
@@ -731,7 +685,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> 归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年10月</a><span class="archive-list-count">110</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年11月</a><span class="archive-list-count">117</span></li></ul>
     </div>
   </div>
 

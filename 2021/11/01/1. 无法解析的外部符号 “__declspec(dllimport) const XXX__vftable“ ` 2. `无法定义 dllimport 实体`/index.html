@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>1. 无法解析的外部符号 “__declspec(dllimport) const XXX::vftable“ 2. 无法定义 dllimport 实体` | Programmer Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="description" content="Learn and Life">
+  
+  
+    <meta name="keywords" content="Code, 代码, 程序, GIS, js, 前端, vue, node">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="Programmer Home" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/localshare/css/share.css">
+
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Programmer Home</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Learn and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/."><i class="fa fa-home"></i> 首页</a>
+        
+          <a class="main-nav-link" href="/archives/"><i class="fa fa-archive"></i> 归档</a>
+        
+          <a class="main-nav-link" href="/about/"><i class="fa fa-user"></i> 关于</a>
+        
+      </nav>
+    </div>
+    <div id="search-form">
+      <div id="result-mask" class="hide"></div>
+      <label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label>
+      <div id="result-wrap" class="hide">
+        <div id="search-result"></div>
+      </div>
+      <div class="hide">
+        <template id="search-tpl">
+          <div class="item">
+            <a href="/{path}" title="{title}">
+              <div class="title">{title}</div>
+              <div class="time">{date}</div>
+              <div class="tags">{tags}</div>
+            </a>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1. 无法解析的外部符号 “__declspec(dllimport) const XXX__vftable“ ` 2. `无法定义 dllimport 实体`" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      1. 无法解析的外部符号 “__declspec(dllimport) const XXX::vftable“ 2. 无法定义 dllimport 实体`
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-11-01T15:53:19.989Z" itemprop="datePublished">2021年11月01日</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/2021/11/01/1.%20%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7%20%E2%80%9C__declspec(dllimport)%20const%20XXX__vftable%E2%80%9C%20%60%202.%20%60%E6%97%A0%E6%B3%95%E5%AE%9A%E4%B9%89%20dllimport%20%E5%AE%9E%E4%BD%93%60/#comments" class="article-comment-link">
+  
+    
+    
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>由于自己C++基础薄弱，导致这一系列的Bug改了好久好久。。。。记录一部分，我还记得的<br>编译通过镇一下哈哈</p>
+<p><img src="https://img-blog.csdnimg.cn/e384bfb67f2f484da40aa71a1781f397.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBARGV2aW7Ct0Zpbm4=,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+<span id="more"></span>
+
+
+<h4 id="Bug1"><a href="#Bug1" class="headerlink" title="Bug1"></a>Bug1</h4><ol>
+<li><code>error LNK2001: 无法解析的外部符号 &quot;__declspec(dllimport) const XXX::vftable&quot; </code></li>
+<li><code>无法定义 dllimport 实体</code></li>
+</ol>
+<p>这两个都是由于宏定义引起的。我的工程中是这样定义的</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> EXPORTSS</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> COMMON_EXPORTS   __declspec(dllexport)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> COMMON_EXPORTS   __declspec(dllimport)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+
+<p>直接说最终的结果，在几经百度后知道<code>__declspec(dllimport)</code>与<code>__declspec(dllexport)</code>是用来在引用hpp文件的时候就可以使用对应cpp文件功能的。</p>
+<p><em><strong>百度解释：</strong></em></p>
+<blockquote>
+<p>__declspec(dllexport)：导出符号，定义需要导出函数的dll中给导出函数的函数声明前面加上导出符号，表示该方法可以导出给其他DLL或者exe使用<br>__declspec(dllimport):导入符号，在使用该函数的DLL或者exe中需要在该函数的函数声明前面加上该符号，表示该函数方法是从其他库导入的</p>
+</blockquote>
+<p>按照这个思路，定义完成后就该使用了。<br>使用：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">COMMON_EXPORTS</span> <span class="title">CSetting</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    ........</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>这样是直接抛出异常了，原因是在hpp中定义了宏之后并没有在cpp文件中定义</p>
+<p><strong>在最开始添加<code>#define EXPORTSS</code></strong> 就可以了。</p>
+<h3 id="又有新Bug"><a href="#又有新Bug" class="headerlink" title="又有新Bug"></a>又有新Bug</h3><p>无法解析的外部符号，对应的错误实在是太多了。<br>不外乎就是</p>
+<ol>
+<li>查C/C++常规中的附加包含目录是不是添加到了include。</li>
+<li>链接器常规中附加包含目录是不是引用了库的路径</li>
+<li>链接器输入中是不是写完了所有引用的lib文件</li>
+<li>所有头文件中的引用是不是成功</li>
+<li>提前定义无法定义 dllimport 实体的类型<h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><img src="https://img-blog.csdnimg.cn/5be4b9d04d0e4c40a2126a3d2d4f0d52.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBARGV2aW7Ct0Zpbm4=,size_20,color_FFFFFF,t_70,g_se,x_16"><h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4>这次真的是不知道问题在哪了，所有改查的都查了，在查文件的时候发现，之前有一个在<code>GeneratedFiles</code>文件下面的 <code>..moc...</code>文件报错的，当时把这个文件删了，就没报错了。安全起见我把当时备份在压缩包的文件重新加了进去。<br>编译…..通过了<br><img src="https://img-blog.csdnimg.cn/2ace3ac7f812468996dc608a60069ac6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBARGV2aW7Ct0Zpbm4=,size_20,color_FFFFFF,t_70,g_se,x_16"></li>
+</ol>
+<p>谁知道。。。。竟然是这样的。。。这随手备份的好习惯。。</p>
+<p><strong>可是为什么么呢？</strong></p>
+<blockquote>
+<p>百度表示：moc 全称是 Meta-Object Compiler，也就是“元对象编译器”。Qt 程序在交由标准编译器编译之前，先要使用 moc 分析 C++ 源文件。如果它发现在一个头文件中包含了宏 Q_OBJECT，则会生成另外一个 C++ 源文件。这个源文件中包含了 Q_OBJECT 宏的实现代码。这个新的文件名字将会是原文件名前面加上 moc_ 构成。这个新的文件同样将进入编译系统，最终被链接到二进制代码中去。</p>
+</blockquote>
+
+        
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> 文章目录</h3>
+    <div class="widget">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Bug1"><span class="toc-text">Bug1</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%88%E6%9C%89%E6%96%B0Bug"><span class="toc-text">又有新Bug</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-text">解决</span></a></li></ol>
+    </div>
+  </div>
+
+
+            </div>
+        
+        
+          <blockquote id="copyright">
+              <p>原文链接: <a href="http://enofeng.github.io/2021/11/01/1. 无法解析的外部符号 “__declspec(dllimport) const XXX__vftable“ ` 2. `无法定义 dllimport 实体`/">http://enofeng.github.io/2021/11/01/1. 无法解析的外部符号 “__declspec(dllimport) const XXX__vftable“ ` 2. `无法定义 dllimport 实体`/</a></p>
+              <p>版权声明: 转载请注明出处.</p>
+          </blockquote>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+    <div class="social-share">
+      <span>分享到:</span>
+    </div>
+
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
+  
+    <a href="/2021/11/01/OsgQt%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">newer</strong>
+      <div class="article-nav-title">
+        
+          OsgQt环境搭建注意事项
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/11/01/VS2019%E5%B7%A5%E7%A8%8B%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">VS2019工程开发中的问题总结</div>
+    </a>
+  
+</nav>
+
+      
+      
+        
+
+
+
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-posts"></i> 最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/01/Qt+MSVC%E5%BC%80%E5%8F%91%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E5%8F%8A%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">Qt+MSVC开发中字符串转换及中文乱码问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/01/%E6%8A%A5%E9%94%99%EF%BC%9AQOpenGLContext__swapBuffers()%20called%20with%20non-exposed%20window,%20behavior%20is%20undefine/">报错：QOpenGLContext::swapBuffers() called with non-exposed window, behavior is undefine</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/01/OsgQt%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">OsgQt环境搭建注意事项</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/01/1.%20%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7%20%E2%80%9C__declspec(dllimport)%20const%20XXX__vftable%E2%80%9C%20%60%202.%20%60%E6%97%A0%E6%B3%95%E5%AE%9A%E4%B9%89%20dllimport%20%E5%AE%9E%E4%BD%93%60/">1. 无法解析的外部符号 “__declspec(dllimport) const XXX::vftable“ 2. 无法定义 dllimport 实体`</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/01/VS2019%E5%B7%A5%E7%A8%8B%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">VS2019工程开发中的问题总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-archive"></i> 归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年11月</a><span class="archive-list-count">117</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-link"></i> 友情链接</h3>
+    <div class="widget">
+      <ul>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://blog.csdn.net/DanBo_C">CSDN</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://github.com/EnoFeng/enofeng.github.io">GitHub</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://danbo3110.github.io/">Old Blog</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <a id="totop" href="#top"></a>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>
+        <a href="/sitemap.xml">网站地图</a>
+        <span> | </span><a href="/atom.xml">订阅本站</a>
+        <span> | </span><a href="/about/">联系博主</a>
+      </p>
+      
+        <p>
+          <i class="fa fa-visitors"></i>
+          <i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>
+          ，
+          <i class="fa fa-views"></i>
+          <i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>
+        </p>
+      
+      <p>
+        <span>Copyright &copy; 2021 Devin·Finn.</span>
+        <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
+        
+            <span>Count by <a href="http://busuanzi.ibruce.info/" target="_blank">busuanzi.</a></span>
+        
+        <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/search.json.js"></script>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+  
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+  
+<script src="/localshare/js/social-share.js"></script>
+
+  
+<script src="/localshare/js/qrcode.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>
