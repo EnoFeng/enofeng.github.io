@@ -88,6 +88,113 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-OsgQt环境搭建注意事项" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/01/OsgQt%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">OsgQt环境搭建注意事项</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-11-01T15:53:27.860Z" itemprop="datePublished">2021年11月01日</time>
+</span>
+      
+      
+      
+<a href="/2021/11/01/OsgQt%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="OsgQt的CMakeLists-txt文件需要修改的部分"><a href="#OsgQt的CMakeLists-txt文件需要修改的部分" class="headerlink" title="OsgQt的CMakeLists.txt文件需要修改的部分"></a>OsgQt的CMakeLists.txt文件需要修改的部分</h3><p>修改部分：</p>
+<blockquote>
+<p>其中3.6.5是笔者的OSG版本，按照自己的修改就行</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">FIND_PACKAGE(OpenSceneGraph 3.6.5 REQUIRED osgDB osgGA osgUtil osgText osgViewer osgWidget)</span><br><span class="line">SET(OPENSCENEGRAPH_SOVERSION 158)</span><br><span class="line"></span><br><span class="line"># 把下面这部分注释掉</span><br><span class="line"># 3rd Party Dependency Stuff</span><br><span class="line"># IF(WIN32)</span><br><span class="line">#     INCLUDE(Find3rdPartyDependencies)</span><br><span class="line"># ENDIF()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/11/01/OsgQt%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-1. 无法解析的外部符号 “__declspec(dllimport) const XXX__vftable“ ` 2. `无法定义 dllimport 实体`" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/01/1.%20%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7%20%E2%80%9C__declspec(dllimport)%20const%20XXX__vftable%E2%80%9C%20%60%202.%20%60%E6%97%A0%E6%B3%95%E5%AE%9A%E4%B9%89%20dllimport%20%E5%AE%9E%E4%BD%93%60/">1. 无法解析的外部符号 “__declspec(dllimport) const XXX::vftable“ 2. 无法定义 dllimport 实体`</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-11-01T15:53:19.989Z" itemprop="datePublished">2021年11月01日</time>
+</span>
+      
+      
+      
+<a href="/2021/11/01/1.%20%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7%20%E2%80%9C__declspec(dllimport)%20const%20XXX__vftable%E2%80%9C%20%60%202.%20%60%E6%97%A0%E6%B3%95%E5%AE%9A%E4%B9%89%20dllimport%20%E5%AE%9E%E4%BD%93%60/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  留言
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>由于自己C++基础薄弱，导致这一系列的Bug改了好久好久。。。。记录一部分，我还记得的<br>编译通过镇一下哈哈</p>
+<p><img src="https://img-blog.csdnimg.cn/e384bfb67f2f484da40aa71a1781f397.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBARGV2aW7Ct0Zpbm4=,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+        <p class="article-more-link">
+          <a href="/2021/11/01/1.%20%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7%20%E2%80%9C__declspec(dllimport)%20const%20XXX__vftable%E2%80%9C%20%60%202.%20%60%E6%97%A0%E6%B3%95%E5%AE%9A%E4%B9%89%20dllimport%20%E5%AE%9E%E4%BD%93%60/#more">Read More</a>
+        </p>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-VS2019工程开发中的问题总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -522,117 +629,6 @@
 </article>
 
 
-  <article id="post-基础图元 Box" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/08/19/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%85%83%20Box/">基础图元 Box</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-08-19T11:57:15.424Z" itemprop="datePublished">2021年08月19日</time>
-</span>
-      
-      
-      
-<a href="/2021/08/19/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%85%83%20Box/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  留言
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="创建一个长方体（Box）"><a href="#创建一个长方体（Box）" class="headerlink" title="创建一个长方体（Box）"></a>创建一个长方体（Box）</h2><h3 id="效果图："><a href="#效果图：" class="headerlink" title="效果图："></a>效果图：</h3><p><img src="https://img-blog.csdnimg.cn/8317b8c7791b4d09bde2b8df4b428bb4.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70"></p>
-      
-    </div>
-    <footer class="article-footer">
-      
-        
-        <p class="article-more-link">
-          <a href="/2021/08/19/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%85%83%20Box/#more">Read More</a>
-        </p>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
-  <article id="post-OSG的HelloWorld" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/08/19/OSG%E7%9A%84HelloWorld/">OSG的HelloWorld</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-08-19T10:43:44.583Z" itemprop="datePublished">2021年08月19日</time>
-</span>
-      
-      
-      
-<a href="/2021/08/19/OSG%E7%9A%84HelloWorld/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  留言
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="加载一个飞机模型"><a href="#加载一个飞机模型" class="headerlink" title="加载一个飞机模型"></a>加载一个飞机模型</h2><ol>
-<li><p>直接上代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;osgViewer/Viewer&gt;</span><br><span class="line">#include &lt;osgDB/ReadFile&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	osg::ref_ptr&lt;osgViewer::Viewer&gt; viewer = new osgViewer::Viewer;</span><br><span class="line">	viewer-&gt;setSceneData(osgDB::readNodeFile(&quot;glider.osg&quot;));</span><br><span class="line">	return viewer-&gt;run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>看看结果</p>
-<img src="https://img-blog.csdnimg.cn/b1cf175eef8648458b735e86ca376216.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RhbkJvX0M=,size_16,color_FFFFFF,t_70" style="zoom:50%;" /></li>
-<li><p>代码很好理解，首先引入了类库，在main函数中，初始化了一个viewer，在这里使用的是osg中的超级指针（还不是很懂），随后给这个viewer设置了sceneData，设置的数据是打开了一个飞机的osg文件，最后就是渲染整个场景了。</p>
-</li>
-<li><p>与之前接触的Cesium的一些定义是类似的，比如Viewer和Scene。</p>
-</li>
-</ol>
-      
-    </div>
-    <footer class="article-footer">
-      
-        
-        <p class="article-more-link">
-          <a href="/2021/08/19/OSG%E7%9A%84HelloWorld/#more">Read More</a>
-        </p>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -651,6 +647,14 @@
       <ul>
         
           <li>
+            <a href="/2022/05/11/%E5%85%B3%E4%BA%8EOSG%E4%B8%AD%E8%A3%81%E5%89%AA%E5%87%A0%E4%BD%95%E4%BD%93%E4%B8%ADisCullingActive()%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%EF%BC%9Athis%20is%20nullptr%E7%9A%84%E9%97%AE%E9%A2%98/">使用osg做一个不那么新的需求，是一件需要勇气的事情🙂</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/11/%E9%97%AE%E9%A2%98%EF%BC%9AC++%E8%AF%BB%E5%8F%96csv%E6%96%87%E4%BB%B6%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E8%8B%B1%E6%96%87%E6%98%BE%E7%A4%BA%E4%B9%B1%E7%A0%81%E5%B0%B1%EF%BC%8C%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3/">问题：C++读取csv文件的时候，`ID`显示乱码</a>
+          </li>
+        
+          <li>
             <a href="/2021/11/01/Qt+MSVC%E5%BC%80%E5%8F%91%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E5%8F%8A%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">Qt+MSVC开发中字符串转换及中文乱码问题</a>
           </li>
         
@@ -660,14 +664,6 @@
         
           <li>
             <a href="/2021/11/01/OsgQt%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">OsgQt环境搭建注意事项</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/01/1.%20%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7%20%E2%80%9C__declspec(dllimport)%20const%20XXX__vftable%E2%80%9C%20%60%202.%20%60%E6%97%A0%E6%B3%95%E5%AE%9A%E4%B9%89%20dllimport%20%E5%AE%9E%E4%BD%93%60/">1. 无法解析的外部符号 “__declspec(dllimport) const XXX::vftable“ 2. 无法定义 dllimport 实体`</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/01/VS2019%E5%B7%A5%E7%A8%8B%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">VS2019工程开发中的问题总结</a>
           </li>
         
       </ul>
@@ -685,7 +681,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> 归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年11月</a><span class="archive-list-count">117</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022年05月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021年11月</a><span class="archive-list-count">117</span></li></ul>
     </div>
   </div>
 
@@ -741,7 +737,7 @@
         </p>
       
       <p>
-        <span>Copyright &copy; 2021 Devin·Finn.</span>
+        <span>Copyright &copy; 2022 Devin·Finn.</span>
         <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
         
             <span>Count by <a href="http://busuanzi.ibruce.info/" target="_blank">busuanzi.</a></span>
