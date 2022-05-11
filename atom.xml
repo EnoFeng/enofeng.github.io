@@ -6,7 +6,7 @@
   <link href="http://enofeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://enofeng.github.io/"/>
-  <updated>2022-05-11T13:47:44.478Z</updated>
+  <updated>2022-05-11T14:16:17.466Z</updated>
   <id>http://enofeng.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://enofeng.github.io/2022/05/11/%E5%85%B3%E4%BA%8EOSG%E4%B8%AD%E8%A3%81%E5%89%AA%E5%87%A0%E4%BD%95%E4%BD%93%E4%B8%ADisCullingActive()%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%EF%BC%9Athis%20is%20nullptr%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>http://enofeng.github.io/2022/05/11/%E5%85%B3%E4%BA%8EOSG%E4%B8%AD%E8%A3%81%E5%89%AA%E5%87%A0%E4%BD%95%E4%BD%93%E4%B8%ADisCullingActive()%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%EF%BC%9Athis%20is%20nullptr%E7%9A%84%E9%97%AE%E9%A2%98/</id>
     <published>2022-05-11T13:47:13.382Z</published>
-    <updated>2022-05-11T13:47:44.478Z</updated>
+    <updated>2022-05-11T14:16:17.466Z</updated>
     
-    <content type="html"><![CDATA[<p>一周前，我重构了我的地质地层的构建算法，当一切结束，我以为接下来就是起落落落起起起起起起的时候，我的程序直接抛出一个我见都没见过的一场，空指针。。。🙂眼看周末又要组会汇报了（其实已经由于五一假期已经推迟了四天了），这点成果岂不是摆明了让我挨怼，算了，幸好重构算法正常运行，再搞搞之前的数据库任务吧，看会不会有什么进展，不搞不知道，地图配色就像小时候4399里给小娃娃买衣服一样好玩。，。。（但是师姐说，老板还是喜欢另一种，因为醒目，emmm…反正RGB配色就对了🙂），一周后，完成了数据库构建的任务，再打开程序，运行，抛异常，好吧意料之内。。。</p><p>碎碎念结束。</p><h5 id="仔细看看，发现是求边界抛出来的，"><a href="#仔细看看，发现是求边界抛出来的，" class="headerlink" title="仔细看看，发现是求边界抛出来的，"></a>仔细看看，发现是求边界抛出来的，</h5><p><img src="https://img-blog.csdnimg.cn/faee336fcd0a4dddbcf82868dbb36d56.png"></p><h5 id="对比之前成功的代码，发现这里多添加了一层Geode，当即修改代码"><a href="#对比之前成功的代码，发现这里多添加了一层Geode，当即修改代码" class="headerlink" title="对比之前成功的代码，发现这里多添加了一层Geode，当即修改代码"></a>对比之前成功的代码，发现这里多添加了一层<code>Geode</code>，当即修改代码</h5><h5 id="从原来的Geometry-gt-Geode-gt-Geode-gt-ClipNode-改为Geometry-gt-Geode-gt-ClipNode-，然后，就好了，，，🙂"><a href="#从原来的Geometry-gt-Geode-gt-Geode-gt-ClipNode-改为Geometry-gt-Geode-gt-ClipNode-，然后，就好了，，，🙂" class="headerlink" title="从原来的Geometry -&gt; Geode - &gt; Geode  -&gt; ClipNode 改为Geometry -&gt; Geode - &gt; ClipNode ，然后，就好了，，，🙂"></a>从原来的<code>Geometry -&gt; Geode - &gt; Geode  -&gt; ClipNode </code>改为<code>Geometry -&gt; Geode - &gt; ClipNode </code>，然后，就好了，，，🙂</h5><blockquote><p>又是苦逼研究僧碎碎念 &gt; 输出的一天🙂</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>一周前，我重构了我的地质地层的构建算法，当一切结束，我以为接下来就是起落落落起起起起起起的时候，我的程序直接抛出一个我见都没见过的一场，空指针。。。🙂眼看周末又要组会汇报了（其实已经由于五一假期已经推迟了四天了），这点成果岂不是摆明了让我挨怼，算了，幸好重构算法正常运行，再搞搞之前的数据库任务吧，看会不会有什么进展，不搞不知道，地图配色就像小时候4399里给小娃娃买衣服一样好玩。，。。（但是师姐说，老板还是喜欢另一种，因为醒目，emmm…反正RGB配色就对了🙂），一周后，完成了数据库构建的任务，再打开程序，运行，抛异常，好吧意料之内。。。</p><p>碎碎念结束。</p><h5 id="最开始是由于边界抛出来的异常"><a href="#最开始是由于边界抛出来的异常" class="headerlink" title="最开始是由于边界抛出来的异常"></a>最开始是由于边界抛出来的异常</h5><p><img src="https://img-blog.csdnimg.cn/faee336fcd0a4dddbcf82868dbb36d56.png"></p><h3 id="思考："><a href="#思考：" class="headerlink" title="思考："></a>思考：</h3><ol><li><p>考虑是不是由于Geode创建的时候没有new之类的问题，</p></li><li><p>由于我代码中最外层的报错是是切割监视器中的Pick函数中，步进也没有发现什么问题<br> <img src="https://img-blog.csdnimg.cn/ba8b1a44a399450b874a53f1f435b3bd.png"></p></li><li><p>对比之前另一个系统中成功的代码，对比了一下。发现这里多添加了一层<code>Geode</code>，当即修改代码，从原来的<code>Geometry -&gt; Geode - &gt; Geode  -&gt; ClipNode </code>改为<code>Geometry -&gt; Geode - &gt; ClipNode </code>，然后，就好了，，，🙂</p></li></ol><blockquote><p>又是苦逼研究僧碎碎念 &gt; 输出的一天🙂</p></blockquote>]]></content>
     
     
       
